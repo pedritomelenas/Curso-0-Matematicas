@@ -1,0 +1,238 @@
+% !TeX spellcheck = es_ES
+\documentclass[13pt]{scrartcl}
+\usepackage{btxdockit}
+\usepackage[margin=1in,screen]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{setspace}
+\onehalfspacing
+
+\KOMAoptions{numbers=noenddot}
+\addtokomafont{paragraph}{\spotcolor}
+\addtokomafont{section}{\spotcolor}
+\addtokomafont{subsection}{\spotcolor}
+\addtokomafont{subsubsection}{\spotcolor}
+\addtokomafont{descriptionlabel}{\spotcolor}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{%
+ \markboth{#1}{}}
+
+\lfoot{\thepage}
+\cfoot{}
+\rfoot{\footnotesize  Jerónimo Alaminos Prats, José Extremera Lizana, Pilar Muñoz Rivas\copyright}
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\allowdisplaybreaks[1]
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{xspace,colortbl}
+
+
+
+\usepackage{multicol}
+
+
+\swapnumbers
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicion}[teorema]{Proposici\'on}
+\newtheorem{corolario}[teorema]{Corolario}
+
+\theoremstyle{definition}
+\swapnumbers
+\newtheorem{nota}{Nota}
+\newtheorem*{nota*}{Nota}        
+\newtheorem{definicion}[teorema]{Definici\'on}         
+\newtheorem{observacion}{Observaci\'on}
+\newtheorem*{observacion*}{Observaci\'on}
+\newtheorem{ejemplos}{Ejemplos}
+\newtheorem*{ejemplos*}{Ejemplos}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem*{ejemplo*}{Ejemplo}
+\newtheorem{ejercicio}{Ejercicio}
+
+
+\usepackage{cancel}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+
+\begin{document}
+
+
+
+\title{Fracciones algebraicas}
+
+{\huge \textsf{\textbf{\color{Peach} Fracciones algebraicas}}}
+
+\vspace{1em}
+
+
+\section{Simplificaciones elementales}
+
+En esta sección vamos a repasar los procedimientos más usuales cuando se simplifican expresiones algebraicas. Comenzamos con un ejemplo en el que, tanto el numerador como el denominador, son de fácil factorización.
+\begin{ejemplo} Vamos a simplificar la fracción $\frac{4x^5}{2x^3}$. En primer lugar factorizamos numerador y denominador:
+\begin{align*}
+\frac{4x^5}{2x^3} &= \frac{2 \cdot 2 \ x^3 \, x^2}{2 \, x^3} \\
+\intertext{ y simplificamos los factores comunes $2$ y $x^3$}
+& =\frac{\cancel{2} \cdot 2 \cancel{x^3} \, x^2}{\cancel{2} \cancel{x^3}}=2x^2
+\end{align*}
+\end{ejemplo}
+
+\begin{ejercicio} Simplifica las siguientes fracciones algebraicas:
+\begin{multicols}{3}
+\begin{enumerate}
+\item[a)] $\dfrac{6aba^3}{9a^2}$
+\item[b)] $\dfrac{2x(x-4)}{(x-4)^2y}$
+\item[c)] $\dfrac{12x^2(3+x)^3}{6x(x+3)}$
+\end{enumerate}
+\end{multicols}
+\end{ejercicio}
+
+\bigskip
+
+En el siguiente ejemplo constatamos que las factorizaciones no siempre se nos dan hechas. Por ejemplo:
+
+\begin{ejemplo} 
+Para simplificar la expresión $\dfrac{ 2x^2+8x}{4x^2-4x}$, en primer lugar, nuevamente, factorizamos numerador y denominador:
+\begin{align*}
+\frac{ 2x^2+8x}{4x^2-4x} & =\frac{2x(x+4)}{4x(x-1)}  \\
+\intertext{y simplificamos los  factores comunes $2$ y $x$}
+& = \frac{2\cancel{x}(x+4)}{4\cancel{x}(x-1)} =\frac{x+4}{2(x-1)} 
+\end{align*}
+\end{ejemplo}
+
+\begin{ejercicio} Factoriza y simplifica las siguientes fracciones algebraicas:
+\begin{multicols}{3}
+\begin{enumerate}
+\item[a)]$\dfrac{x^2-xy}{xy-y^2}$
+\item[b)]$\dfrac{x^3+x}{2x^2+9x}$
+\item[c)]$\dfrac{4a^2+a}{ab-a^2}$
+\end{enumerate}
+\end{multicols}
+\end{ejercicio}
+
+\bigskip
+
+En algunas expresiones tendremos que utilizar las identidades notables, por lo que vamos a recodarlas:
+
+\begin{proposicion}[Identidades notables]\label{iden} $ $
+\begin{enumerate}
+	\item[i)] $(a+b)^2=a^2+2ab+b^2$
+	\item[ii)] $(a-b)^2=a^2-2ab+b^2$
+	\item[iii)] $(a+b)(a-b)=a^2-b^2$
+\end{enumerate}
+\end{proposicion}
+
+\begin{ejemplo} Simplifiquemos la expresión $\frac{x^2+4x+4}{x^2-4}$.
+\begin{align*}
+\frac{x^2+4x+4}{x^2-4}&=\frac{(x+2)^2}{(x+2)(x-2)} \\
+\intertext{donde hemos utilizado $(x+2)^2=x^2+4x+2$ y que $x^2-4=(x+2)(x-2)$}
+&=\frac{\cancel{(x+2)}(x+2)}{\cancel{(x+2)}(x-2)}=\frac{x+2}{x-2}
+\end{align*}
+\end{ejemplo}
+
+\pagebreak[4]
+
+\begin{ejercicio} Factoriza y simplifica las siguientes fracciones algebraicas:
+\begin{multicols}{3}
+\begin{enumerate}
+\item[a)]$\dfrac{5x^2-5}{x^2-x}$
+\item[b)]$\dfrac{3x^3-3x^2}{6(x^2-2x+1)}$
+\end{enumerate}
+\end{multicols}
+\end{ejercicio}
+
+
+\section{Suma y resta de fracciones algebraicas}
+
+En este tipo de operaciones con fracciones algebraicas, al igual que cuando se suman y 
+restan fracciones de números, lo primero que debemos hacer es buscar el mínimo común 
+múltiplo de los denominadores. Lo vemos en el siguiente ejemplo. 
+
+\begin{ejemplo}
+Vamos a 
+desarrollar la expresión: $\frac{1}{x-1}+\frac{2x-1}{x^2-1}-\frac{x+2}{x+1}$. 
+Observamos que el m.c.m. de los denominadores es $(x-1)(x+1)=x^2-1$. Así que realizamos 
+la operación de igual forma que con fracciones numéricas. Esto es:
+\begin{align*}
+\frac{1}{x-1}+\frac{2x-1}{x^2-1}-\frac{x+2}{x+1}&= \frac{x+1+2x-1-(x+2)(x-1)}{x^2-1}\\
+&= \frac{3x-(x^2+x-2)}{x^2-1}=\frac{-x^2+2x+2}{x^2-1}
+\end{align*}
+\end{ejemplo}
+
+\pagebreak[4]
+
+\begin{ejercicio} Desarrolla y simplifica, todo lo posible, las siguientes expresiones  algebraicas:
+\begin{multicols}{3}
+\begin{enumerate}
+\item[a)]$\dfrac{3x+1}{x}-\dfrac{1}{x^2-x}$
+\item[b)]$x+\dfrac{2x+1}{x-3}$
+\item[c)]$\dfrac{1}{2(x-1)}+\dfrac{1}{2(x+1)}$
+\end{enumerate}
+\end{multicols}
+\end{ejercicio}
+
+\section{Producto y cociente de fracciones algebraicas}
+
+Al igual que hemos comentado en la sección anterior, la multiplicación y la división de fracciones 
+algebraicas se ejecuta de la misma forma que con fracciones numéricas. Siempre buscaremos 
+la máxima simplificación en el resultado final. 
+
+\begin{ejemplo}
+Realicemos el producto 
+$\frac{x+1}{x-1} \cdot \frac{x^2-x}{x^2+2x+1}$. Para ello, multiplicamos 
+numeradores y multiplicamos denominadores, con lo que nos queda:
+\begin{align*}
+\frac{x+1}{x-1} \cdot \frac{x^2-x}{x^2+2x+1}&=\frac{(x+1)(x^2-x)}{(x-1)(x^2+2x+1)} \\
+\intertext{factorizamos en el numerador y en el denominador}
+&=\frac{(x+1)\,x\,(x-1)}{(x-1)(x+1)^2} \\
+\intertext{y simplificamos los factores $x+1$ y $x-1$}
+&=\frac{\cancel{(x+1)} \, x \cancel{(x-1)}}{\cancel{(x-1)(x+1)}(x+1)}= \frac{x}{x+1}
+\end{align*}
+\end{ejemplo}
+
+
+\begin{ejercicio} Realiza y simplifica las siguientes operaciones con fracciones algebraicas:
+\begin{multicols}{3}
+\begin{enumerate}
+\item[a)]$\dfrac{\frac{x-2}{x+2}}{ \frac{x}{(x+2)^2}}$
+\item[b)]$\dfrac{2a}{a^2-4} \cdot \dfrac{a+6}{a^2+2a}$
+\item[c)]$\dfrac{\frac{x}{x^2+4x+4} }{ \frac{x+2}{x^2-x}}$
+\end{enumerate}
+\end{multicols}
+\end{ejercicio}
+
+\section{Racionalización de fracciones algebraicas}
+La racionalización de fracciones algebraicas consiste en eliminar los posibles radicales que aparezcan en el denominador. Para ello, multiplicaremos tanto en el numerador como en el denominador por el conjugado de este último. En el ejemplo siguiente realizamos esta operación.
+
+\begin{ejemplo} En la fracción $\frac{c}{\sqrt{a}-\sqrt{b}}$ vamos a eliminar los radicales del denominador multiplicando en los dos miembros de la fracción por el conjugado del denominador; esto es, multiplicamos por $\sqrt{a}+\sqrt{b}$ y y utilizamos una identidad notable que hemos recordado en (\ref{iden}).
+\[
+\frac{c}{\sqrt{a}-\sqrt{b}} =\frac{c\, (\sqrt{a}+\sqrt{b})}{(\sqrt{a}-\sqrt{b})(\sqrt{a}+\sqrt{b})} 
+ = \frac{c\, (\sqrt{a}+\sqrt{b})}{a-b} 
+\]
+\end{ejemplo}
+
+\begin{ejercicio} Racionaliza las siguientes fracciones:
+\begin{multicols}{3}
+\begin{enumerate}
+\item[a)]$\dfrac{x}{x-\sqrt{x}}$
+\item[b)]$\dfrac{x+\sqrt{x}}{x-\sqrt{x}}$
+\item[c)]$\dfrac{x}{\sqrt{x+1}-\sqrt{x-1}}$
+\end{enumerate}
+\end{multicols}
+\end{ejercicio}
+
+
+
+\end{document}

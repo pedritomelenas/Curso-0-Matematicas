@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="otro.css">
+
+<head>
+<title>Fracciones algebraicas</title>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</head>
+
+<body>
+  <div id="header">
+  <h1 class="title" style="text-align:right;">Fracciones algebraicas</h1>
+  </div>
+
+En este documento repasaremos cómo simplificar fracciones algebraicas.
+
+<section>
+  <header>
+  <h1 id="simplificaciones-elementales">Simplificaciones elementales</h1>
+  </header>
+
+  <p>En esta sección vamos a repasar los procedimientos más usuales cuando se simplifican expresiones algebraicas. Comenzamos con un ejemplo en el que, tanto el numerador como el denominador, son de fácil factorización.</p>
+  <p>Vamos a simplificar la fracción <span class="math">\(\frac{4x^5}{2x^3}\)</span>. En primer lugar factorizamos numerador y denominador:</p>
+  <p><span class="math">\[\begin{aligned}
+  \frac{4x^5}{2x^3} &amp;= \frac{2 \cdot 2 \ x^3 \, x^2}{2 \, x^3} \\
+  %\text{ (y simplificamos los factores comunes $2$ y $x^3$) }
+  &amp; =\frac{\require{cancel}\cancel{2} \cdot 2 \cancel{x^3} \, x^2}{\cancel{2} \cancel{x^3}}=2x^2.
+  \end{aligned}\]</span></p>
+
+  Puedes probarlo tú mismo (observa los paréntesis en el denominador). Usa el siguiente cuadro para simplificar expresiones.
+  <div style="width:50%;">
+  <textarea id="terminal2" name="terminal" rows="3" cols="80" style="width:100%;margin-bottom:-5px;">
+    4x^5/(2x^3)
+  </textarea>
+  <textarea id="output2" name="terminal" rows="3" cols="80" style="width:100%;"></textarea>
+  <input name="execute" value="&#x25B6;" onclick="execute(2,'simplify');" type="button">
+  </div>
+
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Simplifica las siguientes fracciones algebraicas:</p>
+    </header>
+    <ol>
+    <li><p ><span class="math">\(\dfrac{6aba^3}{9a^2}\)</span><span id="e1"><input name="execute" value="&#x25B6;" onclick="simplify('6*a*b*a^3/(9*a^2)','e1')" type="button"></span></p>
+    </li>
+    <li><p><span class="math">\(\dfrac{2x(x-4)}{(x-4)^2y}\)</span> <span id="e2"><input name="execute" value="&#x25B6;" onclick="simplify('2*x*(x-4)/((x-4^2*y))','e2')" type="button"></span> </p></li>
+    <li><p><span class="math">\(\dfrac{12x^2(3+x)^3}{6x(x+3)}\)</span></span> <span id="e3"><input name="execute" value="&#x25B6;" onclick="simplify('12*x^2*(3+x)^3/(6*x*(x+3))','e3')" type="button"></span> </p></li>
+    </ol>
+
+  </article>
+
+
+  <p>En el siguiente ejemplo constatamos que las factorizaciones no siempre se nos dan hechas. Por ejemplo:</p>
+  <p>Para simplificar la expresión <span class="math">\(\dfrac{ 2x^2+8x}{4x^2-4x}\)</span>, en primer lugar, nuevamente, factorizamos numerador y denominador:</p>
+  <p><span class="math">\[\begin{aligned}
+  \frac{ 2x^2+8x}{4x^2-4x} &amp; =\frac{2x(x+4)}{4x(x-1)}  \\
+  %\text{y simplificamos los  factores comunes $2$ y $x$}
+  &amp; = \frac{2\cancel{x}(x+4)}{4\cancel{x}(x-1)} =\frac{x+4}{2(x-1)}. \end{aligned}\]</span></p>
+
+  Puedes probarlo tú mismo. Usa el siguiente cuadro para factorizar polinomios.
+  <div style="width:50%;">
+  <textarea id="terminal3" name="terminal" rows="3" cols="80" style="width:100%;margin-bottom:-5px;">
+  2x^2+8x
+  </textarea>
+  <textarea id="output3" name="terminal" rows="3" cols="80" style="width:100%;"></textarea>
+  <input name="execute" value="&#x25B6;" onclick="execute(3,'factor');" type="button">
+  </div>
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Factoriza y simplifica las siguientes fracciones algebraicas:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\(\dfrac{x^2-xy}{xy-y^2}\)</span> <span id="e4"><input name="execute" value="&#x25B6;" onclick="exec2('simplify(factor(x^2-x*y)/factor(x*y-y^2))','e4')" type="button"></span></p></li>
+    <li><p><span class="math">\(\dfrac{x^3+x}{2x^2+9x}\)</span> <span id="e5"><input name="execute" value="&#x25B6;" onclick="simplify('(x^3+x)/(2x^2+9x)','e5')" type="button"></span></p></li>
+    <li><p><span class="math">\(\dfrac{4a^2+a}{ab-a^2}\)</span> <span id="e6"><input name="execute" value="&#x25B6;" onclick="simplify('(4a^2+a)/(a b-a^2)','e6')" type="button"></span></p></li>
+    </ol>
+  </article>
+
+<section>
+  <header>
+    <h1>Identidades notables</h1>
+    <p>En algunas expresiones tendremos que utilizar las identidades notables, por lo que vamos a recodarlas.</p>
+  </header>
+  <ol>
+  <li><p><span class="math">\((a+b)^2=a^2+2ab+b^2\)</span></p></li>
+  <li><p><span class="math">\((a-b)^2=a^2-2ab+b^2\)</span></p></li>
+  <li><p><span class="math">\((a+b)(a-b)=a^2-b^2\)</span></p></li>
+  </ol>
+  <p>Simplifiquemos la expresión <span class="math">\(\frac{x^2+4x+4}{x^2-4}\)</span>. Para ello utilizamos que $(x+2)^2=x^2+4x+2$ y que $x^2-4=(x+2)(x-2)$</p>
+  <p><span class="math">\[\begin{aligned}
+  \frac{x^2+4x+4}{x^2-4}&amp;=\frac{(x+2)^2}{(x+2)(x-2)} \\
+  %\text{(donde hemos utilizado $(x+2)^2=x^2+4x+2$ y que $x^2-4=(x+2)(x-2)$)}
+  &amp;=\frac{\cancel{(x+2)}(x+2)}{\cancel{(x+2)}(x-2)}=\frac{x+2}{x-2}.\end{aligned}\]</span></p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Factoriza y simplifica las siguientes fracciones algebraicas:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\(\dfrac{5x^2-5}{x^2-x}\)</span><span id="e7"><input name="execute" value="&#x25B6;" onclick="exec2('simplify(factor(5x^2-5)/factor(x^2-x))','e7')" type="button"></span></p></li>
+    <li><p><span class="math">\(\dfrac{3x^3-3x^2}{6(x^2-2x+1)}\)</span><span id="e8"><input name="execute" value="&#x25B6;" onclick="exec2('simplify(factor(3x^3-3x^2)/factor(6(x^2-2x+1)))','e8')" type="button"></span></p></li>
+    </ol>
+  </article>
+</section>
+
+<section>
+  <header>
+  <h1 id="suma-y-resta-de-fracciones-algebraicas">Suma y resta de fracciones algebraicas</h1>
+  </header>
+  <p>En este tipo de operaciones con fracciones algebraicas, al igual que cuando se suman y restan fracciones de números, lo primero que debemos hacer es buscar el mínimo común múltiplo de los denominadores. Lo vemos en el siguiente ejemplo.</p>
+  <p>Vamos a desarrollar la expresión: <span class="math">\(\frac{1}{x-1}+\frac{2x-1}{x^2-1}-\frac{x+2}{x+1}\)</span>. Observamos que el m.c.m. de los denominadores es <span class="math">\((x-1)(x+1)=x^2-1\)</span>. Así que realizamos la operación de igual forma que con fracciones numéricas. Esto es,</p>
+  <p><span class="math">\[\begin{aligned}
+  \frac{1}{x-1}+\frac{2x-1}{x^2-1}-\frac{x+2}{x+1}&amp;= \frac{x+1+2x-1-(x+2)(x-1)}{x^2-1}\\
+  &amp;= \frac{3x-(x^2+x-2)}{x^2-1}=\frac{-x^2+2x+2}{x^2-1}.\end{aligned}\]</span></p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Desarrolla y simplifica, todo lo posible, las siguientes expresiones algebraicas:</p>
+    <header>
+    <ol>
+    <li><p><span class="math">\(\dfrac{3x+1}{x}-\dfrac{1}{x^2-x}\)</span><span id="e9"><input name="execute" value="&#x25B6;" onclick="show('$=\\dfrac{3x^2-x-2}{x^2-x}$','e9')" type="button"></span></p></li>
+    <li><p><span class="math">\(x+\dfrac{2x+1}{x-3}\)</span><span id="e10"><input name="execute" value="&#x25B6;" onclick="show('$=\\dfrac{x^2-x+1}{x-3}$','e10')" type="button"></span></p></li>
+    <li><p><span class="math">\(\dfrac{1}{2(x-1)}+\dfrac{1}{2(x+1)}\)</span><span id="e11"><input name="execute" value="&#x25B6;" onclick="show('$=\\dfrac{x}{x^2-1}$','e11')" type="button"></span></p></li>
+    </ol>
+  </article>
+</section>
+
+<section>
+  <header>
+    <h1 id="producto-y-cociente-de-fracciones-algebraicas">Producto y cociente de fracciones algebraicas</h1>
+  </header>
+  <p>Al igual que hemos comentado en la sección anterior, la multiplicación y la división de fracciones algebraicas se ejecuta de la misma forma que con fracciones numéricas. Siempre buscaremos la máxima simplificación en el resultado final.</p>
+  <p>Realicemos el producto <span class="math">\(\frac{x+1}{x-1} \cdot \frac{x^2-x}{x^2+2x+1}\)</span>. Para ello, multiplicamos numeradores y multiplicamos denominadores, con lo que nos queda:</p>
+  <p><span class="math">\[\begin{aligned}
+  \frac{x+1}{x-1} \cdot \frac{x^2-x}{x^2+2x+1}&amp;=\frac{(x+1)(x^2-x)}{(x-1)(x^2+2x+1)} \\
+  %\text{factorizamos en el numerador y en el denominador}
+  &amp;=\frac{(x+1)\,x\,(x-1)}{(x-1)(x+1)^2} \\
+  %\text{y simplificamos los factores $x+1$ y $x-1$}
+  &amp;=\frac{\cancel{(x+1)} \, x \cancel{(x-1)}}{\cancel{(x-1)(x+1)}(x+1)}= \frac{x}{x+1}.\end{aligned}\]</span></p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Realiza y simplifica las siguientes operaciones con fracciones algebraicas.</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\(\dfrac{\frac{x-2}{x+2}}{ \frac{x}{(x+2)^2}}\)</span><span id="e12"><input name="execute" value="&#x25B6;" onclick="show('$=\\dfrac{x-2}{x+2}\\cdot \\dfrac{(x+2)^2}{x}=\\dfrac{x^2-4}{x}=x-\\dfrac{4}x$','e12')" type="button"></span></p></li>
+    <li><p><span class="math">\(\dfrac{2a}{a^2-4} \cdot \dfrac{a+6}{a^2+2a}\)</span><span id="e13"><input name="execute" value="&#x25B6;" onclick="show('$=\\dfrac{3 a^2 + 4 a - 12}{a^3-4a}$','e13')" type="button"></span></p></li>
+    <li><p><span class="math">\(\dfrac{\frac{x}{x^2+4x+4} }{ \frac{x+2}{x^2-x}}\)</span><span id="e14"><input name="execute" value="&#x25B6;" onclick="show('$=\\dfrac{x}{(x+2)^2}\\cdot \\dfrac{x^2-x}{x+2}=\\dfrac{x^2(x-1)}{(x+2)^3}$','e14')" type="button"></span></p></li>
+    </ol>
+  </article>
+</section>
+
+<section>
+  <header>
+    <h1 id="racionalización-de-fracciones-algebraicas">Racionalización de fracciones algebraicas</h1>
+  </header>
+  <p>La racionalización de fracciones algebraicas consiste en eliminar los posibles radicales que aparezcan en el denominador. Para ello, multiplicaremos tanto en el numerador como en el denominador por el conjugado de este último. En el ejemplo siguiente realizamos esta operación.</p>
+  <p>En la fracción <span class="math">\(\frac{c}{\sqrt{a}-\sqrt{b}}\)</span> vamos a eliminar los radicales del denominador multiplicando en los dos miembros de la fracción por el conjugado del denominador; esto es, multiplicamos por <span class="math">\(\sqrt{a}+\sqrt{b}\)</span> y y utilizamos una identidad notable que hemos recordado anteriormente. <span class="math">\[\frac{c}{\sqrt{a}-\sqrt{b}} =\frac{c\, (\sqrt{a}+\sqrt{b})}{(\sqrt{a}-\sqrt{b})(\sqrt{a}+\sqrt{b})}
+   = \frac{c\, (\sqrt{a}+\sqrt{b})}{a-b}.\]</span></p>
+   <article>
+     <header>
+       <h3>Ejercicio</h3>
+       <p>Racionaliza las siguientes fracciones:</p>
+     </header>
+    <ol>
+    <li><p><span class="math">\(\dfrac{x}{x-\sqrt{x}}\)</span><span id="e15"><input name="execute" value="&#x25B6;" onclick="show('$=\\dfrac{x(x+\\sqrt{x})}{x^2-x}$','e15')" type="button"></span></p></li>
+    <li><p><span class="math">\(\dfrac{x+\sqrt{x}}{x-\sqrt{x}}\)</span><span id="e16"><input name="execute" value="&#x25B6;" onclick="show('$=\\dfrac{(x+\\sqrt{x})^2}{x^2-x}$','e16')" type="button"></span></p></li>
+    <li><p><span class="math">\(\dfrac{x}{\sqrt{x+1}-\sqrt{x-1}}\)</span><span id="e17"><input name="execute" value="&#x25B6;" onclick="show('$=\\dfrac{1}{2}x(\\sqrt{x+1}-\\sqrt{x-1})$','e17')" type="button"></span></p></li>
+    </ol>
+  </article>
+</section>
+
+<hr>
+
+<p>Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada </p>
+
+<p>Las simplificaciones algebraicas están hechas con <a href="http://algebrite.org">Algebrite</a></p>
+
+
+<script type="text/javascript" src="js/algebrite.bundle-for-browser.js"></script>
+<script type="text/javascript" src="js/scale.fix.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script type="text/javascript" language="javascript">
+
+  function simplify(str, obj){
+    var result;
+    result ="$="+Algebrite.simplify(str)+"$";
+    document.getElementById(obj).innerHTML = result;
+    MathJax.Hub.Typeset();
+  }
+
+  function exec2(str, obj){
+    var result;
+    result ="$="+Algebrite.run(str)+"$";
+    document.getElementById(obj).innerHTML = result;
+    MathJax.Hub.Typeset();
+  }
+
+
+  function show(str, obj){
+    document.getElementById(obj).innerHTML = str;
+    MathJax.Hub.Typeset();
+  }
+
+  function execute (whichTerminal, cmd) {
+      var sandbox = $('sandbox');
+      var jsResult = $('jsResult');
+      try {
+        var textToBeExecuted = cmd+"("+$('#terminal' + whichTerminal).val()+")";
+        var result;
+        if (/Algebrite\.[a-z]/.test(textToBeExecuted) || /;[ \t]*$/.test(textToBeExecuted)) {
+          result = eval(textToBeExecuted);
+        }
+        else {
+          result = Algebrite.run(textToBeExecuted);
+        }
+        //alert(result);
+        $('#output' + whichTerminal).val(result)
+      }
+      catch (err) {
+        var errDesc = err;
+        errorBox.update('<h4>Error!<\/h4><code>' + errDesc + '<\/code>' );
+        errorBox.show();
+      }
+  }
+
+</script>
+
+
+
+</body>

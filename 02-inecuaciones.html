@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <title>Inecuaciones</title>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+	<script type="text/javascript" src="js/jsxgraphcore.js"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Inecuaciones</h1>
+</div>
+<p>Las inecuaciones son expresiones algebraicas relacionadas no por la igualdad (<span class="math">\(=\)</span>) como en las ecuaciones, sino por símbolos de desigualdad, como “<span class="math">\(\le\)</span>”, “<span class="math">\(\ge\)</span>”, “<span class="math">\(&lt;\)</span>” o “<span class="math">\(&gt;\)</span>”.</p>
+<p>Las inecuaciones con solución tienen, en general, infinitas soluciones. El proceso para resolverlas es similar al que se sigue para resolver una ecuación, siendo cuidadoso con las reglas de cálculo cuando aparecen desigualdades. Por ejemplo, por destacar una de estas reglas, si en algún momento de la resolución es preciso multiplicar o dividir ambos miembros de la inecuación por un número negativo, recordamos que la desigualdad se invierte.</p>
+<section>
+  <header>
+    <h1 id="inecuaciones-lineales-con-una-incógnita">Inecuaciones lineales con una incógnita</h1>
+  </header>
+  <p>Son las inecuaciones más sencillas que se nos pueden presentar.</p>
+  <p>Vamos a resolver la inecuación <span class="math">\(2x+5 \ge x-5\)</span>.</p>
+  <p><span class="math">\[\begin{aligned}
+  2x+5 &amp; \ge x-5 \\
+  %\intertext{pasamos la $x$ del miembro izquierdo a la derecha, y los coeficientes independientes los dejamos a la izquierda}
+  2x-x &amp; \ge -5-5 \\
+  x &amp;\ge -10\end{aligned}\]</span></p>
+  <p>Por tanto la solución de la inecuación son todos los números reales que verifican ser mayores o iguales a -10, es decir, las soluciones se encuentran en el intervalo <span class="math">\([-10,+\infty[\)</span>.</p>
+  <article>
+    <header>
+      <h3>Ejercicios</h3>
+    </header>
+    <ol>
+    <li><p>Resuelve la inecuación: <span class="math">\(4x-5 &lt; 7x+8\)</span>
+      <span id="e1-1"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x >\\dfrac{-13}{3}$</em>','e1-1')" type="button"></span></p></li>
+    <li><p>Resuelve la inecuación: <span class="math">\(2(-x+5)-(6+x)&gt;4+2(x-3)\)</span> y razona si los números <span class="math">\(-3, -1, 0\)</span> y <span class="math">\( 1\)</span> son solución de la misma
+      <span id="e1-2"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x <\\dfrac{6}{5}$, todos los números dados son solución de la inecuación </em>','e1-2')" type="button"></span></p></li>
+    <li><p>Ídem al ejercicio anterior con la inecuación:<span class="math">\(\dfrac{3x}{5}-\dfrac{11x}{10} \ge 1-\dfrac{6-x}{4}\)</span>
+      <span id="e1-3"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x <\\dfrac{2}{2}$</em>','e1-3')" type="button"></span></p></li>
+    <li><p>Resuelve: <span class="math">\((x+1)^2-(x-1)^2+12 \ge 0\)</span>
+      <span id="e1-4"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x \\ge -3$</em>','e1-4')" type="button"></span></p></li>
+    </ol>
+  </article>
+</section>
+<section>
+  <header>
+    <h1 id="sistemas-lineales-de-dos-inecuaciones-con-una-incógnita">Sistemas lineales de dos inecuaciones con una incógnita</h1>
+  </header>
+  <p>Vamos a plantear ahora sistemas de dos inecuaciones lineales con una incógnita. Veremos que las soluciones, si las hay, vuelven a ser infinitas.</p>
+  <p>Consideremos el sistema <span class="math">\[\left\{
+  \begin{aligned} x-3 &amp;&gt;0 \\
+                2x &amp; &lt; 8
+  \end{aligned}
+  \right.\]</span></p>
+  <p>Para resolverlo, resolvemos cada inecuación de forma independiente. <span class="math">\[\Biggr\{
+  \begin{aligned}
+   x &amp; &gt;3 \\
+   x &amp; &lt;4
+  \end{aligned}\]</span> con lo que la solución es <span class="math">\(3 &lt; x &lt;4\)</span>. Es decir, las soluciones de este sistema son todos los números reales que están en el intervalo <span class="math">\(]3,4[\)</span>.</p>
+  <p>Hay que tener en cuenta que un sistema de inecuaciones de este tipo puede tener solución (sistema compatible) o puede no tenerlo (sistema incompatible).</p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Resuelve los siguientes sistemas de inecuaciones:</p>
+    </header>
+    <p><span class="math">\(\Biggr\{ \begin{aligned}  3x-6 &amp; \ge 9 \\
+                                            4-x &amp; &lt; -5 \end{aligned} \)</span></p>
+    <p><span class="math">\(\Biggr\{ \begin{aligned} 3x-6 &amp; \le 9 \\
+                                          4-x &amp; &lt; -5 \end{aligned} \)</span></p>
+    <p><span class="math">\(\Biggr\{ \begin{aligned} 8x+7 &amp; &lt; 16-x \\
+                                          -3x+5 &amp; &gt;2x \end{aligned} \)</span></p>
+  </article>
+</section>
+<section>
+  <header>
+    <h1 id="inecuaciones-de-segundo-grado">Inecuaciones de segundo grado</h1>
+  </header>
+  <p>También podemos plantear y resolver inecuaciones a partir de un polinomio de grado 2; esto es, una inecuación del tipo <span class="math">\(P(x) \le Q(x)\)</span>, o, <span class="math">\(P(x) &lt;Q(x)\)</span>, donde ambas expresiones, <span class="math">\(P\)</span> y <span class="math">\(Q\)</span>, son polinomios de grado 2. Para resolverlas, simplificamos coeficientes hasta conseguir una inecuación de 2º grado comparada con el cero. Después factorizamos el polinomio resultante (utilizando la resolución de una ecuación de 2º grado) y discutimos casos. Vemos todo este proceso con un ejemplo:</p>
+  <p>Consideramos la inecuación: <span class="math">\(x^2-3x-3&lt;-4x-1\)</span>. Pasamos todos los coeficientes a un miembro, por ejemplo al izquierdo y nos queda:</p>
+  <p><span class="math">\[\begin{aligned}
+  x^2-3x+4x-3+1 &amp; &lt;0 \\
+  x^2+x-2&amp;&lt;0 \\
+  %\intertext{factorizamos el polinomio resolviendo la ecuación $x^2+x-2=0$}
+  (x+2)(x-1) &amp;&lt;0\end{aligned}\]</span></p>
+  <p>Llegados a este punto, discutimos casos para encontrar la solución de la inecuación.</p>
+  <p><span class="math">\[\begin{aligned}
+  \text{Si} \ x &lt; -2, &amp; \hbox{ entonces } \ (x+2)(x-1)&gt;0 \\
+  \text{Si} \ -2 &lt; x &lt;1, &amp; \hbox{ entonces } \ (x+2)(x-1)&lt;0 \\
+  \text{Si} \ x &gt; 1, &amp; \hbox{ entonces } \ (x+2)(x-1)&gt;0 \end{aligned}\]</span></p>
+  <p>Por tanto, la solución de la inecuación la forman los números <span class="math">\(x\)</span>, que verifican <span class="math">\(-2&lt;x&lt;1\)</span>, es decir, el intervalo <span class="math">\(]-2,1[\)</span>.</p>
+
+  <p>Podemos dibujar la parábola $y=x^2+2x-2$ y ver gráficamente la solución.</p>
+  <div id="box" class="jxgbox" style="width:500px; height:500px;"></div></br>
+
+  <script type="text/javascript">
+  	var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+  	curve = board.create('functiongraph',
+                   [function(t){ return(t*t+t-2)}, -10,10]);
+
+    var p1 = board.create('point', [-20.0, 0.0]);
+    var p2 = board.create('point', [20.0, 0.0]);
+    var l1 = board.create('line', [p1, p2], {visible:false});
+
+  	var i = board.create('intersection', [curve, l1, 0],{withLabel:false});
+  	var j = board.create('intersection', [curve, l1, 1],{withLabel:false});
+    var s = board.create("segment", [i,j]);
+  </script>
+
+  <article>
+      <header>
+        <h3>Ejercicio</h3>
+        <p>Resolver cada una de las inecuaciones siguientes:</p>
+      </header>
+      <ol>
+        <li><p><span class="math">\(x^2+2x+4\ge 2x+5\)</span></p></li>
+        <li><p><span class="math">\(16x-x^2\ge16 \)</span></p></li>
+        <li><p><span class="math">\(2x^2-2x+9\le x^2-5x+7\)</span></p></li>
+      </ol>
+  </article>
+</section>
+
+<section>
+    <header>
+      <h1 id="inecuaciones-del-tipo-fracpxqx-le-rx">Inecuaciones del tipo <span class="math">\(\dfrac{P(x)}{Q(x)} \le R(x)\)</span></h1>
+    </header>
+  <p>Cuando se resuelven este tipo de inecuaciones no hay que caer en el error de ``presuponer&quot; nada. Intentemos explicarnos mejor con el siguiente ejemplo.</p>
+
+  <p>Consideramos la inecuación: <span class="math">\(\dfrac{x^2+1}{x-1} \le x\)</span>.</p>
+
+  <div id="box2" class="jxgbox" style="width:500px; height:500px;"></div></br>
+
+
+  <script type="text/javascript">
+  	var board = JXG.JSXGraph.initBoard('box2', {boundingbox: [-4, 6, 10, -4], axis:true, showCopyright:false, showNavigation:false});
+  	curve = board.create('functiongraph', [function(t){ return((t*t+1)/(t-1))}, -10,10]);
+    p1 = board.create("point",[0,0],{visible:false});
+    p2 = board.create("point",[1,1],{visible:false});
+
+    l1 = board.create("line",[p1,p2], {fixed:true,strokeColor:"orange"});//'functiongraph',  [function(t){ return(t)}, -10,10]);
+    ineq = board.create("inequality",[l1]);
+  	var i = board.create('intersection', [curve, l1, 0],{withLabel:false});
+  </script>
+
+  <p> Es claro que el punto <span class="math">\(x=1\)</span> no es solución, ya que anula al denominador. Entonces, en primer lugar, quitamos el denominador multiplicando ambos miembros por el denominador <span class="math">\(x-1\)</span>:</p>
+  <p><span class="math">\[\begin{aligned}
+  x^2+1 &amp; \le x^2-x \\
+  1 &amp; \le -x \\
+  %\intertext{Multiplicando ambos miembros de la inecuación por $-1$ y la desigualdad  se invierte}
+  -1 &amp; \ge x\end{aligned}\]</span></p>
+  <p>Parecería entonces que la solución es el conjunto <span class="math">\(]-\infty,-1] \)</span>. Sin embargo, es fácil comprobar que el punto <span class="math">\(x=0\)</span> es solución de inecuación y, evidentemente, no pertenece al conjunto solución que acabamos de dar. ¿Qué ha pasado entonces? Ha pasado que, en el primer paso que hemos dado (multiplicar ambos miembros de la inecuación por el denominador <span class="math">\(x-1\)</span>), hemos ``presupuesto&quot; que <span class="math">\(x-1&gt;0\)</span>, es decir, que <span class="math">\(x&gt;1\)</span>. Por lo que el conjunto solución que hemos obtenido por ahora no tiene sentido con la suposición que hemos hecho de <span class="math">\(x&gt;1\)</span>. Por tanto, como en el caso <span class="math">\(x-1&gt;0\)</span> no habría solución, tenemos que contemplar la posibilidad de que <span class="math">\(x-1&lt;0\)</span>, es decir, de que <span class="math">\(x\)</span> fuera menor que <span class="math">\(1\)</span>. Consideramos este caso ahora, con lo que al multiplicar por el denominador, la desigualdad se invierte.</p>
+  <p><span class="math">\[\begin{aligned}
+  x^2+1 &amp; \ge x^2-x \\
+  1 &amp; \ge -x \\
+  x &amp; \ge -1\end{aligned}\]</span></p>
+  <p>Por tanto, la solución está formada por los puntos <span class="math">\(x\)</span> tales que <span class="math">\(x&lt;1\)</span> y además <span class="math">\(x \ge -1\)</span>. Es decir, el intervalo <span class="math">\([-1,1[\)</span>.</p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Resolver cada una de las inecuaciones siguientes:</p>
+    </header>
+    <ol>
+      <li><p><span class="math">\(\dfrac{2x-3}{x-4} \ge 3\)</span></p></li>
+      <li><p><span class="math">\(\dfrac{x-1}{x+1} &lt;1\)</span></p></li>
+      <li><p><span class="math">\(\dfrac{2x^2-4}{2x+1} \ge x-1\)</span></p></li>
+    </ol>
+  </article>
+</section>
+
+<hr>
+
+<p>Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada </p>
+
+<p>Las representación gráfica se ha realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a></p>
+
+<script type="text/javascript" language="javascript">
+  function show(str, obj){
+    document.getElementById(obj).innerHTML = str;
+    MathJax.Hub.Typeset();
+  }
+</script>
+
+</body>
+</html>
