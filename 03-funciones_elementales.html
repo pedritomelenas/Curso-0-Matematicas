@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Funciones elementales</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+  <script type="text/javascript" src="js/jsxgraphcore.js"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Funciones elementales</h1>
+</div>
+<section>
+  <header>
+    <h1 id="generalidades-de-funciones">Generalidades de funciones</h1>
+  </header>
+  <p>En esta lección vamos a dar un repaso a las funciones más comunes y útiles que usaremos en el curso de cálculo. Aunque el concepto de función puede definirse en ambientes muy abstractos nosotros nos restringiremos al ámbito en el que vamos a trabajar, que es el de las funciones reales de variable real. Llamaremos <span class="math">\(\mathbb{R}\)</span> al conjunto de los números reales. De forma rigurosa una función es un subconjunto <span class="math">\(F\)</span> del conjunto de todos los pares <span class="math">\(\{ (x,y) :  x\in \mathbb{R}, \ y \in \mathbb{R} \}\)</span> (esto es lo que se llama el producto cartesiano <span class="math">\(\mathbb{R}\times \mathbb{R} \)</span>) que verifica una la condición de que si <span class="math">\((a,b)\)</span> y <span class="math">\((a,c)\)</span> están en <span class="math">\(F\)</span> entonces tiene que ocurrir que <span class="math">\(b=c\)</span>.</p>
+  <p>Esta definición puede parecer muy abstracta, y de hecho lo es, pero veremos enseguida que responde a la idea que todos tenemos de una función. La forma más común de representar las funciones reales de variable real es la siguiente. Entendemos por una función una fórmula <span class="math">\(f \colon A \to \mathbb{R}\)</span> que nos hace corresponder a cada número <span class="math">\(x\in A\)</span> otro número al que llamaremos <span class="math">\(f(x)\in \mathbb{R}\)</span></p>
+  <p>La función <span class="math">\(f \colon \mathbb{R}^{+}_{0}\to \mathbb{R}\)</span> definida, para <span class="math">\(x\in \mathbb{R}^{+}_{0}\)</span>, por <span class="math">\(f(x)=\sqrt{x}+1\)</span>. En este caso la “fórmula” que representa la función es <span class="math">\(\sqrt{x}+1\)</span>. No es difícil ver que esta función es <em>una función</em> con la definición que hemos dado antes. De hecho en este caso la función con la que estamos tratando sería <span class="math">\[\left\{ (x,\sqrt{x}+1) :  x\in \mathbb{R}^{+}_{0} \right\} .\]</span></p>
+  <p>La condición que hemos impuesto en la definición (que si dos pares de números de la función tienen la misma primera coordenada entonces tienen que ser el mismo par) no permite que nosotros le llamemos función a cosas como <span class="math">\(f \colon \mathbb{R}^{+}_{0}\to \mathbb{R}\)</span> dada por <span class="math">\(f(x)=\pm \sqrt{x}+1\)</span> ya que los pares <span class="math">\((4,3)\)</span> y <span class="math">\((4,-1)\)</span> formarían parte de la (supuesta) función.</p>
+  <p>Es más usual, como he dicho antes, representar la funciones de la forma <span class="math">\(f \colon A\to \mathbb{B}\)</span> donde <span class="math">\(A\)</span> y <span class="math">\(B\)</span> son subconjuntos de <span class="math">\(\mathbb{R}\)</span> y <span class="math">\(f\)</span> es una “ley” o “fórmula” que nos permite calcular la función. En el caso de representarse de esta forma al conjunto <span class="math">\(A\)</span> se le denomina <strong>dominio</strong> de la función y al conjunto <span class="math">\(B\)</span> <strong>codominio</strong>. Un elemento que utilizaremos más adelante es el concepto de imagen de una función, ya sea de su dominio o de parte de él. Si tenemos una función y consideramos <span class="math">\(E\subset A\)</span> la imagen mediante <span class="math">\(f\)</span> del conjunto <span class="math">\(E\)</span> es el conjunto <span class="math">\[f(E)=\left\{ y\in B: \text{ existe }  x\in E \text{ tal que }  f(x)=y\right\} .\]</span></p>
+  <p>Cuando como subconjunto <span class="math">\(E\)</span> de <span class="math">\(A\)</span> nos tomamos el propio conjunto <span class="math">\(A\)</span> a veces se dice simplemente “la imagen de <span class="math">\(f\)</span>” y se puede notar como <span class="math">\(\operatorname{Im}(f)\)</span>.</p>
+</section>
+
+<section>
+  <header>
+    <h1 id="propiedades-de-funciones">Propiedades de funciones</h1>
+  </header>
+  <p>Existen multitud de propiedades de funciones. Algunas más profundas como la continuidad o derivabilidad se estudiarán en capítulos aparte. Aquí estudiaremos algunas muy generales, sin pretender ser exhaustivos, son las siguientes.</p>
+  <ul>
+  <li><p><strong>Linealidad</strong></p>
+  <p>Una función <span class="math">\(f \colon \mathbb{R} \to \mathbb{R}\)</span> si verifica que <span class="math">\(f(ax+by)=af(x)+bf(y)\)</span> para cualesquiera <span class="math">\(a,b,x\)</span> e <span class="math">\(y\)</span> números reales. En realidad las funciones lineales (con dominio en <span class="math">\(\mathbb{R}\)</span>) no son ningún misterio y es que las únicas funciones lineales en este ambiente son las funciones para las que existe un <span class="math">\(m\in \mathbb{R}\)</span> de forma que <span class="math">\(f(x)=mx\)</span> para <span class="math">\(x\in \mathbb{R}\)</span>.</p>
+  <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+    var pend = board.create('slider', [[-3.5, 2], [-1.5, 2], [-5, 1, 5]],{name:'m',snapWidth:.1});
+    curve = board.create('functiongraph',
+                   [function(t){ return(t*pend.Value())}, -10,10]);
+  </script>
+  </li>
+
+  <li><p><strong>Paridad</strong></p>
+  <p>Una función es par si se verifica que <span class="math">\(f(x)=f(-x)\)</span> para <span class="math">\(x\)</span> en su dominio. Evidentemente cuando hablamos de paridad el dominio de la función debe ser un conjunto de números reales simétrico respecto a <span class="math">\(0\)</span>. La función es impar si se verifica que <span class="math">\(f(x)=-f(-x)\)</span> para <span class="math">\(x\)</span> en su dominio, que también tiene que ser simétrico respecto al <span class="math">\(0\)</span>.
+  Ejemplos claros de funciones pares son <span class="math" style="color:blue;">\(f(x)=x^2+1\)</span> o <span class="math" style="color:red;">\( f(x)=\frac{\cos (x)}{x^2+3}\)</span>. Ejemplos de funciones impares son <span class="math" style="color:orange">\(f(x)=x\)</span>, quizá la más fácil, o <span class="math" style="color:magenta">\(f(x)=\mathrm{sen}(x^3+x)\)</span>.</p>
+
+  <p><div id="box2" class="jxgbox" style="width:300px; height:300px; display:inline-block;"></div> <div id="box2b" class="jxgbox" style="width:300px; height:300px; display:inline-block;"></div></p>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box2', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [function(t){ return(t*t+1)}, -10,10]);
+    curve2 = board.create('functiongraph',
+                  [function(t){ return(Math.cos(t)/(t*t+3))}, -10,10], {strokeColor:"red"});
+  </script>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box2b', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+    curve3 = board.create('functiongraph',
+                  [function(t){ return(t)}, -10,10], {strokeColor:"orange"});
+    curve4 = board.create('functiongraph',
+                  [function(t){ return(Math.sin(t*t*t+t))}, -10,10], {strokeColor:"magenta"});
+  </script>
+  </li>
+
+  </li>
+
+
+  <li><p><strong>Periodicidad</strong></p>
+  <p>Una función <span class="math">\(f \colon \mathbb{R} \to \mathbb{R} \)</span> es periódica si verifica que existe un número positivo <span class="math">\(T\)</span> para el que se verifica que <span class="math">\(f(x+T)=f(x) \)</span> para todo <span class="math">\(x\in \mathbb{R}\)</span>. Al más pequeño <span class="math">\(T\)</span> que verifica lo anterior se le llama periodo fundamental de la función <span class="math">\(f\)</span>. Los ejemplos más típico de funciones periódicas hay que buscarlos en las funciones trigonométricas.
+  Por ejemplo, las funciones <span style="color:red;">seno</span> y <span style="color:blue">coseno</span> son periódicas de periodo <span class="math">\(2\pi\)</span> o la función <span style="color:orange">tangente</span> que es de periodo <span class="math">\(\pi\)</span> (aunque esta función no esté definida en <span class="math">\(\mathbb{R}\)</span>).</p>
+  <div id="box3" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box3', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [function(t){ return(Math.cos(t))}, -10,10]);
+    curve2 = board.create('functiongraph',
+                  [function(t){ return(Math.sin(t))}, -10,10], {strokeColor:"red"});
+    curve4 = board.create('functiongraph',
+                  [function(t){ return(Math.tan(t))}, -10,10], {strokeColor:"orange"});
+  </script>
+  </li>
+  <li><p><strong>Inyectividad</strong></p>
+  <p>Una función es inyectiva si cumple que números distintos del dominio tienen siempre imágenes distintas. Dicho con nomenclatura matemática, si siempre que <span class="math">\(x,y\in \operatorname{dom}(f)\)</span> con <span class="math">\(x\ne y\)</span> entonces se verifica que <span class="math">\(f(x)\ne f(y)\)</span>. Otra forma alternativa de enunciar la anterior propiedad es decir que si dos números del dominio tienen la misma imagen entonces tienen que ser el mismo; es decir, si para cualesquiera <span class="math">\(x,y \in \operatorname{dom}(f)\)</span> con <span class="math">\(f(x)=f(y)\)</span> entonces <span class="math">\(x=y\)</span>. Piénsese que las dos afirmaciones que hemos dicho son exactamente la misma. Y otra cosa que hay que tener en cuenta es no confundir la noción de inyectividad con la condición que tiene que cumplir una función que es que cada elemento del dominio tiene una única imagen.</p>
+
+  <p>Un ejemplo de una función inyectiva es la función <span class="math">\(f \colon \mathbb{R}\to \mathbb{R}\)</span> definida por <span class="math" style="color:blue;">\(f(x)=x^3+1\)</span>, para cada <span class="math">\(x\in \mathbb{R}\)</span>.
+  En efecto, si tenemos dos números <span class="math">\(x\)</span> e <span class="math">\(y\)</span> que verifican que <span class="math">\(x\ne y\)</span> entonces <span class="math">\(x^3\ne y^3\)</span> y si sumamos <span class="math">\(1\)</span> siguen siendo distintos: <span class="math">\(x^3+1\ne y^3+1\)</span> y entonces <span class="math">\(f(x)\ne f(y)\)</span>.
+  Un ejemplo de función no inyectiva es la función <span class="math">\(f \colon \mathbb{R}\to \mathbb{R}\)</span> dada por <span class="math" style="color:red">\(f(x)=x^2\)</span>, para <span class="math">\(x\in \mathbb{R}\)</span>. Ahora no ocurre que si <span class="math">\(x\)</span> e <span class="math">\(y\)</span> son números distintos necesariamente tienen que ser distintos <span class="math">\(x^2\)</span> e <span class="math">\(y^2\)</span> ya que números opuestos tienen el mismo cuadrado.
+  Nos referimos a la situación de que <span class="math">\(3^2=(-3)^2=9\)</span>; es decir, <span class="math">\(f(3)=f(-3)\)</span>. Este ejemplo nos muestra que cuando intentamos comprobar si una función es inyectiva no tenemos que mirar únicamente la “fórmula” de la función sino que también hay que fijarse en el dominio de la función. Si la función <span class="math">\(f(x)=x^2\)</span> la definimos en <span class="math">\(\mathbb{R}^+ \)</span> en vez de en <span class="math">\(\mathbb{R}\)</span> entonces la función será inyectiva.</p>
+  <div id="box4" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box4', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [function(t){ return(t*t*t+1)}, -10,10]);
+    curve2 = board.create('functiongraph',
+                  [function(t){ return(Math.pow(t,2))}, -10,10], {strokeColor:"red"});
+  </script>
+  </li>
+  <li><p><strong>Sobreyectividad</strong></p>
+    <p> Cuando tenemos una función <span class="math">\(f \colon A\to B\)</span> una función diremos que es inyectiva si la imagen de <span class="math">\(f\)</span> coincide con todo el codominio <span class="math">\(B\)</span>. Esta propiedad de las funciones depende profundamente tanto del dominio como del codominio de forma que, si se modifican, cambie el hecho de que una función sea sobreyectiva o no lo sea. En este sentido ocurre algo parecido con la inyectividad. Por ejemplo la función <span class="math">\(f\colon \mathbb{R}\to \mathbb{R}\)</span> definida por <span class="math">\(f(x)=x^2\)</span> para <span class="math">\(x\in \mathbb{R}\)</span> no es sobreyectiva (la imagen <span class="math">\(f(\mathbb{R})=
+  \mathbb{R}^+_0\)</span>) pero si cambiamos el codominio y definimos <span class="math">\(f \colon \mathbb{R}
+  \to \mathbb{R}^+_0\)</span> mediante la misma fórmula ahora sí que es sobreyectiva.</p>
+  <p>Cuando una función es a la vez inyectiva y sobreyectiva se dice que es biyectiva, o que es una biyección.</p></li>
+  </ul>
+
+</section>
+
+<section>
+  <header>
+    <h1 id="operaciones-con-funciones">Operaciones con funciones</h1>
+  </header>
+  <p>Se pueden hacer las operaciones aritméticas con funciones, como son</p>
+  <ul>
+  <li><p><strong>Suma</strong></p>
+    <p>Si tenemos dos funciones con el mismo dominio (consideremos para simplificar que el codominio es <span class="math">\(\mathbb{R}\)</span>) <span class="math">\(f,g \colon A\to \mathbb{R}\)</span> entonces la función suma <span class="math">\(f+g \colon A\to \mathbb{R}\)</span> es la función definida por <span class="math">\((f+g)(x)=f(x)+g(x)\)</span> para cada <span class="math">\(x\in A\)</span>. Análogamente con la resta.</p></li>
+  <li><p><strong>Producto</strong></p>
+    <p>Si tenemos dos funciones otra vez con el mismo dominio <span class="math">\(f,g
+  \colon A\to \mathbb{R}\)</span> entonces la función producto <span class="math">\(fg \colon A\to \mathbb{R}\)</span> es la función definida por <span class="math">\((fg)(x)=f(x)g(x)\)</span> para cada <span class="math">\(x\in A\)</span>.</p>
+  <p>En este caso la división no es inmediata. Para poder definir el cociente de <span class="math">\(f\)</span> entre <span class="math">\(g\)</span> es necesario que <span class="math">\(g(x)\ne 0\)</span> para todo <span class="math">\(x\in A\)</span> (así no estamos dividiendo por <span class="math">\(0\)</span>. Si <span class="math">\(g\)</span> verifica esta condición entonces se tiene que el cociente <span class="math">\(\dfrac{f}{g} \colon A\to \mathbb{R}\)</span> es la función definida por <span class="math">\(\dfrac{f}{g}(x)=\dfrac{f(x)}{g(x)}\)</span> para cada <span class="math">\(x\in A\)</span>.</p></li>
+  <li><p><strong>Composición</strong></p>
+    <p>Esta operación no se corresponde con una operación aritmética clásica. Para poder componer dos funciones necesitamos que la imagen de una de ellas esté contenido en el dominio de la otra. Si tenemos <span class="math">\(f \colon A \to B\)</span> y <span class="math">\(g \colon C\to D\)</span> y se verifica que <span class="math">\( \operatorname{Im}(f)\subset C\)</span> entonces se define la composición de <span class="math">\(f\)</span> con <span class="math">\(g\)</span> (también se dice <span class="math">\(f\)</span> compuesta con <span class="math">\(g\)</span>) a la función <span class="math">\(g\circ f \colon A\to D\)</span> definida como <span class="math">\(g\circ f(x)=g(f(x))\)</span> para cada <span class="math">\(x\in A\)</span>.</p>
+  <p>Hay que puntualizar algunas cuestiones respecto a la composición. En principio no siempre se pueden componer dos funciones cualesquiera. Es absolutamente necesario que la imagen de una esté contenida en el dominio de la otra (en el sentido del párrafo anterior). Por lo tanto pueden darse ejemplos de funciones <span class="math">\(f\)</span> y <span class="math">\(g\)</span> de forma que se pueda hacer <span class="math">\(f\circ g\)</span> pero no se pueda hacer la composición <span class="math">\(g\circ f\)</span>. Esta situación nos hace presumir que la operación “composición de funciones” no es conmutativa. Efectivamente, en el caso de que se puedan realizar tanto <span class="math">\(f\circ g\)</span> como <span class="math">\(g\circ f\)</span>, en general los resultados serán distintos. Veamos algunos ejemplos.</p>
+  <p>Vamos a trabajar con las funciones <span class="math">\(f \colon \mathbb{R}\to \mathbb{R}\)</span> dada por la fórmula <span class="math" style="color:red">\(f(x)=x^2-4\)</span> para <span class="math">\(x\)</span> real y <span class="math">\(g \colon \mathbb{R}\to \mathbb{R}\)</span> definida como <span class="math" style="color:blue">\( g(x)=\frac{1}{x^2+1}\)</span> también para <span class="math">\(x\)</span> real.
+  ¿Podemos hacer en este caso las dos composiciones <span class="math" style="color:green">\(f\circ g\)</span> y <span class="math" style="color:orange">\(g\circ f\)</span>?</p>
+  <p><div id="box5" class="jxgbox" style="width:300px;height:300px;display:inline-block;"></div><div id="box6" class="jxgbox" style="width:300px; height:300px;display:inline-block;"></div></p>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box5', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [function(t){ return(1/(t*t+1))}, -10,10]);
+    curve2 = board.create('functiongraph',
+                  [function(t){ return(Math.pow(t,2)-4)}, -10,10], {strokeColor:"red"});
+  </script>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box6', {boundingbox: [-5, 5, 5, -5], axis:true, showCopyright:false, showNavigation:false});
+    c1 = board.create('functiongraph',
+                   [function(t){ return((-4*t*t*t*t-8*t*t-3)/(t*t*t*t+2*t*t+1))}, -10,10], {strokeColor:"green"});
+    c2 = board.create('functiongraph',
+                  [function(t){ return(1/(Math.pow(t,4)-8*t*t+17))}, -10,10], {strokeColor:"orange"});
+  </script>
+
+
+  <p>Para poder hacer <span class="math">\(f\circ g\)</span> es necesario que la imagen de <span class="math">\(g\)</span> esté contenida en el dominio de <span class="math">\(f\)</span>. La fórmula <span class="math">\(\displaystyle g(x)=\frac{1}{x^2+1}\)</span> nos da que, cuando movemos <span class="math">\(x\)</span> en los números reales, entonces <span class="math">\(x^2\)</span> se mueve en los números mayores o iguales a <span class="math">\(0\)</span> (solamente será <span class="math">\(0\)</span> si <span class="math">\(x=0\)</span>). Al sumarle <span class="math">\(1\)</span> obtenemos un número <span class="math">\(\ge 1\)</span> y al invertir obtenemos números positivos menores o iguales a <span class="math">\(1\)</span> pero mayores que <span class="math">\(0\)</span>. En este caso <span class="math">\(\operatorname{Im}(g)=] 0, 1 ]\)</span> que está contenido en el dominio de <span class="math">\(f\)</span>, que es todo <span class="math">\(\mathbb{R}\)</span>. La composición <span class="math">\(f\circ g\)</span> tiene por fórmula entonces</p>
+  <p><span class="math">\[\begin{align*}
+  f\circ g(x) =f(g(x)) &=f\left(\frac{1}{x^2+1}\right)=\left( \frac{1}{x^2+1}\right) ^2-4 \\
+  &= \left( \frac{1}{x^4+2x^2+1}\right) -4= \frac{1-4x^4-8x^2-4}{x^4+2x^2+1}=\frac{-4x^4-8x^2-3}{x^4+2x^2+1}.\end{align*}\]</span></p>
+  <p>Por otro lado, si <span class="math">\(x\)</span> lo movemos dentro de los números reales ya hemos comentado que <span class="math">\(x^2\)</span> se mueve en los números mayores o iguales a <span class="math">\(0\)</span> y si restamos <span class="math">\(4\)</span> nos quedarán los números mayores o iguales que <span class="math">\(-4\)</span>. Por tanto la imagen de <span class="math">\(f\)</span> es el intervalo <span class="math">\([-4,+\infty [\)</span>, así que, como el dominio de <span class="math">\(g\)</span> es <span class="math">\(\mathbb{R}\)</span>, tendremos que podemos hacer <span class="math">\(g\circ f\)</span> y nos quedará, para <span class="math">\(x\in \mathbb{R}\)</span>, <span class="math">\[g\circ f(x) =g(f(x))=g(x^4-4)= \frac{1}{(x^2-4)^2+1}= \frac{1}{(x^4-8x^2+16)+1}=
+  \frac{1}{x^4-8x^2+17},\]</span> y queda claro que <span class="math">\(f\circ g \ne g\circ f\)</span>. En este ejemplo hemos hecho un trabajo extra ya que, como los dominios de las dos funciones eran todos los números reales, entonces el cálculo de la imagen de las dos funciones era superfluo (son funciones reales así que su imagen tiene que ser un subconjunto de los números reales). Lo hemos hecho solo por complitud.</p>
+  <p>Veamos otro ejemplo donde no se pueden hacer las dos composiciones. Si consideramos la misma función <span class="math">\(f\)</span> del ejemplo anterior y como función <span class="math">\(g\)</span> consideramos <span class="math">\(g \colon \mathbb{R}^+ \to \mathbb{R} \)</span> definida por <span class="math">\(g(x)=\log (x)\)</span> para <span class="math">\(x\)</span> positivo entonces se tiene que la imagen de <span class="math">\(g\)</span> es todo <span class="math">\(\mathbb{R}\)</span> y se puede hacer la composición <span class="math">\(f\circ g
+  \colon \mathbb{R}^+\to \mathbb{R}\)</span> que resulta ser, para cualquier <span class="math">\(x\in \mathbb{R}^+\)</span>, <span class="math">\[f\circ g(x)=f(\log (x))=\left( \log(x)\right) ^2-4.\]</span></p>
+  <p>Sin embargo <span class="math">\(f\)</span> compuesta con <span class="math">\(g\)</span> no se puede hacer ya que la imagen de <span class="math">\(f\)</span> es <span class="math">\([-4,+\infty [ \nsubseteq \mathbb{R}^+\)</span>.</p>
+  <p>En el caso de que tengamos una función <span class="math">\(f \colon A\to B\)</span> biyectiva se verifica que, dado <span class="math">\(y\in B\)</span>, existe un elemento <span class="math">\(x\in A\)</span> de forma que <span class="math">\(f(x)=y \)</span> por la sobreyectividad. Además ese elemento <span class="math">\(x\)</span> es único para cada <span class="math">\(y\)</span> (por la inyectividad). Esto nos proporciona una función <span class="math">\(g \colon B\to A\)</span> que le hace corresponder a cada elemento <span class="math">\(y\in B\)</span> el único <span class="math">\(x\in A\)</span> para el que se verifica que <span class="math">\(f(x)=y\)</span>. Esta función se denomina la inversa de <span class="math">\(f\)</span> y se suele notar como <span class="math">\(f^{-1}\)</span>. Verifica que <span class="math">\(f\circ f^{-1} \colon B\to B\)</span> es la identidad en <span class="math">\(B\)</span> (es decir que <span class="math">\(f\circ f^{-1}(y)=y\)</span> para todo <span class="math">\(y\in B\)</span>), y por otro lado <span class="math">\(f^{-1}\circ f \colon A\to A\)</span> es la identidad en <span class="math">\(A\)</span>. Hay que tener cuidado con no confundir <span class="math">\( f^{-1}\)</span>, la inversa que acabamos de definir con la función <span class="math">\(1/f\)</span>. Son cosas totalmente distintas. El contexto nos dirá a que nos referimos.</p>
+  <p>Si consideramos la función <span class="math">\(f\colon \mathbb{R}\to \mathbb{R}\)</span> la función definida por <span class="math">\(f(x)=x^3+2,\ \ \forall x\in \mathbb{R}\)</span> es muy fácil ver que la función <span class="math">\(f\)</span> es biyectiva y su inversa puede ser calculada fácilmente.
+  Si <span class="math">\(f(x)=x^3+2=y\)</span> entonces <span class="math">\(x^3=y-2\)</span> de donde se obtiene <span class="math">\(x=\sqrt[3]{y-2}\)</span>, con lo que, el único <span class="math">\(x\)</span> que verifica que <span class="math">\(f(x)=y\)</span> es el número <span class="math">\(\sqrt[3]{y-2}\)</span>. Entonces <span class="math">\(f^{-1}\colon \mathbb{R}\to \mathbb{R}\)</span> es la función <span class="math">\(f^{-1}(x)=\sqrt[3]{x-2},\ \ \forall x\in \mathbb{R}\)</span>.</p>
+  <div id="box7" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box7', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [function(t){ return(t*t*t+2)}, -10,10]);
+    curve2 = board.create('functiongraph',
+                  [function(t){return(Math.sqrt(Math.abs(t-2),3))}, 2,10], {strokeColor:"red"});
+    curve3 = board.create('functiongraph',
+                  [function(t){return(-Math.sqrt(Math.abs(t-2),3))}, -10,2], {strokeColor:"red"});
+  </script>
+
+  </li>
+  </ul>
+</section>
+
+<p>Vamos ahora a repasar las principales funciones que aparecen en el cálculo.</p>
+
+<section>
+  <header>
+    <h1 id="funciones-polinómicas-y-racionales">Funciones polinómicas y racionales</h1>
+  </header>
+  <p>Son las más sencillas y las ponemos aquí solo para que el panorama sea más completo. Las funciones polinómicas o polinomios no creemos que sea necesario definirlas. Son funciones cuyo dominio es todo <span class="math">\(\mathbb{R}\)</span> y son continuas y derivables en todo <span class="math">\(\mathbb{R}\)</span>.</p>
+  <p>Las funciones racionales son el cociente de dos polinomios. El dominio es todo <span class="math">\(\mathbb{R}\)</span> salvo los números que hagan que el denominador sea <span class="math">\(0\)</span> (para evitar dividir por <span class="math">\(0\)</span>). También son continuas en su dominio y derivables y la derivada se obtiene con la regla de la derivada de un cociente.</p>
+</section>
+
+<section>
+  <header>
+    <h1 id="función-exponencial">Función exponencial</h1>
+  </header>
+  <p>Las funciones exponenciales son las funciones <span class="math">\(f\)</span> para las que existe un número <span class="math">\(a&gt;0\)</span> de forma que <span class="math">\(f\colon \mathbb{R}\to \mathbb{R}\)</span> viene dada por <span class="math">\(f(x)=a^x\)</span>, <span class="math">\(\forall x\in
+  \mathbb{R}\)</span>. En este caso se le llama función exponencial de base <span class="math">\(a\)</span>. Es continua y derivable en todo <span class="math">\(\mathbb{R}\)</span> y su derivada vale <span class="math">\(f&#39;(x)=a^x \log(a)\)</span>.</p>
+  <p>Teniendo en cuenta que, para <span class="math">\(x\in \mathbb{R}\)</span>, se verifica que <span class="math">\( a^{-x}=\left( \frac{1}{a}\right) ^{x}\)</span>, entonces las propiedades que tienen las funciones exponenciales de base mayor que <span class="math">\(1\)</span> se traducen en propiedades de las funciones exponenciales de base <span class="math">\(&lt;1\)</span>.</p>
+  <div id="box8" class="jxgbox" style="width:600px; height:300px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box8', {boundingbox: [-8, 4, 8, -4], axis:true, showCopyright:false, showNavigation:false});
+
+    var aexp = board.create('slider', [[-4, -2], [-2, -2], [.1, 2, 5]],{name:'a',snapWidth:.1});
+
+    curve2 = board.create('functiongraph',
+                  [function(t){return(Math.pow(aexp.Value(),t))}, -10,10], {strokeColor:"blue"});
+    //curve3 = board.create('functiongraph',
+    //              [function(t){return(Math.pow(s.Value(),-t))}, -10,10], {strokeColor:"red"});
+  </script>
+
+  <p>Veamos algunas características de estas funciones.</p>
+  <ul>
+  <li><p>El caso más trivial de este tipo de funciones corresponde al caso <span class="math">\(a=1\)</span>. En este caso <span class="math">\(f(x)=1,\ \ \forall x\in \mathbb{R}\)</span>.</p></li>
+  <li><p>Si <span class="math">\(a\ne 1\)</span> entonces la funcion exponencial de base <span class="math">\(a\)</span> es inyectiva. De hecho es estrictamente creciente si <span class="math">\(a&gt;1\)</span> y, teniendo en cuenta la relación entre las funciones exponenciales de base mayor que <span class="math">\(1\)</span> y las funciones exponenciales de base menor que <span class="math">\(1\)</span>, se tiene que <span class="math">\(f\)</span> es estrictamente decreciente si <span class="math">\(a&lt;1\)</span>.</p></li>
+  <li><p>En el caso de que <span class="math">\(a&gt;1\)</span> se verifica que <span class="math">\[\lim _{x\to - \infty } a^x=0,\ \ \ \lim_{x\to +\infty }a^x=+\infty.\]</span></p>
+  <p>Si <span class="math">\(a&lt;1\)</span> se tiene entonces que</p>
+  <p><span class="math">\[\lim _{x\to - \infty } a^x=+\infty ,\ \ \ \lim_{x\to +\infty }a^x=0.\]</span></p></li>
+  <li><p>La imagen de la función exponencial de base <span class="math">\(a\)</span>, con <span class="math">\(a\ne 1\)</span>, es <span class="math">\(\mathbb{R}^+\)</span>.</p></li>
+  <li><p>Se verifica que <span class="math">\(a^0=1\)</span> y que <span class="math">\(a^{x+y}=a^x a^y,\ \ \forall x,y\in \mathbb{R}.\)</span></p></li>
+  </ul>
+  <p>De entre todas las funciones exponenciales hay una destacada por su importancia en distintos campos de la ciencia y es la función exponencial de base <span class="math">\(e\)</span>. En este caso la derivada es <span class="math">\(f&#39;(x)=e^x\)</span>. De hecho cuando se habla de la “función exponencial” sin hacer mención a ninguna base especial, nos referimos a ésta.</p>
+</section>
+
+<section>
+  <header>
+    <h1 id="función-logarítmica">Función logarítmica</h1>
+  </header>
+  <p>Cuando hemos comentado las propiedades de las funciones exponenciales de base <span class="math">\(a\ne 1\)</span> hemos visto que, tanto si <span class="math">\(a&gt;1 \)</span> o <span class="math">\(a&lt;1\)</span>, dichas funciones son una biyección de <span class="math">\(\mathbb{R}\)</span> sobre <span class="math">\(\mathbb{R}^+\)</span>. Por tanto tienen inversa. A la inversa de la función exponencial de base <span class="math">\(a\)</span> se le llama función logarítmica de base <span class="math">\(a\)</span>. Atendiendo a esta definición está claro que, para <span class="math">\(a\ne 1\)</span>, <span class="math">\(a&gt;0\)</span> la función logaritmo de base <span class="math">\(a\)</span>, <span class="math">\(\log _a \colon \mathbb{R}^{+}\to \mathbb{R}\)</span>. Es continua y derivable en <span class="math">\(\mathbb{R}^+\)</span> y su derivada vale <span class="math">\(\displaystyle f^{\prime} (x)=\frac{1}{x\log(a)}\)</span>.</p>
+  <p>Las propiedades de <span class="math">\(\log _a\)</span> de obtienen de su definición como inversa de la función exponencial de base <span class="math">\(a\)</span>.</p>
+  <ul>
+  <li><p>Si <span class="math">\(a&gt;1\)</span> se verifica que <span class="math">\(\log _a\)</span> es estrictamente creciente y <span class="math">\[\lim _{x\to 0}\log _a(x)=-\infty ,\ \ \lim _{x\to +\infty}\log _a(x)=+\infty.\]</span></p>
+  <p>Si <span class="math">\(0&lt;a&lt;1\)</span> entonces <span class="math">\(\log _a\)</span> es estrictamente decreciente y <span class="math">\[\lim _{x\to 0}\log _a(x)=+\infty ,\ \ \lim _{x\to +\infty}\log _a(x)=-\infty.\]</span></p></li>
+  <li><p>Por ser la inversa de la función exponencial se verifica que <span class="math">\[\log_a(a^x)=x,\ \ \forall x\in \mathbb{R},\ \ \ a^{\log _ a(x)}=x,\ \ \forall x\in \mathbb{R}^+.\]</span></p></li>
+  <li><p><span class="math">\(\log _a(x^y)=y\log_a(x)\)</span> para <span class="math">\(x\)</span> real e <span class="math">\(y\)</span> positivo, y <span class="math">\(\log_a (xy)=\log_a(x)+\log_a (y)\)</span>, para <span class="math">\(x\)</span> e <span class="math">\(y\)</span> positivos.</p></li>
+  </ul>
+
+  <div id="box9" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box9', {boundingbox: [0, 4, 8, -4], axis:true, showCopyright:false, showNavigation:false});
+
+    var alog = board.create('slider', [[2, -2], [4, -2], [.1, 2.7, 5]],{name:'a',snapWidth:.15});
+
+    curve2 = board.create('functiongraph',
+                  [function(t){return(Math.log(t)/Math.log(alog.Value()))}, 0,10], {strokeColor:"blue"});
+  </script>
+
+  <p>Al igual que antes hay una función logarítmica destacada, y es cuando la base es el número <span class="math">\(e\)</span>. En este caso se llama logaritmo neperiano o simplemente logaritmo, y se nota <span class="math">\(\log\)</span> sin poner ninguna base. En este caso su derivada vale <span class="math">\(f&#39;(x)=\frac{1}{x}\)</span>.</p>
+</section>
+<section>
+  <header>
+    <h1 id="función-potencial">Función potencial</h1>
+  </header>
+  <p>Dado un número <span class="math">\(b\in \mathbb{R}\)</span> la función potencial de potencia <span class="math">\(b\)</span> es la función <span class="math">\(f \colon \mathbb{R}^+\to \mathbb{R}^+\)</span> definida para cada <span class="math">\(x\in \mathbb{R}^+\)</span> por <span class="math">\(f(x)=x^b\)</span>. Es continua y derivable en <span class="math">\(\mathbb {R}^+\)</span> y su derivada vale <span class="math">\(f&#39;(x)=bx^{b-1}\)</span>.</p>
+  <p>Algunas de las propiedades de estas funciones dependen del valor de <span class="math">\(b\)</span>. El caso más trivial es cuando <span class="math">\(b=0\)</span> ya que entonces <span class="math">\(f\)</span> es la función constantemente igual a <span class="math">\(1\)</span>.</p>
+
+  <div id="box10" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    JXG.Options.axis.ticks.insertTicks = false;
+    JXG.Options.axis.ticks.ticksDistance = 1;
+
+    var board = JXG.JSXGraph.initBoard('box10', {boundingbox: [0, 4, 6, -2], axis:true, showCopyright:false, showNavigation:false});
+
+    var apot = board.create('slider', [[2, -1], [4, -1], [-5, 1.5, 5]],{name:'a',snapWidth:.1});
+
+    curve2 = board.create('functiongraph',
+                  [function(t){return(Math.pow(t,apot.Value()))}, 0,10], {strokeColor:"blue"});
+    //curve3 = board.create('functiongraph',
+    //              [function(t){return(Math.pow(s.Value(),-t))}, -10,10], {strokeColor:"red"});
+  </script>
+
+  <p>Si <span class="math">\(b&gt;0\)</span> entonces <span class="math">\(x^b\)</span> es estrictamente creciente y cumple que <span class="math">\(\lim_{x\to 0} x^b=0\)</span> y <span class="math">\(\lim_{x\to +\infty }x^b=+\infty\)</span>, mientras que si <span class="math">\(b&lt;0\)</span> se tiene que <span class="math">\(x^b\)</span> es estrictamente decreciente y <span class="math">\(\lim_{x\to 0}x^b=+\infty \)</span> mientras que <span class="math">\(\lim_{x\to +\infty}x^b=0\)</span></p>
+  <p>Tanto si <span class="math">\(b&gt;0\)</span> como si <span class="math">\(b&lt;0\)</span> la función potencial de potencia <span class="math">\(b\)</span> es una biyección de <span class="math">\(\mathbb{R}^+\)</span> sobre si mismo cuya función inversa es la función potencial de potencia <span class="math">\(\frac{1}{b}\)</span>, <span class="math">\(x^{1/b}\)</span>.</p>
+</section>
+
+<section>
+  <header>
+    <h1 id="funciones-trigonométricas">Funciones trigonométricas</h1>
+  </header>
+  <p>Las principales funciones trigonométricas son la función seno, la función coseno y la función tangente. A partir de estas se construyen sus inversas, arcoseno, arcocoseno y arcotangente.</p>
+  <ul>
+  <li><p>La función seno <span class="math">\(\mathrm{sen} \colon \mathbb{R}\to \mathbb{R}\)</span> es una función periódica de periodo <span class="math">\(2\pi \)</span> cuya imagen es el intervalo <span class="math">\([-1,1]\)</span>. Es una función impar (<span class="math">\(\mathrm{sen} (-x)=-\mathrm{sen} (x)\)</span>, <span class="math">\(\forall x\in \mathbb{R}\)</span>) y es estrictamente creciente en el intervalo <span class="math">\([0,\pi/2]\)</span> y estrictamente decreciente en <span class="math">\([\pi /2,\pi]\)</span> con <span class="math">\(\mathrm{sen} (0)=0\)</span>, <span class="math">\(\mathrm{sen} (\pi/2)=1\)</span> y <span class="math">\(\mathrm{sen}(\pi)=0\)</span>. Es continua y derivable en todo <span class="math">\(\mathbb{R}\)</span> y su derivada vale <span class="math">\(\cos(x)\)</span>.</p>
+  </li>
+  <li><p>La función coseno <span class="math">\(\cos \colon \mathbb{R}\to \mathbb{R}\)</span> es una función periódica de periodo <span class="math">\(2\pi \)</span> cuya imagen es también el intervalo <span class="math">\([-1,1]\)</span>. Es una función par (<span class="math">\(\cos (-x)=\cos (x)\)</span>, <span class="math">\(\forall x\in \mathbb{R}\)</span>) y es estrictamente decreciente en el intervalo <span class="math">\([0,\pi]\)</span> con <span class="math">\(\cos (0)=1\)</span>, <span class="math">\(\cos (\pi/2)=0\)</span> y <span class="math">\(\cos(\pi)=-1 \)</span>. También es derivable en todo <span class="math">\(\mathbb{R}\)</span> y su derivada vale <span class="math">\(-\mathrm{sen}(x)\)</span>.</p>
+  <p>Tanto la función seno como coseno, al ser periódicas (y no constantes), no tienen límite ni en <span class="math">\(+\infty  \)</span> ni en <span class="math">\(-\infty \)</span>.</p></li>
+  <li><p>La función tangente es el cociente entre seno y coseno. está definida en los números reales en los que coseno no vale <span class="math">\(0\)</span>, es decir en todo <span class="math">\(\mathbb{R}\)</span> salvo en los múltiplos impares de <span class="math">\(\pi /2\)</span>. Es decir, <span class="math">\[\tan \colon \mathbb{R}\setminus \{ (2k+1)\pi /2 : k\in \mathbb{Z} \} \to \mathbb{R},\ \ \tan(x)=\frac{\mathrm{sen}(x)}{\cos(x)} ,\]</span> para <span class="math">\(x\in \mathbb{R}\setminus \{ (2k+1)\pi /2 :  k\in \mathbb{Z} \} \)</span>.</p>
+  <p>Es una función periódica de periodo <span class="math">\(\pi\)</span> y si restringimos su dominio a <span class="math">\(]-\pi/2,\pi/2[\)</span> entonces es estrictamente creciente y se verifica que <span class="math">\[\lim_{x\to -\pi/2 ^+}\tan (x)=-\infty,\ \ \ \lim_{x\to \pi/2 ^-}\tan (x)=+\infty .\]</span></p>
+  <p>Es continua y derivable en su dominio y la derivada vale <span class="math">\[f&#39;(x)=\frac{1}{\cos ^2(x)}=1+\tan ^2(x),\ \ \forall x\in \mathbb{R}\setminus
+  \{ (2k+1)\pi /2 : k\in \mathbb{Z} \} .\]</span></p>
+    <div id="box11" class="jxgbox" style="width:600px; height:400px;"></div>
+    <script type="text/javascript">
+      var board = JXG.JSXGraph.initBoard('box11', {boundingbox: [-5, 4, 5, -4], axis:true, showCopyright:false, showNavigation:false});
+      curve = board.create('functiongraph',
+                    [function(t){ return(Math.cos(t))}, -10,10]);
+      curve2 = board.create('functiongraph',
+                    [function(t){ return(Math.sin(t))}, -10,10], {strokeColor:"red"});
+      curve4 = board.create('functiongraph',
+                    [function(t){ return(Math.tan(t))}, -10,10], {strokeColor:"orange"});
+    </script>
+  </li>
+  </ul>
+  <p>Hay dos o tres igualdades fundamentales que hay que conocer respecto a las funciones trigonométricas. Basándose en estas igualdades se obtienen todas las demás.</p>
+  <ul>
+  <li><p>La primera es la igualdad fundamental de la trigonometría; dice que para cualquier número real <span class="math">\(x\)</span> se verifica que <span class="math">\[\cos ^2 (x)+\mathrm{sen} ^2(x)=1.\]</span></p></li>
+  <li><p>Las otras dos igualdades importantes son las fórmulas para las razones trigonométricas de la suma de dos números. En el caso del seno queda que, <span class="math">\(\forall x,y \in \mathbb{R}\)</span>, se verifica que <span class="math">\[\mathrm{sen} (x+y)=\mathrm{sen}(x)\cos(y)+ \cos (x)\mathrm{sen} (y).\]</span></p></li>
+  <li><p>El coseno de la suma de dos números <span class="math">\(x\)</span> e <span class="math">\(y\)</span> vale <span class="math">\[\cos(x+y)=\cos (x)\cos(y)-\mathrm{sen} (x)\mathrm{sen}(y).\]</span></p></li>
+  </ul>
+  <p>A partir de estas propiedades fundamentales surgen todas las propiedades de las funciones trigonométricas, por ejemplo si en las fórmulas del coseno y el seno de una suma hacemos las dos variables la misma obtenemos las fórmulas del seno y el coseno del ángulo doble (suele decirse del ángulo doble aunque nosotros hayamos definido las funciones trigonométricas sobre los números reales y no sobre ángulos).</p>
+  <p><span class="math">\[\begin{aligned}
+  \cos(2x) &amp; =\cos^2(x)-\mathrm{sen}^2(x) \\
+  \mathrm{sen}(2x) &amp; =2\mathrm{sen}(x)\cos(x)\end{aligned}\]</span></p>
+  <p>También es conveniente recordar las razones trigonométricas de algunos números destacados <span class="math">\[\begin{array}{ccccc}
+  \cos(0)=1, &amp;\cos(\frac{\pi}{6})=\frac{\sqrt{3}}{2}, &amp;\cos (\frac{\pi}{4})=\frac{\sqrt{2}}{2}, &amp; \cos(\frac{\pi}{3})=\frac{1}{2},&amp;\cos(\frac{\pi}{2})=0
+  \\
+  \mathrm{sen}(0)=0, &amp;\mathrm{sen}(\frac{\pi}{6})=\frac{1}{2}, &amp;\mathrm{sen} (\frac{\pi}{4})=\frac{\sqrt{2}}{2}, &amp; \mathrm{sen}(\frac{\pi}{3})=\frac{\sqrt{3}}{2},&amp;\mathrm{sen}(\frac{\pi}{2})=1
+  \end{array}\]</span></p>
+  <p>Además podemos saber razones trigonométricas de otros muchos números utilizando las propiedades anteriores. Por ejemplo, tenemos que</p>
+  <p><span class="math">\[\mathrm{sen}(x+\tfrac{\pi}{2})=\mathrm{sen}(x)\cdot 0+\cos(x)\cdot 1=\cos (x),\]</span> y también <span class="math">\[\cos(x+\tfrac{\pi}{2})=\cos(x)\cdot 0-\mathrm{sen}(x)\cdot 1=-\mathrm{sen} (x).\]</span></p>
+
+<subsection>  
+  <header> 
+    <h2 id="funciones-trigonométricas-inversas">Funciones trigonométricas inversas</h2>
+  </header>
+  <p>Cuando restringimos la función seno al intervalo <span class="math">\([-\pi /2,\pi/2]\)</span> entonces seno es una biyección de dicho intervalo sobre el intervalo <span class="math">\([-1,1]\)</span> y su inversa es la función <span style="color:orange"> arcoseno</span>, <span class="math">\(\mathrm{arcsen} \)</span>, que verifica que</p>
+  <p><span class="math">\[\begin{aligned}
+  \mathrm{arcsen} (\mathrm{sen} (x)) &amp; =x , \ \forall x\in [-\pi /2,\pi /2],\\
+  \mathrm{sen} (\mathrm{arcsen} (x)) &amp; =x,\ \forall x\in [-1,1].\end{aligned}\]</span></p>
+
+
+  <p><div id="box12b" class="jxgbox" style="width:160px; height:314px; display:inline-block;"></div> <div id="box12a" class="jxgbox" style="width:160px; height:314px; display:inline-block;"></div></p>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box12a', {boundingbox: [-1.3, Math.PI, 1.3, -0.2], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [function(t){ return(Math.acos(t))}, -1,1]);
+  </script>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box12b', {boundingbox: [-1.3, Math.PI/2, 1.3, -Math.PI/2], axis:true, showCopyright:false, showNavigation:false});
+    curve3 = board.create('functiongraph',
+                  [function(t){ return(Math.asin(t))}, -1,1], {strokeColor:"orange"});
+  </script>
+
+
+  <p>La función arcoseno es continua en <span class="math">\([-1,1]\)</span> y derivable en <span class="math">\(]-1,1[\)</span> y su derivada vale <span class="math">\(\displaystyle \frac{1}{\sqrt{1-x^2}}\)</span>.</p>
+  <p>Análogamente la función coseno es una biyección decreciente del intervalo <span class="math">\([0,\pi]\)</span> sobre <span class="math">\([-1,1]\)</span> y su inversa es la función <span style="color:blue">arcocoseno</span> que verifica</p>
+  <p><span class="math">\[\begin{aligned}
+  \arccos (\cos (x))&amp; =x,  \ \forall x\in [0,\pi ],\\
+  \cos (\arccos (x)) &amp; =x,\ \forall x\in [-1,1].\end{aligned}\]</span></p>
+  <p>Al igual que arcoseno la función arcocoseno es continua en <span class="math">\([-1,1]\)</span> y derivable en <span class="math">\(]-1,1[\)</span> y su derivada vale <span class="math">\(\displaystyle \frac{-1}{\sqrt{1-x^2}}\)</span>.</p>
+  <p>Finalmente arcotangente es la inversa de la función tangente, cuando ésta la restringimos al intervalo <span class="math">\(]-\pi /2, \pi /2[\)</span> y verifica que <span class="math">\[\arctan (\tan (x))=x\ \ \forall x\in ] -\pi /2, \pi /2[,\ \ \tan (\arctan (x))=x,\ \ \forall
+  x\in \mathbb{R}.\]</span></p>
+  <p>Es continua y derivable en todo <span class="math">\(\mathbb{R}\)</span> y su derivada vale <span class="math">\(\displaystyle \frac{1}{1+x^2}\)</span>.</p>
+
+</subsection>
+</section>
+<hr>
+
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se ha realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a></p>
+
+</body>
+</html>
