@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Fracciones. Potencias</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="js/jsxgraph.css" />
+  <script type="text/javascript" src="js/jsxgraphcore.js"></script>
+
+</head>
+<body>
+<p><div id="box_p2" class="jxgbox" style="width:400px; height:400px; display:inline-block;"></div>
+</p>
+<!--basado en el ejemplo http://www.mathdemos.mobi/domainrange/index.shtml
+añadido deslizador de delta y visualizador de la imagen del intervalo [s,s+delta]
+-->
+<script type="text/javascript">//<![CDATA[
+JXG.Options.text.useMathJax = true;
+var board_p2 = JXG.JSXGraph.initBoard('box_p2', {boundingbox: [-6, 5, 4, -5], axis:true,grid:true,showCopyright:false,showNavigation:false});
+
+var f_p2 = function(x) {
+	if (x>=-5 && x< -1){
+		return (x*x+6.5*x+8.5);
+	} else if (x>=-1 && x<=2){
+		return 2/3*x + 5/3;
+	}
+};
+
+graph_p2=board_p2.createElement('functiongraph',[f_p2,-6,4],{strokeColor:'black'});
+var ep1_p2=board_p2.create('point',[-5,1],{strokeColor:'black',fillColor:'black',name:''});
+var ep2_p2=board_p2.create('point',[-1,3],{strokeColor:'black',fillColor:'white',name:''});
+var ep3_p2=board_p2.create('point',[-1,1],{strokeColor:'black',fillColor:'black',name:''});
+var ep4_p2=board_p2.create('point',[2,3],{strokeColor:'black',fillColor:'black',name:''});
+ep1_p2.setProperty({fixed:true});
+ep2_p2.setProperty({fixed:true});
+ep3_p2.setProperty({fixed:true});
+ep4_p2.setProperty({fixed:true});
+
+var s_p2 = board_p2.createElement('slider',[[-5,-4],[2,-4],[-5,-5,2]],{name:"x"});
+var d_p2 = board_p2.createElement('slider',[[-4.5,-3.5],[-1,-3.5],[0,1,2]],{name:"\u03B4"});
+var sf=board_p2.createElement('functiongraph',[f_p2,function(){return s_p2.Value();},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3, strokeColor:'red'})
+
+var sf=board_p2.createElement('functiongraph',[function(){return 0;},function(){return s_p2.Value();},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3})
+
+var p1 = board_p2.create('point', [0,function(){return f_p2(s_p2.Value());}],{name:"",visible:false})
+
+var p2 = board_p2.create('point', [0,function(){return f_p2(s_p2.Value()+d_p2.Value());}],{name:"", visible:false})
+
+var pe1 = board_p2.create('point', [0,1],{name:"", visible:false})
+var pe2 = board_p2.create('point', [0,3],{name:"", visible:false})
+
+var s1 = board_p2.create('segment',[function(){if(s_p2.Value()<-1){return p1;}{return pe2;}}, function(){if(s_p2.Value()+d_p2.Value()<-1){return p2;}{return pe2;}}], {strokeWidth:3});
+
+var s2 = board_p2.create('segment',[
+    function(){
+      if(s_p2.Value()>=-1 && s_p2.Value()<=2){return p1;}
+      else{return pe1;}},
+    function(){
+      if(s_p2.Value()+d_p2.Value()>=-1 && s_p2.Value()+d_p2.Value()<=2){return p2;}
+      else if(s_p2.Value()+d_p2.Value()>2){return pe2;}
+      else{return pe1;}}],
+   {strokeColor:"blue",strokeWidth:3});
+
+// ]]>
+</script>
+
+</body>
