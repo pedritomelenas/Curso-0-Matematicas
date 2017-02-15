@@ -6,3 +6,5 @@ Se han tomado como base las transparencias de Jerónimo Alaminos Prats, José Ex
 Para simplificación algebraica utilizamos [algebrite](http://algebrite.org)
 
 Para la visualización de funciones usamos [JSXGraph](http://jsxgraph.uni-bayreuth.de)
+
+Estamos estudiando la incorporación de geogebra
