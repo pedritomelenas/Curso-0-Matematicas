@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Polinomios</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Sistemas de ecuaciones lineales</h1>
+</div>
+<section>
+  <header>
+    <h1 id="ecuaciones-lineales">Ecuaciones lineales</h1>
+  </header>
+  <p>Una ecuación lineal es aquella en la que las incógnitas aparecen multiplicadas por valores numéricos y sumadas tal y como aparecen en el siguiente ejemplo:</p>
+  <p><span class="math">\[3 x - \frac{2}{5}y + \frac{5}{3} z = -\frac{12}{18}\]</span></p>
+  <p>Si la ecuación tiene 3 incógnitas, como en este ejemplo, cada solución consta de 3 números. Una solución es la terna <span class="math">\(\left(-\frac{2}{9},0,0\right)\)</span>, es decir, <span class="math">\(x=-\frac{2}{9}; \, y=0; \, z=0\)</span>.</p>
+  <p>Esta ecuación anterior tiene otras muchas soluciones. Algunas de ellas son las siguientes:</p>
+  <ul>
+    <li>\(x = 0\),  \(y=\dfrac{5}3\), \(z= 0\),</li>
+    <li>\(x= 0\), \(y= 0\), \(z=-\dfrac{-2}5\),</li>
+    <li>\(x=\dfrac{1}3\), \(y=\dfrac{25}3\), \(z= 1\).</li>
+  </ul>
+  <p>Una forma de hallar más soluciones consiste en despejar alguna de las variables en función de las demás. Por ejemplo, si despejamos <span class="math">\(y\)</span>, tenemos la siguiente expresión</p>
+  <p><span class="math">\[\begin{aligned}
+  3 x - \frac{2}{5}y + \frac{5}{3} z &amp;= -\frac{12}{18} \\
+  - \frac{2}{5}y &amp;= -\frac{12}{18} - 3x  - \frac{5}{3} z \\
+  y &amp;= \frac{5}{2} \cdot \frac{12}{18} + \frac{5}{2} \cdot 3 x + \frac{5}{2} \cdot \frac{5}{3} z \\
+  y &amp;= \frac{5}{3} + \frac{15}{2} x + \frac{25}{6} z.\end{aligned}\]</span></p>
+  <p>De esta forma asignando valores cualesquiera a \(x\) y \(z\) obtenemos el correspondiente valor de <span class="math">\(y\)</span> que soluciona la ecuación. Para escribir <span>todas</span> las soluciones de esta ecuación solemos expresarlo de la siguiente forma: <span class="math">\[\left\{\begin{array}{l}
+  x=\lambda,\\
+  y=\frac{5}{3} + \frac{15}{2} \lambda + \frac{25}{6} \mu,\\
+  z=\mu,\\
+  \end{array}\right.  \hspace{.5cm} \lambda, \, \mu \in \mathbb{R}.\]</span> Este proceso puede hacerse con cualquier variable, con lo que obtendríamos una forma diferente para la expresión de todas soluciones pero exactamente el mismo conjunto de soluciones.</p>
+</section>
+<secton>
+  <header>
+    <h1 id="dos-ecuaciones-con-dos-incógnitas">Dos ecuaciones con dos incógnitas</h1>
+  </header>
+  <p>Vamos a dar algunas directrices para resolver sistemas de ecuaciones del tipo</p>
+  <p><span class="math">\[\left\{\begin{aligned}
+  a_1 x + b_1 y &amp;= c_1, \\
+  a_2 x + b_2 y &amp;= c_2.
+  \end{aligned}\right.\]</span></p>
+  <p>En la educación secundaria se suelen explicar tres formas de resolver este tipo de sistemas de ecuaciones: sustitución, igualación y reducción. Todos ellos se basan en realizar operaciones aritméticas que no cambian las soluciones de las ecuaciones presentes. El más interesante, porque puede aplicarse a sistemas de cualquier número de incógnitas, es el de <span><strong>reducción</strong></span>; realmente se trata de una versión del <span><strong>Método de Gauss</strong></span> para sistemas de dos ecuaciones y dos incógnitas.</p>
+  <h2 id="reducción">Reducción</h2>
+  <p>El procedimiento de reducción se basa en lograr que una misma variable aparezca en ambas ecuaciones con coeficientes opuestos (mismo valor y distinto signo). Vayamos viendo el mismo resolviendo el sistema empleado en los dos casos anteriores,</p>
+  <p><span class="math">\[\left\{\begin{aligned}
+  \frac{2}{7} x + 3 y &amp;= -2, \\
+  -\frac{12}{5} x + \frac{2}{5} y &amp;= 7,
+  \end{aligned}\right.\]</span></p>
+
+  <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-14, 14, 14, -14], axis:true, showCopyright:false, showNavigation:false});
+    recta1 = board.create('functiongraph',
+                 [function(t){ return((-2-2/7*t)/3)}, -15,15]);
+    recta2 = board.create('functiongraph',
+                 [function(t){ return(5*(7-12/5*t)/2)}, -10,10]);
+  </script>
+
+  <p>Vamos a reducir la variable <span class="math">\(y\)</span>. Para ello multiplicamos la primera ecuación por <span class="math">\(\frac{2}{5}\)</span>, y la segunda ecuación por <span class="math">\(-3\)</span>, obteniendo</p>
+  <p><span class="math">\[\left\{\begin{aligned}
+  \frac{2}{7} x + 3 y &amp;= -2 \\
+  -\frac{12}{5} x + \frac{2}{5} y &amp;= 7
+  \end{aligned}\right.
+  \quad \Rightarrow \quad
+  \left\{\begin{aligned}
+  \frac{2}{5} \Bigg( \frac{2}{7} x + 3 y &amp;= -2 \Bigg) \\
+  -3 \Bigg( -\frac{12}{5} x + \frac{2}{5} y &amp;= 7 \Bigg)
+  \end{aligned}\right.
+  \quad \Rightarrow \quad
+  \left\{\begin{aligned}
+  \frac{4}{35} x + \frac{6}{5} y &amp;= -\frac{4}{5} \\
+  \frac{36}{5} x - \frac{6}{5} y &amp;= -21
+  \end{aligned}\right.\]</span></p>
+  <p>Si sumamos las dos últimas ecuaciones obtenemos una nueva ecuación en la que no aparece la variable <span class="math">\(y\)</span> ya que los coeficientes son opuestos y se cancelan,</p>
+  <p><span class="math">\[\begin{aligned}
+  \frac{4}{35} x + \frac{6}{5} y + \frac{36}{5} x - \frac{6}{5} y &amp;= -\frac{4}{5} -21, \\
+  \left( \frac{4}{35} + \frac{36}{5} \right) x + \left( \frac{6}{5} - \frac{6}{5} \right) y &amp;= -\frac{4}{5} -21, \\
+  \frac{256}{35} x &amp;= -\frac{109}{5}, \\
+  x &amp;= -\frac{109}{5} \cdot \frac{35}{256} = -\frac{763}{256}.\end{aligned}\]</span></p>
+  <p>Este valor de <span class="math">\(x\)</span> se sustituye en cualquiera de las ecuaciones iniciales para calcular el valor de <span class="math">\(y\)</span>,</p>
+  <p><span class="math">\[\begin{aligned}
+  \frac{2}{7} x + 3 y &amp;= -2, \\
+  \frac{2}{7} \left( -\frac{763}{256} \right) + 3 y &amp;= -2, \\
+  -\frac{109}{128} + 3y &amp;= -2, \\
+  3y &amp;= -2 + \frac{109}{128} = -\frac{147}{128}, \\
+  y &amp;= -\frac{147}{128} \cdot \frac{1}{3} = - \frac{49}{128}.\end{aligned}\]</span></p>
+  <p>Así obtenemos la única solución de este sistema:</p>
+  <p><span class="math">\[x = -\frac{763}{256}, \qquad y = -\frac{49}{128}.\]</span></p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Resuelve el siguiente sistema de ecuaciones:</p>
+    </header>
+    <p><span class="math">\[\left\{\begin{aligned}
+    -\frac{3}{5} x + \frac{2}{5} y &amp;= -\frac{3}{2}, \\
+    \frac{2}{5} x - \frac{1}{3} y &amp;= \frac{6}{5}.
+    \end{aligned}\right.\]</span></p>
+    <span id="e1"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>\\(x=\\dfrac{1}2,\\, y=-3 \\)','e1')" type="button"></span>
+
+  </article>
+</section>
+
+<section>
+  <header>
+    <h1 id="tres-ecuaciones-con-tres-incógnitas">Tres ecuaciones con tres incógnitas</h1>
+  </header>
+  <h2 id="método-de-gauss">Método de Gauss</h2>
+  <p>Vamos a dar un procedimiento clásico para resolver sistemas de ecuaciones lineales con tres ecuaciones y tres incógnitas</p>
+  <p><span class="math">\[\left\{\begin{aligned}
+  a_1 x + b_1 y + c_1 z &amp;= d_1, \\
+  a_2 x + b_2 y + c_2 z &amp;= d_2, \\
+  a_3 x + b_3 y + c_3 z &amp;= d_3.
+  \end{aligned}\right.\]</span></p>
+  <p>que además es fácil extender a cualquier sistema con <span class="math">\(m\)</span> ecuaciones y <span class="math">\(n\)</span> incógnitas. Este método se basa en cambiar el sistema por otro que tiene exactamente las mismas soluciones y que es más sencillo; para ello se utilizan una serie de transformaciones de entre las siguientes:</p>
+  <ol>
+  <li><p>Intercambiar la posición de dos ecuaciones.</p></li>
+  <li><p>Multiplicar una ecuación por un número distinto de cero.</p></li>
+  <li><p>Sumar a una ecuación un múltiplo de otra.</p></li>
+  <li><p>Eliminar la ecuación <span class="math">\(0=0\)</span>.</p></li>
+  </ol>
+  <p>Resolveremos el sistema</p>
+  <p><span class="math">\[\left\{\begin{aligned}
+  2x -  y + z &amp;= 3,\\
+  x +  y - z &amp;= 0, \\
+  x - y + z &amp;= 2. \\
+  \end{aligned}\right.\]</span></p>
+  <p>En primer lugar vamos a intercambiar la primera y la tercera ecuación, porque vamos a utilizar el coeficiente de <span class="math">\(x\)</span> para eliminar esta incógnita de las ecuaciones segunda y tercera, así que nos conviene tener un número sencillo.</p>
+  <p><span class="math">\[\left\{\begin{aligned}
+  x +  y - z &amp;= 0, \\
+  x - y + z &amp;= 2, \\
+  2x -  y + z &amp;=3.
+  \end{aligned}\right.\]</span></p>
+  <p>Ahora hacemos dos transformaciones: a la segunda ecuación le restamos la primera (es decir, le sumamos la primera multiplicada por <span class="math">\((-1)\)</span>) y a la tercera le restamos el doble de la primera (es decir, le sumamos la primera multiplicada por <span class="math">\(2\)</span>). El objetivo de eliminar la <span class="math">\(x\)</span> de dos ecuaciones se cumple: <span class="math">\[\left\{\begin{array}{rrrl}
+  x &amp;+  y&amp; - z &amp;= 0, \\
+   &amp;-2 y &amp;+2 z &amp;= 2, \\
+   &amp; -3  y &amp;+3 z &amp;= 3.
+  \end{array}\right.\]</span> Ahora multiplicamos la segunda ecuación por <span class="math">\(-\frac{1}{2}\)</span> y nos queda <span class="math">\[\left\{\begin{array}{rrrl}
+  x &amp;+  y&amp; - z &amp;= 0, \\
+   &amp;y &amp;- z &amp;= -1, \\
+   &amp; -3  y &amp;+3 z &amp;= 3,
+  \end{array}\right.\]</span> y a la tercera ecuación le sumamos <span class="math">\(3\)</span> veces la segunda <span class="math">\[\left\{\begin{array}{rrrl}
+  x &amp;+  y&amp; - z &amp;= 0, \\
+   &amp;y &amp;- z &amp;= -1, \\
+   &amp; &amp;0 &amp;= 0.
+  \end{array}\right.\]</span> Como ha aparecido la ecuación <span class="math">\(0=0\)</span> la podemos eliminar y nos queda <span class="math">\[\left\{\begin{array}{rrrl}
+  x &amp;+  y&amp; - z &amp;= 0, \\
+   &amp;y &amp;- z &amp;= -1, \\
+  \end{array}\right.\]</span> en este sistema es fácil despejar la <span class="math">\(y\)</span> en la segunda ecuación: <span class="math">\(y=-1+z\)</span> y ahora sustituyendo <span class="math">\(y\)</span> en la primera despejamos también <span class="math">\(x\)</span> y obtenemos: <span class="math">\(x+(-1+z)-z=0\)</span> y por tanto <span class="math">\(x=1\)</span>. Como <span class="math">\(z\)</span> no tiene que cumplir ninguna condición puede tomar cualquier valor, así que es un <span><em>parámetro</em></span>. Las soluciones de este sistema son:</p>
+  <p><span class="math">\[\left\{\begin{array}{l}
+  x=1,\\
+  y=-1+\lambda,\\
+  z=\lambda,\\
+  \end{array}\right.  \hspace{.5cm} \lambda \in \mathbb{R}.\]</span></p>
+  <p>Este método permite resolver cualquier sistema, o decidir que no tiene solución, cuando aparece una ecuación de la forma <span class="math">\(0=b\)</span> para un número <span class="math">\(b\)</span> disitnto de cero.</p>
+  <h2 id="representación-matricial-de-un-sistema-de-ecuaciones-lineales-y-determinante-de-una-matriz-3-times-3">Representación matricial de un sistema de ecuaciones lineales y determinante de una matriz <span class="math">\(3 \times 3\)</span></h2>
+  <p>Todo sistema de ecuaciones lineales puede representarse mediante una ecuación matricial haciendo uso del producto de matrices. Veamos cómo en el caso que nos ocupa de tres ecuaciones y tres incógnitas.</p>
+  <p><span class="math">\[\left\{\begin{aligned}
+  a_1 x + b_1 y + c_1 z &amp;= d_1, \\
+  a_2 x + b_2 y + c_2 z &amp;= d_2, \\
+  a_3 x + b_3 y + c_3 z &amp;= d_3,
+  \end{aligned}\right.  \text{ se representa como }
+  \begin{pmatrix}
+  a_1 &amp; b_1 &amp; c_1 \\
+  a_2 &amp; b_2 &amp; c_2 \\
+  a_3 &amp; b_3 &amp; c_3
+  \end{pmatrix}
+  \begin{pmatrix}
+  x \\ y \\ z
+  \end{pmatrix} =
+  \begin{pmatrix}
+  d_1 \\ d_2 \\ d_3
+  \end{pmatrix}.\]</span></p>
+  <p>La matriz <span class="math">\[\begin{pmatrix}
+  a_1 &amp; b_1 &amp; c_1 \\
+  a_2 &amp; b_2 &amp; c_2 \\
+  a_3 &amp; b_3 &amp; c_3
+  \end{pmatrix}\]</span> se llama <span><em>matriz de coeficientes del sistema</em></span> y a <span class="math">\[\begin{pmatrix}
+  d_1 \\ d_2 \\ d_3
+  \end{pmatrix}\]</span> la llamamos <span><em>columna de términos independientes</em></span>. Reuniendo toda la información del sistema tenemos la <span><em>matriz ampliada del sistema</em></span>: <span class="math">\[\begin{pmatrix}
+  a_1 &amp; b_1 &amp; c_1 &amp;d_1\\
+  a_2 &amp; b_2 &amp; c_2 &amp; d_2\\
+  a_3 &amp; b_3 &amp; c_3 &amp; d_3
+  \end{pmatrix}.\]</span></p>
+  <p>Recordemos que el determinante de una matriz cuadrada <span class="math">\(3 \times 3\)</span> puede calcularse mediante la regla de Sarrus</p>
+  <p><span class="math">\[\begin{vmatrix}
+  a_{11} &amp; a_{12} &amp; a_{13} \\
+  a_{21} &amp; a_{22} &amp; a_{23} \\
+  a_{31} &amp; a_{32} &amp; a_{33}
+  \end{vmatrix} = a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{13} a_{22} a_{31} - a_{11} a_{23} a_{32} - a_{12} a_{21} a_{33},\]</span></p>
+  <p>que puede recordarse de forma más sencilla mediante el diagrama</p>
+
+  <img  width="400px" src="img-sistemas/sarrus.svg" alt="Regla Sarrus"/>
+  <p>en el que sumamos los productos asociados a líneas continuas y restamos los productos asociados a líneas discontinuas.</p>
+  <h2 id="regla-de-cramer">Regla de Cramer</h2>
+  <p>Basado en el cálculo de determinantes existe un procedimiento llamado <em>Regla de Cramer</em> que puede utilizarse para resolver sistemas de ecuaciones que cumplan dos condiciones: que el número de incógnitas sea igual al de ecuaciones (para que la matriz de coeficientes sea cuadrada) y que el determinante de la matriz de coeficientes sea distinto de cero. Es poco práctico para 3 ecuaciones con 3 incógnitas, y para cuatro o más incógnitas el procedimiento se puede aplicar (si se conoce el cálculo de determinantes de dicho tamaño), pero la cantidad de operaciones necesarias para su conclusión se incrementa de forma extraordinaria. Una vez descrito el sistema de ecuaciones lineales mediante su expresión matricial, la regla de Cramer nos da un método sencillo de resolución. Dado el sistema de ecuaciones lineales</p>
+  <p><span class="math">\[\begin{pmatrix}
+  a_1 &amp; b_1 &amp; c_1 \\
+  a_2 &amp; b_2 &amp; c_2 \\
+  a_3 &amp; b_3 &amp; c_3
+  \end{pmatrix}
+  \begin{pmatrix}
+  x \\ y \\ z
+  \end{pmatrix} =
+  \begin{pmatrix}
+  d_1 \\ d_2 \\ d_3
+  \end{pmatrix}, \text{ con } \begin{vmatrix}
+  a_1 &amp; b_1 &amp; c_1 \\
+  a_2 &amp; b_2 &amp; c_2 \\
+  a_3 &amp; b_3 &amp; c_3
+  \end{vmatrix} \neq 0.\]</span></p>
+  <p>la solución al mismo es</p>
+  <p><span class="math">\[x = \frac{\begin{vmatrix}
+  {\color{red}d_1} &amp; b_1 &amp; c_1 \\
+  {\color{red}d_2} &amp; b_2 &amp; c_2 \\
+  {\color{red}d_3} &amp; b_3 &amp; c_3
+  \end{vmatrix}}{\begin{vmatrix}
+  a_1 &amp; b_1 &amp; c_1 \\
+  a_2 &amp; b_2 &amp; c_2 \\
+  a_3 &amp; b_3 &amp; c_3
+  \end{vmatrix}}, \quad y = \frac{\begin{vmatrix}
+  a_1 &amp; {\color{red}d_1} &amp; c_1 \\
+  a_2 &amp; {\color{red}d_2} &amp; c_2 \\
+  a_3 &amp; {\color{red}d_3} &amp; c_3
+  \end{vmatrix}}{\begin{vmatrix}
+  a_1 &amp; b_1 &amp; c_1 \\
+  a_2 &amp; b_2 &amp; c_2 \\
+  a_3 &amp; b_3 &amp; c_3
+  \end{vmatrix}}, \quad z = \frac{\begin{vmatrix}
+  a_1 &amp; b_1 &amp; {\color{red}d_1} \\
+  a_2 &amp; b_2 &amp; {\color{red}d_2} \\
+  a_3 &amp; b_3 &amp; {\color{red}d_3}
+  \end{vmatrix}}{\begin{vmatrix}
+  a_1 &amp; b_1 &amp; c_1 \\
+  a_2 &amp; b_2 &amp; c_2 \\
+  a_3 &amp; b_3 &amp; c_3
+  \end{vmatrix}}.\]</span></p>
+  <p>Vamos a resolver el sistema de ecuaciones lineales</p>
+  <p><span class="math">\[\left\{\begin{aligned}
+  \frac{1}{2} x - 2 y + 2 z &amp;= -2, \\
+  - 3 x + \frac{2}{5} z &amp;= 0, \\
+  3 x + \frac{3}{5} y -5 z &amp;= \frac{3}{4}.
+  \end{aligned}\right.\]</span></p>
+  <p>En primer lugar calculamos el determinante de la matriz de coeficientes de las variables, lo que podemos hacer aplicando la regla de Sarrus</p>
+  <p><span class="math">\[\begin{split}
+  \begin{vmatrix}
+  \frac{1}{2} &amp; -2 &amp; 2 \\
+  -3 &amp; 0 &amp; \frac{2}{5} \\
+  3 &amp; \frac{3}{5} &amp; -5
+  \end{vmatrix} &amp;= \frac{1}{2} \cdot 0 \cdot (-5) + (-2) \cdot \frac{2}{5} \cdot 3 + 2 \cdot (-3) \cdot \frac{3}{5} \\
+  &amp;\quad - 2 \cdot 0 \cdot 3 - \frac{1}{2} \cdot \frac{2}{5} \cdot \frac{3}{5} - (-2) \cdot (-3) \cdot (-5) \\
+  &amp;= 0 - \frac{12}{5} - \frac{18}{5} - 0 - \frac{6}{50} + 30 = \frac{597}{25} \neq 0.
+  \end{split}\]</span></p>
+  <p>Como el resultado es distinto de <span class="math">\(0\)</span> podemos proseguir y aplicar la Regla de Cramer para obtener los valores de <span class="math">\(x\)</span>, <span class="math">\(y\)</span> y <span class="math">\(z\)</span></p>
+  <p><span class="math">\[x = \frac{\begin{vmatrix}
+  -2 &amp; -2 &amp; 2 \\
+  0 &amp; 0 &amp; \frac{2}{5} \\
+  \frac{3}{4} &amp; \frac{3}{5} &amp; -5
+  \end{vmatrix}}{\frac{597}{25}} = -\frac{1}{199}, \quad
+  y = \frac{\begin{vmatrix}
+  \frac{1}{2} &amp; -2 &amp; 2 \\
+  -3 &amp; 0 &amp; \frac{2}{5} \\
+  3 &amp; \frac{3}{4} &amp; -5
+  \end{vmatrix}}{\frac{597}{25}} = \frac{765}{796}, \quad
+  z= \frac{\begin{vmatrix}
+  \frac{1}{2} &amp; -2 &amp; -2 \\
+  -3 &amp; 0 &amp; 0 \\
+  3 &amp; \frac{3}{5} &amp; \frac{3}{4}
+  \end{vmatrix}}{\frac{597}{25}} = -\frac{15}{398}.\]</span></p>
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Resuelve los siguientes sistemas de ecuaciones:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\[\left\{\begin{aligned}
+     x - 2 y + 3 z &amp;= \frac{1}{2} \\
+    - 2 y + \frac{3}{5} z &amp;= \frac{3}{10} \\
+    2 x + \frac{2}{5} y + \frac{1}{3} z &amp;= -\frac{11}{6}
+    \end{aligned}\right.\]</span>
+    <span id="e2-1"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>\\(x=-1,\\, y=0,\\, z=\\dfrac{1}2 \\)','e2-1')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\[\left\{\begin{aligned}
+      y -2 z &amp;= -4 \\
+    x + y -z &amp;= 0 \\
+    2 x - y + z &amp;= 3
+    \end{aligned}\right.\]</span>
+    <span id="e2-2"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>\\(x=1,\\, y=2,\\, z=3 \\)','e2-2')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\[\left\{\begin{aligned}
+    x -2 y +3 z &amp;= -6 \\
+    2x + y -z &amp;= 5 \\
+    5 x + y +3 z &amp;= 4
+    \end{aligned}\right.\]</span>
+    <span id="e2-3"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>\\(x=1,\\, y=2,\\, z=-1 \\)','e2-3')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\[\left\{\begin{aligned}
+    x -2 y +3 z &amp;= -6 \\
+    2x + y -z &amp;= 5 \\
+    3 x - y +2 z &amp;= 2
+    \end{aligned}\right.\]</span>
+    <span id="e2-4"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>No tiene solución: si sumamos las dos primeras ecuaciones y le restamos la tercera, nos da \\(0=3\\), por lo que el sistema es incompatible.','e2-4')" type="button"></span>
+    </p></li>
+    </ol>
+  </article>
+</section>
+
+<div class="footnotes">
+<hr />
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Evangelina Santos Aláez para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a></p>
+</div>
+
+<script type="text/javascript" language="javascript">
+  function show(str, obj){
+    document.getElementById(obj).innerHTML = str;
+    MathJax.Hub.Typeset();
+  }
+</script>
+
+</body>
+</html>
