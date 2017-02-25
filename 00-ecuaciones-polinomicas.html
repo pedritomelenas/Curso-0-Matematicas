@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Ecuaciones polinómicas</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Ecuaciones polinómicas</h1>
+</div>
+<section>
+  <header>
+    <h1 id="ecuaciones-y-soluciones">Ecuaciones y soluciones</h1>
+  </header>
+  <p>Una ecuación es una igualdad entre dos expresiones algebraicas. Una ecuación expresa una condición que debe cumplir una o varias cantidades desconocidas o <span><em>incógnitas</em></span>. En este epígrafe se estudian ecuaciones con una sola incógnita. Nos referimos a las expresiones situadas a uno y otro lado del signo <span class="math">\(=\)</span> como <span><em>primer miembro</em></span>, la que se encuentra en primer lugar en el sentido habitual de lectura, y <span><em>segundo miembro</em></span> a la que aparece en segundo lugar. Aunque como se trata de una igualdad el orden de los miembros puede cambiarse y la ecuación sigue siendo la misma.</p>
+  <p>Una <span><em>solución</em></span> de una ecuación es cada número (en el conjunto que se considere admisible) que al ocupar la posición de la incógnita hace que la igualdad que expresa la ecuación ocurra. Resolver una ecuación es calcular <span><strong>todas</strong></span> sus soluciones. En el concepto de solución es muy importante el conjunto de números donde se permite que aparezca la solución. Por ejemplo, la ecuación <span class="math">\(2x=3\)</span> no tiene ninguna solución en <span class="math">\(\mathbb{Z}\)</span>, puesto no hay ningún entero que al multiplicarlo por 2 dé 3. Sin embargo el número racional <span class="math">\(\frac{3}{2}\)</span> verifica la ecuación, es decir es una solución en el conjunto <span class="math">\(\mathbb{Q}\)</span>.</p>
+  <p>En lo que sigue se consideran ecuaciones cuyos coeficientes y soluciones son números reales o, en algunos ejemplos, complejos.</p>
+</section>
+
+<section>
+  <header>
+    <h1 id="ecuaciones-polinómicas-de-grado-1">Ecuaciones polinómicas de grado 1</h1>
+  </header>
+  <p>Las <span><em>ecuaciones polinómicas</em></span> son aquellas que se pueden escribir de forma que el primer miembro sea un polinomio y el segundo sea 0.</p>
+  <ol>
+  <li><p>La ecuación <span class="math">\(x^2+1=0\)</span> es una ecuación polinómica de grado 2, puesto que ese es el grado del polinomio que aparece en el primer término.</p></li>
+  <li><p>La ecuación <span class="math">\(\dfrac{1}{1+x}=\dfrac{2}{x}\)</span> no tiene la apariencia de una ecuación polinómica, pero puede transformarse en una que sí lo es.</p></li>
+  <li><p>Sin embargo, las ecuaciones <span class="math">\(2^x = 5\)</span> y <span class="math">\(\mathrm{sen}(x)=\frac{1}{2}\)</span> no son ecuaciones polinómicas.</p></li>
+  </ol>
+  <p>Una ecuación polinómica de grado 1 tiene la forma <span class="math">\(ax+b=0\)</span> con <span class="math">\(a\not = 0\)</span> y puede resolverse utilizando las dos siguientes reglas:</p>
+  <ol>
+  <li><p>Si en una igualdad se suma (o resta) en ambos miembros la misma cantidad, la igualdad resultante sigue siendo cierta.</p></li>
+  <li><p>Si en una igualdad ambos miembros se multiplican por un número que tenga inverso, la igualdad resultante sigue siendo cierta.</p></li>
+  </ol>
+  <p>que permiten transformar una ecuación en otra <span><em>equivalente</em></span>, es decir, que tiene exactamente las mismas soluciones.</p>
+  <p>Usando la primera regla, la ecuación <span class="math">\(ax+b=0\)</span> nos permite obtener la ecuación <span class="math">\(ax=-b\)</span> sin más que restar en ambos miembros <span class="math">\(b\)</span> y luego es suficiente dividir por <span class="math">\(a\)</span> (que tiene inverso puesto que es <span class="math">\(a\not =0\)</span>), para obtener <span class="math">\(x=-\dfrac{b}{a}\)</span>.</p>
+  <p>Exactamente las mismas reglas nos permiten transformar ecuaciones en otras de apariencia más sencilla. Tomemos la ecuación del ejemplo anterior</p>
+  <p><span class="math">\[\dfrac{1}{1+x}=\dfrac{2}{x}\]</span></p>
+  <p>si multiplicamos ambos miembros por <span class="math">\((1+x)\cdot x\)</span> podemos eliminar los denominadores:</p>
+  <p><span class="math">\[\require{cancel}\dfrac{\cancel{(1+x)}\cdot x}{\cancel{1+x}}=\dfrac{2\cdot (1+x)\cdot \cancel{x}}{\cancel{x}}\]</span> y nos queda la ecuación</p>
+  <p><span class="math">\[x=2(1+x)\]</span> desarrollando el paréntesis y restando <span class="math">\(x\)</span> en ambos miembros queda <span class="math">\[0=2+x, \mbox{ o bien  } x+2=0\]</span> que es una ecuación polinómica de grado 1 con solución <span class="math">\(x=-2\)</span>.</p>
+</section>
+<section>
+  <header>
+    <h1 id="ecuaciones-polinómicas-de-grado-2">Ecuaciones polinómicas de segundo grado</h1>
+  </header>
+  <p>Una ecuación polinómica de grado 2 con coeficientes en <span class="math">\(\mathbb{C}\)</span> de la forma <span class="math">\[ax^2+bx+c=0\]</span> se resuelve usando la fórmula</p>
+  <p><span class="math">\[x=\dfrac{-b \pm \sqrt{b^2-4ac}}{2a}\]</span></p>
+  <p>(observemos que <span class="math">\(a\not =0\)</span> puesto que la ecuación es de grado 2). El término <span class="math">\(d=b^2-4ac\)</span> se llama <span><em>discriminante</em></span> y según su valor la ecuación tiene una única solución (cuando <span class="math">\(d=0\)</span>) o dos soluciones distintas. Si la ecuación tiene coeficientes reales suele restringirse la búsqueda de soluciones al conjunto de números reales, en ese caso si <span class="math">\(d&lt;0\)</span> su raíz cuadrada no es un número real, así que suele decirse:</p>
+  <ul>
+  <li><p>Si <span class="math">\(d&gt;0\)</span> la ecuación tiene dos soluciones reales distintas.</p></li>
+  <li><p>Si <span class="math">\(d=0\)</span> la ecuación tiene una raíz (o solución) <span><em>doble</em></span>.</p></li>
+  <li><p>Si <span class="math">\(d&lt;0\)</span> no tiene ninguna raíz real, si no dos soluciones complejas conjugadas.</p></li>
+  </ul>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Resuelve las siguientes ecuaciones.</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\(2x^2+5=0\)</span>
+      <span id="e1-1"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= \\frac{0\\pm\\sqrt{-4\\times 2\\times 5}}{2\\times 2}=\\pm\\frac{\\sqrt{-10}}2\\)','e1-1')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\(2x^2+x=0\)</span>
+      <span id="e1-2"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= 0,\ x=-\\frac{1}2\\)','e1-2')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\(3x^2+5x-2=0\)</span>
+      <span id="e1-3"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= -2,\ x=\\frac{1}3\\)','e1-3')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\(x^2 -5x=2\)</span>
+      <span id="e1-4"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= \\frac{5\\pm\\sqrt{33}}{2}\\)','e1-4')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\(x^2 -5x-6=0\)</span>
+      <span id="e1-5"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= 6,\ x= -1\\)','e1-5')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\(2x^2 -x +1=0\)</span>
+      <span id="e1-6"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= \\frac{1\\pm\\sqrt{-7}}{4}\\)','e1-6')" type="button"></span>
+    </p></li>
+  </ol>
+  </article>
+  <p>Para ecuaciones polinómicas de mayor grado, aunque en algunos casos hay una fórmula general, no suele requerirse la memorización del método y en la práctica se usan programas que calculan las soluciones. En algunos casos particulares sí puede intentarse el cálculo, por ejemplo cuando puede factorizarse, usando el método de Ruffini para calcular alguna raíz, o cuando puede reducirse a una ecuación de segundo grado.</p>
+  <ol>
+  <li><p>La ecuación <span class="math">\(x^4-9=0\)</span> puede escribirse usando una de las identidades notables, como <span class="math">\((x^2-3)(x^2+3)=0\)</span>. Ahora puede descomponerse en resolver <span class="math">\(x^2-3=0\)</span> o bien <span class="math">\(x^2+3=0\)</span>; La primera de ellas tiene como soluciones <span class="math">\(\pm \sqrt{3}\)</span> mientras que la segunda no tiene raices reales (sus raices complejas son <span class="math">\(\pm\sqrt{3}i\)</span>).</p>
+    <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
+    <script type="text/javascript">
+      var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-14, 14, 14, -14], axis:true, showCopyright:false, showNavigation:false});
+      curve = board.create('functiongraph',
+                     [function(t){ return(t*t*t*t-9)}, -10,10]);
+    </script>
+
+  </li>
+  <li><p>La ecuación <span class="math">\(x^3-6x^2+9x=0\)</span> puede resolverse sacando factor común <span class="math">\(x\)</span>, con lo que obtenemos dos factores <span class="math">\(x(x^2-6x+9)=0\)</span> así que una solución es <span class="math">\(x=0\)</span> y la otra es <span class="math">\(x=3\)</span> que es la raíz doble de <span class="math">\(x^2-6x+9=0\)</span>.</p>
+
+    <div id="box2" class="jxgbox" style="width:400px; height:400px;"></div>
+    <script type="text/javascript">
+      var board = JXG.JSXGraph.initBoard('box2', {boundingbox: [-5, 5, 5, -5], axis:true, showCopyright:false, showNavigation:false});
+      curve = board.create('functiongraph',
+                     [function(t){ return(t*t*t-6*t*t+9*t)}, -10,10]);
+    </script>
+
+  </li>
+
+  <li><p>Para <span class="math">\(x^4-6x^2+9=0\)</span> podemos usar la sustitución <span class="math">\(t=x^2\)</span> y obtenemos una ecuación de grado 2: <span class="math">\(t^2-6t+9=0\)</span> que tiene una raíz doble: <span class="math">\(t=3\)</span>; así que nos queda resolver <span class="math">\(x^2=3\)</span> y obtenemos que hay dos soluciones dobles, <span class="math">\(x=\sqrt{3}\)</span> y <span class="math">\(x=-\sqrt{3}\)</span>.</p>
+    <div id="box3" class="jxgbox" style="width:400px; height:400px;"></div>
+    <script type="text/javascript">
+      var board = JXG.JSXGraph.initBoard('box3', {boundingbox: [-5, 10, 5, -1], axis:true, showCopyright:false, showNavigation:false});
+      curve = board.create('functiongraph',
+                     [function(t){ return(t*t*t*t-6*t*t+9)}, -10,10]);
+    </script>
+
+
+  </li>
+  </ol>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Resuelve:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\(x^6+28x^3+27=0\)</span>
+      <span id="e2-1"><input name="execute" value="&#x25B6;" onclick="show(`
+        <br>Hacemos el cambio de variable \\(y=x^3\\) y resolvemos \\(y^2+28y+27=0\\). Esto nos da los valores \\(y=-1\\) y \\(y=-27\\). Por tanto \\(x=-1\\) y \\(x=-3\\) son soluciones de la ecuación original.
+        `,
+        'e2-1')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\(x^3-4x^2-7x-2=0\)</span>
+      <span id="e2-2"><input name="execute" value="&#x25B6;" onclick="show(`
+        <br>Probamos, usando Ruffini, con los divisores del término independiente de la ecuación: \\(\\pm 1\\), \\(\\pm 2\\).<br> Resulta que \\(-1\\) es solución de la ecuación y que \\(x^3-4x^2-7x-2=(x^2 - 5x - 2)(x+1)\\).<br> Si resolvemos \\(x^2 - 5x - 2\\) (ya lo hicimos arriba), obtenemos \\(x= \\frac{5\\pm\\sqrt{33}}{2}\\). Por tanto las soluciones son \\(x= \\frac{5\\pm\\sqrt{33}}{2}\\) y \\(x=-1\\).
+        `,
+        'e2-2')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\(x+\dfrac{x^2}{2}= \dfrac{(x+2)^2}{2}\)</span>
+      <span id="e2-3"><input name="execute" value="&#x25B6;" onclick="show(`
+        <br>Restando ambos términos de la igualdad llegamos a \\(x+2=0\\), por lo que la solución es \\(x=-2\\).
+        `,
+        'e2-3')" type="button"></span>
+      </p></li>
+    <li><p><span class="math">\((3x+1)(x^2+x-2)=0\)</span>
+      <span id="e2-4"><input name="execute" value="&#x25B6;" onclick="show(`
+        <br>Por la expresión de la ecuación, las soluciones serán las de \\(3x+1=0\\) y \\(x^2+x-2=0\\).
+        <br> De la primera ecuación, deducimos que \\(x=-\frac{1}3\\).
+        <br> De la segunda \\(x=1\\) y \\(x=-2\\).
+        `,
+        'e2-4')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\(\sqrt{x+2} +3= x-1\)</span>
+      <span id="e2-5"><input name="execute" value="&#x25B6;" onclick="show(`
+        <br>Dejamos la raíz en uno de los miembros de la igualdad para poder elevar al cuadrado y eliminarla. Así llegamos a \\(\\sqrt{x+2}=x-4\\).
+        <br> Por tanto, \\(x+2=(x-4)^2=x^2-8x+16\\) y en consecuencia \\(x^2-9x+14=0\\).
+        <br> Las soluciones son \\(x=2\\) y \\(x=7\\).
+        `,
+        'e2-5')" type="button"></span>
+    </p></li>
+    <li><p><span class="math">\(\dfrac{1}{x^2}-2= \dfrac{3-x}{3x^2}\)</span>
+      <span id="e2-6"><input name="execute" value="&#x25B6;" onclick="show(`
+        <br>
+        Descartamos la solución \\(x=0\\), y multiplicamos en ambos lados de la igualdad por \\(3x^2\\). Obtenemos así \\(3-6x^2=3-x\\), que equivale a \\(6x^2-x=0\\).
+        <br>Las soluciones de esta última ecuación \\(x=0\\) y \\(x=-\\frac{1}6\\), pero \\(x=0\\) lo habíamos descartado inicialmente, así que nos queda como única solución \\(x=-\\frac{1}6\\).
+        `,
+        'e2-6')" type="button"></span>
+    </p></li>
+    </ol>
+  </article>
+</section>
+
+
+<div class="footnotes">
+<hr />
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Javier Lobillo y Evangelina Santos Aláez para el Curso Cero de la ETSIIT de la Universidad de Granada.</p>
+</div>
+
+<script type="text/javascript" language="javascript">
+  function show(str, obj){
+    document.getElementById(obj).innerHTML = str;
+    MathJax.Hub.Typeset();
+  }
+</script>
+
+</body>
+</html>
