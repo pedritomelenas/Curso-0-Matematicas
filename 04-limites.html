@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Límites y continuidad</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Límites y continuidad</h1>
+</div>
+
+<section>
+  <header>
+    <h1 id="continuidad">Continuidad</h1>
+  </header>
+  <p>Una función <span class="math">\(f\)</span> es <em>continua</em> en un punto <span class="math">\(a\)</span> de su dominio si se cumple que <span class="math">\[\lim_{x \to a} f(x) = f(a).\]</span></p>
+
+  En la siguiente gráfica se representa la función
+  \[
+  f(x)=\begin{cases} x^2+\frac{12}2x+\frac{17}2,       &amp; \text{si $x < -1$}, \\
+                     \frac{2}{3}x + \frac{5}3,         &amp; \text{si $x \ge -1$}.
+  \end{cases}
+  \]
+  Los deslizadores siven para elegir el valor de \(x\) y \(\delta\). En el eje de abscisas se representa el intervalo \(I=[x,x+\delta]\). En el eje de ordenadas se dibuja la imagen de \(I\) por \(f\) . Se puede observar que entorno a \(-1\) se produce una discontinuidad que se refleja en la imagen de \(I\) por \(f\).
+  <p><div id="box_p2" class="jxgbox" style="width:600px; height:600px; display:inline-block;"></div>
+  </p>
+  <!--basado en el ejemplo http://www.mathdemos.mobi/domainrange/index.shtml
+  añadido deslizador de delta y visualizador de la imagen del intervalo [s,s+delta]
+  -->
+  <script type="text/javascript">//<![CDATA[
+  JXG.Options.text.useMathJax = true;
+  var board_p2 = JXG.JSXGraph.initBoard('box_p2', {boundingbox: [-6, 5, 4, -5], axis:true,grid:true,showCopyright:false,showNavigation:false});
+
+  var f_p2 = function(x) {
+  	if (x>=-5 && x< -1){
+  		return (x*x+6.5*x+8.5);
+  	} else if (x>=-1 && x<=2){
+  		return 2/3*x + 5/3;
+  	}
+  };
+
+  graph_p2=board_p2.createElement('functiongraph',[f_p2,-6,4],{strokeColor:'black'});
+  var ep1_p2=board_p2.create('point',[-5,1],{strokeColor:'black',fillColor:'black',name:''});
+  var ep2_p2=board_p2.create('point',[-1,3],{strokeColor:'black',fillColor:'white',name:''});
+  var ep3_p2=board_p2.create('point',[-1,1],{strokeColor:'black',fillColor:'black',name:''});
+  var ep4_p2=board_p2.create('point',[2,3],{strokeColor:'black',fillColor:'black',name:''});
+  ep1_p2.setProperty({fixed:true});
+  ep2_p2.setProperty({fixed:true});
+  ep3_p2.setProperty({fixed:true});
+  ep4_p2.setProperty({fixed:true});
+
+  var s_p2 = board_p2.createElement('slider',[[-5,-4],[2,-4],[-5,-1.2,2]],{name:"x"});
+  var d_p2 = board_p2.createElement('slider',[[-4.5,-3.5],[-1,-3.5],[0,1,2]],{name:"\u03B4"});
+  var sf=board_p2.createElement('functiongraph',[f_p2,function(){return s_p2.Value();},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3, strokeColor:'red'})
+
+  var sf=board_p2.createElement('functiongraph',[function(){return 0;},function(){return s_p2.Value();},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3})
+
+  var pp1 = board_p2.create('point', [0,function(){return f_p2(s_p2.Value());}],{name:"",visible:false})
+
+  var p2 = board_p2.create('point', [0,function(){return f_p2(s_p2.Value()+d_p2.Value());}],{name:"", visible:false})
+
+  var pe1 = board_p2.create('point', [0,1],{name:"", visible:false})
+  var pe2 = board_p2.create('point', [0,3],{name:"", visible:false})
+
+  var s1 = board_p2.create('segment',[function(){if(s_p2.Value()<-1){return pp1;}{return pe2;}}, function(){if(s_p2.Value()+d_p2.Value()<-1){return p2;}{return pe2;}}], {strokeWidth:3});
+
+  var s2 = board_p2.create('segment',[
+      function(){
+        if(s_p2.Value()>=-1 && s_p2.Value()<=2){return pp1;}
+        else{return pe1;}},
+      function(){
+        if(s_p2.Value()+d_p2.Value()>=-1 && s_p2.Value()+d_p2.Value()<=2){return p2;}
+        else if(s_p2.Value()+d_p2.Value()>2){return pe2;}
+        else{return pe1;}}],
+     {strokeColor:"blue",strokeWidth:3});
+
+  // ]]>
+  </script>
+
+
+  <p>Las funciones elementales que hemos visto en la sesión anterior son continuas. Por tanto, se tiene que <span class="math">\[\lim_{x \to -1} \left( x^2-x+1 \right) =3, \quad  \lim_{x \to 0} \cos(x)  = 1, \quad \lim_{x \to e^2} \log(x)= 2 .\]</span> Además, la suma, producto y composición de funciones continuas da como resultado una función continua. Por ejemplo, la función <span class="math">\(f(x)=x^2+\log(x)\)</span> es continua, con lo que, <span class="math">\[\lim_{x \to e^2} x^2+\log(x)= e^4+2.\]</span></p>
+  <h1 id="cálculo-de-límites">Cálculo de límites</h1>
+  <h2 id="límites-laterales">Límites laterales</h2>
+  <p>Hay veces en las que el cálculo del límite en un punto <span class="math">\(a\)</span> depende de la posición, a la izquierda o a la derecha, de los puntos que tomemos acercándose a <span class="math">\(a\)</span>. Esta situación, por ejemplo, se presenta en los puntos que dividen las partes de una función definida a trozos.</p>
+  <p>Consideremos la siguiente función definida a trozos:</p> <span class="math">\[f(x)=\begin{cases} x^2+1,       &amp; \text{si $x \le 0$}, \\
+                     e^x,         &amp; \text{si $0&lt; x \le 1$}, \\
+                     \operatorname{sen}(\pi x), &amp; \text{si $x &gt;1$}.
+  \end{cases}\]</span>
+
+
+  <p>Vamos a calcular el límite de la función dada en los puntos ``conflictivos&quot;; esto es, en los puntos donde la expresión de <span class="math">\(f\)</span> cambia. En este caso son <span class="math">\(x=0\)</span>, y <span class="math">\(x=1\)</span>. Como a ambos lados de cada uno de estos puntos la expresión de la función es distinta, nos vemos obligados a calcular los límites laterales para decidir si la función <span class="math">\(f\)</span> tiene límite en ellos.</p>
+  <p><span class="math">\[\begin{aligned}
+  \lim_{x \to 0^-}f(x) &amp; = \lim_{x \to 0} x^2+1= 1, \\
+  \lim_{x \to 0^+}f(x) &amp; = \lim_{x \to 0} e^x= e^0=1,\end{aligned}\]</span></p>
+
+  <!--
+  <input id="mirango" type="range" name="aName" min="-5" max="5" step="0.1"/>
+  <div id="salida"> </div>
+
+  <script>
+  var deslizador = document.getElementById("mirango");
+  var objetosalida = document.getElementById("salida");
+  var f=function(x){
+    if (x<=0){
+  		return (x*x+1);
+  	} else if (x>0 && x<=1){
+  		return Math.exp(x);
+  	} else {
+      return Math.sin(Math.PI*x)
+    }
+  }
+  deslizador.onchange=function(){
+    let x=this.value;
+    objetosalida.innerHTML="f("+x+")="+f(x);
+  }
+  </script>-->
+  <p>Dada la coincidencia de ambos límites laterales, concluimos que la función dada sí tiene límite en el punto <span class="math">\(0\)</span> y vale <span class="math">\(1\)</span>; es decir existe el límite <span class="math">\(\displaystyle \lim\nolimits_{x \to 0} f(x) = 1\)</span>. Como, además, este límite coincide con el valor de <span class="math">\(f(0)=1\)</span>, podemos concluir que la función <span class="math">\(f\)</span> es continua en el punto <span class="math">\(0\)</span>.</p>
+  <p>Por otra parte:</p>
+  <p><span class="math">\[\begin{aligned}
+  \lim_{x \to 1^-}f(x) &amp; = \lim_{x \to 1} e^x= e^1=e, \\
+  \lim_{x \to 1^+}f(x) &amp; = \lim_{x \to 1}  \operatorname{sen}(\pi x)= \operatorname{sen}(\pi)=0.\end{aligned}\]</span></p>
+  <p>Como ambos límites laterales son distintos, concluimos ahora que la función <span class="math">\(f\)</span> no tiene límite en el punto <span class="math">\(1\)</span>; es decir no existe el límite <span class="math">\(\displaystyle \lim\nolimits_{x \to 1}f(x)\)</span>. Por tanto, esta función <span class="math">\(f\)</span> no es continua en el punto <span class="math">\(1\)</span>; de hecho, <span class="math">\(f\)</span> presenta una “discontinuidad de salto”. La gráfica de \(f\) tiene el siguiente aspecto.</p>
+
+  <div id="box" class="jxgbox" style="width:400px; height:200px;"></div>
+  <script type="text/javascript">
+    var f=function(x){
+      if (x<=0){
+    		return (x*x+1);
+    	} else if (x>0 && x<=1){
+    		return Math.exp(x);
+    	} else {
+        return Math.sin(Math.PI*x)
+      }
+    }
+
+    var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-14, 10, 14, -4], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [f, -10,15]);
+    var valorx = board.create('slider', [[-10, -2], [10, -2], [-10, 0, 10]],{name:'',snapWidth:.1});
+    var valordef = board.create('text',[2,4,function(){return "f("+valorx.Value().toFixed(2)+")="+f(valorx.Value()).toFixed(2)}])
+  </script>
+
+  <p>Nuestra intención con el siguiente ejemplo es destacar que hay funciones que “aparentemente” no son funciones a trozos, pero que en realidad sí lo son. Esto es importante tenerlo en cuenta a la hora de calcular algunos límites.</p>
+  <p>Estudiemos la existencia de <span class="math">\(\displaystyle \lim_{x \to 0} \frac{|x|}{x}\)</span>. Recordemos que la función valor absoluto no es más que un ejemplo de función a trozos: <span class="math">\[|x|= \begin{cases} x, \ &amp; \text{ si  } x \ge 0, \\
+                              -x, \ &amp; \text{ si  } x &lt;0.
+  \end{cases}\]</span> El límite, entonces, que nos piden requiere el cálculo de los límites laterales:</p>
+  <p><span class="math">\[\require{cancel}\begin{aligned}
+  \lim_{x \to 0_-}\frac{|x|}{x}&amp;= \lim_{x \to 0}\frac{-x}{x}= \lim_{x \to 0}\frac{- \cancel{x}}{\cancel{x}}= -1, \\
+  \lim_{x \to 0_+}\frac{|x|}{x}&amp;= \lim_{x \to 0}\frac{x}{x}= \lim_{x \to 0}\frac{ \cancel{x}}{\cancel{x}}= 1.\end{aligned}\]</span></p>
+  <p>Por tanto, no existe el límite <span class="math">\(\displaystyle \lim_{x \to 0} \frac{|x|}{x}.\)</span></p>
+  <div id="box2" class="jxgbox" style="width:400px; height:150px;"></div>
+  <script type="text/javascript">
+    var f=function(x){
+      if (x<=0){
+    		return (-1);
+    	} else {
+        return (1);
+      }
+    }
+
+    var board = JXG.JSXGraph.initBoard('box2', {boundingbox: [-10, 3, 10, -3], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [f, -10,15]);
+  </script>
+  <br>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Estudia la continuidad de las siguientes funciones.</p>
+    </header>
+    <ol>
+    <li> <span class="math">\(f(x)= \begin{cases}
+        e^x, &amp; \text{si $x &lt;0$}, \\
+        \cos(x), &amp; \text{si $x\geq 0$}.
+        \end{cases}\)</span><br>
+        <p><span id="e1-1"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+          <br>Tanto \\(e^x\\) como \\(\\cos(x)\\) son funciones continuas. Por tanto, la función \\(f\\) es continua en los intervalos \\((-\\infty,0)\\), \\((0,\\infty)\\).
+          <br>Veamos que ocurre en el \\(0\\). Para ello calculamos \\(\\lim\\nolimits_{x\\to 0^-} e^x=1=f(0)\\) (no hace falta calcular el límite por la derecha pues la función \\(\\cos(x)\\) es continua y por tanto ese límite vale \\(\\cos(0)\\)). Concluimos que la función es contínua en todo \\(\\mathbb{R}\\).
+          <br>Ésta es la gráfica de la función.
+          <br>
+          <div id='ebox1-1' class='jxgbox' style='width:400px; height:150px;display:inline-block;text-align: center;''> </div>
+          <br>
+          `,
+          'e1-1');pintae11();" type="button"></span></p>
+          <script type="text/javascript">
+          function pintae11(){
+            var f=function(x){
+              if (x<0){
+                return (Math.exp(x));
+              } else {
+                return (Math.cos(x));
+              }
+            }
+
+            var board = JXG.JSXGraph.initBoard('ebox1-1', {boundingbox: [-10, 3, 10, -3], axis:true, showCopyright:false, showNavigation:false});
+            curve = board.create('functiongraph',
+                           [f, -10,15]);
+          }
+          </script>
+      </li>
+    <li><span class="math">\(f(x)= \begin{cases}
+        3x^2+x, &amp; \text{si $x &lt;0$}, \\
+        0, &amp; \text{si $x=0$}, \\
+        \frac{1}{x}, &amp; \text{si $x&gt;0$}.
+        \end{cases}\)</span>
+        <p><span id="e1-2"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+          <br>La función \\(3x^2+x\\) es contínua en todo \\(\\mathbb{R}\\), y la función \\(1/x\\) lo es en el intervalo \\((0,\\infty)\\). Por tanto sólo falta estudiar qué ocurre en el \\(0\\). Para ello calculamos \\(\\lim\\nolimits_{x\\to 0^-} (3x^2+x)=1=f(0)\\) y \\(\\lim\\nolimits_{x\\to 0^+} \\frac{1}x=+\\infty\\). Concluimos que la función es contínua en todo \\(\\mathbb{R}\\setminus\\{0\\}\\).
+          <br>Ésta es la gráfica de la función.
+          <br>
+          <div id='ebox1-2' class='jxgbox' style='width:400px; height:150px;display:inline-block;text-align: center;''> </div>
+          <br>
+          `,
+          'e1-2');pintae12();" type="button"></span></p>
+          <script type="text/javascript">
+          function pintae12(){
+            var f=function(x){
+              if (x<=0){
+                return (3*x*x+x);
+              } else {
+                return (1/x);
+              }
+            }
+
+            var board = JXG.JSXGraph.initBoard('ebox1-2', {boundingbox: [-5, 3, 10, -3], axis:true, showCopyright:false, showNavigation:false});
+            curve = board.create('functiongraph',
+                           [f, -10,15]);
+          }
+          </script>
+      </li>
+    </ol>
+  </article>
+
+</section>
+
+<section>
+  <header>
+    <h1 id="indeterminaciones">Indeterminaciones</h1>
+  </header>
+  <h2 id="infinito-dividido-por-infinito">Infinito dividido por infinito</h2>
+  <p>El procedimiento para resolver esta indeterminación no es único; depende del tipo de función que la presente. Con los siguientes ejemplos, estableceremos cómo actuar ante límites similares.</p>
+  <p>Vamos a resolver tres tipos de límites que presentan la característica común de ser cocientes de funciones polinómicas. Es decir, vamos a estudiar límites de funciones racionales cuando la variable tiende a infinito. Veremos que la forma de actuar, para evitar la indeterminación, en todos ellos es siempre la misma: dividir en el numerador y en el denominador por la máxima potencia que aparezca en la expresión.</p>
+  <ol>
+  <li><p>Si el grado del numerador es mayor que el grado del denominador, el resultado del límite será, dependiendo de los coeficientes, <span class="math">\(+\infty\)</span> o <span class="math">\(-\infty\)</span>.</p>
+  <p><span class="math">\[\begin{aligned}
+  \lim_{x \to +\infty} \frac{x^3-2x^2+5}{3x^2-x} &amp; = \lim_{x \to +\infty} \frac{\frac{x^3}{x^3}-\frac{2x^2}{x^3}+\frac{5}{x^3 }}{\frac{3x^2}{x^3}- \frac{x}{x^3}} \\
+  &amp; = \lim_{x\to +\infty} \frac{1+\frac{2}{x} + \frac{5}{x^3}}{\frac{3}{x} -\frac{1}{x^2}}, \end{aligned}\]</span></p>
+  <p>con lo que el numerador tiende a uno y el denominador a cero y el límite que buscamos es <span class="math">\(+\infty\)</span>.</p></li>
+  <li><p>Si el numerador y el denominador tienen el mismo grado, el límite será el cociente de los coeficientes líderes. Por ejemplo,</p>
+  <p><span class="math">\[\begin{aligned}
+  \lim_{x \to +\infty} \frac{5x^2-2x}{7x^2+x+1} &amp; = \lim_{x \to +\infty} \frac{\frac{5x^2}{x^2}-\frac{2x}{x^2}}{\frac{7x^2}{x^2}+\frac{x}{x^2}+\frac{1}{x^2}} \\
+  &amp; = \lim_{x\to +\infty} \frac{ 5- \frac{2}{x}}{7+\frac{1}{x}+\frac{1}{x^2}} = \frac{5}{7}\, .\end{aligned}\]</span></p></li>
+  <li><p>Si el grado del denominador es mayor que el grado del numerador, el límite nos saldrá cero.</p>
+  <p><span class="math">\[\begin{aligned}
+  \lim_{x\to -\infty} \frac{x^2+3}{x^5+2x+1} &amp; = \lim_{x \to -\infty} \frac{\frac{x^2}{x^5}+\frac{3}{x^5}}{\frac{x^5}{x^5}+\frac{2x}{x^5}+\frac{1}{x^5}} \\
+  &amp; = \lim_{x \to -\infty} \frac{\frac{1}{x^3}+\frac{3}{x^5}}{1+\frac{2}{x^4}+\frac{1}{x^5}} =0.\end{aligned}\]</span></p></li>
+  </ol>
+  <h2 id="cero-dividido-por-cero">Cero dividido por cero</h2>
+  <p>Si el límite de un cociente de polinomios presenta una indeterminación de la forma cero partido por cero eso quiere decir que ambos polinomios son divisibles por <span class="math">\((x-a)\)</span>, donde <span class="math">\(a\)</span> es el punto donde estamos calculando el límite. Simplificando dicho factor, tantas veces como sea necesario, eliminamos la indeterminación.</p>
+  <p><span class="math">\[\begin{aligned}
+  \lim_{x \to 3} \frac{x^{4}-5x^{3}+3x^{2}+9x}{x^{3}-7x^{2}+16x-12} &amp;
+      = \lim_{x \to 3}  \frac{(x-3)(x^3-2x^2-3x)}{(x-3)(x^2-4x+4)} \\
+  &amp; = \lim_{x\to 3} \frac{x^3-2x^2-3x}{x^2-4x+4} = \frac{0}{1}=0.\end{aligned}\]</span></p>
+  <h2 id="infinito-menos-infinito">Infinito menos infinito</h2>
+  <p>Un ejemplo usual de indeterminación de este tipo se presenta cuando tenemos una diferencia de funciones que no se pueden simplificar o cancelar directamente. En el ejemplo que tenemos a continuación vamos a usar las identidades notables que hemos visto, en concreto que suma por diferencia es diferencia de cuadrados, para eliminar raíces multiplicando y dividiendo por, lo que se suele llamar, el <em>conjugado</em>.</p>
+  <p><span class="math">\[\begin{aligned}
+  \lim_{x \to + \infty} \left( \sqrt{x+2}-\sqrt{x-2}\, \right) &amp; =
+      \lim_{x \to + \infty} \frac{\left(\sqrt{x+2}-\sqrt{x-2} \right) \cdot
+              \left(\sqrt{x+2}+\sqrt{x-2} \right) }{ \left(\sqrt{x+2}+ \sqrt{x-2} \right) } \\
+  &amp; =  \lim_{x \to +\infty} \frac{x+2-(x-2)}{ \left(\sqrt{x+2}+ \sqrt{x-2} \right) } \\
+  &amp; = \lim_{x \to +\infty}  \frac{4}{ \left(\sqrt{x+2}+ \sqrt{x-2} \right) } = 0.\end{aligned}\]</span></p>
+  <h2 id="cero-por-infinito">Cero por infinito</h2>
+  <p>El producto de funciones se puede escribir como un cociente usando que <span class="math">\[f(x)g(x)= \frac{f(x)}{\frac{1}{g(x)}}.\]</span> Si tenemos una indeterminación de la forma “cero por infinito” y aplicamos el truco anterior, dependiendo de qué factor pasemos al denominador, obtenemos una indeterminación de la forma <span class="math">\(\frac{0}{0}\)</span> o <span class="math">\(\frac{\infty}{\infty}\)</span>.</p>
+  <p>Por ejemplo, el cálculo del límite siguiente <span class="math">\[\lim_{x \to 0} x \log (x)= \lim_{x \to 0} \frac{x}{1/\log(x)}  = \lim_{x\to 0} \frac{\log(x)}{1/x},\]</span> lo podemos ver de cualquiera de las tres formas anteriores. En la primera tenemos una indeterminación <span class="math">\(0\cdot \infty\)</span>, en la segunda tenemos una indeterminación <span class="math">\(\frac{0}{0}\)</span> y la última es <span class="math">\(\frac{\infty}{\infty}\)</span>.</p>
+  <h2 id="cero-elevado-a-cero-infinito-elevado-a-cero-uno-elevado-a-infinito">Cero elevado a cero, infinito elevado a cero, uno elevado a infinito</h2>
+  <p>Las indeterminaciones en las que aparecen funciones elevadas a funciones siempre se pueden pasar a productos o cocientes utilizando logaritmos y exponenciales. Recordemos que la función exponencial y logaritmo son inversas una de la otra o, lo que es lo mismo, que <span class="math">\[e^{\log(x)}=x \quad \text{y} \quad \log(e^x)=x.\]</span> Usando esto, si tenemos un par de funciones <span class="math">\(f(x)\)</span> y <span class="math">\(g(x)\)</span>, entonces, usando que el exponente de la función dentro del logaritmo sale multiplicando, <span class="math">\[f(x)^{g(x)}     = e^{\log\left( f(x)^{g(x)}\right) }  = e^{g(x)\log(f(x))}.\]</span></p>
+  <p>Resumiendo, hemos cambiado el problema de estudiar <span class="math">\(f(x)^{g(x)}\)</span> por el de <span class="math">\(g(x)\log(f(x))\)</span>.</p>
+  <p>El cálculo del límite de <span class="math">\(x^x\)</span>, cuando <span class="math">\(x\)</span> tiende a cero, pasa por resolver una indeterminación de la forma <span class="math">\(0^0\)</span>. Utilizando exponenciales y logaritmos <span class="math">\[\lim_{x \to 0 } x^x = \lim_{x \to  0} e^{\log(x^x)} =\lim_{x \to  0} e^{x \log(x)}\]</span> pasamos a estudiar <span class="math">\(\lim_{x \to  0} x\log(x)\)</span>. El cálculo de este último lo veremos en la carrera.</p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Calcula los siguientes límites.</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\(\displaystyle \lim_{x \to  2} \frac{x^2-4}{x^3-4x}\)</span>
+    <span id="e2-1"><input name="execute" value="&#x25B6;" onclick="show('\\(= \\dfrac{1}2\\)','e2-1')" type="button"></span>
+      .</p></li>
+    <li><p><span class="math">\(\displaystyle \lim_{x \to 0} \frac{x^6+2x^4-x^3}{x^4-5x^2}\)</span>
+      <span id="e2-2"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-2')" type="button"></span>.
+    </p></li>
+    <li><p><span class="math">\(\displaystyle \lim_{x \to 1} \frac{{x}^{3}-{x}^{2}-x+1}{x^2-1}\)</span>
+      <span id="e2-3"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-3')" type="button"></span>.
+    </p></li>
+    <li><p><span class="math">\(\displaystyle \lim_{x \to  0} \left( \frac{1}{x^2}-\frac{1}{x^3}\right)\)</span>
+      <span id="e2-4"><input name="execute" value="&#x25B6;" onclick="show('. Este límite no existe, por la izquierda de \\(0\\) vale \\(\\infty\\) y por la derecha \\(-\\infty\\)','e2-4')" type="button"></span>.
+    </p></li>
+    <li><p><span class="math">\(\displaystyle \lim_{x \to  +\infty} \frac{1}{x^2} \left(\frac{x^2+1}{3x} - \frac{2x^3}{x^2+2} \right)\)</span>
+      <span id="e2-5"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-5')" type="button"></span>.
+    </p></li>
+    <li><p><span class="math">\(\displaystyle \lim_{x \to  +\infty} \frac{3x^3-2x+1}{x^3+10x^2}\)</span>
+      <span id="e2-6"><input name="execute" value="&#x25B6;" onclick="show('\\(= 3\\)','e2-6')" type="button"></span>.
+    </p></li>
+    <li><p><span class="math">\(\displaystyle \lim_{x \to  -\infty} \frac{7x-8}{4-5x^2}\)</span>
+      <span id="e2-7"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-7')" type="button"></span>.
+    </p></li>
+    <li><p><span class="math">\(\displaystyle \lim_{x \to  +\infty} \frac{\sqrt{x+1}-\sqrt{x}}{x^2}\)</span>
+      <span id="e2-8"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-8')" type="button"></span>.
+    </p></li>
+    <li><p><span class="math">\(\displaystyle \lim_{x \to  +\infty} \frac{x+3}{x\sqrt{x+1}-x\sqrt{x-1}}\)</span>
+      <span id="e2-9"><input name="execute" value="&#x25B6;" onclick="show('\\(= \\infty\\)','e2-9')" type="button"></span>.
+    </p></li>
+    </ol>
+  </article>
+</section>
+<section>
+  <header>
+    <h1 id="asíntotas">Asíntotas</h1>
+  </header>
+  <h2 id="asíntota-vertical">Asíntota vertical</h2>
+  <p>Una función <span class="math">\(f\)</span> tiene a la recta <span class="math">\(x=a\)</span> como asíntota vertical si <span class="math">\[\lim_{x \to a^+}f(x)= \pm \infty \quad \text{ o } \quad
+  \lim_{x \to a^-}f(x)= \pm \infty.\]</span></p>
+
+  <p>Por ejemplo, la función \(f(x)=(x-2)^{-1}\) tiene una asíntota vertical en \(2\).</p>
+  <div id="box3" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var f=function(x){
+        return(1/(x-2))}
+
+    var board = JXG.JSXGraph.initBoard('box3', {boundingbox: [-10, 10, 10, -10], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [f, -10,15]);
+    p=board.create('point',[2,30]);
+    q=board.create('point',[2,-30]);
+    as = board.create('line',[p,q],{strokeColor:"red"});
+  </script>
+
+  <p>La función <span class="math">\(f(x)= \frac{x^2+1}{x^2-1}\)</span> tiene dos asíntotas verticales: <span class="math">\(x=1\)</span> y <span class="math">\(x=-1\)</span> que son los dos valores que anulan al denominador, ya que <span class="math">\[\lim_{x \to 1^+} \frac{x^2+1}{x^2-1} = \lim_{x \to -1^{-}} \frac{x^2+1}{x^2-1}= +\infty.\]</span> ¿Cuál es valor de los otros dos límites laterales?</p>
+
+  <div id="box4" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var f=function(x){
+        return((x*x+1)/(x*x-1))}
+
+    var board = JXG.JSXGraph.initBoard('box4', {boundingbox: [-10, 10, 10, -10], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [f, -10,15]);
+    p=board.create('point',[1,30]);
+    q=board.create('point',[1,-30]);
+    as = board.create('line',[p,q],{strokeColor:"red"});
+    p1=board.create('point',[-1,30]);
+    q1=board.create('point',[-1,-30]);
+    as1 = board.create('line',[p1,q1],{strokeColor:"red"});
+  </script>
+
+  <h2 id="asíntota-horizontal">Asíntota horizontal</h2>
+  <p>Una función <span class="math">\(f\)</span> tiene a la recta <span class="math">\(y=b\)</span> como asíntota horizontal si <span class="math">\[\lim_{x \to +\infty} f(x)= b \quad \text{ o } \quad
+  \lim_{x \to -\infty} f(x)=b.\]</span></p>
+
+  <p>La función <span class="math">\(f(x)= \frac{3x^2+2x+1}{x^2-x+5}\)</span> tiene a la recta <span class="math">\(y=3\)</span> como asíntota horizontal ya que <span class="math">\[\lim_{x \to +\infty}\frac{3x^2+2x+1}{x^2-x+5}=3.\]</span></p>
+
+  <div id="box5" class="jxgbox" style="width:400px; height:150px;"></div>
+  <script type="text/javascript">
+    var f=function(x){
+        return((3*x*x+2*x+1)/(x*x-x+5))}
+
+    var board = JXG.JSXGraph.initBoard('box5', {boundingbox: [-20, 10, 20, -5], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [f, -20,20]);
+    p=board.create('point',[-30,3]);
+    q=board.create('point',[30,3]);
+    as = board.create('line',[p,q],{strokeColor:"red"});
+  </script>
+
+  <h2 id="asíntota-oblicua">Asíntota oblicua</h2>
+  <p>Una función <span class="math">\(f\)</span> tiene a la recta <span class="math">\(y=mx+n\)</span> como asíntota oblicua (<span class="math">\(m \neq 0\)</span>) si <span class="math">\[\lim_{x \to +\infty} \left( f(x)-(mx+n) \right) = 0 \quad \text{ o } \quad
+  \lim_{x \to -\infty} \left( f(x)-(mx+n) \right) =0.\]</span></p>
+
+  <p>Para calcular los valores <span class="math">\(m\)</span> y <span class="math">\(n\)</span> hacemos lo siguiente: <span class="math">\[m=\lim_{x \to \infty} \frac{f(x)}{x} \quad \text{y} \quad n= \lim_{x \to \infty} \left( f(x)-mx \right)\]</span></p>
+  <p>Veamos si la función <span class="math">\(f(x)=\frac{3x^3+1}{x^2+1}\)</span> tiene asíntotas oblicuas. En primer lugar calculamos el posible valor de <span class="math">\(m\)</span>: <span class="math">\[m= \lim_{x \to +\infty} \frac{f(x)}{x} = \lim_{x \to +\infty} \frac{\frac{3x+1}{x^2+1}}{x} = \lim_{x \to +\infty} \frac{3x^3+1}{x^3+x}= 3.\]</span> En segundo lugar, calculamos el valor de <span class="math">\(n\)</span>:</p>
+  <p><span class="math">\[\begin{aligned}
+  n &amp; = \lim_{x \to +\infty} \left( f(x)-mx \right) = \lim_{x \to +\infty} \left( \frac{3x^3+1}{x^2+1}-3x  \right) \\
+  &amp; = \lim_{x \to +\infty} \frac{3x^3+1-3x^3-3x}{x^2+1} = \lim_{x \to +\infty} \frac{1-3x}{x^2+1}=0.\end{aligned}\]</span></p>
+  <p>Por tanto, la recta <span class="math">\(y=3x\)</span> es una asíntota oblicua de <span class="math">\(f\)</span>.</p>
+
+  <div id="box6" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var f=function(x){
+        return((3*x*x*x+1)/(x*x+1))}
+
+    var board = JXG.JSXGraph.initBoard('box6', {boundingbox: [-10, 10, 10, -10], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [f, -20,20]);
+    p=board.create('point',[-30,-90]);
+    q=board.create('point',[30,90]);
+    as = board.create('line',[p,q],{strokeColor:"red"});
+  </script>
+  <br>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Estudia las asíntotas de las siguientes funciones</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\(\displaystyle  f(x)=\frac{x^2+x+1}{x^2-2}.\)</span>
+      <p><span id="e3-1"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+        <br>Tiene una asíntota horizontal \\(y=1\\) y dos verticales \\(x=\\pm \\sqrt{2}\\).
+        <br>Ésta es la gráfica de la función.
+        <br>
+        <div id='ebox3-1' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;''> </div>
+        <br>
+        `,
+        'e3-1');pintae31();" type="button"></span></p>
+        <script type="text/javascript">
+        function pintae31(){
+          var f=function(x){
+              return (x*x+x+1)/(x*x-2);
+          }
+
+          var board = JXG.JSXGraph.initBoard('ebox3-1', {boundingbox: [-10, 10, 10, -10], axis:true, showCopyright:false, showNavigation:false});
+          curve = board.create('functiongraph',
+                         [f, -10,10]);
+          var h1=board.create('point',[-20,1]);
+          var h2=board.create('point',[20,1]);
+          var ah=board.create('line',[h1,h2],{strokeColor:"red"});
+
+          var u1=board.create('point',[-Math.sqrt(2),20]);
+          var u2=board.create('point',[-Math.sqrt(2),-20]);
+          var au=board.create('line',[u1,u2],{strokeColor:"red"});
+
+          var v1=board.create('point',[Math.sqrt(2),20]);
+          var v2=board.create('point',[Math.sqrt(2),-20]);
+          var av=board.create('line',[v1,v2],{strokeColor:"red"});
+
+        }
+        </script>
+    </p></li>
+    <li><p><span class="math">\( \displaystyle  f(x)=x+\frac{3}{x}.\)</span>
+      <p><span id="e3-2"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+        <br>Tiene una asíntota oblícua \\(y=x\\) y una vertical en  \\(x=0\\).
+        <br>Ésta es la gráfica de la función.
+        <br>
+        <div id='ebox3-2' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;''> </div>
+        <br>
+        `,
+        'e3-2');pintae32();" type="button"></span></p>
+        <script type="text/javascript">
+        function pintae32(){
+          var f=function(x){
+              return x+3/x;
+          }
+
+          var board = JXG.JSXGraph.initBoard('ebox3-2', {boundingbox: [-10, 10, 10, -10], axis:true, showCopyright:false, showNavigation:false});
+          curve = board.create('functiongraph',
+                         [f, -10,10]);
+          var h1=board.create('point',[-20,-20]);
+          var h2=board.create('point',[20,20]);
+          var ah=board.create('line',[h1,h2],{strokeColor:"red"});
+
+          var u1=board.create('point',[0,20]);
+          var u2=board.create('point',[0,-20]);
+          var au=board.create('line',[u1,u2],{strokeColor:"red"});
+
+        }
+        </script>
+    </p></li>
+    <li><p><span class="math">\( \displaystyle f(x)=x^2+\frac{2x}{x^2+1}.\)</span>
+      <p><span id="e3-3"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+        <br>Esta función no tiene asíntotas.
+        <br>Ésta es la gráfica de la función.
+        <br>
+        <div id='ebox3-3' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;''> </div>
+        <br>
+        `,
+        'e3-3');pintae33();" type="button"></span></p>
+        <script type="text/javascript">
+        function pintae33(){
+          var f=function(x){
+              return x*x+(2*x)/(x*x+1);
+          }
+
+          var board = JXG.JSXGraph.initBoard('ebox3-3', {boundingbox: [-5, 5, 5, -5], axis:true, showCopyright:false, showNavigation:false});
+          curve = board.create('functiongraph',
+                         [f, -10,10]);
+        }
+        </script>
+    </p></li>
+    </ol>
+  </article>
+</section>
+
+<hr>
+
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a>. Las animaciones en JSXGraph y el maquetado de la página han sido realizados por Pedro A. García Sánchez.</p>
+
+<script type="text/javascript" language="javascript">
+  function show(str, obj){
+    document.getElementById(obj).innerHTML = str;
+    MathJax.Hub.Typeset();
+  }
+</script>
+
+</body>
+</html>
