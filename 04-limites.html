@@ -28,13 +28,13 @@
                      \frac{2}{3}x + \frac{5}3,         &amp; \text{si $x \ge -1$}.
   \end{cases}
   \]
-  Los deslizadores siven para elegir el valor de \(x\) y \(\delta\). En el eje de abscisas se representa el intervalo \(I=[x,x+\delta]\). En el eje de ordenadas se dibuja la imagen de \(I\) por \(f\) . Se puede observar que entorno a \(-1\) se produce una discontinuidad que se refleja en la imagen de \(I\) por \(f\).
+  Los deslizadores siven para elegir el valor de \(x\) y \(\delta\). En el eje de abscisas se representa el intervalo \(I=[x-\delta,x+\delta]\) (azul). En el eje de ordenadas se dibuja la imagen de \(I\) por \(f\) (rojo). Para un entorno \(J\) de \(f(-1)\) suficientemente pequeño, y cualquier entorno \(I\) de \(-1\), habrá siempre elementos que se aplican por \(f\) fuera de \(J\). Por tanto, la función no es contínua en \(-1\).
   <p><div id="box_p2" class="jxgbox" style="width:600px; height:600px; display:inline-block;"></div>
   </p>
   <!--basado en el ejemplo http://www.mathdemos.mobi/domainrange/index.shtml
   añadido deslizador de delta y visualizador de la imagen del intervalo [s,s+delta]
   -->
-  <script type="text/javascript">//<![CDATA[
+  <script type="text/javascript">
   JXG.Options.text.useMathJax = true;
   var board_p2 = JXG.JSXGraph.initBoard('box_p2', {boundingbox: [-6, 5, 4, -5], axis:true,grid:true,showCopyright:false,showNavigation:false});
 
@@ -56,30 +56,30 @@
   ep3_p2.setProperty({fixed:true});
   ep4_p2.setProperty({fixed:true});
 
-  var s_p2 = board_p2.createElement('slider',[[-5,-4],[2,-4],[-5,-1.2,2]],{name:"x"});
-  var d_p2 = board_p2.createElement('slider',[[-4.5,-3.5],[-1,-3.5],[0,1,2]],{name:"\u03B4"});
-  var sf=board_p2.createElement('functiongraph',[f_p2,function(){return s_p2.Value();},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3, strokeColor:'red'})
+  var s_p2 = board_p2.createElement('slider',[[-5,-4],[2,-4],[-5,-1,2]],{name:"x"});
+  var d_p2 = board_p2.createElement('slider',[[-4.5,-3.5],[-1,-3.5],[0,.25,2]],{name:"\u03B4"});
+  var sf=board_p2.createElement('functiongraph',[f_p2,function(){return s_p2.Value()-d_p2.Value();;},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3, strokeColor:'green'})
 
-  var sf=board_p2.createElement('functiongraph',[function(){return 0;},function(){return s_p2.Value();},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3})
+  var sf=board_p2.createElement('functiongraph',[function(){return 0;},function(){return s_p2.Value()-d_p2.Value();;},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3})
 
-  var pp1 = board_p2.create('point', [0,function(){return f_p2(s_p2.Value());}],{name:"",visible:false})
+  var pp1 = board_p2.create('point', [0,function(){return f_p2(s_p2.Value()-d_p2.Value());}],{name:"",visible:false})
 
   var p2 = board_p2.create('point', [0,function(){return f_p2(s_p2.Value()+d_p2.Value());}],{name:"", visible:false})
 
   var pe1 = board_p2.create('point', [0,1],{name:"", visible:false})
   var pe2 = board_p2.create('point', [0,3],{name:"", visible:false})
 
-  var s1 = board_p2.create('segment',[function(){if(s_p2.Value()<-1){return pp1;}{return pe2;}}, function(){if(s_p2.Value()+d_p2.Value()<-1){return p2;}{return pe2;}}], {strokeWidth:3});
+  var s1 = board_p2.create('segment',[function(){if(s_p2.Value()-d_p2.Value()<-1){return pp1;}{return pe2;}}, function(){if(s_p2.Value()+d_p2.Value()<-1){return p2;}{return pe2;}}], {strokeColor:"red",strokeWidth:3});
 
   var s2 = board_p2.create('segment',[
       function(){
-        if(s_p2.Value()>=-1 && s_p2.Value()<=2){return pp1;}
+        if(s_p2.Value()-d_p2.Value()>=-1 && s_p2.Value()-d_p2.Value()<=2){return pp1;}
         else{return pe1;}},
       function(){
         if(s_p2.Value()+d_p2.Value()>=-1 && s_p2.Value()+d_p2.Value()<=2){return p2;}
         else if(s_p2.Value()+d_p2.Value()>2){return pe2;}
         else{return pe1;}}],
-     {strokeColor:"blue",strokeWidth:3});
+     {strokeColor:"red",strokeWidth:3});
 
   // ]]>
   </script>
@@ -337,7 +337,7 @@
                    [f, -10,15]);
     p=board.create('point',[2,30]);
     q=board.create('point',[2,-30]);
-    as = board.create('line',[p,q],{strokeColor:"red"});
+    as = board.create('line',[p,q],{dash:1,strokeColor:"gray"});
   </script>
 
   <p>La función <span class="math">\(f(x)= \frac{x^2+1}{x^2-1}\)</span> tiene dos asíntotas verticales: <span class="math">\(x=1\)</span> y <span class="math">\(x=-1\)</span> que son los dos valores que anulan al denominador, ya que <span class="math">\[\lim_{x \to 1^+} \frac{x^2+1}{x^2-1} = \lim_{x \to -1^{-}} \frac{x^2+1}{x^2-1}= +\infty.\]</span> ¿Cuál es valor de los otros dos límites laterales?</p>
@@ -352,10 +352,10 @@
                    [f, -10,15]);
     p=board.create('point',[1,30]);
     q=board.create('point',[1,-30]);
-    as = board.create('line',[p,q],{strokeColor:"red"});
+    as = board.create('line',[p,q],{dash:1,strokeColor:"gray"});
     p1=board.create('point',[-1,30]);
     q1=board.create('point',[-1,-30]);
-    as1 = board.create('line',[p1,q1],{strokeColor:"red"});
+    as1 = board.create('line',[p1,q1],{dash:1,strokeColor:"gray"});
   </script>
 
   <h2 id="asíntota-horizontal">Asíntota horizontal</h2>
@@ -374,7 +374,7 @@
                    [f, -20,20]);
     p=board.create('point',[-30,3]);
     q=board.create('point',[30,3]);
-    as = board.create('line',[p,q],{strokeColor:"red"});
+    as = board.create('line',[p,q],{dash:1,strokeColor:"gray"});
   </script>
 
   <h2 id="asíntota-oblicua">Asíntota oblicua</h2>
@@ -398,7 +398,7 @@
                    [f, -20,20]);
     p=board.create('point',[-30,-90]);
     q=board.create('point',[30,90]);
-    as = board.create('line',[p,q],{strokeColor:"red"});
+    as = board.create('line',[p,q],{dash:1,strokeColor:"gray"});
   </script>
   <br>
   <article>
@@ -427,15 +427,15 @@
                          [f, -10,10]);
           var h1=board.create('point',[-20,1]);
           var h2=board.create('point',[20,1]);
-          var ah=board.create('line',[h1,h2],{strokeColor:"red"});
+          var ah=board.create('line',[h1,h2],{dash:1,strokeColor:"gray"});
 
           var u1=board.create('point',[-Math.sqrt(2),20]);
           var u2=board.create('point',[-Math.sqrt(2),-20]);
-          var au=board.create('line',[u1,u2],{strokeColor:"red"});
+          var au=board.create('line',[u1,u2],{dash:1,strokeColor:"gray"});
 
           var v1=board.create('point',[Math.sqrt(2),20]);
           var v2=board.create('point',[Math.sqrt(2),-20]);
-          var av=board.create('line',[v1,v2],{strokeColor:"red"});
+          var av=board.create('line',[v1,v2],{dash:1,strokeColor:"gray"});
 
         }
         </script>
@@ -460,11 +460,11 @@
                          [f, -10,10]);
           var h1=board.create('point',[-20,-20]);
           var h2=board.create('point',[20,20]);
-          var ah=board.create('line',[h1,h2],{strokeColor:"red"});
+          var ah=board.create('line',[h1,h2],{dash:1,strokeColor:"gray"});
 
           var u1=board.create('point',[0,20]);
           var u2=board.create('point',[0,-20]);
-          var au=board.create('line',[u1,u2],{strokeColor:"red"});
+          var au=board.create('line',[u1,u2],{dash:1,strokeColor:"gray"});
 
         }
         </script>
