@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Aplicaciones de la derivada</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Aplicaciones de la derivada</h1>
+</div>
+
+<section>
+  <header>
+    <h1 id="geometría">Geometría</h1>
+  </header>
+  <p>La <em style="color:red">recta tangente</em> a una función <span class="math">\(f\)</span> en un punto de la gráfica <span class="math">\((a,f(a))\)</span> es <span class="math">\[y=f(a)+f&#39;(a)(x-a).\]</span> Por ejemplo, la recta tangente a la función <span class="math">\(f(x)=\log (x)\)</span> en <span class="math">\(x=2\)</span> es, teniendo en cuenta que <span class="math">\(f&#39;(x)=1/x\)</span>, <span class="math">\[y=f(2)+f&#39;(2)(x-2)=\log(2)+\frac{1}{2} (x-2).\]</span></p>
+
+  <div id="box1" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box1', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+    var a = board.create('slider', [[0, -2], [4,- 2], [0, 1, 4]],{snapWidth:.1});
+    p = board.create('point', [function(){return a.Value()}, function(){return(Math.log(a.Value()))}], {name:'',strokeColor:'black',fillColor:'white'});
+    curve = board.create('functiongraph',
+                   [function(t){ return(Math.log(t))}, -10,10]);
+    tan = board.create('functiongraph', [function(t){return (Math.log(a.Value())+1/a.Value()*(t-a.Value()))}, -10,10],{strokeColor:"red"})
+  </script>
+  </li>
+
+  <p>La <em style="color:green">recta normal</em> en <span class="math">\(x=a\)</span> es la recta perpendicular a la recta tangente que pasa por el punto <span class="math">\((a,f(a))\)</span>. Su pendiente será, por tanto, <span class="math">\(-1/f&#39;(a)\)</span>. La ecuación de la recta normal a la función <span class="math">\(f\)</span> en el mismo punto es <span class="math">\[y=f(a)-\frac{1}{f&#39;(a)}(x-a).\]</span></p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Responde a las siguientes preguntas sobre la parábola \(y=x^2\).</p>
+    </header>
+    <ol>
+    <li><p>Calcula la recta tangente a la parábola <span class="math">\(y=x^2\)</span> en el punto <span class="math">\((3,9)\)</span>.</p>
+      <span id="e1-1"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+        La derivada de la función \\(f(x)=x^2\\) es \\(f&#39;(x)=2x\\). Por tanto, la recta tangente en el punto \\((3,f(3))=(3,9)\\) es \\[y=f(3)+f&#39;(3)(x-3)=9+6(x-3)=6x-9.\\]
+        `,'e1-1');" type="button"></span>
+    </li>
+    <li><p>¿Pasa dicha recta por el punto <span class="math">\((1,3)\)</span>?</p>
+      <span id="e1-2"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+        <p>La recta tangente pasa por el punto \\((1,3)\\) si dicho punto cumple la ecuación de la recta. Veamos, \\(3 \\neq 6\\cdot 1 -9 = -3\\). El punto no pertenece a la recta tangente.</p>
+        `,'e1-2');" type="button"></span>
+    </li>
+    <li><p>Calcula aquellos puntos que cumplen que la recta tangente a la parábola pasa por el punto <span class="math">\((1,-3)\)</span>.</p>
+      <span id="e1-3"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+          <p>La recta tangente en un punto arbitrario \\((a,f(a))\\) es \\[y=f(a)+f&#39;(a)(x-a)=a^2+2a(x-a)=2ax-a^2\\] y lo que queremos encontrar son aquellos valores de \\(a\\) que hacen que el punto \\((1,-3)\\) verifique está ecuación (pertenezca a la recta). Sustituimos \\(x\\) por \\(1\\) e \\(y\\) por \\(-3\\) y resolvemos:</p>
+          <p>\\[\\begin{aligned}
+              -3=2a\\cdot 1 -a^2   &amp; \\text{ si y solo si } a^2-2a -3=0, \\\\
+                              &amp; \\text{ que equivale a } a= \\frac{2\\pm \\sqrt{4-4\\cdot(-3)}}{2}, \\\\
+                              &amp; \\text{ o sea } a = \\frac{2\\pm 4}{2} = -1 \\text{ ó } 3.
+              \\end{aligned}\\]</p>
+          <p>Resumiendo, la recta tangente en los puntos \\((-1,1)\\) y \\((3,9)\\) pasa por el punto \\((1,-3)\\).</p>
+      `,'e1-3');" type="button"></span>
+    </li>
+    <li><p>Calcula la recta normal a la parábola en el punto <span class="math">\((3,9)\)</span>.</p>
+      <span id="e1-4"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+        <p>Aplicando la ecuación de la recta normal y teniendo en cuenta que \\(f&#39;(3)=6\\) nos queda: \\[y=f(a)-\\frac{1}{f&#39;(a)}(x-a)=9-\\frac{1}{6}(x-3)= \\frac{57-x}{6}.\\]</p>
+        `,'e1-4');" type="button"></span>
+
+    </li>
+    </ol>
+
+    <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
+    <script type="text/javascript">
+      var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+      pend = board.create('slider', [[-2, -2], [2,- 2], [-2, 1, 2]],{name:'x',snapWidth:.1});
+      curve = board.create('functiongraph',
+                     [function(t){ return(t*t)}, -10,10]);
+      punto = board.create('point',[function(){return pend.Value()},function(){return pend.Value()*pend.Value()}], {strokeColor:"black",fillColor:'white', name:''})
+      tan = board.create('functiongraph', [function(t){return (pend.Value()*pend.Value()+2*pend.Value()*(t-pend.Value()))}, -10,10],{strokeColor:"red"})
+      nor = board.create('functiongraph', [function(t){return (pend.Value()*pend.Value()-1/(2*pend.Value())*(t-pend.Value()))}, -10,10],{strokeColor:"green"})
+    </script>
+  </article>
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+    </header>
+    <ol>
+      <li><p>Calcula la ecuación de la recta (o rectas) tangente a la gráfica de <span class="math">\(f(x)=4x^3-2x^2+x-1\)</span> pararela a la bisectriz del primer cuadrante.</p></li>
+      <li><p>Halla los valores de la constante <span class="math">\(\lambda\)</span> para los que las rectas tangentes a las funciones <span class="math">\(f(x)=x^3\)</span> y <span class="math">\(g(x)=(x+\lambda)x\)</span> en el punto <span class="math">\(x=1\)</span> sean:</p>
+      <ol>
+      <li><p>paralelas,</p></li>
+      <li><p>perpendiculares.</p></li>
+      </ol>
+      </li>
+    </ol>
+  </article>
+
+</section>
+
+<section>
+  <header>
+    <h1 id="estudio-de-una-función">Estudio de una función</h1>
+  </header>
+  <h2 id="crecimiento-y-decrecimiento">Crecimiento y decrecimiento</h2>
+  <p>Si <span class="math">\(f\)</span> es una función derivable definida en un intervalo, entonces</p>
+  <ul>
+  <li><p><span class="math">\(f\)</span> es creciente si, y sólo si, la derivada es mayor o igual que cero;</p></li>
+  <li><p><span class="math">\(f\)</span> es decreciente si, y sólo si, la derivada es menor o igual que cero; y</p></li>
+  <li><p><span class="math">\(f\)</span> es constante si, y sólo si, la derivada es cero.</p></li>
+  </ul>
+  <p>Para estudiar el crecimiento de la función <span class="math">\(f(x)=2x^3-3x^2-12x+1\)</span>, estudiamos el signo de la derivada. Primero vemos dónde se anula. <span class="math">\[f&#39;(x)=6x^2-6x-12=0 \text{ sí y sólo sí }  x\in\{-1,2\}.\]</span> Como sabemos donde se anula la derivada, también sabemos donde <em>no</em> se anula. Esto es, la función es monótona en <span class="math">\(]-\infty,-1]\)</span>, en <span class="math">\([-1,2]\)</span> y en <span class="math">\([2,+\infty[\)</span>. Evaluando la derivada en un punto de cada intervalo, terminamos:</p>
+  <ul>
+  <li><p><span class="math">\(f&#39;(-3)=60&gt;0\)</span>, y por tanto <span class="math">\(f\)</span> es creciente <span class="math">\(]-\infty,-1]\)</span>;</p></li>
+  <li><p><span class="math">\(f&#39;(0)=-12&lt;0\)</span>, en consecuencia <span class="math">\(f\)</span> es decreciente <span class="math">\([-1,2]\)</span>; y,</p></li>
+  <li><p><span class="math">\(f&#39;(8)=324&gt;0\)</span>, por lo que  <span class="math">\(f\)</span> es creciente <span class="math">\([2,+\infty[\)</span>.</p></li>
+  </ul>
+  <p>¿Sabrías decir algo sobre los máximos y mínimos relativos de esta función?</p>
+
+  <h2 id="extremos-relativos">Extremos relativos</h2>
+  <p>El cálculo de los máximos y mínimos relativos de una función <span class="math">\(f\)</span> se suele hacer en dos pasos.</p>
+  <ol>
+  <li><p>En primer lugar se calculan los puntos críticos, es decir, resolvemos la ecuación <span class="math">\(f&#39;(x)=0\)</span>.</p></li>
+  <li><p>Evaluamos la segunda derivada en los puntos críticos:</p>
+  <ul>
+  <li><p>si <span class="math">\(f&#39;(a)=0\)</span>, y además <span class="math">\(f&#39;&#39;(a)&gt;0\)</span>, entonces <span class="math">\(f\)</span> tiene un mínimo relativo en <span class="math">\(a\)</span>;</p></li>
+  <li><p>si <span class="math">\(f&#39;(a)=0\)</span>, y además <span class="math">\(f&#39;&#39;(a)&lt;0\)</span>, entonces <span class="math">\(f\)</span> tiene un máximo relativo en <span class="math">\(a\)</span>.</p></li>
+  </ul></li>
+  </ol>
+  <p>Si analizamos el signo de la derivada segunda de la función del ejemplo anterior en los puntos críticos que habíamos obtenido, concluimos cuál es mínimo y cuál es máximo. Como <span class="math">\(f&#39;&#39;(x)= 12x-6\)</span>, tenemos:</p>
+  <ul>
+  <li><p><span class="math">\(f&#39;&#39;(-1)=-18&lt;0\)</span>, por tanto en <span class="math">\(x=-1\)</span> tenemos un máximo relativo;</p></li>
+  <li><p><span class="math">\(f&#39;&#39;(2)=18&gt;0\)</span>, por tanto en <span class="math">\(x=2\)</span> tenemos un mínimo relativo.</p></li>
+  </ul>
+  <p>¿Concuerdan estas conclusiones con las que has obtenido estudiando el cambio de monotonía en torno a ambos puntos?</p>
+  <h2 id="concavidad-y-convexidad">Concavidad y convexidad</h2>
+  <p>Si <span class="math">\(f\)</span> es una función dos veces derivable,</p>
+  <ul>
+  <li><p>si <span class="math">\(f&#39;&#39;\)</span> es positiva, entonces <span class="math">\(f\)</span> es convexa; y</p></li>
+  <li><p>si <span class="math">\(f&#39;&#39;\)</span> es negativa, entonces <span class="math">\(f\)</span> es cóncava.</p></li>
+  </ul>
+
+  <h2 id="puntos-de-inflexión">Puntos de inflexión</h2>
+  <p>Si <span class="math">\(f&#39;&#39;(a)=0\)</span> y <span class="math">\(f&#39;&#39;&#39;(a)\neq 0\)</span>, decimos que <span class="math">\(f\)</span> tiene un punto de inflexión en <span class="math">\(a\)</span>. Esto quiere decir que en dicho punto la función pasa de ser cóncava a convexa o al revés.</p>
+  <p>Seguimos con la función del ejemplo 2. Como <span class="math">\(f&#39;&#39;(x)=12x-6\)</span> tenemos que \(12x-6=0\), o lo que es lo mismo,  \(x=1/2\). Ya tenemos nuestro candidato a punto de inflexión. Ahora calculamos la derivada tercera: <span class="math">\(f&#39;&#39;&#39;(x)=12\)</span>, con lo que <span class="math">\(f&#39;&#39;&#39;(1/2)=12&gt;0\)</span>. Por tanto, tenemos un punto de inflexión en <span class="math">\(x=1/2\)</span>. Vamos a calcular ahora si pasa de cóncava a convexa, o viceversa. Para ello, evaluamos <span class="math">\(f&#39;&#39;\)</span> en puntos a ambos lados de <span class="math">\(x=1/2\)</span>:</p>
+  <ul>
+  <li><p><span class="math">\(f&#39;&#39;(0)=-6&lt;0\)</span>, por lo que la función antes de <span class="math">\(1/2\)</span> es cóncava.</p></li>
+  <li><p><span class="math">\(f&#39;&#39;(1)=6&gt;0\)</span>, por lo que la función después de <span class="math">\(1/2\)</span> es convexa.</p></li>
+  </ul>
+
+  <div id="box2" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box2', {boundingbox: [-20, 20, 20, -20], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [function(t){ return(2*t*t*t-3*t*t-12*t+1)}, -10,10]);
+    //der = board.create('functiongraph', [function(t){return 6*t*t-6*t-12}, -10,10],{strokeColor:"red"})
+    //sder = board.create('functiongraph', [function(t){return 12*t-6}, -10,10],{strokeColor:"green"})
+  </script>
+
+
+  <h4 id="ejemplo">Ejemplo</h4>
+  <p>Vamos a aplicar todos los apartados anteriores para hacer el estudio completo de la función <span class="math">\(f \colon \mathbb{R}\rightarrow \mathbb{R}\)</span> definida como <span class="math">\(f(x)=x^{3}+3x^{2}-9x\)</span>.</p>
+  <dl>
+  <dt>Crecimiento y decrecimiento</dt>
+  <dd><p>Calculamos los puntos donde se anula la derivada para averiguar el signo del resto. <span class="math">\[f&#39;(x)=3x^2+6x-9 =0,\  x\in\{-3,1\}.\]</span> Miramos el signo de la derivada en algunos puntos intermedios: por ejemplo, <span class="math">\(f&#39;(-10)&gt;0\)</span>, <span class="math">\(f&#39;(0)&lt;0\)</span> y <span class="math">\(f&#39;(5)&gt;0\)</span>. Por tanto,</p>
+  <ul>
+  <li><p><span class="math">\(f\)</span> es creciente en <span class="math">\(]-\infty , -3]\)</span>,</p></li>
+  <li><p><span class="math">\(f\)</span> es decreciente en <span class="math">\([-3,1]\)</span> y</p></li>
+  <li><p><span class="math">\(f\)</span> es creciente en <span class="math">\([1,+\infty[\)</span>.</p></li>
+  </ul>
+  </dd>
+  <dt>Extremos relativos</dt>
+  <dd><p>Ya que sabemos los puntos críticos, evaluamos la segunda derivada: <span class="math">\[f&#39;&#39;(x)=6x+6, \quad f&#39;&#39;(-3)=-12, \quad \text{y} f&#39;&#39;(1)=12.\]</span> Por tanto,</p>
+  <ul>
+  <li><p><span class="math">\(f\)</span> tiene un máximo relativo en <span class="math">\(-3\)</span> y</p></li>
+  <li><p><span class="math">\(f\)</span> tiene un mínimo relativo en <span class="math">\(1\)</span>.</p></li>
+  </ul>
+  </dd>
+  <dt>Convexidad y concavidad</dt>
+  <dd><p>Para estudiar la concavidad y convexidad de una función, miramos el signo de la segunda derivada: <span class="math">\[f&#39;&#39;(x)=6x+6=0,\ x= -1.\]</span> Por tanto,</p>
+  <ul>
+  <li><p><span class="math">\(f&#39;&#39;(x)\)</span> es positiva en <span class="math">\(]-\infty,-1]\)</span> (función convexa)</p></li>
+  <li><p><span class="math">\(f&#39;&#39;(x)\)</span> es negativa en <span class="math">\([-1,+\infty[\)</span> (función cóncava)</p></li>
+  </ul>
+  </dd>
+  <dt>Puntos de inflexión</dt>
+  <dd><p>En <span class="math">\(-1\)</span> la función tiene un punto de inflexión: la segunda derivada se anula y la tercera en dicho punto es positiva o, si lo prefieres, la función cambia de de convexa a cóncava.</p>
+  </dd>
+  </dl>
+
+  <div id="box3" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box3', {boundingbox: [-30, 30, 30, -30], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [function(t){ return(t*t*t+3*t*t-9*t)}, -10,10]);
+    //der = board.create('functiongraph', [function(t){return 6*t*t-6*t-12}, -10,10],{strokeColor:"red"})
+    //sder = board.create('functiongraph', [function(t){return 12*t-6}, -10,10],{strokeColor:"green"})
+  </script>
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+    </header>
+    <ol>
+      <li><p>Estudia la función <span class="math">\(f \colon \mathbb{R} \rightarrow \mathbb{R}\)</span> definida como <span class="math">\(f(x)=3\,{x}^{4}-4\,{x}^{3}-6\,{x}^{2}+12\,x\)</span>.</p></li>
+
+      <li><p>Esboza la gráfica de una función <span class="math">\(f\)</span> definida en <span class="math">\([0,2]\)</span> que verifique que <span class="math">\(f(0)=f(2)=0\)</span>, <span class="math">\(f&#39;(0)=2\)</span> y <span class="math">\(f&#39;(2)=-2\)</span>.</p></li>
+      <li><p>Dibuja la región del primer cuadrante limitada por las gráficas de <span class="math">\(y=\sqrt{x}\)</span>, <span class="math">\(x=6\)</span>, <span class="math">\(y=0\)</span> y calcula las dimensiones del rectángulo inscrito de lados paralelos a los ejes y que tenga máxima área.</p></li>
+      <li><p>Considera la función <span class="math">\(f \colon \mathbb{R} \to \mathbb{R}\)</span> definida como <span class="math">\(f(x)=\displaystyle e^{\frac{2x}{x^2+1}}\)</span>.</p>
+      <ol>
+        <li><p>Calcula las asíntotas de la gráfica de <span class="math">\(f\)</span>.</p></li>
+        <li><p>Determina los intervalos de monotonía (crecimiento y decrecimiento).</p></li>
+        <li><p>Determina lso extremos relativos de <span class="math">\(f\)</span>.</p></li>
+        <li><p>Esboza la gráfica de <span class="math">\(f\)</span>.</p></li>
+      </ol>
+      </li>
+      <li><p>Haz un estudio completo de la función <span class="math">\(f(x)=\frac{x^2+1}{x}\)</span> y representa su gráfica.</p></li>
+      <li><p>Haz un estudio completo de la función <span class="math">\(f(x)=\frac{x}{x^2-1}\)</span> y representa su gráfica.</p></li>
+      <li><p>A partir de la gráfica de <span class="math">\(f(x)=\cos(x)\)</span>, dibuja la gráfica de las funciones siguientes:</p>
+        <ol>
+          <li><p><span class="math">\( f(x)=\cos(x+1)\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=\cos(x-1)\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=\cos(2x)\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=\cos(x)-1\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=\cos(x)+1\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=|\cos(x)|\)</span>.</p></li>
+        </ol>
+      </li>
+    </ol>
+  </article>
+
+</section>
+
+<section>
+  <header>
+    <h1 id="optimización">Optimización</h1>
+  </header>
+
+  <p>En los problemas en los que hay que optimizar una cantidad, ya sea buscar un máximo o un mínimo, los pasos suelen ser los siguientes.</p>
+  <ol>
+  <li><p>Planteamos analíticamente la función a optimzar utilizando tantas variables como sean necesarias.</p></li>
+  <li><p>Buscamos las relaciones entre las diferentes variables usando los datos del enunciado y dejamos todas en función de una de ellas.</p></li>
+  <li><p>Derivamos, igualamos a cero y calculamos los puntos críticos.</p></li>
+  <li><p>Comprobamos con la segunda derivada que tenemos un máximo o un mínimo relativo.</p></li>
+  </ol>
+
+  <h4>Ejemplo</h4>
+  <p>Vamos a calcular las dimensiones del rectángulo de mayor área que puede inscribirse en un semicírculo de radio <span class="math">\(10\)</span>.</p>
+
+  <p>En la siguiente representación gráfica, puedes desplazar el punto rojo. El área del rectángulo correspondiente se calculará automáticamente.</p>
+
+  <div id="box4" class="jxgbox" style="width:400px; height:300px;"></div>
+  <script type="text/javascript">
+    JXG.Options.text.useMathJax = true;
+    var board = JXG.JSXGraph.initBoard('box4', {boundingbox: [-15, 15, 15, -5], axis:true, showCopyright:false, showNavigation:false});
+    q1 = board.create('point',[-10,0],{visible:false});
+    q2 = board.create('point',[10,0],{visible:false});
+    sc = board.create('semicircle',[q1,q2],{withLabel:false, fixed:true} );
+    ox = board.create('segment',[[0,0],[10,0]],{fixed:true});
+    p1 = board.create('glider',[5,0,ox],{name:'\\(x\\)'});
+    rect = board.create('polygon', [[function(){return -p1.X()},0],[function(){return p1.X()},0],[function(){return p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}],[function(){return -p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}]], {vertices:{fixed:true, visible:false}} );
+    exy = board.create('text',[function(){return p1.X()+.5},function(){return Math.sqrt(100-p1.X()*p1.X())+.5},function(){return "\\( \\left(x,\\sqrt{100-x^2}\\right)\\)"}],{fixed:true})
+    //area = function(){return 2*p1.X()*Math.sqrt(100-p1.X()*p1.X())}
+    earea = board.create('text',[-10,-2,function(){
+      var a = 2*p1.X()*Math.sqrt(100-p1.X()*p1.X());
+      return "Área "+ a.toFixed(3) }],{fontSize:14})
+  </script>
+
+  <ol>
+  <li><p>Según hemos comentado, el primer paso es encontrar la función a optimizar. Si llamamos <span class="math">\(x\)</span> al extremo inferior derecho del rectángulo e <span class="math">\(y\)</span> a la altura, el área es <span class="math">\(2xy\)</span>.</p></li>
+  <li><p>¿Cómo podemos relacionar <span class="math">\(x\)</span> e <span class="math">\(y\)</span>? Hay varias formas de hacerlo: la circunferencia centrada en el origen y de radio \(10\) está formada por los puntos <span class="math">\((x,y)\)</span> que cumplen la ecuación <span class="math">\[x^2+y^2=100\]</span> con lo que despejando, <span class="math">\(y = \sqrt{100-x^2}\)</span>. Ya podemos escribir la función a optimizar: <span class="math">\[f\colon [0,10]\rightarrow \mathbb{R}, \quad f(x)=2xy=2x\sqrt{100-x^2}.\]</span></p></li>
+  <li><p>Derivamos</p>
+  <p><span class="math">\[\begin{aligned}
+   f&#39;(x) &amp; = 2\left(  \sqrt{100-x^{2}}- \require{cancel}\frac{\cancel{2}x^{2}}{\cancel{2}\sqrt{100-x^{2}}} \right)
+      = 2\left( \frac{100 -x^2}{\sqrt{100-x^2}} - \frac{x^{2}}{\sqrt{100-x^{2}}} \right)
+      \\
+   &amp; = \frac{2\, (100 -2x^2)}{\sqrt{100-x^2}},\end{aligned}\]</span></p>
+  <p>e igualamos a cero <span class="math">\[f&#39;(x)=0 \text{ que equivale a }  100-2x^{2}=0.\]</span>
+  Por tanto las raíces son \(-\frac{10}{\sqrt{2}}\) y \(\frac{10}{\sqrt{2}}\). Como la \(x\) tiene que ser positiva, llegamos a que la función tiene un punto crítico en \(\frac{10}{\sqrt{2}}\). </p></li>
+  <li><p>Para comprobar que es un máximo, vemos que la segunda derivada es negativa: <span class="math">\[f&#39;&#39;(x)=-\frac{6x}{\sqrt{100-{x}^{2}}}-\frac{2x^{3}}{{\left( 100-{x}^{2}\right) }^{\frac{3}{2}}}\]</span> y <span class="math">\(f&#39;&#39;(10/\sqrt{2})=-8\)</span>.</p>
+
+  <p>También podemos comprobar si es un máximo, estudiando el signo de la primera derivada a ambos lados del punto crítico. En este caso, el signo de \(f&#39;(x)\) queda determinado por el signo de \(g(x)=100-2*x^2\). Evaluando \(g\) en, por ejemplo, \(\frac{10}{\sqrt{2}}-\frac{1}2\) y \(\frac{10}{\sqrt{2}}+\frac{1}2\), obtenemos aproximadamente \(3.62\) y \(-4.48\), respectivamente. De aquí deducimos que la función \(f\) crece a la izquierda de \(\frac{10}{\sqrt{2}}\) y decrece a su derecha. Por tanto, en \(\frac{10}{\sqrt{2}}\) se alcanza un máximo relativo. </p>
+  <li><p>El área máxima es \(100\).</li>
+  </ol>
+</section>
+
+
+<hr>
+
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a>. Las animaciones en JSXGraph y el maquetado de la página han sido realizados por Pedro A. García Sánchez.</p>
+
+<script type="text/javascript" language="javascript">
+  function show(str, obj){
+    document.getElementById(obj).innerHTML = str;
+    MathJax.Hub.Typeset();
+  }
+</script>
+
+
+</body>
+</html>
