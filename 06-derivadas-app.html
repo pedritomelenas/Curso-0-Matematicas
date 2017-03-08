@@ -10,6 +10,8 @@
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
   <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  <!--<link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+  <script type="text/javascript" src="js/jsxgraphcore.js"></script>-->
 </head>
 <body>
 <div id="header">
@@ -22,14 +24,17 @@
   </header>
   <p>La <em style="color:red">recta tangente</em> a una función <span class="math">\(f\)</span> en un punto de la gráfica <span class="math">\((a,f(a))\)</span> es <span class="math">\[y=f(a)+f&#39;(a)(x-a).\]</span> Por ejemplo, la recta tangente a la función <span class="math">\(f(x)=\log (x)\)</span> en <span class="math">\(x=2\)</span> es, teniendo en cuenta que <span class="math">\(f&#39;(x)=1/x\)</span>, <span class="math">\[y=f(2)+f&#39;(2)(x-2)=\log(2)+\frac{1}{2} (x-2).\]</span></p>
 
+  <p>En el siguiente gráfico se representa la función <span style="color:blue">\(\log(x)\)</span> y la <span style="color:red">tangente</span> en el punto \(A=(a,\log(a))\). Puedes desplazar este punto y ver cómo varía la tangente.</p>
   <div id="box1" class="jxgbox" style="width:400px; height:400px;"></div>
   <script type="text/javascript">
-    var board = JXG.JSXGraph.initBoard('box1', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
-    var a = board.create('slider', [[0, -2], [4,- 2], [0, 1, 4]],{snapWidth:.1});
-    p = board.create('point', [function(){return a.Value()}, function(){return(Math.log(a.Value()))}], {name:'',strokeColor:'black',fillColor:'white'});
-    curve = board.create('functiongraph',
-                   [function(t){ return(Math.log(t))}, -10,10]);
-    tan = board.create('functiongraph', [function(t){return (Math.log(a.Value())+1/a.Value()*(t-a.Value()))}, -10,10],{strokeColor:"red"})
+    function pinta_log(){
+      var board = JXG.JSXGraph.initBoard('box1', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+      var curve = board.create('functiongraph',
+                     [function(t){ return(Math.log(t))}, -10,10]);
+      a = board.create('glider',[2,Math.log(2),curve], {name:'A',label:{offset:[-10,10]}, strokeColor:"black",fillColor:"white"})
+      board.create('functiongraph', [function(t){return (Math.log(a.X())+1/a.X()*(t-a.X()))}, -10,10],{strokeColor:"red"})
+    }
+    pinta_log()
   </script>
   </li>
 
@@ -69,15 +74,20 @@
     </li>
     </ol>
 
+    <p>En el siguiente gráfico se representa la función <span style="color:blue">\(x^2\)</span>, y la <span style="color:red">tangente</span> y la <span style="color:green">normal</span>  en el punto \(A=(a,a^2\). Puedes desplazar este punto y ver cómo varían las rectas tangente y normal.</p>
+
     <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
     <script type="text/javascript">
-      var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
-      pend = board.create('slider', [[-2, -2], [2,- 2], [-2, 1, 2]],{name:'x',snapWidth:.1});
-      curve = board.create('functiongraph',
-                     [function(t){ return(t*t)}, -10,10]);
-      punto = board.create('point',[function(){return pend.Value()},function(){return pend.Value()*pend.Value()}], {strokeColor:"black",fillColor:'white', name:''})
-      tan = board.create('functiongraph', [function(t){return (pend.Value()*pend.Value()+2*pend.Value()*(t-pend.Value()))}, -10,10],{strokeColor:"red"})
-      nor = board.create('functiongraph', [function(t){return (pend.Value()*pend.Value()-1/(2*pend.Value())*(t-pend.Value()))}, -10,10],{strokeColor:"green"})
+      function pinta_parabola(){
+        var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 9, 5, -1], axis:true, showCopyright:false, showNavigation:false});
+        var curve = board.create('functiongraph',
+                       [function(t){ return(t*t)}, -10,10]);
+        var A = board.create('glider',[1,1,curve], {name:'A', strokeColor:"black",fillColor:'white'});
+        //punto = board.create('point',[function(){return pend.Value()},function(){return pend.Value()*pend.Value()}], {strokeColor:"black",fillColor:'white', name:''})
+        board.create('functiongraph', [function(t){return (A.Y()+2*A.X()*(t-A.X()))}, -10,10],{strokeColor:"red"})
+        board.create('functiongraph', [function(t){return (A.Y()-1/(2*A.X())*(t-A.X()))}, -10,10],{strokeColor:"green"})
+      }
+      pinta_parabola()
     </script>
   </article>
 
@@ -251,19 +261,21 @@
 
   <div id="box4" class="jxgbox" style="width:400px; height:300px;"></div>
   <script type="text/javascript">
-    JXG.Options.text.useMathJax = true;
-    var board = JXG.JSXGraph.initBoard('box4', {boundingbox: [-15, 15, 15, -5], axis:true, showCopyright:false, showNavigation:false});
-    q1 = board.create('point',[-10,0],{visible:false});
-    q2 = board.create('point',[10,0],{visible:false});
-    sc = board.create('semicircle',[q1,q2],{withLabel:false, fixed:true} );
-    ox = board.create('segment',[[0,0],[10,0]],{fixed:true});
-    p1 = board.create('glider',[5,0,ox],{name:'\\(x\\)'});
-    rect = board.create('polygon', [[function(){return -p1.X()},0],[function(){return p1.X()},0],[function(){return p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}],[function(){return -p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}]], {vertices:{fixed:true, visible:false}} );
-    exy = board.create('text',[function(){return p1.X()+.5},function(){return Math.sqrt(100-p1.X()*p1.X())+.5},function(){return "\\( \\left(x,\\sqrt{100-x^2}\\right)\\)"}],{fixed:true})
-    //area = function(){return 2*p1.X()*Math.sqrt(100-p1.X()*p1.X())}
-    earea = board.create('text',[-10,-2,function(){
-      var a = 2*p1.X()*Math.sqrt(100-p1.X()*p1.X());
-      return "Área "+ a.toFixed(3) }],{fontSize:14})
+    function pinta_rect(){
+      JXG.Options.text.useMathJax = true;
+      var board = JXG.JSXGraph.initBoard('box4', {boundingbox: [-15, 15, 15, -5], axis:true, showCopyright:false, showNavigation:false});
+      var q1 = board.create('point',[-10,0],{visible:false});
+      var q2 = board.create('point',[10,0],{visible:false});
+      var sc = board.create('semicircle',[q1,q2],{withLabel:false, fixed:true} );
+      var ox = board.create('segment',[[0,0],[10,0]],{fixed:true});
+      var p1 = board.create('glider',[5,0,ox],{name:'\\(x\\)'});
+      board.create('polygon', [[function(){return -p1.X()},0],[function(){return p1.X()},0],[function(){return p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}],[function(){return -p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}]], {vertices:{fixed:true, visible:false}} );
+      board.create('text',[function(){return p1.X()+.5},function(){return Math.sqrt(100-p1.X()*p1.X())+.5},function(){return "\\( \\left(x,\\sqrt{100-x^2}\\right)\\)"}],{fixed:true})
+      board.create('text',[-10,-2,function(){
+        var a = 2*p1.X()*Math.sqrt(100-p1.X()*p1.X());
+        return "Área "+ a.toFixed(3) }],{fontSize:14})
+    }
+    pinta_rect()
   </script>
 
   <ol>
