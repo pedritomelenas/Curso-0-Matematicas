@@ -8,244 +8,284 @@
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="otro.css" type="text/css" />
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!--<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>-->
+  <link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+  <script type="text/javascript" src="js/jsxgraphcore.js"></script>
+
 </head>
 <body>
 <div id="header">
 <h1 class="title">Integrales</h1>
+
 </div>
-<h1 id="concepto-de-primitiva">Concepto de primitiva</h1>
-<p>Sean <span class="math">\(I\)</span> un intervalo de <span class="math">\(\mathbb{R}\)</span> y <span class="math">\(f \colon I \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> una función. Se dice que es <span class="math">\(F\colon I \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> es una <em>primitiva</em> de <span class="math">\(f\)</span> si <span class="math">\(F\)</span> es derivable y <span class="math">\(F\,&#39;(x) = f(x)\)</span> para todo <span class="math">\(x \in I\)</span>.</p>
-<p><span class="math">\( \)</span></p>
-<ul>
-<li><p>Todas las primitivas de una función se conocen en cuanto se conoce una. De hecho, si <span class="math">\(F\)</span> es una primitiva de <span class="math">\(f\)</span>, las funciones de la forma <span class="math">\(F+C\)</span>, con <span class="math">\(C \in \mathbb{R}\)</span>, son también primitivas de <span class="math">\(f\)</span>.</p></li>
-<li><p>Para representar una primitiva de una función usaremos la notación siguiente: <span class="math">\(\int f(x) \, dx\)</span>.</p></li>
-</ul>
-<h1 id="primitivas-inmediatas">Primitivas inmediatas</h1>
-<p>Si conocemos bien las derivadas de las funciones elementales, conoceremos bien la tabla de primitivas inmediatas. En el siguiente cuadro tenemos las primitivas de las funciones usuales.</p>
-<table>
-<tbody>
-<tr class="odd">
-<th align="left"><span class="math">\(f(x)\)</span></th>
-<th align="left"><span class="math">\(\int f(x)\,dx\)</span></th>
-</tr>
-<tr class="even">
-<td align="left"><span class="math">\(x^n\)</span></td>
-<td align="left"><span class="math">\(\frac{x^{n+1}}{n+1}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math">\(1/x\)</span></td>
-<td align="left"><span class="math">\(\log (\lvert x\rvert )\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><span class="math">\(a^x\)</span></td>
-<td align="left"><span class="math">\(a^x/\log(a)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math">\(e^x\)</span></td>
-<td align="left"><span class="math">\(e^x\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><span class="math">\(\operatorname{sen}(x)\)</span></td>
-<td align="left"><span class="math">\(-\cos(x)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math">\(\cos(x)\)</span></td>
-<td align="left"><span class="math">\(\operatorname{sen}(x)\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><span class="math">\(\tan(x)\)</span></td>
-<td align="left"><span class="math">\(-\log (\lvert\cos(x)\rvert )\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math">\(\operatorname{senh}(x)\)</span></td>
-<td align="left"><span class="math">\(\cosh(x)\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><span class="math">\(\cosh(x)\)</span></td>
-<td align="left"><span class="math">\(\operatorname{senh}(x)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math">\(\sec^2(x)\)</span></td>
-<td align="left"><span class="math">\(\tan(x)\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><span class="math">\(\text{cosec}^2(x)\)</span></td>
-<td align="left"><span class="math">\(-\text{cotan}(x)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math">\(\frac{1}{\sqrt{1-x^2}}\)</span></td>
-<td align="left"><span class="math">\(\operatorname{arcsen}(x)\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><span class="math">\(\frac{-1}{\sqrt{1-x^2}}\)</span></td>
-<td align="left"><span class="math">\(\arccos(x)\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math">\(\frac{1}{1+x^2}\)</span></td>
-<td align="left"><span class="math">\(\arctan(x)\)</span></td>
-</tr>
-</tbody>
-</table>
-<h1 id="cálculo-de-integrales">Cálculo de integrales</h1>
-<p>La siguiente regla se aplica para calcular la integral de una función en un intervalo de la forma <span class="math">\([a,b]\)</span>.</p>
-<p><strong>Regla de Barrow:</strong> Sea <span class="math">\(f \colon [a,b] \rightarrow \mathbb{R}\)</span> y <span class="math">\(G\)</span> una primitiva de <span class="math">\(f\)</span>. Entonces, <span class="math">\[\int_a^b f(x) \, dx = G(b)-G(a) \ .\]</span></p>
-<p>Vamos a calcular la integral de la función <span class="math">\(f(x)=x^2\)</span> en el intervalo <span class="math">\([1,2]\)</span>.</p>
-<ul>
-<li><p>Calculamos una primitiva de <span class="math">\(f\)</span>: <span class="math">\[G(x)=\int x^2 \, dx = \frac{x^3}{3}.\]</span></p></li>
-<li><p>Aplicamos la Regla de Barrow: <span class="math">\[\int_1^2f(x) \, dx = G(2)-G(1)= \frac{8}{3}-\frac{1}{3}=\frac{7}{3}.\]</span></p></li>
-</ul>
-<h2 id="propiedades-de-las-integrales">Propiedades de las integrales</h2>
-<ul>
-<li><p>La integral de una suma es la suma de las integrales; es decir, <span class="math">\[\int_a^b (f+g)(x)\, dx = \int_a^b f(x) \, dx +\int_a^b g(x) \, dx  \ .\]</span></p></li>
-<li><p>Cuando el integrando presenta un factor común constante, el resultado es el siguiente: <span class="math">\[\int_a^b \alpha \, f(x)\, dx = \alpha \, \int_a^b f(x) \, dx   \ .\]</span></p></li>
-</ul>
 
-<article>
+
+<section>
   <header>
-    <h3>Ejercicio</h3>
-    <p>Calcula una primitiva de las siguientes funciones:</p>
+    <h1 id="concepto-de-primitiva">Concepto de primitiva</h1>
   </header>
-  <ol>
-  <li><p><span class="math">\( f(x)=4x^3-5x^2-7x+1\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=x^2+\frac{1}{x}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=5\sqrt{x}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=(8x-3)(4x^2-3x+8)^{10}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=(x^2-1)(x^3-3x+5)^{1/2}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\sqrt[4]{x^3}\)</span>.</p></li>
-  </ol>
-</article>
+  <p>Sean <span class="math">\(I\)</span> un intervalo de <span class="math">\(\mathbb{R}\)</span> y <span class="math">\(f \colon I \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> una función. Se dice que es <span class="math">\(F\colon I \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> es una <em>primitiva</em> de <span class="math">\(f\)</span> si <span class="math">\(F\)</span> es derivable y <span class="math">\(F\,&#39;(x) = f(x)\)</span> para todo <span class="math">\(x \in I\)</span>.</p>
+  <p><span class="math">\( \)</span></p>
+  <ul>
+  <li><p>Todas las primitivas de una función se conocen en cuanto se conoce una. De hecho, si <span class="math">\(F\)</span> es una primitiva de <span class="math">\(f\)</span>, las funciones de la forma <span class="math">\(F+C\)</span>, con <span class="math">\(C \in \mathbb{R}\)</span>, son también primitivas de <span class="math">\(f\)</span>.</p></li>
+  <li><p>Para representar una primitiva de una función usaremos la notación siguiente: <span class="math">\(\int f(x) \, dx\)</span>.</p></li>
+  </ul>
+</section>
 
-<h1 id="métodos-de-integración">Métodos de integración</h1>
-<h2 id="cambio-de-variable">Cambio de variable</h2>
-<p>En determinadas integrales nos interesa hacer un cambio de variable, esto es, <span class="math">\(x=g(t)\)</span>, con el objetivo de que la nueva integral sea más sencilla de calcular. Utilizaremos entonces el siguiente resultado.</p>
-<article>
+<section>
+  <header>
+    <h1 id="primitivas-inmediatas">Primitivas inmediatas</h1>
+  </header>
+  <p>Si conocemos bien las derivadas de las funciones elementales, conoceremos bien la tabla de primitivas inmediatas. En el siguiente cuadro tenemos las primitivas de las funciones usuales.</p>
+  <table>
+  <tbody>
+  <tr class="odd">
+  <th align="left"><span class="math">\(f(x)\)</span></th>
+  <th align="left"><span class="math">\(\int f(x)\,dx\)</span></th>
+  </tr>
+  <tr class="even">
+  <td align="left"><span class="math">\(x^n\)</span></td>
+  <td align="left"><span class="math">\(\frac{x^{n+1}}{n+1}\)</span></td>
+  </tr>
+  <tr class="odd">
+  <td align="left"><span class="math">\(1/x\)</span></td>
+  <td align="left"><span class="math">\(\log (\lvert x\rvert )\)</span></td>
+  </tr>
+  <tr class="even">
+  <td align="left"><span class="math">\(a^x\)</span></td>
+  <td align="left"><span class="math">\(a^x/\log(a)\)</span></td>
+  </tr>
+  <tr class="odd">
+  <td align="left"><span class="math">\(e^x\)</span></td>
+  <td align="left"><span class="math">\(e^x\)</span></td>
+  </tr>
+  <tr class="even">
+  <td align="left"><span class="math">\(\operatorname{sen}(x)\)</span></td>
+  <td align="left"><span class="math">\(-\cos(x)\)</span></td>
+  </tr>
+  <tr class="odd">
+  <td align="left"><span class="math">\(\cos(x)\)</span></td>
+  <td align="left"><span class="math">\(\operatorname{sen}(x)\)</span></td>
+  </tr>
+  <tr class="even">
+  <td align="left"><span class="math">\(\tan(x)\)</span></td>
+  <td align="left"><span class="math">\(-\log (\lvert\cos(x)\rvert )\)</span></td>
+  </tr>
+  <tr class="odd">
+  <td align="left"><span class="math">\(\operatorname{senh}(x)\)</span></td>
+  <td align="left"><span class="math">\(\cosh(x)\)</span></td>
+  </tr>
+  <tr class="even">
+  <td align="left"><span class="math">\(\cosh(x)\)</span></td>
+  <td align="left"><span class="math">\(\operatorname{senh}(x)\)</span></td>
+  </tr>
+  <tr class="odd">
+  <td align="left"><span class="math">\(\sec^2(x)\)</span></td>
+  <td align="left"><span class="math">\(\tan(x)\)</span></td>
+  </tr>
+  <tr class="even">
+  <td align="left"><span class="math">\(\text{cosec}^2(x)\)</span></td>
+  <td align="left"><span class="math">\(-\text{cotan}(x)\)</span></td>
+  </tr>
+  <tr class="odd">
+  <td align="left"><span class="math">\(\frac{1}{\sqrt{1-x^2}}\)</span></td>
+  <td align="left"><span class="math">\(\operatorname{arcsen}(x)\)</span></td>
+  </tr>
+  <tr class="even">
+  <td align="left"><span class="math">\(\frac{-1}{\sqrt{1-x^2}}\)</span></td>
+  <td align="left"><span class="math">\(\arccos(x)\)</span></td>
+  </tr>
+  <tr class="odd">
+  <td align="left"><span class="math">\(\frac{1}{1+x^2}\)</span></td>
+  <td align="left"><span class="math">\(\arctan(x)\)</span></td>
+  </tr>
+  </tbody>
+  </table>
+</section>
+
+<section>
+  <header>
+    <h1 id="cálculo-de-integrales">Cálculo de integrales</h1>
+  </header>
+  <p>La siguiente regla se aplica para calcular la integral de una función en un intervalo de la forma <span class="math">\([a,b]\)</span>.</p>
+  <p><strong>Regla de Barrow:</strong> Sea <span class="math">\(f \colon [a,b] \rightarrow \mathbb{R}\)</span> y <span class="math">\(G\)</span> una primitiva de <span class="math">\(f\)</span>. Entonces, <span class="math">\[\int_a^b f(x) \, dx = G(b)-G(a) \ .\]</span></p>
+  <p>Vamos a calcular la integral de la función <span class="math">\(f(x)=x^2\)</span> en el intervalo <span class="math">\([1,2]\)</span>.</p>
+  <ul>
+  <li><p>Calculamos una primitiva de <span class="math">\(f\)</span>: <span class="math">\[G(x)=\int x^2 \, dx = \frac{x^3}{3}.\]</span></p></li>
+  <li><p>Aplicamos la Regla de Barrow: <span class="math">\[\int_1^2f(x) \, dx = G(2)-G(1)= \frac{8}{3}-\frac{1}{3}=\frac{7}{3}.\]</span></p></li>
+  </ul>
+
+  En la siguiente gráfica se representa la función \(x^2\) y su integral entre \(1\) y \(2\). Puedes mover los límites de integración desplazando los puntos en la curva.
+  <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    JXG.Options.text.useMathJax = true;
+    function pinta_int_parabola(){
+      var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 9, 5, -1], axis:true, showCopyright:false, showNavigation:false});
+      var curve = board.create('functiongraph',
+                     [function(t){ return(t*t)}, -10,10]);
+      var i1 = board.create('integral', [[1.0, 2.0], curve], {withLabel:false});
+      var t_int = board.create('text',[-4,-.8,function(){return 'Área='+i1.Value().toFixed(3)}],{fontSize:16, fixed:true})
+    }
+    pinta_int_parabola()
+  </script>
+
+  <h2 id="propiedades-de-las-integrales">Propiedades de las integrales</h2>
+  <ul>
+  <li><p>La integral de una suma es la suma de las integrales; es decir, <span class="math">\[\int_a^b (f+g)(x)\, dx = \int_a^b f(x) \, dx +\int_a^b g(x) \, dx  \ .\]</span></p></li>
+  <li><p>Cuando el integrando presenta un factor común constante, el resultado es el siguiente: <span class="math">\[\int_a^b \alpha \, f(x)\, dx = \alpha \, \int_a^b f(x) \, dx   \ .\]</span></p></li>
+  </ul>
+
+  <article>
     <header>
-      <h4>Cambio de variable</h4>
+      <h3>Ejercicio</h3>
+      <p>Calcula una primitiva de las siguientes funciones:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\( f(x)=4x^3-5x^2-7x+1\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=x^2+\frac{1}{x}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=5\sqrt{x}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=(8x-3)(4x^2-3x+8)^{10}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=(x^2-1)(x^3-3x+5)^{1/2}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\sqrt[4]{x^3}\)</span>.</p></li>
+    </ol>
+  </article>
+</section>
+
+<section>
+  <header>
+    <h1 id="métodos-de-integración">Métodos de integración</h1>
+  </header>
+  <h2 id="cambio-de-variable">Cambio de variable</h2>
+  <p>En determinadas integrales nos interesa hacer un cambio de variable, esto es, <span class="math">\(x=g(t)\)</span>, con el objetivo de que la nueva integral sea más sencilla de calcular. Utilizaremos entonces el siguiente resultado.</p>
+  <article>
+      <header>
+        <h4>Cambio de variable</h4>
+      <header>
+      <p>Sea <span class="math">\(g \colon[a,b] \rightarrow \mathbb{R}\)</span> una función derivable y con derivada <span class="math">\(g^{\prime}\)</span> continua. Sea <span class="math">\(I\)</span> un intervalo tal que <span class="math">\(\phi([a,b]) \subset I\)</span> y <span class="math">\(f \colon I \rightarrow  \mathbb{R}\)</span> una función continua con primitiva <span class="math">\(G\)</span>. Entonces <span class="math">\[\int_{\phi(a)}^{\phi(b)} f(x) \, dx = \int_{a}^{b} (f(g(t)) \, g^{\prime}(t) \, dt =  G(g(b))-G(g(a)).\]</span></p>
+  </article>
+  <p>Vamos a calcular <span class="math">\[\int \frac{e^{x}+3e^{2x}}{2+e^{x}}\, dx .\]</span> Para ello, hacemos el cambio de variable: <span class="math">\(y=e^x\)</span>.</p>
+  <p><span class="math">\[\begin{aligned}
+  \int \frac{e^{x} + 3 e^{2x}}{2 + e^{x}}\, dx &amp; =
+  \left[ \begin{matrix}
+   y=e^{x} \\ dy=e^{x}\, dx \ \Rightarrow \ dx= \frac{dy}{y}
+   \end{matrix} \right]
+   = \int
+  \frac{y + 3y^{2}}{2 + y}\cdot \frac{1}{y}\, dy \\ &amp; =  \int \frac{1 + 3
+  y}{2+y}\, dy =\int \left( 3 - \frac{5}{2+y}\right)\, dy \\
+  &amp; =   3 y - 5 \log  \lvert {y + 2} \lvert +C  = 3e^{x} - 5 \log  \left(e^{x} +2\right) +C .\end{aligned}\]</span></p>
+
+  <article>
     <header>
-    <p>Sea <span class="math">\(g \colon[a,b] \rightarrow \mathbb{R}\)</span> una función derivable y con derivada <span class="math">\(g^{\prime}\)</span> continua. Sea <span class="math">\(I\)</span> un intervalo tal que <span class="math">\(\phi([a,b]) \subset I\)</span> y <span class="math">\(f \colon I \rightarrow  \mathbb{R}\)</span> una función continua con primitiva <span class="math">\(G\)</span>. Entonces <span class="math">\[\int_{\phi(a)}^{\phi(b)} f(x) \, dx = \int_{a}^{b} (f(g(t)) \, g^{\prime}(t) \, dt =  G(g(b))-G(g(a)).\]</span></p>
-</article>
-<p>Vamos a calcular <span class="math">\[\int \frac{e^{x}+3e^{2x}}{2+e^{x}}\, dx .\]</span> Para ello, hacemos el cambio de variable: <span class="math">\(y=e^x\)</span>.</p>
-<p><span class="math">\[\begin{aligned}
-\int \frac{e^{x} + 3 e^{2x}}{2 + e^{x}}\, dx &amp; =
-\left[ \begin{matrix}
- y=e^{x} \\ dy=e^{x}\, dx \ \Rightarrow \ dx= \frac{dy}{y}
- \end{matrix} \right]
- = \int
-\frac{y + 3y^{2}}{2 + y}\cdot \frac{1}{y}\, dy \\ &amp; =  \int \frac{1 + 3
-y}{2+y}\, dy =\int \left( 3 - \frac{5}{2+y}\right)\, dy \\
-&amp; =   3 y - 5 \log  \lvert {y + 2} \lvert +C  = 3e^{x} - 5 \log  \left(e^{x} +2\right) +C .\end{aligned}\]</span></p>
-
-<article>
-  <header>
-    <h3>Ejercicio</h3>
-    <p>Calcula una primitiva de las siguientes funciones:</p>
-  </header>
-  <ol>
-  <li><p><span class="math">\( f(x)=\frac{2x-3}{x^2-3x+4}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\frac{\log(x)}{x}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=(x^2-1) \, e^{x^3-3x+5}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\frac{2^{1/x}}{x^2}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=x \, e^{x^2}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=x^3 \, \sqrt{x^4+1}\)</span>.</p></li>
-  </ol>
-</article>
+      <h3>Ejercicio</h3>
+      <p>Calcula una primitiva de las siguientes funciones:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\( f(x)=\frac{2x-3}{x^2-3x+4}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\frac{\log(x)}{x}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=(x^2-1) \, e^{x^3-3x+5}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\frac{2^{1/x}}{x^2}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=x \, e^{x^2}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=x^3 \, \sqrt{x^4+1}\)</span>.</p></li>
+    </ol>
+  </article>
 
 
-<h2 id="integración-por-partes">Integración por partes</h2>
-<p>Si <span class="math">\(u\)</span> y <span class="math">\(v\)</span> son dos funciones, teniendo en cuenta que <span class="math">\((u\cdot v)&#39;=u\cdot v&#39;+v\cdot u&#39;\)</span>, obtenemos que <span class="math">\[\int u(x)v&#39;(x)\, dx=u(x)v(x)-\int v(x)u&#39;(x)\, dx.\]</span> Esta fórmula aparece escrita en muchas ocasiones de la forma <span class="math">\[\int u \, dv = uv - \int v \, du.\]</span> El siguiente teorema especifica con un poco más de rigor las condiciones necesarias.</p>
-<article>
-  <header>
-    <h4>Integración por partes</h4>
-  </header>
-  <p>Sean <span class="math">\(u,v \colon [a,b] \rightarrow \mathbb{R}\)</span> funciones derivables con derivada continua. Entonces <span class="math">\(uv&#39;\)</span> y <span class="math">\(vu&#39;\)</span> son integrables en <span class="math">\([a,b]\)</span> y <span class="math">\[\int_{a}^{b} u(x)v&#39;(x)  \, dx = u(b)v(b)-u(a)v(a) -\int_{a}^{b} v(x)u&#39;(x)\, dx .\]</span></p>
-</article>
-<h4>Ejemplo</h4>
-<p>Calculemos <span class="math">\( \int x\, e^{x}\, dx\)</span>. <span class="math">\[\int x\, e^{x}\, dx =
-\left[ \begin{matrix}
-u=x, &amp; du=dx \\ dv=e^{x}\,dx, &amp; v=e^{x}
-\end{matrix} \right]
-= x\,e^{x} - \int e^{x} \, dx =
-x\,e^{x} - e^{x} = e^{x}(x-1) .\]</span></p>
+  <h2 id="integración-por-partes">Integración por partes</h2>
+  <p>Si <span class="math">\(u\)</span> y <span class="math">\(v\)</span> son dos funciones, teniendo en cuenta que <span class="math">\((u\cdot v)&#39;=u\cdot v&#39;+v\cdot u&#39;\)</span>, obtenemos que <span class="math">\[\int u(x)v&#39;(x)\, dx=u(x)v(x)-\int v(x)u&#39;(x)\, dx.\]</span> Esta fórmula aparece escrita en muchas ocasiones de la forma <span class="math">\[\int u \, dv = uv - \int v \, du.\]</span> El siguiente teorema especifica con un poco más de rigor las condiciones necesarias.</p>
+  <article>
+    <header>
+      <h4>Integración por partes</h4>
+    </header>
+    <p>Sean <span class="math">\(u,v \colon [a,b] \rightarrow \mathbb{R}\)</span> funciones derivables con derivada continua. Entonces <span class="math">\(uv&#39;\)</span> y <span class="math">\(vu&#39;\)</span> son integrables en <span class="math">\([a,b]\)</span> y <span class="math">\[\int_{a}^{b} u(x)v&#39;(x)  \, dx = u(b)v(b)-u(a)v(a) -\int_{a}^{b} v(x)u&#39;(x)\, dx .\]</span></p>
+  </article>
+  <h4>Ejemplo</h4>
+  <p>Calculemos <span class="math">\( \int x\, e^{x}\, dx\)</span>. <span class="math">\[\int x\, e^{x}\, dx =
+  \left[ \begin{matrix}
+  u=x, &amp; du=dx \\ dv=e^{x}\,dx, &amp; v=e^{x}
+  \end{matrix} \right]
+  = x\,e^{x} - \int e^{x} \, dx =
+  x\,e^{x} - e^{x} = e^{x}(x-1) .\]</span></p>
 
-<article>
-  <header>
-    <h3>Ejercicio</h3>
-    <p>Calcula una primitiva de las siguientes funciones:</p>
-  </header>
-  <ol>
-  <li><p><span class="math">\( f(x)=\log(5x)\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=x \, e^{x}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\arctan(x)\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\operatorname{sen}(x) \, e^{x}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=x \log(x)\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=x^2 \, e^{-x}\)</span>.</p></li>
-  </ol>
-</article>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Calcula una primitiva de las siguientes funciones:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\( f(x)=\log(5x)\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=x \, e^{x}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\arctan(x)\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\operatorname{sen}(x) \, e^{x}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=x \log(x)\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=x^2 \, e^{-x}\)</span>.</p></li>
+    </ol>
+  </article>
 
-<h2 id="integración-de-funciones-racionales">Integración de funciones racionales</h2>
-<p>En este apartado vamos a estudiar el cálculo de <span class="math">\(\int \frac{P(x)}{Q(x)}\, dx \)</span>, donde <span class="math">\(P\)</span> y <span class="math">\(Q\)</span> son funciones polinómicas. Obviamente, si el grado de <span class="math">\( P \)</span> es mayor o igual que el de <span class="math">\( Q \)</span>, podemos dividir los dos polinomios obteniendo <span class="math">\[\frac{P(x)}{Q(x)}=H(x)+\frac{G(x)}{Q(x)},\]</span> donde <span class="math">\(H(x)\)</span> y <span class="math">\(G(x)\)</span> son polinomios y el grado de <span class="math">\(G\)</span> es menor que el grado de <span class="math">\(Q\)</span>. Por tanto, de aquí en adelante supondremos siempre que el grado de <span class="math">\(P\)</span> es menor que el grado de <span class="math">\(Q\)</span>.</p>
-<p>Estudiaremos el caso en que <span class="math">\(Q(x)\)</span> admite raíces reales. En este caso el denominador tiene la forma <span class="math">\(Q(x)= (x-a_{1})^{r_{1}}(x-a_{2})^{r_{2}} \ldots (x-a_{n})^{r_{n}}\)</span>, y podemos descomponer la fracción <span class="math">\(\frac{P(x)}{Q(x)}\)</span> en fracciones simples</p>
-<p><span class="math">\[\begin{aligned}
-\frac{P(x)}{Q(x)} &amp; = \frac{A_{1}}{x-a_{1}}+
-\frac{A_{2}}{(x-a_{1})^{2}} + \cdots +
-\frac{A_{r_{1}}}{(x-a_{1})^{r_{1}}} \\
-&amp; \quad + \frac{B_{1}}{x-a_{2}}+
-\frac{B_{2}}{(x-a_{2})^{2}} +
-\cdots + \frac{C_{r_{n}}}{(x-a_{n})^{r_n}} \, .\end{aligned}\]</span></p>
-<p>Cada una de estas fracciones son de integración inmediata.</p>
-<h4>Ejemplo</h4>
-<p>Calculemos <span class="math">\(\int \frac{1}{(x-1)(x+1)^{3}} \, dx\)</span>.</p>
-<p><span class="math">\[\begin{aligned}
- \frac{1}{(x-1)(x+1)^{3}}  &amp; =
- \frac{A}{x-1}+\frac{B}{x+1}+\frac{C}{(x+1)^{2}}+
- \frac{D}{(x+1)^{3}} \\
- &amp; = \frac{A(x+1)^{3}+B(x-1)(x+1)^{2}+C(x-1)(x+1) +
- D(x-1)}{(x-1)(x+1)^{3}} \\
- &amp; = \frac{(A+B)x^3 +(3A+B+C)x^2 + (3A-B+D)x+ A-B-C-D}{(x-1)(x+1)^{3}} \\
- &amp; = \frac{1}{(x-1)(x+1)^{3}}.\end{aligned}\]</span></p>
-<p>Igualando coeficientes nos queda el sistema <span class="math">\[\begin{alignedat}{5}
-A&amp;&amp; {}+B&amp;&amp; &amp;&amp; &amp;&amp; {}=0, \\
-3A&amp;&amp; {}+ B&amp;&amp; {}+C&amp;&amp; &amp;&amp; {}=0, \\
-3A&amp;&amp; {}-B&amp;&amp; &amp;&amp;{}+D &amp;&amp; = 0, \\
-A&amp;&amp; {}-B&amp;&amp; {}-C&amp;&amp; {}-D &amp;&amp; {}=1.
-\end{alignedat}\]</span> que tiene como soluciones <span class="math">\(A =1/8\)</span>, <span class="math">\(B = -1/8\)</span>, <span class="math">\(C=-1/4\)</span> y <span class="math">\(D=-1/2\)</span>. La integral queda</p>
-<p><span class="math">\[\begin{aligned}
- \int \frac{dx}{(x-1)(x+1)^{3}}  &amp; =  \frac{1}{8}\int
-\frac{dx}{x-1} - \frac{1}{8} \int \frac{dx}{x+1} - \frac{1}{4}
-\int \frac{dx}{(x+1)^{2}} - \frac{1}{2} \int
-\frac{dx}{(x+1)^{3}} \\
-&amp; =  \frac{1}{8} \log  \vert x-1 \vert -\frac{1}{8} \log  \vert x+1 \vert
-+ \frac{1}{4(x+1)} + \frac{1}{4(x+1)^{2}} . \end{aligned}\]</span></p>
-<article>
-  <header>
-    <h3>Ejercicio</h3>
-    <p>Calcula una primitiva de las siguientes funciones:</p>
-  </header>
-  <ol>
-  <li><p><span class="math">\( f(x)=\frac{x+1}{x^2+2x-3}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\frac{x^2+1}{x^2-1}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\frac{x-1}{x^3-4x^2+5x-2}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\frac{x^2+2}{x^3-3x-2}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\frac{x-1}{x^4-4x^3}\)</span>,</p></li>
-  <li><p><span class="math">\(f(x)=\frac{x}{x^3-3x^2+3x-1}\)</span>.</p></li>
-  </ol>
-</article>
+  <h2 id="integración-de-funciones-racionales">Integración de funciones racionales</h2>
+  <p>En este apartado vamos a estudiar el cálculo de <span class="math">\(\int \frac{P(x)}{Q(x)}\, dx \)</span>, donde <span class="math">\(P\)</span> y <span class="math">\(Q\)</span> son funciones polinómicas. Obviamente, si el grado de <span class="math">\( P \)</span> es mayor o igual que el de <span class="math">\( Q \)</span>, podemos dividir los dos polinomios obteniendo <span class="math">\[\frac{P(x)}{Q(x)}=H(x)+\frac{G(x)}{Q(x)},\]</span> donde <span class="math">\(H(x)\)</span> y <span class="math">\(G(x)\)</span> son polinomios y el grado de <span class="math">\(G\)</span> es menor que el grado de <span class="math">\(Q\)</span>. Por tanto, de aquí en adelante supondremos siempre que el grado de <span class="math">\(P\)</span> es menor que el grado de <span class="math">\(Q\)</span>.</p>
+  <p>Estudiaremos el caso en que <span class="math">\(Q(x)\)</span> admite raíces reales. En este caso el denominador tiene la forma <span class="math">\(Q(x)= (x-a_{1})^{r_{1}}(x-a_{2})^{r_{2}} \ldots (x-a_{n})^{r_{n}}\)</span>, y podemos descomponer la fracción <span class="math">\(\frac{P(x)}{Q(x)}\)</span> en fracciones simples</p>
+  <p><span class="math">\[\begin{aligned}
+  \frac{P(x)}{Q(x)} &amp; = \frac{A_{1}}{x-a_{1}}+
+  \frac{A_{2}}{(x-a_{1})^{2}} + \cdots +
+  \frac{A_{r_{1}}}{(x-a_{1})^{r_{1}}} \\
+  &amp; \quad + \frac{B_{1}}{x-a_{2}}+
+  \frac{B_{2}}{(x-a_{2})^{2}} +
+  \cdots + \frac{C_{r_{n}}}{(x-a_{n})^{r_n}} \, .\end{aligned}\]</span></p>
+  <p>Cada una de estas fracciones son de integración inmediata.</p>
+  <h4>Ejemplo</h4>
+  <p>Calculemos <span class="math">\(\int \frac{1}{(x-1)(x+1)^{3}} \, dx\)</span>.</p>
+  <p><span class="math">\[\begin{aligned}
+   \frac{1}{(x-1)(x+1)^{3}}  &amp; =
+   \frac{A}{x-1}+\frac{B}{x+1}+\frac{C}{(x+1)^{2}}+
+   \frac{D}{(x+1)^{3}} \\
+   &amp; = \frac{A(x+1)^{3}+B(x-1)(x+1)^{2}+C(x-1)(x+1) +
+   D(x-1)}{(x-1)(x+1)^{3}} \\
+   &amp; = \frac{(A+B)x^3 +(3A+B+C)x^2 + (3A-B+D)x+ A-B-C-D}{(x-1)(x+1)^{3}} \\
+   &amp; = \frac{1}{(x-1)(x+1)^{3}}.\end{aligned}\]</span></p>
+  <p>Igualando coeficientes nos queda el sistema <span class="math">\[\begin{alignedat}{5}
+  A&amp;&amp; {}+B&amp;&amp; &amp;&amp; &amp;&amp; {}=0, \\
+  3A&amp;&amp; {}+ B&amp;&amp; {}+C&amp;&amp; &amp;&amp; {}=0, \\
+  3A&amp;&amp; {}-B&amp;&amp; &amp;&amp;{}+D &amp;&amp; = 0, \\
+  A&amp;&amp; {}-B&amp;&amp; {}-C&amp;&amp; {}-D &amp;&amp; {}=1.
+  \end{alignedat}\]</span> que tiene como soluciones <span class="math">\(A =1/8\)</span>, <span class="math">\(B = -1/8\)</span>, <span class="math">\(C=-1/4\)</span> y <span class="math">\(D=-1/2\)</span>. La integral queda</p>
+  <p><span class="math">\[\begin{aligned}
+   \int \frac{dx}{(x-1)(x+1)^{3}}  &amp; =  \frac{1}{8}\int
+  \frac{dx}{x-1} - \frac{1}{8} \int \frac{dx}{x+1} - \frac{1}{4}
+  \int \frac{dx}{(x+1)^{2}} - \frac{1}{2} \int
+  \frac{dx}{(x+1)^{3}} \\
+  &amp; =  \frac{1}{8} \log  \vert x-1 \vert -\frac{1}{8} \log  \vert x+1 \vert
+  + \frac{1}{4(x+1)} + \frac{1}{4(x+1)^{2}} . \end{aligned}\]</span></p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Calcula una primitiva de las siguientes funciones:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\( f(x)=\frac{x+1}{x^2+2x-3}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\frac{x^2+1}{x^2-1}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\frac{x-1}{x^3-4x^2+5x-2}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\frac{x^2+2}{x^3-3x-2}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\frac{x-1}{x^4-4x^3}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\frac{x}{x^3-3x^2+3x-1}\)</span>.</p></li>
+    </ol>
+  </article>
 
-<article>
-  <header>
-    <h3>Ejercicio</h3>
-    <p>Calcula las integrales siguientes:</p>
-  </header>
-  <ol>
-  <li><p><span class="math">\( \int_1^2 \frac{\log(x)}{x} , dx\)</span>,</p></li>
-  <li><p><span class="math">\(\int_0^1 \operatorname{arcsen}(x) \, dx\)</span>,</p></li>
-  <li><p><span class="math">\(\int_1^{\pi} \operatorname{sen}(x) \, e^{x} \, dx\)</span>,</p></li>
-  <li><p><span class="math">\(\int_2^3 \frac{x}{x^3-3x^2+3x-1} \, dx\)</span>,</p></li>
-  <li><p><span class="math">\(\int_1^{2/5} \log (5x) \, dx\)</span>,</p></li>
-  <li><p><span class="math">\(\int_0^1 x^3 \, \sqrt{x^4+1} \, dx\)</span>.</p></li>
-  </ol>
-</article>
-
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Calcula las integrales siguientes:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\( \int_1^2 \frac{\log(x)}{x} , dx\)</span>,</p></li>
+    <li><p><span class="math">\(\int_0^1 \operatorname{arcsen}(x) \, dx\)</span>,</p></li>
+    <li><p><span class="math">\(\int_1^{\pi} \operatorname{sen}(x) \, e^{x} \, dx\)</span>,</p></li>
+    <li><p><span class="math">\(\int_2^3 \frac{x}{x^3-3x^2+3x-1} \, dx\)</span>,</p></li>
+    <li><p><span class="math">\(\int_1^{2/5} \log (5x) \, dx\)</span>,</p></li>
+    <li><p><span class="math">\(\int_0^1 x^3 \, \sqrt{x^4+1} \, dx\)</span>.</p></li>
+    </ol>
+  </article>
+</section>
 
 <hr>
 
