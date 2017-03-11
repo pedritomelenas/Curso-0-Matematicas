@@ -22,13 +22,15 @@
   </header>
   <p>Una función <span class="math">\(f\)</span> es <em>continua</em> en un punto <span class="math">\(a\)</span> de su dominio si se cumple que <span class="math">\[\lim_{x \to a} f(x) = f(a).\]</span></p>
 
-  En la siguiente gráfica se representa la función
+  <p>En la siguiente gráfica se representa la función
   \[
   f(x)=\begin{cases} x^2+\frac{12}2x+\frac{17}2,       &amp; \text{si $x < -1$}, \\
                      \frac{2}{3}x + \frac{5}3,         &amp; \text{si $x \ge -1$}.
   \end{cases}
   \]
-  Los deslizadores siven para elegir el valor de \(x\) y \(\delta\). En el eje de abscisas se representa el intervalo \(I=[x-\delta,x+\delta]\) (azul). En el eje de ordenadas se dibuja la imagen de \(I\) por \(f\) (rojo). Para un entorno \(J\) de \(f(-1)\) suficientemente pequeño, y cualquier entorno \(I\) de \(-1\), habrá siempre elementos que se aplican por \(f\) fuera de \(J\). Por tanto, la función no es contínua en \(-1\).
+  En el eje de abscisas se representa el intervalo \(I=[x-\delta,x+\delta]\) (azul). En el eje de ordenadas se dibuja la imagen de \(I\) por \(f\) (rojo). El valor de \(x\) se elige desplazando el punto azul claro en el eje de ordenadas. El valor de \(\delta\) se modifica con el deslizador.
+
+  Para un entorno \(J\) de \(f(-1)\) suficientemente pequeño, y cualquier entorno \(I\) de \(-1\), habrá siempre elementos que se aplican por \(f\) fuera de \(J\). Por tanto, la función no es contínua en \(-1\).
   <p><div id="box_p2" class="jxgbox" style="width:600px; height:600px; display:inline-block;"></div>
   </p>
   <!--basado en el ejemplo http://www.mathdemos.mobi/domainrange/index.shtml
@@ -46,7 +48,7 @@
   	}
   };
 
-  graph_p2=board_p2.createElement('functiongraph',[f_p2,-6,4],{strokeColor:'black'});
+  graph_p2=board_p2.create('functiongraph',[f_p2,-6,4],{strokeColor:'black'});
   var ep1_p2=board_p2.create('point',[-5,1],{strokeColor:'black',fillColor:'black',name:''});
   var ep2_p2=board_p2.create('point',[-1,3],{strokeColor:'black',fillColor:'white',name:''});
   var ep3_p2=board_p2.create('point',[-1,1],{strokeColor:'black',fillColor:'black',name:''});
@@ -56,28 +58,33 @@
   ep3_p2.setProperty({fixed:true});
   ep4_p2.setProperty({fixed:true});
 
-  var s_p2 = board_p2.createElement('slider',[[-5,-4],[2,-4],[-5,-1,2]],{name:"x"});
-  var d_p2 = board_p2.createElement('slider',[[-4.5,-3.5],[-1,-3.5],[0,.25,2]],{name:"\u03B4"});
-  var sf=board_p2.createElement('functiongraph',[f_p2,function(){return s_p2.Value()-d_p2.Value();;},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3, strokeColor:'green'})
+  var ox1 = board_p2.create('point',[-5,0],{visible:false})
+  var ox2 = board_p2.create('point',[2,0],{visible:false})
+  var sx = board_p2.create('segment',[ox1,ox2], {visible:false})
+  var v_x = board_p2.create('glider', [-1,0,sx], {strokeColor:'black',fillColor:'lightblue',name:'x'})
 
-  var sf=board_p2.createElement('functiongraph',[function(){return 0;},function(){return s_p2.Value()-d_p2.Value();;},function(){return s_p2.Value()+d_p2.Value();}],{strokeWidth:3})
+  //var s_p2 = board_p2.create('slider',[[-5,-4],[2,-4],[-5,-1,2]],{name:"x"});
+  var d_p2 = board_p2.create('slider',[[-4.5,-3.5],[-2.5,-3.5],[0,.25,2]],{name:"\u03B4"});
+  var sf=board_p2.create('functiongraph',[f_p2,function(){return v_x.X()-d_p2.Value();;},function(){return v_x.X()+d_p2.Value();}],{strokeWidth:3, strokeColor:'green'})
 
-  var pp1 = board_p2.create('point', [0,function(){return f_p2(s_p2.Value()-d_p2.Value());}],{name:"",visible:false})
+  var sf=board_p2.createElement('functiongraph',[function(){return 0;},function(){return v_x.X()-d_p2.Value();;},function(){return v_x.X()+d_p2.Value();}],{strokeWidth:3})
 
-  var p2 = board_p2.create('point', [0,function(){return f_p2(s_p2.Value()+d_p2.Value());}],{name:"", visible:false})
+  var pp1 = board_p2.create('point', [0,function(){return f_p2(v_x.X()-d_p2.Value());}],{name:"",visible:false})
+
+  var p2 = board_p2.create('point', [0,function(){return f_p2(v_x.X()+d_p2.Value());}],{name:"", visible:false})
 
   var pe1 = board_p2.create('point', [0,1],{name:"", visible:false})
   var pe2 = board_p2.create('point', [0,3],{name:"", visible:false})
 
-  var s1 = board_p2.create('segment',[function(){if(s_p2.Value()-d_p2.Value()<-1){return pp1;}{return pe2;}}, function(){if(s_p2.Value()+d_p2.Value()<-1){return p2;}{return pe2;}}], {strokeColor:"red",strokeWidth:3});
+  var s1 = board_p2.create('segment',[function(){if(v_x.X()-d_p2.Value()<-1){return pp1;}{return pe2;}}, function(){if(v_x.X()+d_p2.Value()<-1){return p2;}{return pe2;}}], {strokeColor:"red",strokeWidth:3});
 
   var s2 = board_p2.create('segment',[
       function(){
-        if(s_p2.Value()-d_p2.Value()>=-1 && s_p2.Value()-d_p2.Value()<=2){return pp1;}
+        if(v_x.X()-d_p2.Value()>=-1 && v_x.X()-d_p2.Value()<=2){return pp1;}
         else{return pe1;}},
       function(){
-        if(s_p2.Value()+d_p2.Value()>=-1 && s_p2.Value()+d_p2.Value()<=2){return p2;}
-        else if(s_p2.Value()+d_p2.Value()>2){return pe2;}
+        if(v_x.X()+d_p2.Value()>=-1 && v_x.X()+d_p2.Value()<=2){return p2;}
+        else if(v_x.X()+d_p2.Value()>2){return pe2;}
         else{return pe1;}}],
      {strokeColor:"red",strokeWidth:3});
 
@@ -126,7 +133,7 @@
   <p><span class="math">\[\begin{aligned}
   \lim_{x \to 1^-}f(x) &amp; = \lim_{x \to 1} e^x= e^1=e, \\
   \lim_{x \to 1^+}f(x) &amp; = \lim_{x \to 1}  \operatorname{sen}(\pi x)= \operatorname{sen}(\pi)=0.\end{aligned}\]</span></p>
-  <p>Como ambos límites laterales son distintos, concluimos ahora que la función <span class="math">\(f\)</span> no tiene límite en el punto <span class="math">\(1\)</span>; es decir no existe el límite <span class="math">\(\displaystyle \lim\nolimits_{x \to 1}f(x)\)</span>. Por tanto, esta función <span class="math">\(f\)</span> no es continua en el punto <span class="math">\(1\)</span>; de hecho, <span class="math">\(f\)</span> presenta una “discontinuidad de salto”. La gráfica de \(f\) tiene el siguiente aspecto.</p>
+  <p>Como ambos límites laterales son distintos, concluimos ahora que la función <span class="math">\(f\)</span> no tiene límite en el punto <span class="math">\(1\)</span>; es decir no existe el límite <span class="math">\(\displaystyle \lim\nolimits_{x \to 1}f(x)\)</span>. Por tanto, esta función <span class="math">\(f\)</span> no es continua en el punto <span class="math">\(1\)</span>; de hecho, <span class="math">\(f\)</span> presenta una “discontinuidad de salto”. La gráfica de \(f\) tiene el siguiente aspecto (puedes desplazar el punto azul a lo largo de la gráfica y ver los valores que toman sus coordenadas).</p>
 
   <div id="box" class="jxgbox" style="width:400px; height:200px;"></div>
   <script type="text/javascript">
@@ -143,8 +150,9 @@
     var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-14, 10, 14, -4], axis:true, showCopyright:false, showNavigation:false});
     curve = board.create('functiongraph',
                    [f, -10,15]);
-    var valorx = board.create('slider', [[-10, -2], [10, -2], [-10, 0, 10]],{name:'',snapWidth:.1});
-    var valordef = board.create('text',[2,4,function(){return "f("+valorx.Value().toFixed(2)+")="+f(valorx.Value()).toFixed(2)}])
+    //var valorx = board.create('slider', [[-10, -2], [10, -2], [-10, 0, 10]],{name:'',snapWidth:.1});
+    var px = board.create('glider',[0,1,curve],{strokeColor:'black',fillColor:'lightblue',name:''});
+    //var valordef = board.create('text',[2,4,function(){return "f("+valorx.Value().toFixed(2)+")="+f(valorx.Value()).toFixed(2)}])
   </script>
 
   <p>Nuestra intención con el siguiente ejemplo es destacar que hay funciones que “aparentemente” no son funciones a trozos, pero que en realidad sí lo son. Esto es importante tenerlo en cuenta a la hora de calcular algunos límites.</p>
