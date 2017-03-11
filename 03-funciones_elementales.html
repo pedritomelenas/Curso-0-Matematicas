@@ -185,6 +185,20 @@
   <p>Las funciones exponenciales son las funciones <span class="math">\(f\)</span> para las que existe un número <span class="math">\(a&gt;0\)</span> de forma que <span class="math">\(f\colon \mathbb{R}\to \mathbb{R}\)</span> viene dada por <span class="math">\(f(x)=a^x\)</span>, <span class="math">\(\forall x\in
   \mathbb{R}\)</span>. En este caso se le llama función exponencial de base <span class="math">\(a\)</span>. Es continua y derivable en todo <span class="math">\(\mathbb{R}\)</span> y su derivada vale <span class="math">\(f&#39;(x)=a^x \log(a)\)</span>.</p>
   <p>Teniendo en cuenta que, para <span class="math">\(x\in \mathbb{R}\)</span>, se verifica que <span class="math">\( a^{-x}=\left( \frac{1}{a}\right) ^{x}\)</span>, entonces las propiedades que tienen las funciones exponenciales de base mayor que <span class="math">\(1\)</span> se traducen en propiedades de las funciones exponenciales de base <span class="math">\(&lt;1\)</span>.</p>
+
+  <p>Veamos algunas características de estas funciones.</p>
+  <ul>
+  <li><p>El caso más trivial de este tipo de funciones corresponde al caso <span class="math">\(a=1\)</span>. En este caso <span class="math">\(f(x)=1,\ \ \forall x\in \mathbb{R}\)</span>.</p></li>
+  <li><p>Si <span class="math">\(a\ne 1\)</span> entonces la funcion exponencial de base <span class="math">\(a\)</span> es inyectiva. De hecho es estrictamente creciente si <span class="math">\(a&gt;1\)</span> y, teniendo en cuenta la relación entre las funciones exponenciales de base mayor que <span class="math">\(1\)</span> y las funciones exponenciales de base menor que <span class="math">\(1\)</span>, se tiene que <span class="math">\(f\)</span> es estrictamente decreciente si <span class="math">\(a&lt;1\)</span>.</p></li>
+  <li><p>En el caso de que <span class="math">\(a&gt;1\)</span> se verifica que <span class="math">\[\lim _{x\to - \infty } a^x=0,\ \ \ \lim_{x\to +\infty }a^x=+\infty.\]</span></p>
+  <p>Si <span class="math">\(a&lt;1\)</span> se tiene entonces que</p>
+  <p><span class="math">\[\lim _{x\to - \infty } a^x=+\infty ,\ \ \ \lim_{x\to +\infty }a^x=0.\]</span></p></li>
+  <li><p>La imagen de la función exponencial de base <span class="math">\(a\)</span>, con <span class="math">\(a\ne 1\)</span>, es <span class="math">\(\mathbb{R}^+\)</span>.</p></li>
+  <li><p>Se verifica que <span class="math">\(a^0=1\)</span> y que <span class="math">\(a^{x+y}=a^x a^y,\ \ \forall x,y\in \mathbb{R}.\)</span></p></li>
+  </ul>
+
+  <p>Puedes comprobar gráficamente las propiedades anteriores variando el valor de \(a\) en la siguiente representación de la función exponencial.</p>
+
   <div id="box8" class="jxgbox" style="width:600px; height:300px;"></div>
   <script type="text/javascript">
     var board = JXG.JSXGraph.initBoard('box8', {boundingbox: [-8, 4, 8, -4], axis:true, showCopyright:false, showNavigation:false});
@@ -197,16 +211,7 @@
     //              [function(t){return(Math.pow(s.Value(),-t))}, -10,10], {strokeColor:"red"});
   </script>
 
-  <p>Veamos algunas características de estas funciones.</p>
-  <ul>
-  <li><p>El caso más trivial de este tipo de funciones corresponde al caso <span class="math">\(a=1\)</span>. En este caso <span class="math">\(f(x)=1,\ \ \forall x\in \mathbb{R}\)</span>.</p></li>
-  <li><p>Si <span class="math">\(a\ne 1\)</span> entonces la funcion exponencial de base <span class="math">\(a\)</span> es inyectiva. De hecho es estrictamente creciente si <span class="math">\(a&gt;1\)</span> y, teniendo en cuenta la relación entre las funciones exponenciales de base mayor que <span class="math">\(1\)</span> y las funciones exponenciales de base menor que <span class="math">\(1\)</span>, se tiene que <span class="math">\(f\)</span> es estrictamente decreciente si <span class="math">\(a&lt;1\)</span>.</p></li>
-  <li><p>En el caso de que <span class="math">\(a&gt;1\)</span> se verifica que <span class="math">\[\lim _{x\to - \infty } a^x=0,\ \ \ \lim_{x\to +\infty }a^x=+\infty.\]</span></p>
-  <p>Si <span class="math">\(a&lt;1\)</span> se tiene entonces que</p>
-  <p><span class="math">\[\lim _{x\to - \infty } a^x=+\infty ,\ \ \ \lim_{x\to +\infty }a^x=0.\]</span></p></li>
-  <li><p>La imagen de la función exponencial de base <span class="math">\(a\)</span>, con <span class="math">\(a\ne 1\)</span>, es <span class="math">\(\mathbb{R}^+\)</span>.</p></li>
-  <li><p>Se verifica que <span class="math">\(a^0=1\)</span> y que <span class="math">\(a^{x+y}=a^x a^y,\ \ \forall x,y\in \mathbb{R}.\)</span></p></li>
-  </ul>
+
   <p>De entre todas las funciones exponenciales hay una destacada por su importancia en distintos campos de la ciencia y es la función exponencial de base <span class="math">\(e\)</span>. En este caso la derivada es <span class="math">\(f&#39;(x)=e^x\)</span>. De hecho cuando se habla de la “función exponencial” sin hacer mención a ninguna base especial, nos referimos a ésta.</p>
 </section>
 
@@ -222,6 +227,9 @@
   <li><p>Por ser la inversa de la función exponencial se verifica que <span class="math">\[\log_a(a^x)=x,\ \ \forall x\in \mathbb{R},\ \ \ a^{\log _ a(x)}=x,\ \ \forall x\in \mathbb{R}^+.\]</span></p></li>
   <li><p><span class="math">\(\log _a(x^y)=y\log_a(x)\)</span> para <span class="math">\(x\)</span> real e <span class="math">\(y\)</span> positivo, y <span class="math">\(\log_a (xy)=\log_a(x)+\log_a (y)\)</span>, para <span class="math">\(x\)</span> e <span class="math">\(y\)</span> positivos.</p></li>
   </ul>
+
+  <p>Puedes comprobar gráficamente las propiedades anteriores variando el valor de \(a\) en la siguiente representación de la función logarítmica.</p>
+
 
   <div id="box9" class="jxgbox" style="width:400px; height:400px;"></div>
   <script type="text/javascript">
@@ -242,6 +250,9 @@
   <p>Dado un número <span class="math">\(b\in \mathbb{R}\)</span> la función potencial de potencia <span class="math">\(b\)</span> es la función <span class="math">\(f \colon \mathbb{R}^+\to \mathbb{R}^+\)</span> definida para cada <span class="math">\(x\in \mathbb{R}^+\)</span> por <span class="math">\(f(x)=x^b\)</span>. Es continua y derivable en <span class="math">\(\mathbb {R}^+\)</span> y su derivada vale <span class="math">\(f&#39;(x)=bx^{b-1}\)</span>.</p>
   <p>Algunas de las propiedades de estas funciones dependen del valor de <span class="math">\(b\)</span>. El caso más trivial es cuando <span class="math">\(b=0\)</span> ya que entonces <span class="math">\(f\)</span> es la función constantemente igual a <span class="math">\(1\)</span>.</p>
 
+
+  <p>Si <span class="math">\(b&gt;0\)</span> entonces <span class="math">\(x^b\)</span> es estrictamente creciente y cumple que <span class="math">\(\lim_{x\to 0} x^b=0\)</span> y <span class="math">\(\lim_{x\to +\infty }x^b=+\infty\)</span>, mientras que si <span class="math">\(b&lt;0\)</span> se tiene que <span class="math">\(x^b\)</span> es estrictamente decreciente y <span class="math">\(\lim_{x\to 0}x^b=+\infty \)</span> mientras que <span class="math">\(\lim_{x\to +\infty}x^b=0\)</span></p>
+
   <div id="box10" class="jxgbox" style="width:400px; height:400px;"></div>
   <script type="text/javascript">
     JXG.Options.axis.ticks.insertTicks = false;
@@ -257,7 +268,7 @@
     //              [function(t){return(Math.pow(s.Value(),-t))}, -10,10], {strokeColor:"red"});
   </script>
 
-  <p>Si <span class="math">\(b&gt;0\)</span> entonces <span class="math">\(x^b\)</span> es estrictamente creciente y cumple que <span class="math">\(\lim_{x\to 0} x^b=0\)</span> y <span class="math">\(\lim_{x\to +\infty }x^b=+\infty\)</span>, mientras que si <span class="math">\(b&lt;0\)</span> se tiene que <span class="math">\(x^b\)</span> es estrictamente decreciente y <span class="math">\(\lim_{x\to 0}x^b=+\infty \)</span> mientras que <span class="math">\(\lim_{x\to +\infty}x^b=0\)</span></p>
+
   <p>Tanto si <span class="math">\(b&gt;0\)</span> como si <span class="math">\(b&lt;0\)</span> la función potencial de potencia <span class="math">\(b\)</span> es una biyección de <span class="math">\(\mathbb{R}^+\)</span> sobre si mismo cuya función inversa es la función potencial de potencia <span class="math">\(\frac{1}{b}\)</span>, <span class="math">\(x^{1/b}\)</span>.</p>
 </section>
 
@@ -267,11 +278,11 @@
   </header>
   <p>Las principales funciones trigonométricas son la función seno, la función coseno y la función tangente. A partir de estas se construyen sus inversas, arcoseno, arcocoseno y arcotangente.</p>
   <ul>
-  <li><p>La función seno <span class="math">\(\mathrm{sen} \colon \mathbb{R}\to \mathbb{R}\)</span> es una función periódica de periodo <span class="math">\(2\pi \)</span> cuya imagen es el intervalo <span class="math">\([-1,1]\)</span>. Es una función impar (<span class="math">\(\mathrm{sen} (-x)=-\mathrm{sen} (x)\)</span>, <span class="math">\(\forall x\in \mathbb{R}\)</span>) y es estrictamente creciente en el intervalo <span class="math">\([0,\pi/2]\)</span> y estrictamente decreciente en <span class="math">\([\pi /2,\pi]\)</span> con <span class="math">\(\mathrm{sen} (0)=0\)</span>, <span class="math">\(\mathrm{sen} (\pi/2)=1\)</span> y <span class="math">\(\mathrm{sen}(\pi)=0\)</span>. Es continua y derivable en todo <span class="math">\(\mathbb{R}\)</span> y su derivada vale <span class="math">\(\cos(x)\)</span>.</p>
+  <li><p>La función <span style="color:red">seno</span> <span class="math">\(\mathrm{sen} \colon \mathbb{R}\to \mathbb{R}\)</span> es una función periódica de periodo <span class="math">\(2\pi \)</span> cuya imagen es el intervalo <span class="math">\([-1,1]\)</span>. Es una función impar (<span class="math">\(\mathrm{sen} (-x)=-\mathrm{sen} (x)\)</span>, <span class="math">\(\forall x\in \mathbb{R}\)</span>) y es estrictamente creciente en el intervalo <span class="math">\([0,\pi/2]\)</span> y estrictamente decreciente en <span class="math">\([\pi /2,\pi]\)</span> con <span class="math">\(\mathrm{sen} (0)=0\)</span>, <span class="math">\(\mathrm{sen} (\pi/2)=1\)</span> y <span class="math">\(\mathrm{sen}(\pi)=0\)</span>. Es continua y derivable en todo <span class="math">\(\mathbb{R}\)</span> y su derivada vale <span class="math">\(\cos(x)\)</span>.</p>
   </li>
-  <li><p>La función coseno <span class="math">\(\cos \colon \mathbb{R}\to \mathbb{R}\)</span> es una función periódica de periodo <span class="math">\(2\pi \)</span> cuya imagen es también el intervalo <span class="math">\([-1,1]\)</span>. Es una función par (<span class="math">\(\cos (-x)=\cos (x)\)</span>, <span class="math">\(\forall x\in \mathbb{R}\)</span>) y es estrictamente decreciente en el intervalo <span class="math">\([0,\pi]\)</span> con <span class="math">\(\cos (0)=1\)</span>, <span class="math">\(\cos (\pi/2)=0\)</span> y <span class="math">\(\cos(\pi)=-1 \)</span>. También es derivable en todo <span class="math">\(\mathbb{R}\)</span> y su derivada vale <span class="math">\(-\mathrm{sen}(x)\)</span>.</p>
+  <li><p>La función <span style="color:blue">coseno</span> <span class="math">\(\cos \colon \mathbb{R}\to \mathbb{R}\)</span> es una función periódica de periodo <span class="math">\(2\pi \)</span> cuya imagen es también el intervalo <span class="math">\([-1,1]\)</span>. Es una función par (<span class="math">\(\cos (-x)=\cos (x)\)</span>, <span class="math">\(\forall x\in \mathbb{R}\)</span>) y es estrictamente decreciente en el intervalo <span class="math">\([0,\pi]\)</span> con <span class="math">\(\cos (0)=1\)</span>, <span class="math">\(\cos (\pi/2)=0\)</span> y <span class="math">\(\cos(\pi)=-1 \)</span>. También es derivable en todo <span class="math">\(\mathbb{R}\)</span> y su derivada vale <span class="math">\(-\mathrm{sen}(x)\)</span>.</p>
   <p>Tanto la función seno como coseno, al ser periódicas (y no constantes), no tienen límite ni en <span class="math">\(+\infty  \)</span> ni en <span class="math">\(-\infty \)</span>.</p></li>
-  <li><p>La función tangente es el cociente entre seno y coseno. está definida en los números reales en los que coseno no vale <span class="math">\(0\)</span>, es decir en todo <span class="math">\(\mathbb{R}\)</span> salvo en los múltiplos impares de <span class="math">\(\pi /2\)</span>. Es decir, <span class="math">\[\tan \colon \mathbb{R}\setminus \{ (2k+1)\pi /2 : k\in \mathbb{Z} \} \to \mathbb{R},\ \ \tan(x)=\frac{\mathrm{sen}(x)}{\cos(x)} ,\]</span> para <span class="math">\(x\in \mathbb{R}\setminus \{ (2k+1)\pi /2 :  k\in \mathbb{Z} \} \)</span>.</p>
+  <li><p>La función <span style="color:orange">tangente</span> es el cociente entre seno y coseno. está definida en los números reales en los que coseno no vale <span class="math">\(0\)</span>, es decir en todo <span class="math">\(\mathbb{R}\)</span> salvo en los múltiplos impares de <span class="math">\(\pi /2\)</span>. Es decir, <span class="math">\[\tan \colon \mathbb{R}\setminus \{ (2k+1)\pi /2 : k\in \mathbb{Z} \} \to \mathbb{R},\ \ \tan(x)=\frac{\mathrm{sen}(x)}{\cos(x)} ,\]</span> para <span class="math">\(x\in \mathbb{R}\setminus \{ (2k+1)\pi /2 :  k\in \mathbb{Z} \} \)</span>.</p>
   <p>Es una función periódica de periodo <span class="math">\(\pi\)</span> y si restringimos su dominio a <span class="math">\(]-\pi/2,\pi/2[\)</span> entonces es estrictamente creciente y se verifica que <span class="math">\[\lim_{x\to -\pi/2 ^+}\tan (x)=-\infty,\ \ \ \lim_{x\to \pi/2 ^-}\tan (x)=+\infty .\]</span></p>
   <p>Es continua y derivable en su dominio y la derivada vale <span class="math">\[f&#39;(x)=\frac{1}{\cos ^2(x)}=1+\tan ^2(x),\ \ \forall x\in \mathbb{R}\setminus
   \{ (2k+1)\pi /2 : k\in \mathbb{Z} \} .\]</span></p>
