@@ -117,52 +117,6 @@ dl dd {
     margin-left:1em;
 }
 
-th,td {
-    line-height:1.125em;
-    text-align:left;
-    vertical-align:top;
-    border-top:1px solid #DDD;
-    border-left:1px solid #DDD;
-    padding:.5em;
-}
-
-th {
-    font-weight:700;
-    text-align:center;
-    color:#20639b;
-}
-
-table thead:first-child tr:first-child th,table tbody:first-child tr:first-child th,table tbody:first-child tr:first-child td {
-    border-top:0;
-}
-
-table thead:first-child tr:first-child th:first-child,table tbody:first-child tr:first-child td:first-child {
-    -webkit-border-radius:4px 0 0 0;
-    -moz-border-radius:4px 0 0;
-    border-radius:4px 0 0 0;
-}
-
-table thead:first-child tr:first-child th:last-child,table tbody:first-child tr:first-child td:last-child {
-    -webkit-border-radius:0 4px 0 0;
-    -moz-border-radius:0 4px 0 0;
-    border-radius:0 4px 0 0;
-}
-
-table thead:last-child tr:last-child th:first-child,table tbody:last-child tr:last-child td:first-child {
-    -webkit-border-radius:0 0 0 4px;
-    -moz-border-radius:0 0 0 4px;
-    border-radius:0 0 0 4px;
-}
-
-table thead:last-child tr:last-child th:last-child,table tbody:last-child tr:last-child td:last-child {
-    -webkit-border-radius:0 0 4px 0;
-    -moz-border-radius:0 0 4px;
-    border-radius:0 0 4px 0;
-}
-
-table tbody tr:nth-child(odd) td,table tbody tr:nth-child(odd) th {
-    background-color:#f9f9f9;
-}
 
 caption {
     margin-bottom:.5em;
@@ -288,8 +242,7 @@ article {
 
   border: 2px solid #ddd;
   box-sizing: border-box;
-  padding: .5em;
-  margin: .5em;
+  padding: 1em;
 
 
 
