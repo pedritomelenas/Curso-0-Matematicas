@@ -269,7 +269,8 @@
 <script type="text/javascript" language="javascript">
   function show(str, obj){
     document.getElementById(obj).innerHTML = str;
-    MathJax.Hub.Typeset();
+    //MathJax.Hub.Typeset();
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,obj]);
   }
 </script>
 
