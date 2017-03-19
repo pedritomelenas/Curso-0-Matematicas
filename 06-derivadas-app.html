@@ -74,7 +74,7 @@
     </li>
     </ol>
 
-    <p>En el siguiente gráfico se representa la función <span style="color:blue">\(x^2\)</span>, y la <span style="color:red">tangente</span> y la <span style="color:green">normal</span>  en el punto \(A=(a,a^2\). Puedes desplazar este punto y ver cómo varían las rectas tangente y normal.</p>
+    <p>En el siguiente gráfico se representa la función <span style="color:blue">\(x^2\)</span>, y la <span style="color:red">tangente</span> y la <span style="color:green">normal</span>  en el punto \(A=(a,a^2)\). Puedes desplazar este punto y ver cómo varían las rectas tangente y normal.</p>
 
     <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
     <script type="text/javascript">
@@ -96,7 +96,37 @@
       <h3>Ejercicio</h3>
     </header>
     <ol>
-      <li><p>Calcula la ecuación de la recta (o rectas) tangente a la gráfica de <span class="math">\(f(x)=4x^3-2x^2+x-1\)</span> pararela a la bisectriz del primer cuadrante.</p></li>
+      <li><p>Calcula la ecuación de la recta (o rectas) tangentes a la gráfica de <span class="math">\(f(x)=4x^3-2x^2+x-1\)</span> pararelas a la bisectriz del primer cuadrante.
+        <p><span id="e2-1"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+          <br>La bisectriz del primer cuadrante es \\(y=x\\). Por tanto estamos buscando una tangente a \\(f(x)\\) con pendiente \\(1\\), es decir, buscamos \\(a\\) con \\(f\'(a)=1\\).
+          <br>Tenemos pues que resolver la ecuación \\(f\'(x)=12x^2-4x+1=1\\), que equivale a \\(12x^2-4x=x(12x-4)=0\\). Así las soluciones son \\(x=0\\) y \\(x=\\frac{1}3\\).
+          <br>Sabemos que la recta tangente a <span class='math' style='color:blue'>\\(y=f(x)\\)</span> en un punto \\(a\\) es \\(y=f(a)+f\'(a)(x-a)\\), por tanto, las rectas tangentes que buscamos son <span class='math' style='color:red'>\\(y=-1+x\\)</span> e <span class='math' style='color:orange'>\\(y=-\\frac{29}{27}+x\\)</span>.
+          <br><br>
+          <div id='ebox2-1' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;''> </div>
+          <br>
+          `,
+          'e2-1');pintae21();" type="button"></span></p>
+          <script type="text/javascript">
+          function pintae21(){
+            var f=function(t){
+                return (4*t*t*t-2*t*t+t-1);
+            }
+            var t1=function(t){
+                return -1+t;
+            }
+            var t2=function(t){
+                return -20/27+t-1/3;
+            }
+            var board = JXG.JSXGraph.initBoard('ebox2-1', {boundingbox: [-2, 2, 2, -2], axis:true, showCopyright:false, showNavigation:false});
+            curve = board.create('functiongraph',
+                           [f, -10,10]);
+            tan1= board.create('functiongraph',[t1,-10,10],{strokeColor:"red"});
+            tan2= board.create('functiongraph',[t2,-10,10], {strokeColor:"orange"});
+            bis = board.create('line',[[-10,-10],[10,10]],{strokeColor:"gray",dash:1});
+          }
+          </script>
+
+      </p></li>
       <li><p>Halla los valores de la constante <span class="math">\(\lambda\)</span> para los que las rectas tangentes a las funciones <span class="math">\(f(x)=x^3\)</span> y <span class="math">\(g(x)=(x+\lambda)x\)</span> en el punto <span class="math">\(x=1\)</span> sean:</p>
       <ol>
       <li><p>paralelas,</p></li>
@@ -215,7 +245,6 @@
       <li><p>Estudia la función <span class="math">\(f \colon \mathbb{R} \rightarrow \mathbb{R}\)</span> definida como <span class="math">\(f(x)=3\,{x}^{4}-4\,{x}^{3}-6\,{x}^{2}+12\,x\)</span>.</p></li>
 
       <li><p>Esboza la gráfica de una función <span class="math">\(f\)</span> definida en <span class="math">\([0,2]\)</span> que verifique que <span class="math">\(f(0)=f(2)=0\)</span>, <span class="math">\(f&#39;(0)=2\)</span> y <span class="math">\(f&#39;(2)=-2\)</span>.</p></li>
-      <li><p>Dibuja la región del primer cuadrante limitada por las gráficas de <span class="math">\(y=\sqrt{x}\)</span>, <span class="math">\(x=6\)</span>, <span class="math">\(y=0\)</span> y calcula las dimensiones del rectángulo inscrito de lados paralelos a los ejes y que tenga máxima área.</p></li>
       <li><p>Considera la función <span class="math">\(f \colon \mathbb{R} \to \mathbb{R}\)</span> definida como <span class="math">\(f(x)=\displaystyle e^{\frac{2x}{x^2+1}}\)</span>.</p>
       <ol>
         <li><p>Calcula las asíntotas de la gráfica de <span class="math">\(f\)</span>.</p></li>
@@ -233,7 +262,7 @@
           <li><p><span class="math">\(f(x)=\cos(2x)\)</span>,</p></li>
           <li><p><span class="math">\(f(x)=\cos(x)-1\)</span>,</p></li>
           <li><p><span class="math">\(f(x)=\cos(x)+1\)</span>,</p></li>
-          <li><p><span class="math">\(f(x)=|\cos(x)|\)</span>.</p></li>
+          <li><p><span class="math">\(f(x)=\lvert\cos(x)\rvert\)</span>.</p></li>
         </ol>
       </li>
     </ol>
@@ -267,7 +296,7 @@
       var q1 = board.create('point',[-10,0],{visible:false});
       var q2 = board.create('point',[10,0],{visible:false});
       var sc = board.create('semicircle',[q1,q2],{withLabel:false, fixed:true} );
-      var ox = board.create('segment',[[0,0],[10,0]],{fixed:true});
+      var ox = board.create('segment',[[0,0],[10,0]],{fixed:true, visible:false});
       var p1 = board.create('glider',[5,0,ox],{name:'\\(x\\)'});
       board.create('polygon', [[function(){return -p1.X()},0],[function(){return p1.X()},0],[function(){return p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}],[function(){return -p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}]], {vertices:{fixed:true, visible:false}} );
       board.create('text',[function(){return p1.X()+.5},function(){return Math.sqrt(100-p1.X()*p1.X())+.5},function(){return "\\( \\left(x,\\sqrt{100-x^2}\\right)\\)"}],{fixed:true})
@@ -294,6 +323,44 @@
   <p>También podemos comprobar si es un máximo, estudiando el signo de la primera derivada a ambos lados del punto crítico. En este caso, el signo de \(f&#39;(x)\) queda determinado por el signo de \(g(x)=100-2*x^2\). Evaluando \(g\) en, por ejemplo, \(\frac{10}{\sqrt{2}}-\frac{1}2\) y \(\frac{10}{\sqrt{2}}+\frac{1}2\), obtenemos aproximadamente \(3.62\) y \(-4.48\), respectivamente. De aquí deducimos que la función \(f\) crece a la izquierda de \(\frac{10}{\sqrt{2}}\) y decrece a su derecha. Por tanto, en \(\frac{10}{\sqrt{2}}\) se alcanza un máximo relativo. </p>
   <li><p>El área máxima es \(100\).</li>
   </ol>
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Dibuja la región del primer cuadrante limitada por las gráficas de <span class="math">\(y=\sqrt{x}\)</span>, <span class="math">\(x=6\)</span>, <span class="math">\(y=0\)</span> y calcula las dimensiones del rectángulo inscrito de lados paralelos a los ejes y que tenga máxima área.</p>
+    </header>
+    <p><span id="e4"><input name="execute" value="Solución &#x25B6;" onclick="show(`
+      <br>Al ser un rectángulo inscrito en dichas gráficas y de lados paralelos a los ejes, dos de sus lados se tinen que apoyar en \(y=0\) y en \(x=6\), respectivamente. Por tanto, tiene que tener el siguiente aspecto.
+      <br>Puedes desplazar el punto rojo y ver cómo varía el área.
+      <br><br>
+      <div id='ebox4' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;''> </div>
+      <br>
+      El área que hay que maximizar es por tanto \\(f(x)=(6-x)\\sqrt{x}\\), que alcanza el valor máximo \\(4\\sqrt{2}\\) en \\(x=2\\).
+      `,
+      'e4');pintae4();" type="button"></span></p>
+      <script type="text/javascript">
+      function pintae4(){
+        var f=function(t){
+            if((t<=0) || (t>6)){
+              return 0;
+            }
+            return Math.sqrt(t);
+        }
+        var board = JXG.JSXGraph.initBoard('ebox4', {boundingbox: [-1, 3, 7, -1], axis:true, showCopyright:false, showNavigation:false});
+        var curve = board.create('functiongraph',
+                       [f, -10,10],{frozen:true});
+        board.create('integral', [[0,6], curve], {withLabel:false, fixed:true, curveRight:{visible:false}, curveLeft:{visible:false},color:"gray",frozen:true});
+        board.create('line',[[6,-10],[6,10]],{strokeColor:"gray",dash:1,fixed:true});
+        var ds = board.create('glider',[2,4,curve],{name:''});
+        var pol = board.create('polygon',[[function(){return ds.X()},0],[6,0],[6,function(){return ds.Y()}],[function(){return ds.X()}, function(){return ds.Y()}]], {vertices:{fixed:true, visible:false}});
+        board.create('text',[2,-.5,function(){
+          var a = (6-ds.X())*ds.Y();
+          return "Área "+ a.toFixed(3) }],{fontSize:14})
+
+      }
+      </script>
+
+  </article>
 </section>
 
 
@@ -304,7 +371,8 @@
 <script type="text/javascript" language="javascript">
   function show(str, obj){
     document.getElementById(obj).innerHTML = str;
-    MathJax.Hub.Typeset();
+    //MathJax.Hub.Typeset();
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,obj]);
   }
 </script>
 
