@@ -135,10 +135,30 @@
       <p>Calcula una primitiva de las siguientes funciones:</p>
     </header>
     <ol>
-    <li><p><span class="math">\( f(x)=4x^3-5x^2-7x+1\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=x^2+\frac{1}{x}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=5\sqrt{x}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=\sqrt[4]{x^3}\)</span>.</p></li>
+    <li><span class="math">\( f(x)=4x^3-5x^2-7x+1\)</span>,
+      <button id="e1-1" class="button"  onclick="show2('e1-1');">Solución</button>
+      <div id="sol-e1-1" style="display:none;">
+        <p>\(\int f(x)\, dx= x^4 - (5 x^3)/3 - (7 x^2)/2 + x\),</p>
+      </div>
+    </li>
+    <li><span class="math">\(f(x)=x^2+\frac{1}{x}\)</span>,
+      <button id="e1-2" class="button" onclick="show2('e1-2');">Solución</button>
+      <div id="sol-e1-2" style="display:none;">
+        <p>\(\int f(x)\, dx=  \dfrac{x^3}{3} + \ln(x)\),</p>
+      </div>
+    </li>
+    <li><p><span class="math">\(f(x)=5\sqrt{x}\)</span>,
+      <button id="e1-3" class="button" onclick="show2('e1-3');">Solución</button>
+      <div id="sol-e1-3" style="display:none;">
+        <p>\(\int f(x)\, dx= \dfrac{10 x^{3/2}}{3}\),</p>
+      </div>
+    </p></li>
+    <li><p><span class="math">\(f(x)=\sqrt[4]{x^3}\).</span>
+      <button id="e1-4" class="button" onclick="show2('e1-4');">Solución</button>
+      <div id="sol-e1-4" style="display:none;">
+        <p>\(\int f(x)\, dx= \dfrac{4}{7} x\sqrt[4]{x^3}\).<p>
+      </div>
+    </p></li>
     </ol>
   </article>
 </section>
@@ -196,12 +216,14 @@
     <li><p><span class="math">\( f(x)=\frac{2x-3}{x^2-3x+4}\)</span>,</p></li>
     <li><p><span class="math">\(f(x)=\frac{\ln(x)}{x}\)</span>,</p></li>
     <li><p><span class="math">\(f(x)=(x^2-1) \, e^{x^3-3x+5}\)</span>
-      <span id="e1-2">,<input name="execute" value="Solución &#x25B6;" onclick="show(`
-        <br>Obsérvese que la derivada del exponente de \\(e\\) es casi el factor que multiplica. Para ajustarlo, basta multiplicar y dividir por \\(3\\). Así haciendo el cambio \\(g(x)=x^3-3x+5\\) y \\(f(x)=e^x\\),
-        \\[
-        \\int (x^2-1) \\, e^{x^3-3x+5}\\, dx= \\frac{1}{3} \\int (3x^2-3) \\, e^{x^3-3x+5}\\, dx =\\frac{1}3 e^{x^3-3x+5} +C.
-        \\]
-        `,'e1-2');" type="button"></span>
+      <!--<span id="e2-3">,<input name="execute" value="Solución &#x25B6;" onclick="show2('sol-e2-3');" type="button"></span>-->
+      <button id="e2-3" class="button" style="float: right;" onclick="show2('e2-3');">Solución</button>
+      <div id="sol-e2-3" style="display:none;">
+        <p>Obsérvese que la derivada del exponente de \(e\) es casi el factor que multiplica. Para ajustarlo, basta multiplicar y dividir por \(3\). Así haciendo el cambio \(g(x)=x^3-3x+5\) y \(f(x)=e^x\),
+        \[
+        \int (x^2-1) \, e^{x^3-3x+5}\, dx= \frac{1}{3} \int (3x^2-3) \, e^{x^3-3x+5}\, dx =\frac{1}3 e^{x^3-3x+5} +C.
+        \]
+      </div>
     </p></li>
     <li><p><span class="math">\(f(x)=\frac{2^{1/x}}{x^2}\)</span>,</p></li>
     <li><p><span class="math">\(f(x)=(8x-3)(4x^2-3x+8)^{10}\)</span>,</p></li>
@@ -297,10 +319,10 @@
       <p>Calcula las integrales siguientes:</p>
     </header>
     <ol>
-    <li><p><span class="math">\( \int_1^2 \frac{\ln(x)}{x} , dx\)</span>,</p></li>
+    <li><p><span class="math">\( \int_1^2 \dfrac{\ln(x)}{x}  dx\)</span>,</p></li>
     <li><p><span class="math">\(\int_0^1 \operatorname{arcsen}(x) \, dx\)</span>,</p></li>
     <li><p><span class="math">\(\int_1^{\pi} \operatorname{sen}(x) \, e^{x} \, dx\)</span>,</p></li>
-    <li><p><span class="math">\(\int_2^3 \frac{x}{x^3-3x^2+3x-1} \, dx\)</span>,</p></li>
+    <li><p><span class="math">\(\int_2^3 \dfrac{x}{x^3-3x^2+3x-1} \, dx\)</span>,</p></li>
     <li><p><span class="math">\(\int_1^{2/5} \ln (5x) \, dx\)</span>,</p></li>
     <li><p><span class="math">\(\int_0^1 x^3 \, \sqrt{x^4+1} \, dx\)</span>.</p></li>
     </ol>
@@ -309,13 +331,35 @@
 
 <hr>
 
-<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada.  Las animaciones en JSXGraph y el maquetado de la página han sido realizados por Pedro A. García Sánchez. Cambios en la redacción original y ejemplos aportados por María Burgos.</p>
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada.  Las animaciones en <a href="https://jsxgraph.uni-bayreuth.de">JSXGraph</a> y el maquetado de la página han sido realizados por Pedro A. García Sánchez. Cambios en la redacción original y ejemplos aportados por María Burgos.</p>
 
 <script type="text/javascript" language="javascript">
   function show(str, obj){
     document.getElementById(obj).innerHTML = str;
-    MathJax.Hub.Typeset();
+    //MathJax.Hub.Typeset();
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,obj]);
   }
+
+  function show2(divID) {
+
+      var sol = document.getElementById("sol-"+divID);
+      var div = document.getElementById(divID);
+
+      if(sol.style.display == "none"){
+        sol.style.display = "block";
+      }else{
+        sol.style.display = "none";
+      }
+
+
+      if(div.innerHTML == "Solución"){
+        div.innerHTML = "Oculta solución";
+      }else{
+        div.innerHTML = "Solución";
+      }
+
+  }
+
 </script>
 
 </body>

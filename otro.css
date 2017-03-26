@@ -15,6 +15,19 @@ body {
   counter-reset: article;
 }
 
+button {
+    background-color: #AAA;
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
 
 h3:after {
   counter-increment: article;
