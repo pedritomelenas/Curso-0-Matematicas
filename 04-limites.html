@@ -184,19 +184,17 @@
       <p>Estudia la continuidad de las siguientes funciones.</p>
     </header>
     <ol>
-    <li> <span class="math">\(f(x)= \begin{cases}
+    <li> <p><span class="math">\(f(x)= \begin{cases}
         e^x, &amp; \text{si $x &lt;0$}, \\
         \cos(x), &amp; \text{si $x\geq 0$}.
-        \end{cases}\)</span><br>
-        <p><span id="e1-1"><input name="execute" value="Solución &#x25B6;" onclick="show(`
-          <br>Tanto \\(e^x\\) como \\(\\cos(x)\\) son funciones continuas. Por tanto, la función \\(f\\) es continua en los intervalos \\((-\\infty,0)\\), \\((0,\\infty)\\).
-          <br>Veamos que ocurre en el \\(0\\). Para ello calculamos \\(\\lim\\nolimits_{x\\to 0^-} e^x=1=f(0)\\) (no hace falta calcular el límite por la derecha pues la función \\(\\cos(x)\\) es continua y por tanto ese límite vale \\(\\cos(0)\\)). Concluimos que la función es contínua en todo \\(\\mathbb{R}\\).
-          <br>Ésta es la gráfica de la función.
-          <br>
-          <div id='ebox1-1' class='jxgbox' style='width:400px; height:150px;display:inline-block;text-align: center;''> </div>
-          <br>
-          `,
-          'e1-1');pintae11();" type="button"></span></p>
+        \end{cases}\)</span>
+        <button id="e1-1" class="button"  onclick="show2('e1-1');">Solución</button>
+        <div id="sol-e1-1" style="display:none;">
+          <p>Tanto \(e^x\) como \(\cos(x)\) son funciones continuas. Por tanto, la función \(f\) es continua en los intervalos \((-\infty,0)\), \((0,\infty)\).</p>
+          <p>Veamos que ocurre en el \(0\). Para ello calculamos \(\lim\nolimits_{x\to 0^-} e^x=1=f(0)\) (no hace falta calcular el límite por la derecha pues la función \(\cos(x)\) es continua y por tanto ese límite vale \(\cos(0)\)). Concluimos que la función es contínua en todo \(\mathbb{R}\).</p>
+          <p>Ésta es la gráfica de la función.</p>
+
+          <div id='ebox1-1' class='jxgbox' style='width:400px; height:150px;display:inline-block;text-align: center;'> </div>
           <script type="text/javascript">
           function pintae11(){
             var f=function(x){
@@ -211,21 +209,21 @@
             curve = board.create('functiongraph',
                            [f, -10,15]);
           }
+          pintae11();
           </script>
+        </div></p>
       </li>
-    <li><span class="math">\(f(x)= \begin{cases}
+    <li><p><span class="math">\(f(x)= \begin{cases}
         3x^2+x, &amp; \text{si $x &lt;0$}, \\
         0, &amp; \text{si $x=0$}, \\
         \frac{1}{x}, &amp; \text{si $x&gt;0$}.
         \end{cases}\)</span>
-        <p><span id="e1-2"><input name="execute" value="Solución &#x25B6;" onclick="show(`
-          <br>La función \\(3x^2+x\\) es contínua en todo \\(\\mathbb{R}\\), y la función \\(1/x\\) lo es en el intervalo \\((0,\\infty)\\). Por tanto sólo falta estudiar qué ocurre en el \\(0\\). Para ello calculamos \\(\\lim\\nolimits_{x\\to 0^-} (3x^2+x)=1=f(0)\\) y \\(\\lim\\nolimits_{x\\to 0^+} \\frac{1}x=+\\infty\\). Concluimos que la función es contínua en todo \\(\\mathbb{R}\\setminus\\{0\\}\\).
-          <br>Ésta es la gráfica de la función.
-          <br>
-          <div id='ebox1-2' class='jxgbox' style='width:400px; height:150px;display:inline-block;text-align: center;''> </div>
-          <br>
-          `,
-          'e1-2');pintae12();" type="button"></span></p>
+        <button id="e1-2" class="button"  onclick="show2('e1-2');">Solución</button>
+        <div id="sol-e1-2" style="display:none;">
+          <p>La función \(3x^2+x\) es contínua en todo \(\mathbb{R}\), y la función \(1/x\) lo es en el intervalo \((0,\infty)\). Por tanto sólo falta estudiar qué ocurre en el \(0\). Para ello calculamos \(\lim\nolimits_{x\to 0^-} (3x^2+x)=1=f(0)\) y \(\lim\nolimits_{x\to 0^+} \frac{1}x=+\infty\). Concluimos que la función es contínua en todo \(\mathbb{R}\setminus\{0\}\).</p>
+          <p>Ésta es la gráfica de la función.</p>
+
+          <div id='ebox1-2' class='jxgbox' style='width:400px; height:150px;display:inline-block;text-align: center;'> </div>
           <script type="text/javascript">
           function pintae12(){
             var f=function(x){
@@ -240,7 +238,9 @@
             curve = board.create('functiongraph',
                            [f, -10,15]);
           }
+          pintae12();
           </script>
+        </div></p>
       </li>
     </ol>
   </article>
@@ -297,32 +297,33 @@
     </header>
     <ol>
     <li><p><span class="math">\(\displaystyle \lim_{x \to  2} \frac{x^2-4}{x^3-4x}\)</span>
-    <span id="e2-1"><input name="execute" value="&#x25B6;" onclick="show('\\(= \\dfrac{1}2\\)','e2-1')" type="button"></span>
-      .</p></li>
+      <span id="sol-e2-1" style="display:none;">\(= \dfrac{1}2\)</span>.
+      <button id="e2-1" class="button"  onclick="show2('e2-1');">Solución</button></p></li>
     <li><p><span class="math">\(\displaystyle \lim_{x \to 0} \frac{x^6+2x^4-x^3}{x^4-5x^2}\)</span>
-      <span id="e2-2"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-2')" type="button"></span>.
-    </p></li>
+      <span id="sol-e2-2" style="display:none;">\(= 0\)</span>.
+      <button id="e2-2" class="button"  onclick="show2('e2-2');">Solución</button></p></li>
     <li><p><span class="math">\(\displaystyle \lim_{x \to 1} \frac{{x}^{3}-{x}^{2}-x+1}{x^2-1}\)</span>
-      <span id="e2-3"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-3')" type="button"></span>.
-    </p></li>
+      <span id="sol-e2-3" style="display:none;">\(= 0\)</span>.
+      <button id="e2-3" class="button"  onclick="show2('e2-3');">Solución</button></p></li>
     <li><p><span class="math">\(\displaystyle \lim_{x \to  0} \left( \frac{1}{x^2}-\frac{1}{x^3}\right)\)</span>
-      <span id="e2-4"><input name="execute" value="&#x25B6;" onclick="show('. Este límite no existe, por la izquierda de \\(0\\) vale \\(\\infty\\) y por la derecha \\(-\\infty\\)','e2-4')" type="button"></span>.
-    </p></li>
+      <span id="sol-e2-4" style="display:none;">. Este límite no existe, por la izquierda de \(0\) vale \(\infty\) y por la derecha \(-\infty\)</span>.
+      <button id="e2-4" class="button"  onclick="show2('e2-4');">Solución</button></p></li>
+
     <li><p><span class="math">\(\displaystyle \lim_{x \to  +\infty} \frac{1}{x^2} \left(\frac{x^2+1}{3x} - \frac{2x^3}{x^2+2} \right)\)</span>
-      <span id="e2-5"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-5')" type="button"></span>.
-    </p></li>
+      <span id="sol-e2-5" style="display:none;">\(= 0\)</span>.
+      <button id="e2-5" class="button"  onclick="show2('e2-5');">Solución</button></p></li>
     <li><p><span class="math">\(\displaystyle \lim_{x \to  +\infty} \frac{3x^3-2x+1}{x^3+10x^2}\)</span>
-      <span id="e2-6"><input name="execute" value="&#x25B6;" onclick="show('\\(= 3\\)','e2-6')" type="button"></span>.
-    </p></li>
+      <span id="sol-e2-6" style="display:none;">\(= 3\)</span>.
+      <button id="e2-6" class="button"  onclick="show2('e2-6');">Solución</button></p></li>
     <li><p><span class="math">\(\displaystyle \lim_{x \to  -\infty} \frac{7x-8}{4-5x^2}\)</span>
-      <span id="e2-7"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-7')" type="button"></span>.
-    </p></li>
+      <span id="sol-e2-7" style="display:none;">\(= 0\)</span>.
+      <button id="e2-7" class="button"  onclick="show2('e2-7');">Solución</button></p></li>
     <li><p><span class="math">\(\displaystyle \lim_{x \to  +\infty} \frac{\sqrt{x+1}-\sqrt{x}}{x^2}\)</span>
-      <span id="e2-8"><input name="execute" value="&#x25B6;" onclick="show('\\(= 0\\)','e2-8')" type="button"></span>.
-    </p></li>
+      <span id="sol-e2-8" style="display:none;">\(= 0\)</span>.
+      <button id="e2-8" class="button"  onclick="show2('e2-8');">Solución</button></p></li>
     <li><p><span class="math">\(\displaystyle \lim_{x \to  +\infty} \frac{x+3}{x\sqrt{x+1}-x\sqrt{x-1}}\)</span>
-      <span id="e2-9"><input name="execute" value="&#x25B6;" onclick="show('\\(= \\infty\\)','e2-9')" type="button"></span>.
-    </p></li>
+      <span id="sol-e2-9" style="display:none;">\(= \infty\)</span>.
+      <button id="e2-9" class="button"  onclick="show2('e2-9');">Solución</button></p></li>
     </ol>
   </article>
 </section>
@@ -416,14 +417,11 @@
     </header>
     <ol>
     <li><p><span class="math">\(\displaystyle  f(x)=\frac{x^2+x+1}{x^2-2}.\)</span>
-      <p><span id="e3-1"><input name="execute" value="Solución &#x25B6;" onclick="show(`
-        <br>Tiene una asíntota horizontal \\(y=1\\) y dos verticales \\(x=\\pm \\sqrt{2}\\).
-        <br>Ésta es la gráfica de la función.
-        <br>
-        <div id='ebox3-1' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;''> </div>
-        <br>
-        `,
-        'e3-1');pintae31();" type="button"></span></p>
+      <button id="e3-1" class="button"  onclick="show2('e3-1');">Solución</button>
+      <div id="sol-e3-1" style="display:none;">
+        <p>Tiene una asíntota horizontal \(y=1\) y dos verticales \(x=\pm \sqrt{2}\).</p>
+        <p>Ésta es la gráfica de la función.</p>
+        <div id='ebox3-1' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
         <script type="text/javascript">
         function pintae31(){
           var f=function(x){
@@ -446,17 +444,16 @@
           var av=board.create('line',[v1,v2],{dash:1,strokeColor:"gray"});
 
         }
+        pintae31();
         </script>
+      </div>
     </p></li>
     <li><p><span class="math">\( \displaystyle  f(x)=x+\frac{3}{x}.\)</span>
-      <p><span id="e3-2"><input name="execute" value="Solución &#x25B6;" onclick="show(`
-        <br>Tiene una asíntota oblícua \\(y=x\\) y una vertical en  \\(x=0\\).
-        <br>Ésta es la gráfica de la función.
-        <br>
-        <div id='ebox3-2' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;''> </div>
-        <br>
-        `,
-        'e3-2');pintae32();" type="button"></span></p>
+      <button id="e3-2" class="button"  onclick="show2('e3-2');">Solución</button>
+      <div id="sol-e3-2" style="display:none;">
+        <p>Tiene una asíntota oblícua \(y=x\) y una vertical en  \(x=0\).</p>
+        <p>Ésta es la gráfica de la función.</p>
+        <div id='ebox3-2' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
         <script type="text/javascript">
         function pintae32(){
           var f=function(x){
@@ -475,17 +472,17 @@
           var au=board.create('line',[u1,u2],{dash:1,strokeColor:"gray"});
 
         }
+        pintae32();
         </script>
+      </div>
     </p></li>
     <li><p><span class="math">\( \displaystyle f(x)=x^2+\frac{2x}{x^2+1}.\)</span>
-      <p><span id="e3-3"><input name="execute" value="Solución &#x25B6;" onclick="show(`
-        <br>Esta función no tiene asíntotas.
-        <br>Ésta es la gráfica de la función.
-        <br>
-        <div id='ebox3-3' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;''> </div>
-        <br>
-        `,
-        'e3-3');pintae33();" type="button"></span></p>
+      <button id="e3-3" class="button"  onclick="show2('e3-3');">Solución</button>
+      <div id="sol-e3-3" style="display:none;">
+        <p>Esta función no tiene asíntotas.</p>
+        <p>Ésta es la gráfica de la función.</p>
+
+        <div id='ebox3-3' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
         <script type="text/javascript">
         function pintae33(){
           var f=function(x){
@@ -496,7 +493,9 @@
           curve = board.create('functiongraph',
                          [f, -10,10]);
         }
+        pintae33();
         </script>
+      </div>
     </p></li>
     </ol>
   </article>
@@ -511,6 +510,27 @@
     document.getElementById(obj).innerHTML = str;
     MathJax.Hub.Typeset();
   }
+
+  function show2(divID) {
+
+      var sol = document.getElementById("sol-"+divID);
+      var div = document.getElementById(divID);
+
+      if(sol.style.display == "none"){
+        sol.style.display = "unset";
+      }else{
+        sol.style.display = "none";
+      }
+
+
+      if(div.innerHTML == "Solución"){
+        div.innerHTML = "Oculta solución";
+      }else{
+        div.innerHTML = "Solución";
+      }
+
+  }
+
 </script>
 
 </body>
