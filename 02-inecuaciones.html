@@ -40,14 +40,26 @@
       <h3>Ejercicio</h3>
     </header>
     <ol>
-    <li><p>Resuelve la inecuación: <span class="math">\(4x-5 &lt; 7x+8\)</span>
-      <span id="e1-1"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x >\\dfrac{-13}{3}$</em>','e1-1')" type="button"></span></p></li>
-    <li><p>Resuelve la inecuación: <span class="math">\(2(-x+5)-(6+x)&gt;4+2(x-3)\)</span> y razona si los números <span class="math">\(-3, -1, 0\)</span> y <span class="math">\( 1\)</span> son solución de la misma
-      <span id="e1-2"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x <\\dfrac{6}{5}$, todos los números dados son solución de la inecuación </em>','e1-2')" type="button"></span></p></li>
-    <li><p>Ídem al ejercicio anterior con la inecuación:<span class="math">\(\dfrac{3x}{5}-\dfrac{11x}{10} \ge 1-\dfrac{6-x}{4}\)</span>
-      <span id="e1-3"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x <\\dfrac{2}{2}$</em>','e1-3')" type="button"></span></p></li>
-    <li><p>Resuelve: <span class="math">\((x+1)^2-(x-1)^2+12 \ge 0\)</span>
-      <span id="e1-4"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x \\ge -3$</em>','e1-4')" type="button"></span></p></li>
+    <li><p>Resuelve la inecuación <span class="math">\(4x-5 &lt; 7x+8\)</span>.
+      <button id="e1-1" class="button"  onclick="show2('e1-1');">Solución</button>
+      <div id="sol-e1-1" style="display:none;">
+        La solución es $x >\dfrac{-13}{3}$.
+      </div></p></li>
+    <li><p>Resuelve la inecuación <span class="math">\(2(-x+5)-(6+x)&gt;4+2(x-3)\)</span>, y razona si los números <span class="math">\(-3, -1, 0\)</span> y <span class="math">\( 1\)</span> son solución de la misma.
+      <button id="e1-2" class="button"  onclick="show2('e1-2');">Solución</button>
+      <div id="sol-e1-2" style="display:none;">
+        La solución es $x <\dfrac{6}{5}$. Todos los números dados son solución de la inecuación.
+      </div></p></li>
+    <li><p>Ídem al ejercicio anterior con la inecuación <span class="math">\(\dfrac{3x}{5}-\dfrac{11x}{10} \ge 1-\dfrac{6-x}{4}\).</span>
+      <button id="e1-3" class="button"  onclick="show2('e1-3');">Solución</button>
+      <div id="sol-e1-3" style="display:none;">
+        Solución: $x <\dfrac{2}{2}$.
+      </div></p></li>
+    <li><p>Resuelve <span class="math">\((x+1)^2-(x-1)^2+12 \ge 0\).</span>
+      <button id="e1-4" class="button"  onclick="show2('e1-4');">Solución</button>
+      <div id="sol-e1-4" style="display:none;">
+        La solución es $x \ge -3$.
+      </div></p></li>
     </ol>
   </article>
 </section>
@@ -70,18 +82,27 @@
   <article>
     <header>
       <h3>Ejercicio</h3>
-      <p>Resuelve los siguientes sistemas de inecuaciones:</p>
+      <p>Resuelve los siguientes sistemas de inecuaciones.</p>
     </header>
     <ol>
-      <li><p><span class="math">\(\Biggr\{ \begin{aligned}  3x-6 &amp; \ge 9 \\
-                                            4-x &amp; &lt; -5 \end{aligned} \)</span>
-      <span id="e2-1"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x > 9$ </em>','e2-1')" type="button"></span></p></li>
-      <li><p><span class="math">\(\Biggr\{ \begin{aligned} 3x-6 &amp; \le 9 \\
-                                          4-x &amp; &lt; -5 \end{aligned} \)</span>
-      <span id="e2-2"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: No hay solución </em>','e2-2')" type="button"></span></p></li>
-      <li><p><span class="math">\(\Biggr\{ \begin{aligned} 8x+7 &amp; &lt; 16-x \\
-                                          -3x+5 &amp; &gt;2x \end{aligned} \)</span>
-      <span id="e2-3"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x<1$ </em>','e2-3')" type="button"></span></p></li>
+      <li><p><span class="math">\(\Biggr\{ \begin{aligned}  3x-6 &amp; \ge 9, \\
+                                            4-x &amp; &lt; -5. \end{aligned} \)</span>
+        <button id="e2-1" class="button"  onclick="show2('e2-1');">Solución</button>
+        <div id="sol-e2-1" style="display:none;">
+          Solución: $x > 9$.
+        </div></p></li>
+      <li><p><span class="math">\(\Biggr\{ \begin{aligned} 3x-6, &amp; \le 9 \\
+                                          4-x &amp; &lt; -5. \end{aligned} \)</span>
+        <button id="e2-2" class="button"  onclick="show2('e2-2');">Solución</button>
+        <div id="sol-e2-2" style="display:none;">
+          Este sistema no tiene solución.
+        </div></p></li>
+      <li><p><span class="math">\(\Biggr\{ \begin{aligned} 8x+7 &amp; &lt; 16-x, \\
+                                          -3x+5 &amp; &gt;2x. \end{aligned} \)</span>
+        <button id="e2-3" class="button"  onclick="show2('e2-3');">Solución</button>
+        <div id="sol-e2-3" style="display:none;">
+          Solución: $x<1$.
+        </div></p></li>
     </ol>
   </article>
 </section>
@@ -126,12 +147,20 @@
         <p>Resolver cada una de las inecuaciones siguientes:</p>
       </header>
       <ol>
-        <li><p><span class="math">\(x^2+2x+4\ge 2x+5\)</span>
-        <span id="e3-1"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x\\le -1$ o $x\\ge 1$ </em>','e3-1')" type="button"></span></p></li>
-        <li><p><span class="math">\(16x-x^2\ge16 \)</span>
-        <span id="e3-2"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $ 4(2-\\sqrt{3})\\le x\\le 4(2+\\sqrt{3})$ </em>','e3-2')" type="button"></span></p></li>
-        <li><p><span class="math">\(2x^2-2x+9\le x^2-5x+7\)</span>
-        <span id="e3-3"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $ -2 \\le x\\le -1$ </em>','e3-3')" type="button"></span>
+        <li><p><span class="math">\(x^2+2x+4\ge 2x+5\).</span>
+          <button id="e3-1" class="button"  onclick="show2('e3-1');">Solución</button>
+          <div id="sol-e3-1" style="display:none;">
+            Solución: $x\le -1$ o $x\ge 1$.
+          </div></p></li>
+        <li><p><span class="math">\(16x-x^2\ge 16\).</span>
+          <button id="e3-2" class="button"  onclick="show2('e3-2');">Solución</button>
+          <div id="sol-e3-2" style="display:none;">
+            Solución: $ 4(2-\sqrt{3})\le x\le 4(2+\sqrt{3})$. </div></p></li>
+        <li><p><span class="math">\(2x^2-2x+9\le x^2-5x+7\).</span>
+          <button id="e3-3" class="button"  onclick="show2('e3-3');">Solución</button>
+          <div id="sol-e3-3" style="display:none;">
+            Solución: $ -2 \le x\le -1$.
+          </div>
         </p></li>
       </ol>
   </article>
@@ -174,27 +203,53 @@
   <article>
     <header>
       <h3>Ejercicio</h3>
-      <p>Resolver cada una de las inecuaciones siguientes:</p>
+      <p>Resuelve cada una de las inecuaciones siguientes.</p>
     </header>
     <ol>
-      <li><p><span class="math">\(\dfrac{2x-3}{x-4} \ge 3\)</span>
-      <span id="e4-1"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $ 4< x\\le 9$ </em>','e4-1')" type="button"></span></p></li>
-      <li><p><span class="math">\(\dfrac{x-1}{x+1} &lt;1\)</span>
-      <span id="e4-2"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x>-1$ </em>','e4-2')" type="button"></span></p></li>
-      <li><p><span class="math">\(\dfrac{2x^2-4}{2x+1} \ge x-1\)</span>
-      <span id="e4-3"><input name="execute" value="&#x25B6;" onclick="show('</br><em>Solución: $x<-\\dfrac{1}2$ o $x\\ge 3$ </em>','e4-3')" type="button"></span></p></li>
+      <li><p><span class="math">\(\dfrac{2x-3}{x-4} \ge 3\).</span>
+        <button id="e4-1" class="button"  onclick="show2('e4-1');">Solución</button>
+        <div id="sol-e4-1" style="display:none;">
+          Solución: $ 4< x\le 9$.</div></p></li>
+      <li><p><span class="math">\(\dfrac{x-1}{x+1} &lt;1\).</span>
+        <button id="e4-2" class="button"  onclick="show2('e4-2');">Solución</button>
+        <div id="sol-e4-2" style="display:none;">
+          Solución: $x>-1$.</div></p></li>
+      <li><p><span class="math">\(\dfrac{2x^2-4}{2x+1} \ge x-1\).</span>
+        <button id="e4-3" class="button"  onclick="show2('e4-3');">Solución</button>
+        <div id="sol-e4-3" style="display:none;">
+          Solución: $x<-\dfrac{1}2$ o $x\ge 3$.
+        </div></p></li>
     </ol>
   </article>
 </section>
 
 <hr>
 
-<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a></p>
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a>. El maquetado y las gráficas han sido realizadas por Pedro A. García Sánchez.</p>
 
 <script type="text/javascript" language="javascript">
   function show(str, obj){
     document.getElementById(obj).innerHTML = str;
     MathJax.Hub.Typeset();
+  }
+  function show2(divID) {
+
+      var sol = document.getElementById("sol-"+divID);
+      var div = document.getElementById(divID);
+
+      if(sol.style.display == "none"){
+        sol.style.display = "unset";
+      }else{
+        sol.style.display = "none";
+      }
+
+
+      if(div.innerHTML == "Solución"){
+        div.innerHTML = "Oculta solución";
+      }else{
+        div.innerHTML = "Solución";
+      }
+
   }
 </script>
 
