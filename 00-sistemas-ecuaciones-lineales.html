@@ -96,9 +96,11 @@
     <p><span class="math">\[\left\{\begin{aligned}
     -\frac{3}{5} x + \frac{2}{5} y &amp;= -\frac{3}{2}, \\
     \frac{2}{5} x - \frac{1}{3} y &amp;= \frac{6}{5}.
-    \end{aligned}\right.\]</span></p>
-    <span id="e1"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>\\(x=\\dfrac{1}2,\\, y=-3 \\)','e1')" type="button"></span>
-
+    \end{aligned}\right.\]</span>
+    <button id="e1-1" class="button"  onclick="show2('e1-1');">Solución</button></p>
+    <div id="sol-e1-1" style="display:none;">
+      \(x=\dfrac{1}2,\, y=-3 \).
+    </div>
   </article>
 </section>
 
@@ -280,29 +282,38 @@
     - 2 y + \frac{3}{5} z &amp;= \frac{3}{10} \\
     2 x + \frac{2}{5} y + \frac{1}{3} z &amp;= -\frac{11}{6}
     \end{aligned}\right.\]</span>
-    <span id="e2-1"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>\\(x=-1,\\, y=0,\\, z=\\dfrac{1}2 \\)','e2-1')" type="button"></span>
-    </p></li>
+    <button id="e2-1" class="button"  onclick="show2('e2-1');">Solución</button></p>
+    <div id="sol-e2-1" style="display:none;">
+      \(x=-1,\, y=0,\, z=\dfrac{1}2 \).
+    </div>
+    </li>
     <li><p><span class="math">\[\left\{\begin{aligned}
       y -2 z &amp;= -4 \\
     x + y -z &amp;= 0 \\
     2 x - y + z &amp;= 3
     \end{aligned}\right.\]</span>
-    <span id="e2-2"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>\\(x=1,\\, y=2,\\, z=3 \\)','e2-2')" type="button"></span>
-    </p></li>
+    <button id="e2-2" class="button"  onclick="show2('e2-2');">Solución</button></p>
+    <div id="sol-e2-2" style="display:none;">
+      \(x=1,\, y=2,\, z=3\).
+    </div></li>
     <li><p><span class="math">\[\left\{\begin{aligned}
     x -2 y +3 z &amp;= -6 \\
     2x + y -z &amp;= 5 \\
     5 x + y +3 z &amp;= 4
     \end{aligned}\right.\]</span>
-    <span id="e2-3"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>\\(x=1,\\, y=2,\\, z=-1 \\)','e2-3')" type="button"></span>
-    </p></li>
+    <button id="e2-3" class="button"  onclick="show2('e2-3');">Solución</button></p>
+    <div id="sol-e2-3" style="display:none;">
+      \(x=1,\, y=2,\, z=-1 \).
+    </div></li>
     <li><p><span class="math">\[\left\{\begin{aligned}
     x -2 y +3 z &amp;= -6 \\
     2x + y -z &amp;= 5 \\
     3 x - y +2 z &amp;= 2
     \end{aligned}\right.\]</span>
-    <span id="e2-4"><input name="execute" value="Solución &#x25B6;" onclick="show('<br>No tiene solución: si sumamos las dos primeras ecuaciones y le restamos la tercera, nos da \\(0=3\\), por lo que el sistema es incompatible.','e2-4')" type="button"></span>
-    </p></li>
+    <button id="e2-4" class="button"  onclick="show2('e2-4');">Solución</button></p>
+    <div id="sol-e2-4" style="display:none;">
+      No tiene solución: si sumamos las dos primeras ecuaciones y le restamos la tercera, nos da \(0=3\), por lo que el sistema es incompatible.
+    </div></li>
     </ol>
   </article>
 </section>
@@ -316,6 +327,25 @@
   function show(str, obj){
     document.getElementById(obj).innerHTML = str;
     MathJax.Hub.Typeset();
+  }
+  function show2(divID) {
+
+      var sol = document.getElementById("sol-"+divID);
+      var div = document.getElementById(divID);
+
+      if(sol.style.display == "none"){
+        sol.style.display = "block";
+      }else{
+        sol.style.display = "none";
+      }
+
+
+      if(div.innerHTML == "Solución"){
+        div.innerHTML = "Oculta solución";
+      }else{
+        div.innerHTML = "Solución";
+      }
+
   }
 </script>
 
