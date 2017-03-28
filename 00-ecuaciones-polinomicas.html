@@ -20,7 +20,7 @@
     <h1 id="ecuaciones-y-soluciones">Ecuaciones y soluciones</h1>
   </header>
   <p>Una ecuación es una igualdad entre dos expresiones algebraicas. Una ecuación expresa una condición que debe cumplir una o varias cantidades desconocidas o <span><em>incógnitas</em></span>. En este epígrafe se estudian ecuaciones con una sola incógnita. Nos referimos a las expresiones situadas a uno y otro lado del signo <span class="math">\(=\)</span> como <span><em>primer miembro</em></span>, la que se encuentra en primer lugar en el sentido habitual de lectura, y <span><em>segundo miembro</em></span> a la que aparece en segundo lugar. Aunque como se trata de una igualdad el orden de los miembros puede cambiarse y la ecuación sigue siendo la misma.</p>
-  <p>Una <span><em>solución</em></span> de una ecuación es cada número (en el conjunto que se considere admisible) que al ocupar la posición de la incógnita hace que la igualdad que expresa la ecuación ocurra. Resolver una ecuación es calcular <span><strong>todas</strong></span> sus soluciones. En el concepto de solución es muy importante el conjunto de números donde se permite que aparezca la solución. Por ejemplo, la ecuación <span class="math">\(2x=3\)</span> no tiene ninguna solución en <span class="math">\(\mathbb{Z}\)</span>, puesto no hay ningún entero que al multiplicarlo por 2 dé 3. Sin embargo el número racional <span class="math">\(\frac{3}{2}\)</span> verifica la ecuación, es decir es una solución en el conjunto <span class="math">\(\mathbb{Q}\)</span>.</p>
+  <p>Una <span><em>solución</em></span> de una ecuación es cada número (en el conjunto que se considere admisible) que al ocupar la posición de la incógnita hace que la igualdad que expresa la ecuación ocurra. Resolver una ecuación es calcular <span><strong>todas</strong></span> sus soluciones. En el concepto de solución es muy importante el conjunto de números donde se permite que aparezca la solución. Por ejemplo, la ecuación <span class="math">\(2x=3\)</span> no tiene ninguna solución en <span class="math">\(\mathbb{Z}\)</span>, puesto no hay ningún entero que al multiplicarlo por \(2\) dé \(3\). Sin embargo el número racional <span class="math">\(\frac{3}{2}\)</span> verifica la ecuación, es decir es una solución en el conjunto <span class="math">\(\mathbb{Q}\)</span>.</p>
   <p>En lo que sigue se consideran ecuaciones cuyos coeficientes y soluciones son números reales o, en algunos ejemplos, complejos.</p>
 </section>
 
@@ -65,24 +65,42 @@
       <p>Resuelve las siguientes ecuaciones.</p>
     </header>
     <ol>
-    <li><p><span class="math">\(2x^2+5=0\)</span>
-      <span id="e1-1"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= \\frac{0\\pm\\sqrt{-4\\times 2\\times 5}}{2\\times 2}=\\pm\\frac{\\sqrt{-10}}2\\)','e1-1')" type="button"></span>
-    </p></li>
-    <li><p><span class="math">\(2x^2+x=0\)</span>
-      <span id="e1-2"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= 0,\ x=-\\frac{1}2\\)','e1-2')" type="button"></span>
-    </p></li>
+    <li><p><span class="math">\(2x^2+5=0\).</span>
+      <button id="e1-1" class="button"  onclick="show2('e1-1');">Solución</button></p>
+      <div id="sol-e1-1" style="display:none;">
+        \(x= \dfrac{0\pm\sqrt{-4\times 2\times 5}}{2\times 2}=\pm\dfrac{\sqrt{-10}}2\).
+      </div>
+      </li>
+    <li><p><span class="math">\(2x^2+x=0\).</span>
+      <button id="e1-2" class="button"  onclick="show2('e1-2');">Solución</button></p>
+      <div id="sol-e1-2" style="display:none;">
+        \(x= 0,\ x=-\frac{1}2\).
+      </div>
+      </li>
     <li><p><span class="math">\(3x^2+5x-2=0\)</span>
-      <span id="e1-3"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= -2,\ x=\\frac{1}3\\)','e1-3')" type="button"></span>
-    </p></li>
+      <button id="e1-3" class="button"  onclick="show2('e1-3');">Solución</button></p>
+      <div id="sol-e1-3" style="display:none;">
+        \(x= -2,\ x=\dfrac{1}3\).
+      </div>
+      </li>
     <li><p><span class="math">\(x^2 -5x=2\)</span>
-      <span id="e1-4"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= \\frac{5\\pm\\sqrt{33}}{2}\\)','e1-4')" type="button"></span>
-    </p></li>
+      <button id="e1-4" class="button"  onclick="show2('e1-4');">Solución</button></p>
+      <div id="sol-e1-4" style="display:none;">
+        \(x= \dfrac{5\pm\sqrt{33}}{2}\).
+      </div>
+      </li>
     <li><p><span class="math">\(x^2 -5x-6=0\)</span>
-      <span id="e1-5"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= 6,\ x= -1\\)','e1-5')" type="button"></span>
-    </p></li>
+      <button id="e1-5" class="button"  onclick="show2('e1-5');">Solución</button></p>
+      <div id="sol-e1-5" style="display:none;">
+        \(x= 6,\ x= -1\).
+      </div>
+      </li>
     <li><p><span class="math">\(2x^2 -x +1=0\)</span>
-      <span id="e1-6"><input name="execute" value="&#x25B6;" onclick="show('<br>\\(x= \\frac{1\\pm\\sqrt{-7}}{4}\\)','e1-6')" type="button"></span>
-    </p></li>
+      <button id="e1-6" class="button"  onclick="show2('e1-6');">Solución</button></p>
+      <div id="sol-e1-6" style="display:none;">
+        \(x= \dfrac{1\pm\sqrt{-7}}{4}\).
+      </div>
+      </li>
   </ol>
   </article>
   <p>Para ecuaciones polinómicas de mayor grado, aunque en algunos casos hay una fórmula general, no suele requerirse la memorización del método y en la práctica se usan programas que calculan las soluciones. En algunos casos particulares sí puede intentarse el cálculo, por ejemplo cuando puede factorizarse, usando el método de Ruffini para calcular alguna raíz, o cuando puede reducirse a una ecuación de segundo grado.</p>
@@ -124,48 +142,47 @@
       <p>Resuelve:</p>
     </header>
     <ol>
-    <li><p><span class="math">\(x^6+28x^3+27=0\)</span>
-      <span id="e2-1"><input name="execute" value="&#x25B6;" onclick="show(`
-        <br>Hacemos el cambio de variable \\(y=x^3\\) y resolvemos \\(y^2+28y+27=0\\). Esto nos da los valores \\(y=-1\\) y \\(y=-27\\). Por tanto \\(x=-1\\) y \\(x=-3\\) son soluciones de la ecuación original.
-        `,
-        'e2-1')" type="button"></span>
-    </p></li>
-    <li><p><span class="math">\(x^3-4x^2-7x-2=0\)</span>
-      <span id="e2-2"><input name="execute" value="&#x25B6;" onclick="show(`
-        <br>Probamos, usando Ruffini, con los divisores del término independiente de la ecuación: \\(\\pm 1\\), \\(\\pm 2\\).<br> Resulta que \\(-1\\) es solución de la ecuación y que \\(x^3-4x^2-7x-2=(x^2 - 5x - 2)(x+1)\\).<br> Si resolvemos \\(x^2 - 5x - 2\\) (ya lo hicimos arriba), obtenemos \\(x= \\frac{5\\pm\\sqrt{33}}{2}\\). Por tanto las soluciones son \\(x= \\frac{5\\pm\\sqrt{33}}{2}\\) y \\(x=-1\\).
-        `,
-        'e2-2')" type="button"></span>
-    </p></li>
-    <li><p><span class="math">\(x+\dfrac{x^2}{2}= \dfrac{(x+2)^2}{2}\)</span>
-      <span id="e2-3"><input name="execute" value="&#x25B6;" onclick="show(`
-        <br>Restando ambos términos de la igualdad llegamos a \\(x+2=0\\), por lo que la solución es \\(x=-2\\).
-        `,
-        'e2-3')" type="button"></span>
-      </p></li>
-    <li><p><span class="math">\((3x+1)(x^2+x-2)=0\)</span>
-      <span id="e2-4"><input name="execute" value="&#x25B6;" onclick="show(`
-        <br>Por la expresión de la ecuación, las soluciones serán las de \\(3x+1=0\\) y \\(x^2+x-2=0\\).
-        <br> De la primera ecuación, deducimos que \\(x=-\frac{1}3\\).
-        <br> De la segunda \\(x=1\\) y \\(x=-2\\).
-        `,
-        'e2-4')" type="button"></span>
-    </p></li>
-    <li><p><span class="math">\(\sqrt{x+2} +3= x-1\)</span>
-      <span id="e2-5"><input name="execute" value="&#x25B6;" onclick="show(`
-        <br>Dejamos la raíz en uno de los miembros de la igualdad para poder elevar al cuadrado y eliminarla. Así llegamos a \\(\\sqrt{x+2}=x-4\\).
-        <br> Por tanto, \\(x+2=(x-4)^2=x^2-8x+16\\) y en consecuencia \\(x^2-9x+14=0\\).
-        <br> Las soluciones son \\(x=2\\) y \\(x=7\\).
-        `,
-        'e2-5')" type="button"></span>
-    </p></li>
-    <li><p><span class="math">\(\dfrac{1}{x^2}-2= \dfrac{3-x}{3x^2}\)</span>
-      <span id="e2-6"><input name="execute" value="&#x25B6;" onclick="show(`
-        <br>
-        Descartamos la solución \\(x=0\\), y multiplicamos en ambos lados de la igualdad por \\(3x^2\\). Obtenemos así \\(3-6x^2=3-x\\), que equivale a \\(6x^2-x=0\\).
-        <br>Las soluciones de esta última ecuación \\(x=0\\) y \\(x=-\\frac{1}6\\), pero \\(x=0\\) lo habíamos descartado inicialmente, así que nos queda como única solución \\(x=-\\frac{1}6\\).
-        `,
-        'e2-6')" type="button"></span>
-    </p></li>
+    <li><p><span class="math">\(x^6+28x^3+27=0\)</span>.
+      <button id="e2-1" class="button"  onclick="show2('e2-1');">Solución</button></p>
+      <div id="sol-e2-1" style="display:none;">
+        Hacemos el cambio de variable \(y=x^3\) y resolvemos \(y^2+28y+27=0\). Esto nos da los valores \(y=-1\) y \(y=-27\). Por tanto \(x=-1\) y \(x=-3\) son soluciones de la ecuación original.
+      </div>
+      </li>
+    <li><p><span class="math">\(x^3-4x^2-7x-2=0\)</span>.
+      <button id="e2-2" class="button"  onclick="show2('e2-2');">Solución</button></p>
+      <div id="sol-e2-2" style="display:none;">
+        Probamos, usando Ruffini, con los divisores del término independiente de la ecuación: \(\pm 1\), \(\pm 2\).<br> Resulta que \(-1\) es solución de la ecuación y que \(x^3-4x^2-7x-2=(x^2 - 5x - 2)(x+1)\).<br> Si resolvemos \(x^2 - 5x - 2\) (ya lo hicimos arriba), obtenemos \(x= \frac{5\pm\sqrt{33}}{2}\). Por tanto las soluciones son \(x= \frac{5\pm\sqrt{33}}{2}\) y \(x=-1\).
+      </div>
+    </li>
+    <li><p><span class="math">\(x+\dfrac{x^2}{2}= \dfrac{(x+2)^2}{2}\)</span>.
+      <button id="e2-3" class="button"  onclick="show2('e2-3');">Solución</button></p>
+      <div id="sol-e2-3" style="display:none;">
+        Restando ambos términos de la igualdad llegamos a \(x+2=0\), por lo que la solución es \(x=-2\).
+      </div>
+    </li>
+    <li><p><span class="math">\((3x+1)(x^2+x-2)=0\)</span>.
+      <button id="e2-4" class="button"  onclick="show2('e2-4');">Solución</button></p>
+      <div id="sol-e2-4" style="display:none;">
+        <p>Por la expresión de la ecuación, las soluciones serán las de \(3x+1=0\) y \(x^2+x-2=0\).</p>
+        <p> De la primera ecuación, deducimos que \(x=-\frac{1}3\).</p>
+        <p>De la segunda \(x=1\) y \(x=-2\).</p>
+      </div>
+    </li>
+    <li><p><span class="math">\(\sqrt{x+2} +3= x-1\)</span>.
+      <button id="e2-5" class="button"  onclick="show2('e2-5');">Solución</button></p>
+      <div id="sol-e2-5" style="display:none;">
+        <p>Dejamos la raíz en uno de los miembros de la igualdad para poder elevar al cuadrado y eliminarla. Así llegamos a \(\sqrt{x+2}=x-4\).</p>
+        <p> Por tanto, \(x+2=(x-4)^2=x^2-8x+16\) y en consecuencia \(x^2-9x+14=0\).</p>
+        <p> Las soluciones son \(x=2\) y \(x=7\).</p>
+      </div>
+    </li>
+    <li><p><span class="math">\(\dfrac{1}{x^2}-2= \dfrac{3-x}{3x^2}\)</span>.
+      <button id="e2-6" class="button"  onclick="show2('e2-6');">Solución</button></p>
+      <div id="sol-e2-6" style="display:none;">
+        <p>Descartamos la solución \(x=0\), y multiplicamos en ambos lados de la igualdad por \(3x^2\). Obtenemos así \(3-6x^2=3-x\), que equivale a \(6x^2-x=0\).
+        <br>Las soluciones de esta última ecuación \(x=0\) y \(x=-\frac{1}6\), pero \(x=0\) lo habíamos descartado inicialmente, así que nos queda como única solución \(x=-\frac{1}6\).</p>
+      </div>
+    </li>
     </ol>
   </article>
 </section>
@@ -173,13 +190,33 @@
 
 <div class="footnotes">
 <hr />
-<p style="font-size: 10pt">Esta página está basada en las transparencias de Javier Lobillo y Evangelina Santos Aláez para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a></p>
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Javier Lobillo y Evangelina Santos Aláez para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a>. El maquetado de la página ha sido realizado por Pedro A. García Sánchez.</p>
 </div>
 
 <script type="text/javascript" language="javascript">
   function show(str, obj){
     document.getElementById(obj).innerHTML = str;
     MathJax.Hub.Typeset();
+  }
+
+  function show2(divID) {
+
+    var sol = document.getElementById("sol-"+divID);
+    var div = document.getElementById(divID);
+
+    if(sol.style.display == "none"){
+      sol.style.display = "block";
+    }else{
+      sol.style.display = "none";
+    }
+
+
+    if(div.innerHTML == "Solución"){
+      div.innerHTML = "Oculta solución";
+    }else{
+      div.innerHTML = "Solución";
+    }
+
   }
 </script>
 
