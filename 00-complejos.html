@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Números complejos</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  
+</head>
+<body>
+  <div id="header">
+  <h1 class="title">Números complejos</h1>
+  </div>
+  <section>
+    <header>
+      <h1 id="el-cuerpo-de-los-números-complejos">El cuerpo de los números complejos</h1>
+    </header>
+  <p>En el cuerpo de los números reales la ecuación <span class="math">\(x^2+1=0\)</span> no tiene solución. Para conseguir soluciones de esta ecuación es necesario, por tanto, ampliar el conjunto de los números reales. El nuevo conjunto de números que resulta de esta ampliación es el conjunto de los números complejos.</p>
+  <p><strong>Definición de número complejo.</strong> Llamaremos número complejo a todo par ordenado <span class="math">\((a,b)\)</span> de números reales.</p>
+  <p><strong>Igualdad de números complejos.</strong> Dados dos números complejos <span class="math">\(z=(a,b)\)</span> y <span class="math">\(w=(c,d)\)</span>, se tiene que <span class="math">\(z=w\)</span> si, y sólo si, <span class="math">\(a=c\,\)</span> y <span class="math">\(\,b=d\)</span>.</p>
+  <p><strong>Suma y producto de números complejos.</strong> La suma y el producto de dos números complejos <span class="math">\(z=(a,b)\)</span> y <span class="math">\(w=(c,d)\)</span> vienen dadas por las igualdades: <span class="math">\[
+    \begin{aligned}z+w&=(a+c,b+d), \\
+    z\,w &=(ac-bd,ad+bc).
+    \end{aligned}\]</span></p>
+  <p><strong>Propiedades de la suma y el producto de números complejos.</strong></p>
+  <ol>
+  <li><p>La suma y el producto de números complejos son operaciones asociativas y conmutativas.</p></li>
+  <li><p>El complejo <span class="math">\((0,0)\)</span> es el elemento neutro de la suma.</p></li>
+  <li><p>Dado un complejo <span class="math">\(z=(a,b)\)</span>, es obvio que <span class="math">\((-a,-b)\)</span> es su elemento opuesto para la suma. Así pues, denotamos <span class="math">\(-z=(-a,-b)\)</span>.</p></li>
+  <li><p>El complejo <span class="math">\((1,0)\)</span> es el elemento neutro del producto.</p></li>
+  <li><p>Si <span class="math">\(z=(a,b)\)</span> es distinto de <span class="math">\((0,0)\)</span>, entonces el número complejo <span class="math">\(\left(\frac a{a^2+b^2}\,,\,\frac{-b}{a^2+b^2}\right)\)</span> es el inverso de <span class="math">\(z\)</span> para el producto, y se denota por <span class="math">\(z^{-1}\)</span> o por <span class="math">\(\frac{1}{z}\)</span>.</p></li>
+  <li><p>El producto de números complejos cumple la propiedad distributiva respecto de la suma.</p></li>
+  <li><p>Si <span class="math">\(z\)</span> y <span class="math">\(w\)</span> son números complejos, escribiremos <span class="math">\(z-w\)</span> en lugar de <span class="math">\(z+(-w)\)</span>. Si, además, <span class="math">\(w\neq(0,0)\)</span>, entonces <span class="math">\(\frac{z}{w}\)</span> tendrá el mismo significado que <span class="math">\(z\,w^{-1}\)</span>.</p></li>
+  </ol>
+  <p>El conjunto de los números complejos, con las operaciones suma y producto previamente definidas, es un cuerpo, al que llamaremos <em>cuerpo de los números complejos</em>, y lo denotaremos por <span class="math">\(\mathbb{C}\)</span>.</p>
+  <p><strong>Forma binómica de un número complejo.</strong> El complejo <span class="math">\((0,1)\)</span> recibe el nombre de <em>unidad imaginaria</em> y se denota por <span class="math">\(i\)</span>. Así, <span class="math">\[(a,b)=(a,0)+(0,b)=(a,0)+(b,0)(0,1)=a+b\,i,\, \textrm{ para todo } (a,b)\in \mathbb{C}.\]</span> La expresión <span class="math">\(a+b\,i\)</span> es la llamada <em>forma binómica</em> del complejo <span class="math">\((a,b)\)</span>. La forma binómica es muy útil desde el punto de vista aritmético porque permite aprovechar la estructura de cuerpo de <span class="math">\(\mathbb{C}\)</span> a la hora de operar con números complejos. Lo único que hemos de saber es que <span class="math">\[i\, i=(0,1)(0,1)=(-1,0)=-1\]</span> Ni siquiera es necesario recordar la definición de la suma o el producto en <span class="math">\(\mathbb{C}\)</span>, pues, dados dos complejos <span class="math">\(z=a+b\,i\)</span> y <span class="math">\(w=c+d\,i\)</span>, obtenemos (aplicando las propiedades de cuerpo de <span class="math">\(\mathbb{C}\)</span>) que</p>
+  <p><span class="math">\[\begin{aligned}
+  &amp;z+w=(a+bi)+(c+di)=(a+c)+(b+d)i\,, \\
+  &amp;zw=(a+bi)(c+di)=(ac-bd)+(ad+bc)i.\end{aligned}\]</span></p>
+  <p>También de esta forma es fácil considerar <span class="math">\(\mathbb R\)</span>, el conjunto de los números reales, como subconjunto de <span class="math">\(\mathbb C\)</span>. Los números reales se corresponden con los números complejos <span class="math">\(a+b i\)</span> con <span class="math">\(b=0\)</span>.</p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+    </header>
+    <p>Calcula la suma, producto, diferencia y cociente de los pares de números complejos <span class="math">\(z_1=(2,1)\)</span> y <span class="math">\(z_1=(-2,3).\)</span> Calcula además las mismas operaciones utilizando la forma binómica.</p>
+  </article>
+  <p><strong>Parte real, parte imaginaria, conjugado y módulo de un número complejo.</strong> Sea <span class="math">\(z=a+bi\)</span> <span class="math">\(\in\mathbb{C}\)</span>. Los números reales <span class="math">\(a\)</span> y <span class="math">\(b\)</span> reciben el nombre de <em>parte real</em> y <em>parte imaginaria</em>, respectivamente, de <span class="math">\(z\)</span>. Escribimos <span class="math">\(a=\operatorname{Re}(z)\)</span> y <span class="math">\(b=\operatorname{Im}(z)\)</span>. El complejo se denomina <em>conjugado</em> de <span class="math">\(z\)</span> y el número real no negativo <span class="math">\(|z|=\sqrt{a^2+b^2}\)</span> recibe el nombre de <em>módulo de</em> <span class="math">\(z\)</span>.</p>
+  <p>Dados <span class="math">\(z,w\in\mathbb{C}\)</span>. Se tienen las siguientes propiedades:</p>
+  <ul>
+  <li><p><span class="math">\(\overline{\overline{z}}=z\)</span>,</p></li>
+  <li><p><span class="math">\(\overline{z+w}=\overline{z}+\overline{w}\)</span>,</p></li>
+  <li><p><span class="math">\(\overline{zw}=\overline{z}\,\overline{w}\)</span>,</p></li>
+  <li><p>Si <span class="math">\(w\neq 0,\)</span> <span class="math">\(\overline{(\frac zw)}=\frac{\overline{z}}{\overline{w}}\)</span>,</p></li>
+  <li><p><span class="math">\(\operatorname{Re}(z)=\frac{z+\overline{z}}2\)</span> , <span class="math">\(\operatorname{Im}(z)=\frac{z-\overline{z}}{2i}\)</span>,</p></li>
+  <li><p><span class="math">\(z=\overline{z}\Leftrightarrow z\in \mathbb{R}\)</span>,</p></li>
+  <li><p><span class="math">\(|z|=|\overline{z}|=|-z|\)</span>,</p></li>
+  <li><p><span class="math">\(z\overline{z}=|z|^2\)</span>,</p></li>
+  <li><p><span class="math">\(|zw|=|z|\,|w|\)</span>,</p></li>
+  <li><p><span class="math">\(|z|=0\Leftrightarrow z=0\)</span>,</p></li>
+  <li><p><span class="math">\(|z+w|\leq |z|+|w|\)</span> <em>(Desigualdad triangular)</em>,</p></li>
+  <li><p><span class="math">\(\big\vert |z|-|w|\big\vert\leq |z-w|\)</span>,</p></li>
+  <li><p><span class="math">\(|z+w|^2+|z-w|^2=2(|z|^2+|w|^2)\)</span> <em>(Identidad del paralelogramo)</em>.</p></li>
+  </ul>
+  <p>Vamos a ver un método para calcular las potencias enteras de la unidad imaginaria. Observe, en primer lugar, que las potencias de exponente natural de <span class="math">\(i\)</span> se vuelven a repetir a partir de la cuarta potencia: <span class="math">\[\begin{array}{l}
+  i^0=1, \\
+  i^1=i, \\
+  i^2=(0,1)(0,1)=(-1,0)=-1, \\
+  i^3=i^2\cdot i=-i, \\
+  i^4=i^2i^2=(-1)(-1)=1, \\
+  i^5=i^4i=i, \\
+  \quad\vdots
+  \end{array}\]</span></p>
+  <p>Dado <span class="math">\(n\in\mathbb{N}\)</span>, si dividimos <span class="math">\(n\)</span> entre <span class="math">\(4\)</span>, obtenemos que <span class="math">\(n=4c+r\)</span> para algún cociente <span class="math">\(c\in\mathbb{N}\cup\{0\}\)</span> y un resto <span class="math">\(r\in\mathbb{N}\cup\{0\}\)</span> con <span class="math">\(0\leq r&lt; 4\)</span>. Entonces <span class="math">\[i^n=i^{4c+r}=(i^4)^c\,i^r=i^r\]</span> y, ahora, <span class="math">\(i^r\)</span> es una de las cuatro primeras potencias de <span class="math">\(i\)</span>. En cuanto a las potencias de exponente negativo de <span class="math">\(i\)</span>, observe que <span class="math">\[i^{-n}=\frac{1}{i^n}=\frac{1}{i^{4c+r}}=\frac{1}{i^r}=i^{-r}=i^{-r}\,i^4=i^{4-r}.\]</span> Como <span class="math">\(0&lt;4-r\leq 4\)</span>, entonces <span class="math">\(i^{4-r}\)</span> es una de las primeras potencias de exponente natural de <span class="math">\(i\)</span> que hemos calculado antes.</p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+    </header>
+    <ol>
+      <li><p>Calcula las potencias <span class="math">\(155\)</span>, <span class="math">\(7\)</span>, <span class="math">\(9\)</span>, <span class="math">\(23\)</span> y <span class="math">\(-19\)</span> de la unidad imaginaria <span class="math">\(i=(0,1)\)</span>.</p></li>
+      <li><p>Expresa los números complejos <span class="math">\(z_1=(-1,1)\)</span>, <span class="math">\(z_2=(1,2)\)</span> y <span class="math">\(z_3=(4,-1)\)</span> en forma binómica y realiza las operaciones siguientes:</p>
+        <ol>
+        <li><p><span class="math">\(\frac{z_1\overline{z_2}-{z_3}^2}{z_3}\)</span>,</p></li>
+        <li><p><span class="math">\(\frac{-(\overline{z_1}){(z_2)}^2+iz_3}{\overline{z_1}+\overline{z_3}}
+        \)</span>.</p></li>
+        </ol>
+      </li>
+      <li><p>Resuelve las siguientes ecuaciones con coeficientes complejos:</p>
+        <ol>
+        <li><p><span class="math">\(z^2+(-3+2i)z+(5+i)=0\)</span>,</p></li>
+        <li><p><span class="math">\(z^6-z^3-2=0\)</span>.</p></li>
+        </ol>
+      </li>
+    </ol>
+  </article>
+</section>
+
+<section>
+  <header>
+    <h1 id="representación-geométrica-de-los-números-complejos.-argumentos-de-un-número-complejo">Representación geométrica de los números  complejos</h1>
+  </header>
+  <p>En esta sección haremos uso de algunas funciones trigonométricas y de algunas funciones arco. Aunque aún no han sido presentadas, suponemos que el alumno está suficientemente habituado a ellas para poder usarlas. En cualquier caso, trataremos estas funciones y sus propiedades en temas posteriores.</p>
+  <p><strong>Representación geométrica de los números complejos.</strong> Hagamos corresponder a cada número complejo <span class="math">\(z=a+bi\)</span> el punto del plano cuyas coordenadas referidas a un sistema de ejes cartesianos ortogonales son <span class="math">\((a,b)\)</span>, como indica el siguiente gráfico. De este modo, se establece una relación biunívoca entre los números complejos y los puntos del plano. En esta representación se llama <em>eje real</em> al eje de abscisas y <em>eje imaginario</em> al eje de ordenadas.</p>
+  
+      <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
+    <script type="text/javascript">
+      JXG.Options.text.useMathJax = true;
+      function pintac(){
+        JXG.Options.axis.ticks.drawLabels = false;
+        var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-2,2,2,-2], axis:true, showCopyright:false, showNavigation:false, grid:false});
+        //var c = board.create('circle',[[0,0],[0,1]]);
+        var z = board.create('point',[1,1.5], {name:"\\(z=(a,b)\\)"});
+        var pa = board.create('point', [()=>z.X(),()=>0], {name:"", size:0})
+        var pb = board.create('point', [()=>0,()=>z.Y()], {name:"", size:0})
+        var a = board.create('segment',[function(){return z}, [function(){return z.X()},0]], {dash:1, strokeColor:"red"})
+        var b = board.create('segment',[function(){return z}, [0,function(){return z.Y()}]], {dash:1, strokeColor:"red"})
+        var abs = board.create('segment', [function(){return z}, [0,0]], {strokeColor:"orange"} )     
+        board.create('text',[()=>-0.1*Math.sign(z.X()),()=>z.Y(),()=>"\\(b\\)"]) 
+        board.create('text',[()=>z.X(),()=>-0.1*Math.sign(z.Y()),()=>"\\(a\\)"]) 
+        var l1 = board.create('line',[[0,0],z],{visible:false})
+        var l2 = board.create('line',[[0,0],[10,0]], {visible:false})
+        //var ar=  board.create('angle',[l2,l1,1,1])
+        var ar= board.create('angle',[function(){return z.Y()>0?[10,0]:[z.X(),z.Y()]},[0,0],function(){return z.Y()>0?[z.X(),z.Y()]:[10,0]}],{name:'',text:'ω',fillColor:"green"})
+        board.update()
+      }
+      pintac()
+    </script>
+  <p>Además, el <span style="color:orange">módulo</span> de <span class="math">\(z\)</span> es la longitud del segmento de extremos <span class="math">\(0\)</span> y <span class="math">\((a,b)\)</span>.</p>
+  <p><strong>Argumento principal de un número complejo.</strong> Dado un número complejo no nulo <span class="math">\(z=a+bi\)</span>, el <em style="color:green">argumento principal</em> de <span class="math">\(z\)</span> es el número real
+    \[
+    \arg(a+b\,i)=\left\{
+  \begin{array}{ll}
+    \operatorname{arctan}\left(\frac{b}{a}\right)-\pi & \hbox{si $\,a<0$, $b<0$}, \\
+    -\frac{\pi}{2} & \hbox{si $\,a=0$, $b<0$}, \\
+    \operatorname{arctan}\left(\frac{b}{a}\right) & \hbox{si $\,a>0$}, \\
+    \frac{\pi}{2} & \hbox{si $\,a=0$, $b>0$}, \\
+    \operatorname{arctan}\left(\frac{b}{a}\right)+\pi & \hbox{si $\,a<0$, $b\geq 0$.}
+  \end{array}
+\right.
+  \]
+  <p>Gráficamente, el argumento principal representa el ángulo que forma el segmento de extremos <span class="math">\(0\)</span> y <span class="math">\((a,b)\)</span> con la parte positiva del eje real.</p>
+  <p>Sea <span class="math">\(z\in \mathbb{C}\)</span>, <span class="math">\(z\neq 0\)</span>. El argumento principal de <span class="math">\(z\)</span>, <span class="math">\(\arg(z)\)</span>, es el único número real en el intervalo <span class="math">\(\,]-\pi,\pi]\)</span> que verifica la igualdad <span class="math">\[z=|z|\left(\frac{}{}\hspace{-0.1cm}\cos(\arg(z))+i\,\operatorname{sen}(\arg(z))\right).\]</span></p>
+  <p><strong>Conjunto de argumentos de un número complejo.</strong> Sea <span class="math">\(z\in \mathbb{C}\)</span>, <span class="math">\(z\neq 0\)</span>. Se dice que un número real <span class="math">\(\omega\)</span> es <em>un argumento de</em> <span class="math">\(z\)</span> si verifica que <span class="math">\[z=|z|(\cos\omega+i\,\operatorname{sen}\omega).\]</span> A esta expresión la llamaremos <em>forma trigonométrica</em> del número complejo <span class="math">\(z\)</span>.</p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Describe geométricamente los conjuntos de números complejos definidos de la siguiente manera:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\(\{z\in\mathbb{C}\colon \operatorname{Re}(z)&gt;0\}\),</span></p></li>
+    <li><p><span class="math">\(\{z\in\mathbb{C}\colon -1\leq \operatorname{Re}(z)\leq 2\,,\; |z|=1\}\),</span></p></li>
+    <li><p><span class="math">\(\{z\in\mathbb{C}\colon 1&lt;|z|&lt;2\}\),</span></p></li>
+    <li><p><span class="math">\(\{z\in\mathbb{C}\colon |z|\geq 1\}\).</span></p></li>
+    </ol>
+  </article>
+</section>
+
+<section>
+  <header>
+    <h1 id="forma-polar-de-un-número-complejo">Forma polar de un número complejo</h1>
+  </header>
+  <p>Se llama<em> forma polar</em> del número complejo <span class="math">\(z\)</span> a la expresión dada por <span class="math">\(z=\left| z\right| _{\omega}\)</span> donde <span class="math">\(\left|
+  z\right| \)</span> es el módulo de <span class="math">\(z\)</span> y <span class="math">\(\omega\)</span> es un argumento de <span class="math">\(z\)</span>.</p>
+  <p>Por ejemplo, <span class="math">\(1+i=\left( \sqrt{2}\right) _{\frac \pi 4}\)</span>.</p>
+  <p><strong>Operaciones con números complejos en forma polar.</strong> Sean <span class="math">\(z_1,z_2\)</span> dos números complejos con <span class="math">\(z_1=\left| z_1\right|
+  _{w_1}\), \(z_2=\left| z_2\right|_{w_2}\).</span> Se verifican las siguientes propiedades:</p>
+  <ol>
+  <li><p><span class="math">\(z_1\cdot z_2=\left( \left| z_1\right| \cdot \left| z_2\right|
+  \right) _{w_1+w_2}\)</span>,</p></li>
+  <li><p><span class="math">\(\frac 1{z_1}=\left( \frac 1{\left| z_1\right| }\right) _{-w_1}\)</span>,</p></li>
+  <li><p><span class="math">\(\frac{z_1}{z_2}=\left( \frac{\left| z_1\right| }{\left|
+  z_2\right| }\right) _{w_1-w_2}\)</span>,</p></li>
+  <li><p><span class="math">\(\overline{z_1}=\left( \left| z_1\right| \right) _{-w_1}\)</span>.</p></li>
+  </ol>
+  <p>Por reiteración de la fórmula del producto de números complejos en forma polar se tiene la siguiente fórmula.</p>
+  <p><strong>Fórmula de de Moivre.</strong> Sea <span class="math">\(z\in\mathbb{C}\)</span>, <span class="math">\(z\neq 0\)</span>, y sea <span class="math">\(w\in\mathbb{R}\)</span> un argumento de <span class="math">\(z\)</span>. Entonces <span class="math">\[z^n=\left( \left| z\right| _w\right) ^n=\left( \left| z\right|
+  ^n\right) _{nw},\textrm{ para todo } n\in\mathbb{N}.\]</span></p>
+  <p>Si <span class="math">\(z\in \mathbb{C}\)</span> verifica que <span class="math">\(|z|=1\)</span> y <span class="math">\(w\)</span> es un argumento de <span class="math">\(z\)</span>, es decir, <span class="math">\(z=1_w=\cos w+i\cdot \operatorname{sen} w\)</span>, entonces se tiene la siguiente expresión para las potencias de <span class="math">\(z\)</span>: <span class="math">\[(\cos w+i\cdot \operatorname{sen} w)^n=\cos(nw)+i\cdot \operatorname{sen}(nw),\textrm{ para todo } n\in
+  \mathbb{N}.\]</span></p>
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+    </header>
+    <ol>
+    <li><p>Sean los siguientes números complejos: <span class="math">\(z_1=\sqrt{3}-i,\)</span> <span class="math">\(z_2=-\sqrt{3}+i,\)</span> <span class="math">\(z_3=-4i,\)</span> <span class="math">\(z_4=1.\)</span></p>
+      <ol>
+      <li><p>Represéntalos gráficamente en el plano complejo.</p></li>
+      <li><p>Halla sus respectivos módulos y argumentos.</p></li>
+      <li><p>Escríbelos en forma polar y trigonométrica.</p></li>
+      <li><p>Representa gráficamente al número complejo opuesto, al conjugado y al opuesto del conjugado de cada uno de los cuatro números complejos dados.</p></li>
+      </ol>
+    </li>
+    <li><p>Sean los siguientes números complejos: <span class="math">\(z_1=(2)_{120{{}^o}}\)</span> <span class="math">\(z_2=(3)_{45{{}^o}}\)</span>.</p>
+      <ol>
+      <li><p>Halla la forma binómica de cada uno de ellos.</p></li>
+      <li><p>Calcula <span class="math">\(z_1\cdot z_2\)</span> y <span class="math">\(z_1/z_2\)</span> utilizando la forma polar.</p></li>
+      </ol>
+      </li>
+    <li><p>Escribe el número complejo <span class="math">\(z=-1+\sqrt{3}i\)</span> en forma polar y calcula <span class="math">\(z^6\)</span> en dicha forma. Pasa el resultado a la forma binómica. Verifica el resultado hallado realizando la operación directamente en forma binómica y aplicando el binomio de Newton.</p></li>
+  </article>
+</section>
+
+<section>
+  <header>
+    <h1 id="raíces-de-un-número-complejo">Raíces de un número complejo</h1>
+  </header>
+  <p>Dados <span class="math">\(z\in\mathbb{C}\)</span> y <span class="math">\(n\in\mathbb{N}\)</span>, se dice que un número complejo <span class="math">\(v\)</span> es una raíz <span class="math">\(n\)</span>-ésima de <span class="math">\(z\)</span> si <span class="math">\(v^n=z\)</span>. En particular, si <span class="math">\(n=2\)</span> se dice que <span class="math">\(v\)</span> es una <em>raíz cuadrada</em> de <span class="math">\(z\)</span> y si <span class="math">\(n=3\)</span> se dice que <span class="math">\(v\)</span> es una <em>raíz cúbica</em> de <span class="math">\(z\)</span>.</p>
+  <p>Si <span class="math">\(z\)</span> es el complejo no nulo que tiene por forma polar <span class="math">\(|z|_{\omega}\)</span>, entonces existen <span class="math">\(n\)</span> raíces <span class="math">\(n\)</span>-ésimas de <span class="math">\(v\)</span>, las cuales están dadas por la siguiente expresión: <span class="math">\[\left(\sqrt[n]{|z|}\right)_{\frac{\omega +2k\pi}{n}},\   k\in\{0,1,\ldots,n-1\}.\]</span></p>
+  <p>Como <span class="math">\(-1=1_{\pi}\)</span>, entonces las raíces cuadradas de <span class="math">\(-1\)</span> son</p>
+  <p><span class="math">\[\begin{aligned}
+  1_{\frac{\pi+2\cdot
+  0\,\pi}{2}}&amp;=1_{\frac{\pi}{2}}=\cos\left(\frac{\pi}{2}\right)+i\,\operatorname{sen}\left(\frac{\pi}{2}\right)=i\,,\\
+  1_{\frac{\pi+2\cdot
+  1\,\pi}{2}}&amp;=1_{\frac{3\pi}{2}}=\cos\left(\frac{3\pi}{2}\right)+i\,\operatorname{sen}\left(\frac{3\pi}{2}\right)=-i.\end{aligned}\]</span></p>
+  <p><strong>Representación gráfica de las raíces de un número complejo.</strong> Sea <span class="math">\(z\in\mathbb{C}\)</span>, <span class="math">\(z\neq 0\)</span>, <span class="math">\(\omega\in\mathbb{R}\)</span> un argumento de <span class="math">\(z\)</span> y <span class="math">\(n\in\mathbb{N}\)</span>, <span class="math">\(n\geq 3\)</span>. Gráficamente las raíces <span class="math">\(n\)</span>-ésimas de <span class="math">\(z\)</span>: <span class="math">\[\left( \sqrt[n]{|z|}\right)_{\frac{\omega +2k\pi}{n}},\ k\in\{0,1,\ldots,n-1\},\]</span> están representadas como los vértices de un polígono regular de <span class="math">\(n\)</span> lados. Por lo tanto, para representar las <span class="math">\(n\)</span> raíces se toma la circunferencia de centro <span class="math">\(0\)</span> y de radio <span class="math">\(\sqrt[n]{|z|}\)</span>, se considera primero el ángulo <span class="math">\(\frac \phi n\)</span> (para <span class="math">\(k=0\)</span>) y luego sumándole el ángulo <span class="math">\(\frac{2\pi}n\)</span> se van obteniendo las restantes <span class="math">\(n-1\)</span> raíces.</p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Calcula:</p>
+    </header>
+    <ol>
+    <li><p><span class="math">\(\sqrt{i}\)</span>,</p></li>
+    <li><p><span class="math">\(\sqrt[3]{1}\)</span>,</p></li>
+    <li><p><span class="math">\(\sqrt[3]{-1+i}\)</span>.</p></li>
+    </ol>
+  </article>
+</section>
+
+<hr>
+
+<p style="font-size: 10pt">Esta página está basada en los apuntes de María Burgos, Moisés Villegas y Jesús Alcantud. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a>. Las animaciones en JSXGraph y el maquetado de la página han sido realizados por Pedro A. García Sánchez.</p>
+
+
+</body>
+</html>
