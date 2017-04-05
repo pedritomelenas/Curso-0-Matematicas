@@ -10,7 +10,14 @@
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
   <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
-  
+  <script>
+		MathJax.Hub.Config({
+		 tex2jax:
+		 {
+		    preview: "none"
+		 }
+		});
+	</script>
 </head>
 <body>
   <div id="header">
@@ -47,7 +54,11 @@
     <header>
       <h3>Ejercicio</h3>
     </header>
-    <p>Calcula la suma, producto, diferencia y cociente de los pares de números complejos <span class="math">\(z_1=(2,1)\)</span> y <span class="math">\(z_1=(-2,3).\)</span> Calcula además las mismas operaciones utilizando la forma binómica.</p>
+    <p>Calcula la suma, producto, diferencia y cociente de los pares de números complejos <span class="math">\(z_1=(2,1)\)</span> y <span class="math">\(z_1=(-2,3).\)</span> Calcula además las mismas operaciones utilizando la forma binómica.
+          <button id="e1-1" class="button" onclick="show2('e1-1');">Solución</button></p>
+      <div id="sol-e1-1" style="display:none;">
+        La suma y diferencia se hacen coordenada a coordenada a coordenada, por lo que \(z_1+z_2=(0,4)\) y \(z_1-z_2=(4,-2)\). En forma binómica, \(z_1+z_2=4i \) y \(z_1-z_2=4-2i\). El producto es \(z_1z_2= (-7,4)\), y en forma binómica, \(-7+4i\). Por último, \(\dfrac{z_1}{z_2}= \left(-\frac{1}{13},-\frac{8}{13} \right)\), que en forma binómica es \(-\dfrac{1}13-\dfrac{8}{13} i\).
+      </div>
   </article>
   <p><strong>Parte real, parte imaginaria, conjugado y módulo de un número complejo.</strong> Sea <span class="math">\(z=a+bi\)</span> <span class="math">\(\in\mathbb{C}\)</span>. Los números reales <span class="math">\(a\)</span> y <span class="math">\(b\)</span> reciben el nombre de <em>parte real</em> y <em>parte imaginaria</em>, respectivamente, de <span class="math">\(z\)</span>. Escribimos <span class="math">\(a=\operatorname{Re}(z)\)</span> y <span class="math">\(b=\operatorname{Im}(z)\)</span>. El complejo se denomina <em>conjugado</em> de <span class="math">\(z\)</span> y el número real no negativo <span class="math">\(|z|=\sqrt{a^2+b^2}\)</span> recibe el nombre de <em>módulo de</em> <span class="math">\(z\)</span>.</p>
   <p>Dados <span class="math">\(z,w\in\mathbb{C}\)</span>. Se tienen las siguientes propiedades:</p>
@@ -81,18 +92,36 @@
       <h3>Ejercicio</h3>
     </header>
     <ol>
-      <li><p>Calcula las potencias <span class="math">\(155\)</span>, <span class="math">\(7\)</span>, <span class="math">\(9\)</span>, <span class="math">\(23\)</span> y <span class="math">\(-19\)</span> de la unidad imaginaria <span class="math">\(i=(0,1)\)</span>.</p></li>
+      <li><p>Calcula las potencias <span class="math">\(155\)</span>, <span class="math">\(7\)</span>, <span class="math">\(9\)</span>, <span class="math">\(23\)</span> y <span class="math">\(-19\)</span> de la unidad imaginaria <span class="math">\(i=(0,1)\)</span>.
+                <button id="e2-1" class="button" onclick="show2('e2-1');">Solución</button></p>
+        <div id="sol-e2-1" style="display:none;">
+          El resto de dividir \(155\) entre \(4\) es \(3\), por lo que \(i^{155}=i^3=-i\). Lo mismo ocurre con \(7\) y \(23\). Para exponente \(9\), \(i^9=i^{2\times 4+1}=i\). Por último, \(-23=-24+1=-6\times 4+1\), y por tanto \(i^{-23}=(i^{4})^{-6}i=1 i=i \).
+        </div>
+      </li>
       <li><p>Expresa los números complejos <span class="math">\(z_1=(-1,1)\)</span>, <span class="math">\(z_2=(1,2)\)</span> y <span class="math">\(z_3=(4,-1)\)</span> en forma binómica y realiza las operaciones siguientes:</p>
         <ol>
-        <li><p><span class="math">\(\frac{z_1\overline{z_2}-{z_3}^2}{z_3}\)</span>,</p></li>
-        <li><p><span class="math">\(\frac{-(\overline{z_1}){(z_2)}^2+iz_3}{\overline{z_1}+\overline{z_3}}
-        \)</span>.</p></li>
+        <li><p><span class="math">\(\dfrac{z_1\overline{z_2}-{z_3}^2}{z_3}\)</span><span id="sol-e2-2" style="display:none;">\(=-\dfrac{67}{17} + \dfrac{30}{17}i\)
+          </span>, <button id="e2-2" class="button" onclick="show2('e2-2');">Solución</button></p>
+        </li>
+        <li><p><span class="math">\(\dfrac{-(\overline{z_1}){(z_2)}^2+iz_3}{\overline{z_1}+\overline{z_3}}
+        \)</span></span><span id="sol-e2-3" style="display:none;">\(=-2 + \dfrac{5}{3}i\)
+          </span>. <button id="e2-3" class="button" onclick="show2('e2-3');">Solución</button></p></li>
         </ol>
       </li>
       <li><p>Resuelve las siguientes ecuaciones con coeficientes complejos:</p>
         <ol>
-        <li><p><span class="math">\(z^2+(-3+2i)z+(5+i)=0\)</span>,</p></li>
-        <li><p><span class="math">\(z^6-z^3-2=0\)</span>.</p></li>
+        <li><p><span class="math">\(z^2+(-3+2i)z+(5+i)=0\)</span>,
+                <button id="e2-4" class="button" onclick="show2('e2-4');">Solución</button></p>
+          <div id="sol-e2-4" style="display:none;">
+           Las soluciones son \(\frac{3- 2i \pm \sqrt{-15 - 16i}}2\).
+          </div>
+        </li>
+        <li><p><span class="math">\(z^6-z^3-2=0\)</span>.
+          <button id="e2-5" class="button" onclick="show2('e2-5');">Solución</button></p>
+          <div id="sol-e2-5" style="display:none;">
+            Hacemos \(x=z^3\), con lo que obtenemos una nueva ecuación \(x^x-x-2=0\), cuyas raíces son \(x=-1\) y \(x=2\). Por tanto las soluciones de la ecuación original son las ríces cúbicas de \(-1\) y \(2\).
+          </div>
+        </li>
         </ol>
       </li>
     </ol>
@@ -105,7 +134,7 @@
   </header>
   <p>En esta sección haremos uso de algunas funciones trigonométricas y de algunas funciones arco. Aunque aún no han sido presentadas, suponemos que el alumno está suficientemente habituado a ellas para poder usarlas. En cualquier caso, trataremos estas funciones y sus propiedades en temas posteriores.</p>
   <p><strong>Representación geométrica de los números complejos.</strong> Hagamos corresponder a cada número complejo <span class="math">\(z=a+bi\)</span> el punto del plano cuyas coordenadas referidas a un sistema de ejes cartesianos ortogonales son <span class="math">\((a,b)\)</span>, como indica el siguiente gráfico. De este modo, se establece una relación biunívoca entre los números complejos y los puntos del plano. En esta representación se llama <em>eje real</em> al eje de abscisas y <em>eje imaginario</em> al eje de ordenadas.</p>
-  
+
       <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
     <script type="text/javascript">
       JXG.Options.text.useMathJax = true;
@@ -118,9 +147,9 @@
         var pb = board.create('point', [()=>0,()=>z.Y()], {name:"", size:0})
         var a = board.create('segment',[function(){return z}, [function(){return z.X()},0]], {dash:1, strokeColor:"red"})
         var b = board.create('segment',[function(){return z}, [0,function(){return z.Y()}]], {dash:1, strokeColor:"red"})
-        var abs = board.create('segment', [function(){return z}, [0,0]], {strokeColor:"orange"} )     
-        board.create('text',[()=>-0.1*Math.sign(z.X()),()=>z.Y(),()=>"\\(b\\)"]) 
-        board.create('text',[()=>z.X(),()=>-0.1*Math.sign(z.Y()),()=>"\\(a\\)"]) 
+        var abs = board.create('segment', [function(){return z}, [0,0]], {strokeColor:"orange"} )
+        board.create('text',[()=>-0.1*Math.sign(z.X()),()=>z.Y(),()=>"\\(b\\)"])
+        board.create('text',[()=>z.X(),()=>-0.1*Math.sign(z.Y()),()=>"\\(a\\)"])
         var l1 = board.create('line',[[0,0],z],{visible:false})
         var l2 = board.create('line',[[0,0],[10,0]], {visible:false})
         //var ar=  board.create('angle',[l2,l1,1,1])
@@ -151,9 +180,60 @@
       <p>Describe geométricamente los conjuntos de números complejos definidos de la siguiente manera:</p>
     </header>
     <ol>
-    <li><p><span class="math">\(\{z\in\mathbb{C}\colon \operatorname{Re}(z)&gt;0\}\),</span></p></li>
-    <li><p><span class="math">\(\{z\in\mathbb{C}\colon -1\leq \operatorname{Re}(z)\leq 2\,,\; |z|=1\}\),</span></p></li>
-    <li><p><span class="math">\(\{z\in\mathbb{C}\colon 1&lt;|z|&lt;2\}\),</span></p></li>
+    <li><p><span class="math">\(\{z\in\mathbb{C}\colon \operatorname{Re}(z)&gt;0\}\),</span>
+      <button id="e3-1" class="button" onclick="show2('e3-1');">Solución</button></p>
+      <div id="sol-e3-1" style="display:none;">
+      <div id='ebox3-1' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
+      <br>
+      <script type="text/javascript">
+      JXG.Options.axis.ticks.drawLabels = true;
+      function pintae31(){
+        var board = JXG.JSXGraph.initBoard('ebox3-1', {boundingbox: [-2, 2, 2, -2], axis:true, showCopyright:false, showNavigation:false}),
+        l1 = board.create("line",[[1,10],[1,0]], {fixed:true,strokeColor:"orange"});
+        ineq = board.create("inequality",[l1]);
+
+      }
+      pintae31();
+      </script>
+      </div>
+    </li>
+    <li><p><span class="math">\(\{z\in\mathbb{C}\colon -1\leq \operatorname{Re}(z)\leq 2\,,\; |z|=1\}\),</span>
+      <button id="e3-2" class="button" onclick="show2('e3-2');">Solución</button></p>
+      <div id="sol-e3-2" style="display:none;">
+      <div id='ebox3-2' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
+      <br>
+      <script type="text/javascript">
+      JXG.Options.axis.ticks.drawLabels = true;
+      function pintae32(){
+        var board = JXG.JSXGraph.initBoard('ebox3-2', {boundingbox: [-2, 2, 2, -2], axis:true, showCopyright:false, showNavigation:false}),
+        l1 = board.create("circle",[[0,0],[1,0]], {fixed:true,strokeColor:"orange"});
+      }
+      pintae32();
+      </script>
+      </div>
+    </li>
+    <li><p><span class="math">\(\{z\in\mathbb{C}\colon 1&lt;|z|&lt;2\}\),</span>
+      <button id="e3-3" class="button" onclick="show2('e3-3');">Solución</button></p>
+      <div id="sol-e3-3" style="display:none;">
+      <div id='ebox3-3' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
+      <br>
+      <script type="text/javascript">
+      JXG.Options.axis.ticks.drawLabels = true;
+      function pintae33(){
+        var board = JXG.JSXGraph.initBoard('ebox3-3', {boundingbox: [-3, 3, 3, -3], showCopyright:false, showNavigation:false}),
+        c2=board.create("circle",[[0,0],[2,0]], {fixed:true,strokeColor:"orange",fillColor:"orange",fillOpacity:0.1});
+        c1=board.create("circle",[[0,0],[1,0]], {fixed:true,strokeColor:"orange", fillColor:"white"});
+        board.create('line',[[0,0],[0,1]],{strokeColor:"black",strokeWidth:1});
+        board.create('line',[[0,0],[1,0]],{strokeColor:"black",strokeWidth:1});
+        board.create('text',[1,-0.05,1]);
+        board.create('text',[2,-0.05,2]);
+
+      }
+      pintae33();
+      </script>
+      </div>
+
+    </li>
     <li><p><span class="math">\(\{z\in\mathbb{C}\colon |z|\geq 1\}\).</span></p></li>
     </ol>
   </article>
@@ -187,21 +267,48 @@
       <h3>Ejercicio</h3>
     </header>
     <ol>
-    <li><p>Sean los siguientes números complejos: <span class="math">\(z_1=\sqrt{3}-i,\)</span> <span class="math">\(z_2=-\sqrt{3}+i,\)</span> <span class="math">\(z_3=-4i,\)</span> <span class="math">\(z_4=1.\)</span></p>
+    <li><p>Sean los siguientes números complejos: <span class="math">\(z_1=\sqrt{3}-i,\)</span> <span class="math">\(z_2=-\sqrt{3}+i,\)</span> <span class="math">\(z_3=-4i,\)</span> <span class="math">\(z_4=1.\)</span><button id="e4-1" class="button" onclick="show2('e4-1');">Solución</button></p>
       <ol>
       <li><p>Represéntalos gráficamente en el plano complejo.</p></li>
       <li><p>Halla sus respectivos módulos y argumentos.</p></li>
       <li><p>Escríbelos en forma polar y trigonométrica.</p></li>
       <li><p>Representa gráficamente al número complejo opuesto, al conjugado y al opuesto del conjugado de cada uno de los cuatro números complejos dados.</p></li>
       </ol>
+      <div id="sol-e4-1" style="display:none;">
+        <p>Vamos a dar la solución para \(z_1\). El argumento de \(z_1\) es  \(-\dfrac{\pi}{6}\) y su módulo es \(2\).</p>
+        <p>Por tanto \(z_1=(2)_{-\frac{\pi}6}=2\left(\cos\left(-\frac{pi}6\right)+i \operatorname{sen}\left(-\frac{\pi}6\right)\right)\).</p>
+        <p>
+        <div id='ebox4-1' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
+        <br>
+        <script type="text/javascript">
+        JXG.Options.axis.ticks.drawLabels = true;
+        function pintae41(){
+          var board = JXG.JSXGraph.initBoard('ebox4-1', {boundingbox: [-3, 3, 3, -3], showCopyright:false, showNavigation:false, axis:true});
+          board.create('point',[Math.sqrt(3),-1],{name:'\\(z_1\\)',fixed:true})
+          board.create('point',[-Math.sqrt(3),1],{name:'\\(-z_1\\)',fixed:true})
+          board.create('point',[Math.sqrt(3),1],{name:'\\(\\overline{z_1}\\)',fixed:true})
+          board.create('point',[-Math.sqrt(3),-1],{name:'\\(-\\overline{z_1}\\)',fixed:true})
+        }
+        pintae41();
+        </script>
+
+      </div>
     </li>
-    <li><p>Sean los siguientes números complejos: <span class="math">\(z_1=(2)_{120{{}^o}}\)</span> <span class="math">\(z_2=(3)_{45{{}^o}}\)</span>.</p>
+    <li><p>Sean los siguientes números complejos: <span class="math">\(z_1=(2)_{120{{}^o}}\)</span> <span class="math">\(z_2=(3)_{45{{}^o}}\)</span>.<button id="e4-2" class="button" onclick="show2('e4-2');">Solución</button></p>
       <ol>
       <li><p>Halla la forma binómica de cada uno de ellos.</p></li>
-      <li><p>Calcula <span class="math">\(z_1\cdot z_2\)</span> y <span class="math">\(z_1/z_2\)</span> utilizando la forma polar.</p></li>
+      <li><p>Calcula <span class="math">\(z_1\cdot z_2\)</span> y <span class="math">\(\dfrac{z_1}{z_2}\)</span> utilizando la forma polar.</p></li>
       </ol>
-      </li>
-    <li><p>Escribe el número complejo <span class="math">\(z=-1+\sqrt{3}i\)</span> en forma polar y calcula <span class="math">\(z^6\)</span> en dicha forma. Pasa el resultado a la forma binómica. Verifica el resultado hallado realizando la operación directamente en forma binómica y aplicando el binomio de Newton.</p></li>
+      <div id="sol-e4-2" style="display:none;">
+        <p>Tenemos que \(z_1=2\left(\cos\left( \frac{2\pi}3 \right) + i \operatorname{sen}\left(\frac{2\pi}3 \right)  \right)= -1+i\sqrt{3}\) y \(z_2=3\left(\cos\left( \frac{\pi}2 \right) + i \operatorname{sen}\left(\frac{\pi}2 \right)  \right)= 3i \).</p>
+        <p>El producto es \(z_1z_1=(2\times 6)_{120^o+45^o}=(12)_{165^o}\), y la división es \(\dfrac{z_1}{z_2}=\left(\dfrac{2}6\right)_{120^o-45^o}=\left(\dfrac{1}3\right)_{75^o}\). </p>
+      </div>
+    </li>
+    <li><p>Escribe el número complejo <span class="math">\(z=-1+\sqrt{3}i\)</span> en forma polar y calcula <span class="math">\(z^6\)</span> en dicha forma. Pasa el resultado a la forma binómica.<button id="e4-3" class="button" onclick="show2('e4-3');">Solución</button></p>
+      <div id="sol-e4-3" style="display:none;">
+        <p>Ya hemos visto antes que \(z=(2)_{120^o}=(2)_{\frac{2\pi}3}\). Así \(z^6=(2^6)_{\frac{12\pi}3}=(64)_{4\pi}=(64)_{0}=64\).</p>
+      </div>
+    </li>
   </article>
 </section>
 
@@ -217,16 +324,17 @@
   0\,\pi}{2}}&amp;=1_{\frac{\pi}{2}}=\cos\left(\frac{\pi}{2}\right)+i\,\operatorname{sen}\left(\frac{\pi}{2}\right)=i\,,\\
   1_{\frac{\pi+2\cdot
   1\,\pi}{2}}&amp;=1_{\frac{3\pi}{2}}=\cos\left(\frac{3\pi}{2}\right)+i\,\operatorname{sen}\left(\frac{3\pi}{2}\right)=-i.\end{aligned}\]</span></p>
-  <p><strong>Representación gráfica de las raíces de un número complejo.</strong> Sea <span class="math">\(z\in\mathbb{C}\)</span>, <span class="math">\(z\neq 0\)</span>, <span class="math">\(\omega\in\mathbb{R}\)</span> un argumento de <span class="math">\(z\)</span> y <span class="math">\(n\in\mathbb{N}\)</span>, <span class="math">\(n\geq 3\)</span>. Gráficamente las raíces <span class="math">\(n\)</span>-ésimas de <span class="math">\(z\)</span>: <span class="math">\[\left( \sqrt[n]{|z|}\right)_{\frac{\omega +2k\pi}{n}},\ k\in\{0,1,\ldots,n-1\},\]</span> están representadas como los vértices de un polígono regular de <span class="math">\(n\)</span> lados. Por lo tanto, para representar las <span class="math">\(n\)</span> raíces se toma la circunferencia de centro <span class="math">\(0\)</span> y de radio <span class="math">\(\sqrt[n]{|z|}\)</span>, se considera primero el ángulo <span class="math">\(\frac \phi n\)</span> (para <span class="math">\(k=0\)</span>) y luego sumándole el ángulo <span class="math">\(\frac{2\pi}n\)</span> se van obteniendo las restantes <span class="math">\(n-1\)</span> raíces.</p>
+  <p><strong>Representación gráfica de las raíces de un número complejo.</strong> Sea <span class="math">\(z\in\mathbb{C}\)</span>, <span class="math">\(z\neq 0\)</span>, <span class="math">\(\omega\in\mathbb{R}\)</span> un argumento de <span class="math">\(z\)</span> y <span class="math">\(n\in\mathbb{N}\)</span>, <span class="math">\(n\geq 3\)</span>. Gráficamente las raíces <span class="math">\(n\)</span>-ésimas de <span class="math">\(z\)</span> están representadas como los vértices de un polígono regular de <span class="math">\(n\)</span> lados. Por lo tanto, para representar las <span class="math">\(n\)</span> raíces se toma la circunferencia de centro <span class="math">\(0\)</span> y de radio <span class="math">\(\sqrt[n]{|z|}\)</span>, se considera primero el ángulo <span class="math">\(\frac \omega n\)</span> (para <span class="math">\(k=0\)</span>) y luego sumándole el ángulo <span class="math">\(\frac{2\pi}n\)</span> se van obteniendo las restantes <span class="math">\(n-1\)</span> raíces.</p>
   <article>
     <header>
       <h3>Ejercicio</h3>
       <p>Calcula:</p>
     </header>
     <ol>
-    <li><p><span class="math">\(\sqrt{i}\)</span>,</p></li>
-    <li><p><span class="math">\(\sqrt[3]{1}\)</span>,</p></li>
-    <li><p><span class="math">\(\sqrt[3]{-1+i}\)</span>.</p></li>
+    <li><p><span class="math">\(\sqrt{i}\)</span><span id="sol-e5-1" style="display:none;">\(=\left\{\dfrac{\sqrt{2}}{2}+i \dfrac{\sqrt{2}}{2}, -\dfrac{\sqrt{2}}{2}-i \dfrac{\sqrt{2}}{2}\right\}\)
+          </span>, <button id="e5-1" class="button" onclick="show2('e5-1');">Solución</button></p></li>
+    <li><p><span class="math">\(\sqrt[3]{1}\)</span><span id="sol-e5-2" style="display:none;">\(=\left\{-\dfrac{1}{2}+i \dfrac{\sqrt{3}}{2}, -\dfrac{1}{2}-i \dfrac{\sqrt{3}}{2},1 \right\}\) </span>, <button id="e5-2" class="button" onclick="show2('e5-2');">Solución</button></p></li>
+    <li><p><span class="math">\(\sqrt[3]{-1+i}\)</span><span id="sol-e5-3" style="display:none;">\(=\left\{\sqrt[6]{2}\left(\cos\left(\frac{\pi}4 \right)+i \operatorname{sen}\left(\frac{\pi}4\right) \right), \sqrt[6]{2}\left(\cos\left(\frac{11 \pi}{12} \right)+i \operatorname{sen}\left(\frac{11 \pi}{12}\right)\right), \sqrt[6]{2}\left(\cos\left(\frac{5\pi}{12} \right)+ i\operatorname{sen}\left(\frac{5\pi}{12}\right)  \right) \right\}\) </span>. <button id="e5-3" class="button" onclick="show2('e5-3');">Solución</button></p></li>
     </ol>
   </article>
 </section>
@@ -235,6 +343,28 @@
 
 <p style="font-size: 10pt">Esta página está basada en los apuntes de María Burgos, Moisés Villegas y Jesús Alcantud. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a>. Las animaciones en JSXGraph y el maquetado de la página han sido realizados por Pedro A. García Sánchez.</p>
 
+<script type="text/javascript" language="javascript">
+  function show2(divID) {
+
+      var sol = document.getElementById("sol-"+divID);
+      var div = document.getElementById(divID);
+
+      if(sol.style.display == "none"){
+        sol.style.display = "unset";
+      }else{
+        sol.style.display = "none";
+      }
+
+
+      if(div.innerHTML == "Solución"){
+        div.innerHTML = "Oculta solución";
+      }else{
+        div.innerHTML = "Solución";
+      }
+
+  }
+
+</script>
 
 </body>
 </html>
