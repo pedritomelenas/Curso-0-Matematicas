@@ -8,11 +8,18 @@
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="otro.css" type="text/css" />
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  <!--<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
-  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>-->
-  <link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
-  <script type="text/javascript" src="js/jsxgraphcore.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  <!--<link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+  <script type="text/javascript" src="js/jsxgraphcore.js"></script>-->
+	<script>
+		MathJax.Hub.Config({
+		 tex2jax:
+		 {
+		    preview: "none"
+		 }
+		});
+	</script>
 </head>
 <body>
 <div id="header">
@@ -213,11 +220,11 @@
       <p>Calcula una primitiva de las siguientes funciones:</p>
     </header>
     <ol>
-    <li><p><span class="math">\( f(x)=\frac{2x-3}{x^2-3x+4}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=\frac{\ln(x)}{x}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=(x^2-1) \, e^{x^3-3x+5}\)</span>
+    <li><p><span class="math">\( f(x)=\dfrac{2x-3}{x^2-3x+4}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\dfrac{\ln(x)}{x}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=(x^2-1) \, e^{x^3-3x+5}\)</span>,
       <!--<span id="e2-3">,<input name="execute" value="Solución &#x25B6;" onclick="show2('sol-e2-3');" type="button"></span>-->
-      <button id="e2-3" class="button" style="float: right;" onclick="show2('e2-3');">Solución</button>
+      <button id="e2-3" class="button" onclick="show2('e2-3');">Solución</button>
       <div id="sol-e2-3" style="display:none;">
         <p>Obsérvese que la derivada del exponente de \(e\) es casi el factor que multiplica. Para ajustarlo, basta multiplicar y dividir por \(3\). Así haciendo el cambio \(g(x)=x^3-3x+5\) y \(f(x)=e^x\),
         \[
@@ -225,10 +232,20 @@
         \]
       </div>
     </p></li>
-    <li><p><span class="math">\(f(x)=\frac{2^{1/x}}{x^2}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\dfrac{2^{1/x}}{x^2}\)</span>,
+      <button id="e2-4" class="button" onclick="show2('e2-4');">Solución</button>
+      <div id="sol-e2-4" style="display:none;">
+        <p>Teniendo en cuenta el cambio de variable y la primitiva de la función exponencial, \(\int g'(x)a^{g(x)}\, dx = \dfrac{a^{g(x)}}{\ln(a)}\). Tomando \(g(x)=\dfrac{1}x\),obtenemos \( \int \frac{1}{x^2}2^{\frac{1}{x}}\, dx= -\int-\frac{1}{x^2} 2^{\frac{1}{x}}\, dx= -\frac{2^\frac{1}x}{\ln(2)}+C\).
+      </div>
+    </p></li>
     <li><p><span class="math">\(f(x)=(8x-3)(4x^2-3x+8)^{10}\)</span>,</p></li>
     <li><p><span class="math">\(f(x)=(x^2-1)(x^3-3x+5)^{1/2}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=x^3 \, \sqrt{x^4+1}\)</span>.</p></li>
+    <li><p><span class="math">\(f(x)=x^3 \, \sqrt{x^4+1}\)</span>.
+          <button id="e2-7" class="button" onclick="show2('e2-7');">Solución</button>
+      <div id="sol-e2-7" style="display:none;">
+        <p>Teniendo en cuenta el cambio de variable y la primitiva de la función potencial, \(\int g'(x)g(x)^{\frac{1}2}\, dx = \dfrac{g(x)^{\frac{1}2+1}}{\frac{1}2+1}= \dfrac{2g(x)^{\frac{3}2}}{3} \). Tomando \(g(x)=x^4+1\), obtenemos \( \int x^3\sqrt{x^4+1}\, dx= \frac{1}{4}\int 4x^3(x^4+1)^{\frac{1}{2}}\, dx=  \dfrac{(x^4+1)^{\frac{3}2}}{6} +C\).
+      </div>
+    </p></li>
     </ol>
   </article>
 
@@ -255,12 +272,23 @@
       <p>Calcula una primitiva de las siguientes funciones:</p>
     </header>
     <ol>
-    <li><p><span class="math">\( f(x)=\ln(5x)\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=x \, e^{x}\)</span>,</p></li>
+    <li><p><span class="math">\( f(x)=\ln(5x)\)</span>,
+      <button id="e3-1" class="button"  onclick="show2('e3-1');">Solución</button></p>
+      <div id="sol-e3-1" style="display:none;">
+        <p>Hacemos integración por partes con \(u(x)=\ln(5x)\)  y \(dv=1\, dx\) (y por tanto \(v(x)=x\)). Tenemos así que \(\int \ln(5x)\, dx= \ln(5x)x-\int x\frac{5}{5x}\, dx= \ln(5x)x-x+C\).
+      </div>
+
+
+    </p></li>
+    <li><p><span class="math">\(f(x)=x^2 \, e^{-x}\)</span>,</p></li>
     <li><p><span class="math">\(f(x)=\arctan(x)\)</span>,</p></li>
     <li><p><span class="math">\(f(x)=\operatorname{sen}(x) \, e^{x}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=x \ln(x)\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=x^2 \, e^{-x}\)</span>.</p></li>
+    <li><p><span class="math">\(f(x)=x \ln(x)\)</span>.
+          <button id="e3-3" class="button"  onclick="show2('e3-3');">Solución</button></p>
+      <div id="sol-e3-3" style="display:none;">
+        <p>Hacemos integración por partes con \(u(x)=\ln(x)\)  y \(d v=x\, dx\) (y por tanto \(v(x)=x^2/2\)). Tenemos así que \(\int x\ln(x)\, dx= \frac{1}2x^2\ln(x)-\int \frac{1}2x\, dx= \frac{1}2x^2\ln(x)-\frac{1}4x^2+C\).
+      </div>
+    </li>
     </ol>
   </article>
 
@@ -276,15 +304,14 @@
   \cdots + \frac{C_{r_{n}}}{(x-a_{n})^{r_n}} \, .\end{aligned}\]</span></p>
   <p>Cada una de estas fracciones son de integración inmediata.</p>
   <h4>Ejemplo</h4>
-  <p>Calculemos <span class="math">\(\int \frac{1}{(x-1)(x+1)^{3}} \, dx\)</span>.</p>
+  <p>Calculemos <span class="math">\(\int \dfrac{1}{(x-1)(x+1)^{3}} \, dx\)</span>.</p>
   <p><span class="math">\[\begin{aligned}
    \frac{1}{(x-1)(x+1)^{3}}  &amp; =
    \frac{A}{x-1}+\frac{B}{x+1}+\frac{C}{(x+1)^{2}}+
    \frac{D}{(x+1)^{3}} \\
    &amp; = \frac{A(x+1)^{3}+B(x-1)(x+1)^{2}+C(x-1)(x+1) +
    D(x-1)}{(x-1)(x+1)^{3}} \\
-   &amp; = \frac{(A+B)x^3 +(3A+B+C)x^2 + (3A-B+D)x+ A-B-C-D}{(x-1)(x+1)^{3}} \\
-   &amp; = \frac{1}{(x-1)(x+1)^{3}}.\end{aligned}\]</span></p>
+   &amp; = \frac{(A+B)x^3 +(3A+B+C)x^2 + (3A-B+D)x+ A-B-C-D}{(x-1)(x+1)^{3}}.\end{aligned}\]</span></p>
   <p>Igualando coeficientes nos queda el sistema <span class="math">\[\begin{alignedat}{5}
   A&amp;&amp; {}+B&amp;&amp; &amp;&amp; &amp;&amp; {}=0, \\
   3A&amp;&amp; {}+ B&amp;&amp; {}+C&amp;&amp; &amp;&amp; {}=0, \\
@@ -304,12 +331,27 @@
       <p>Calcula una primitiva de las siguientes funciones:</p>
     </header>
     <ol>
-    <li><p><span class="math">\( f(x)=\frac{x+1}{x^2+2x-3}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=\frac{x^2+1}{x^2-1}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=\frac{x-1}{x^3-4x^2+5x-2}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=\frac{x^2+2}{x^3-3x-2}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=\frac{x-1}{x^4-4x^3}\)</span>,</p></li>
-    <li><p><span class="math">\(f(x)=\frac{x}{x^3-3x^2+3x-1}\)</span>.</p></li>
+    <li><p><span class="math">\( f(x)=\dfrac{x+1}{x^2+2x-3}\)</span>,
+      <button id="e4-1" class="button" onclick="show2('e4-1');">Solución</button></p>
+      <div id="sol-e4-1" style="display:none;">
+        <p> Nótese que el numerador tiene grado menor que el denominador, por lo que no es necesario hacer ninguna simplificación previa. Además, \(x^2+2x-3=(x-1)(x+3)\). Debemos expresar \(\dfrac{x+1}{x^2+2x-3} = \dfrac{A}{x-1}+\dfrac{B}{x+3}=\dfrac{A(x+3)+B(x-1)}{x^2+2x-3}\). Por tanto \(x+1=A(x+3)+B(x-1)=(A+B)x+(3A-B)\). De aquí se deduce que \(A+B=1\) y \(3A-B=1\). Entonces, \(A=\dfrac{1}2\) y \(B=\dfrac{1}2\).</p>
+        <p>La integral a calcular es \(\int f(x)\, dx= \dfrac{1}2\int\dfrac{1}{x+3}\, dx+\dfrac{1}2\int\dfrac{1}{x-1}\, dx= \dfrac{1}2(\ln(|x+3|)+\ln(|x-1|))+C\).</p>
+
+        <p>Esta integral también se puede hacer mediante un cambio de variable, pues el numerador es "casi" la derivada del denominador: \(\int \dfrac{x+1}{x^2+2x-3}\, dx = \dfrac{1}2 \int \dfrac{2x+2}{x^2+2x-3}\, dx = \dfrac{1}2\ln(|x^2+2x-3|)+C = \dfrac{1}2(\ln(|x+3|)+\ln(|x-1|))+C\) (el logaritmo del producto es la suma de los logaritmos). </p>
+      </div>
+    </li>
+    <li><p><span class="math">\(f(x)=\dfrac{x^2+1}{x^2-1}\)</span>,
+      <button id="e4-2" class="button" onclick="show2('e4-2');">Solución</button></p>
+      <div id="sol-e4-2" style="display:none;">
+        <p>Podemos escribir \(x^2+1=x^2-1+2\), con lo que obtenemos directamente el cociente y resto de la división del numerador entre el denominador. Así, \(\int f(x)\, dx=\int 1\, dx + \int \dfrac{2}{x^2-1}\, dx\). Por otro lado, \(x^2-1=(x-1)(x+1)\). Tenemos que expresar \(\dfrac{1}{x^2-1}=\dfrac{A}{x-1}+\dfrac{B}{x+1}=\dfrac{A(x+1)+B(x-1)}{x^2-1}\).</p>
+        <p> Luego \(2=(A+B)x+(A-B)\), de lo que se deduce que \(A+B=0\) y \(A-B=2\). Los valores de \(A\) y \(B\) son \(1\) y \(-1\), respectivamente. Nuestra integral queda como sigue: \(\int f(x)\, dx= x+ \int \dfrac{1}{x-1}\, dx-\int \dfrac{1}{x+1}\, dx=x+\ln(|x-1|)-\ln(|x+1|)+C\). </p>
+      </div>
+
+    </li>
+    <li><p><span class="math">\(f(x)=\dfrac{x-1}{x^3-4x^2+5x-2}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\dfrac{x^2+2}{x^3-3x-2}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\dfrac{x-1}{x^4-4x^3}\)</span>,</p></li>
+    <li><p><span class="math">\(f(x)=\dfrac{x}{x^3-3x^2+3x-1}\)</span>.</p></li>
     </ol>
   </article>
 
