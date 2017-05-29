@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Aplicaciones de la derivada</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  <!--<link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+  <script type="text/javascript" src="js/jsxgraphcore.js"></script>-->
+	<!-- <script>
+		MathJax.Hub.Config({
+		 tex2jax:
+		 {
+		    preview: "none"
+		 }
+		});
+	</script> -->
+
+</head>
+
+<body>
+
+<div id="header">
+<h1 class="title">Aplicaciones de la derivada</h1>
+</div>
+
+
+<section>
+  <header>
+    <h1 id="optimización">Optimización</h1>
+  </header>
+
+  <p>En los problemas en los que hay que optimizar una cantidad, ya sea buscar un máximo o un mínimo, los pasos suelen ser los siguientes.</p>
+  <ol>
+  <li><p>Planteamos analíticamente la función a optimzar utilizando tantas variables como sean necesarias.</p></li>
+  <li><p>Buscamos las relaciones entre las diferentes variables usando los datos del enunciado y dejamos todas en función de una de ellas.</p></li>
+  <li><p>Derivamos, igualamos a cero y calculamos los puntos críticos.</p></li>
+  <li><p>Comprobamos con la segunda derivada que tenemos un máximo o un mínimo relativo.</p></li>
+  </ol>
+
+  <h4>Ejemplo</h4>
+  <p>Vamos a calcular las dimensiones del rectángulo de mayor área que puede inscribirse en un semicírculo de radio <span class="math">\(10\)</span>.</p>
+
+  <p>En la siguiente representación gráfica, puedes desplazar el punto rojo. El área del rectángulo correspondiente se calculará automáticamente.</p>
+
+  <div id="box4" class="jxgbox" style="width:400px; height:300px;"></div>
+  <script type="text/javascript">
+    function pinta_rect(){
+      JXG.Options.text.useMathJax = true;
+      var board = JXG.JSXGraph.initBoard('box4', {boundingbox: [-15, 15, 15, -5], axis:true, showCopyright:false, showNavigation:false});
+      var q1 = board.create('point',[-10,0],{visible:false});
+      var q2 = board.create('point',[10,0],{visible:false});
+      var sc = board.create('semicircle',[q1,q2],{withLabel:false, fixed:true} );
+      var ox = board.create('segment',[[0,0],[10,0]],{fixed:true, visible:false});
+      var p1 = board.create('glider',[5,0,ox],{name:'\\(x\\)'});
+      board.create('polygon', [[function(){return -p1.X()},0],[function(){return p1.X()},0],[function(){return p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}],[function(){return -p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}]], {vertices:{fixed:true, visible:false}} );
+      board.create('text',[function(){return p1.X()+.5},function(){return Math.sqrt(100-p1.X()*p1.X())+.5},function(){return "\\( \\left(x,\\sqrt{100-x^2}\\right)\\)"}],{fixed:true})
+      board.create('text',[-10,-2,function(){
+        var a = 2*p1.X()*Math.sqrt(100-p1.X()*p1.X());
+        return "Área "+ a.toFixed(3) }],{fontSize:14})
+    }
+    pinta_rect()
+  </script>
+
+  <ol>
+  <li><p>Según hemos comentado, el primer paso es encontrar la función a optimizar. Si llamamos <span class="math">\(x\)</span> al extremo inferior derecho del rectángulo e <span class="math">\(y\)</span> a la altura, el área es <span class="math">\(2xy\)</span>.</p></li>
+  <li><p>¿Cómo podemos relacionar <span class="math">\(x\)</span> e <span class="math">\(y\)</span>? Hay varias formas de hacerlo: la circunferencia centrada en el origen y de radio \(10\) está formada por los puntos <span class="math">\((x,y)\)</span> que cumplen la ecuación <span class="math">\[x^2+y^2=100\]</span> con lo que despejando, <span class="math">\(y = \sqrt{100-x^2}\)</span>. Ya podemos escribir la función a optimizar: <span class="math">\[f\colon [0,10]\rightarrow \mathbb{R}, \quad f(x)=2xy=2x\sqrt{100-x^2}.\]</span></p></li>
+  <li><p>Derivamos</p>
+  <p><span class="math">\[\begin{aligned}
+   f&#39;(x) &amp; = 2\left(  \sqrt{100-x^{2}}- \require{cancel}\frac{\cancel{2}x^{2}}{\cancel{2}\sqrt{100-x^{2}}} \right)
+      = 2\left( \frac{100 -x^2}{\sqrt{100-x^2}} - \frac{x^{2}}{\sqrt{100-x^{2}}} \right)
+      \\
+   &amp; = \frac{2\, (100 -2x^2)}{\sqrt{100-x^2}},\end{aligned}\]</span></p>
+  <p>e igualamos a cero <span class="math">\[f&#39;(x)=0 \text{ que equivale a }  100-2x^{2}=0.\]</span>
+  Por tanto las raíces son \(-\frac{10}{\sqrt{2}}\) y \(\frac{10}{\sqrt{2}}\). Como la \(x\) tiene que ser positiva, llegamos a que la función tiene un punto crítico en \(\frac{10}{\sqrt{2}}\). </p></li>
+  <li><p>Para comprobar que es un máximo, vemos que la segunda derivada es negativa: <span class="math">\[f&#39;&#39;(x)=-\frac{6x}{\sqrt{100-{x}^{2}}}-\frac{2x^{3}}{{\left( 100-{x}^{2}\right) }^{\frac{3}{2}}}\]</span> y <span class="math">\(f&#39;&#39;(10/\sqrt{2})=-8\)</span>.</p>
+
+  <p>También podemos comprobar si es un máximo, estudiando el signo de la primera derivada a ambos lados del punto crítico. En este caso, el signo de \(f&#39;(x)\) queda determinado por el signo de \(g(x)=100-2*x^2\). Evaluando \(g\) en, por ejemplo, \(\frac{10}{\sqrt{2}}-\frac{1}2\) y \(\frac{10}{\sqrt{2}}+\frac{1}2\), obtenemos aproximadamente \(3.62\) y \(-4.48\), respectivamente. De aquí deducimos que la función \(f\) crece a la izquierda de \(\frac{10}{\sqrt{2}}\) y decrece a su derecha. Por tanto, en \(\frac{10}{\sqrt{2}}\) se alcanza un máximo relativo. </p>
+  <li><p>El área máxima es \(100\).</li>
+  </ol>
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Dibuja la región del primer cuadrante limitada por las gráficas de <span class="math">\(y=\sqrt{x}\)</span>, <span class="math">\(x=6\)</span>, <span class="math">\(y=0\)</span> y calcula las dimensiones del rectángulo inscrito de lados paralelos a los ejes y que tenga máxima área. <button id="e4" class="button"  onclick="show2('e4');">Solución</button>
+</p>
+    </header>
+    <div id="sol-e4" style="display:none;">
+      <br>Al ser un rectángulo inscrito en dichas gráficas y de lados paralelos a los ejes, dos de sus lados se tinen que apoyar en \(y=0\) y en \(x=6\), respectivamente. Por tanto, tiene que tener el siguiente aspecto.
+      <br>Puedes desplazar el punto rojo y ver cómo varía el área.
+      <br><br>
+      <div id='ebox4' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
+      <br>
+      El área que hay que maximizar es por tanto \(f(x)=(6-x)\sqrt{x}\), que alcanza el valor máximo \(4\sqrt{2}\) en \(x=2\).
+      <script type="text/javascript">
+      function pintae4(){
+        var f=function(t){
+            if((t<=0) || (t>6)){
+              return 0;
+            }
+            return Math.sqrt(t);
+        }
+        var board = JXG.JSXGraph.initBoard('ebox4', {boundingbox: [-1, 3, 7, -1], axis:true, showCopyright:false, showNavigation:false});
+        var curve = board.create('functiongraph',
+                       [f, -.1,6.1],{frozen:true});
+        board.create('integral', [[0,6], curve], {withLabel:false, fixed:true, curveRight:{visible:false}, curveLeft:{visible:false},color:"gray",frozen:true});
+        board.create('line',[[6,-10],[6,10]],{strokeColor:"gray",dash:1,fixed:true});
+        var ds = board.create('glider',[2,4,curve],{name:''});
+        var pol = board.create('polygon',[[function(){return ds.X()},0],[6,0],[6,function(){return ds.Y()}],[function(){return ds.X()}, function(){return ds.Y()}]], {vertices:{fixed:true, visible:false}});
+        board.create('text',[2,-.5,function(){
+          var a = (6-ds.X())*ds.Y();
+          return "Área "+ a.toFixed(3) }],{fontSize:14})
+
+      }
+      pintae4();
+      </script>
+    </div>
+  </article>
+</section>
+
+
+
+<hr>
+
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a>. Las animaciones en JSXGraph y el maquetado de la página han sido realizados por Pedro A. García Sánchez.</p>
+
+<script type="text/javascript" language="javascript">
+  function show(str, obj){
+    document.getElementById(obj).innerHTML = str;
+    MathJax.Hub.Typeset();
+    //MathJax.Hub.Queue(["Typeset",MathJax.Hub,obj]);
+  }
+  function show2(divID) {
+
+      var sol = document.getElementById("sol-"+divID);
+      var div = document.getElementById(divID);
+
+      if(sol.style.display == "none"){
+        sol.style.display = "block";
+      }else{
+        sol.style.display = "none";
+      }
+
+
+      if(div.innerHTML == "Solución"){
+        div.innerHTML = "Oculta solución";
+      }else{
+        div.innerHTML = "Solución";
+      }
+
+  }
+
+  pinta_rect()
+</script>
+
+
+</body>
+</html>

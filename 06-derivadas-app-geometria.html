@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Aplicaciones de la derivada</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  <!--<link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+  <script type="text/javascript" src="js/jsxgraphcore.js"></script>-->
+	<script>
+		MathJax.Hub.Config({
+		 tex2jax:
+		 {
+		    preview: "none"
+		 }
+		});
+	</script>
+
+</head>
+<body>
+<div id="header">
+<h1 class="title">Aplicaciones de la derivada</h1>
+</div>
+
+<section>
+  <header>
+    <h1 id="geometría">Geometría</h1>
+  </header>
+  <p>La <em style="color:red">recta tangente</em> a una función <span class="math">\(f\)</span> en un punto de la gráfica <span class="math">\((a,f(a))\)</span> es <span class="math">\[y=f(a)+f&#39;(a)(x-a).\]</span> Por ejemplo, la recta tangente a la función <span class="math">\(f(x)=\log (x)\)</span> en <span class="math">\(x=2\)</span> es, teniendo en cuenta que <span class="math">\(f&#39;(x)=1/x\)</span>, <span class="math">\[y=f(2)+f&#39;(2)(x-2)=\log(2)+\frac{1}{2} (x-2).\]</span></p>
+
+  <p>En el siguiente gráfico se representa la función <span style="color:blue">\(\log(x)\)</span> y la <span style="color:red">tangente</span> en el punto \(A=(a,\log(a))\). Puedes desplazar este punto y ver cómo varía la tangente.</p>
+  <div id="box1" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    function pinta_log(){
+      var board = JXG.JSXGraph.initBoard('box1', {boundingbox: [-4, 4, 4, -4], axis:true, showCopyright:false, showNavigation:false});
+      var curve = board.create('functiongraph',
+                     [function(t){ return(Math.log(t))}, -10,10]);
+      a = board.create('glider',[2,Math.log(2),curve], {name:'A',label:{offset:[-10,10]}, strokeColor:"black",fillColor:"white"})
+      board.create('functiongraph', [function(t){return (Math.log(a.X())+1/a.X()*(t-a.X()))}, -10,10],{strokeColor:"red"})
+    }
+    pinta_log()
+  </script>
+  </li>
+
+  <p>La <em style="color:green">recta normal</em> en <span class="math">\(x=a\)</span> es la recta perpendicular a la recta tangente que pasa por el punto <span class="math">\((a,f(a))\)</span>. Su pendiente será, por tanto, <span class="math">\(-1/f&#39;(a)\)</span>. La ecuación de la recta normal a la función <span class="math">\(f\)</span> en el mismo punto es <span class="math">\[y=f(a)-\frac{1}{f&#39;(a)}(x-a).\]</span></p>
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+      <p>Responde a las siguientes preguntas sobre la parábola \(y=x^2\).</p>
+    </header>
+    <ol>
+    <li> Calcula la recta tangente a la parábola <span class="math">\(y=x^2\)</span> en el punto <span class="math">\((3,9)\)</span>.
+      <button id="e1-1" class="button"  onclick="show2('e1-1');">Solución</button>
+      <div id="sol-e1-1" style="display:none;">
+        <p>La derivada de la función \(f(x)=x^2\) es \(f&#39;(x)=2x\). Por tanto, la recta tangente en el punto \((3,f(3))=(3,9)\) es \[y=f(3)+f&#39;(3)(x-3)=9+6(x-3)=6x-9.\]
+      </div>
+    </li>
+    <li>¿Pasa dicha recta por el punto <span class="math">\((1,3)\)</span>?
+      <button id="e1-3" class="button"  onclick="show2('e1-3');">Solución</button>
+      <div id="sol-e1-3" style="display:none;">
+        <p>La recta tangente pasa por el punto \((1,3)\) si dicho punto cumple la ecuación de la recta. Veamos, \(3 \neq 6\cdot 1 -9 = -3\). El punto no pertenece a la recta tangente.</p>
+      </div>
+    </li>
+    <li>Calcula aquellos puntos que cumplen que la recta tangente a la parábola pasa por el punto <span class="math">\((1,-3)\)</span>.
+      <button id="e1-2" class="button"  onclick="show2('e1-2');">Solución</button>
+      <div id="sol-e1-2" style="display:none;">
+          <p>La recta tangente en un punto arbitrario \((a,f(a))\) es \[y=f(a)+f&#39;(a)(x-a)=a^2+2a(x-a)=2ax-a^2\] y lo que queremos encontrar son aquellos valores de \(a\) que hacen que el punto \((1,-3)\) verifique está ecuación (pertenezca a la recta). Sustituimos \(x\) por \(1\) e \(y\) por \(-3\) y resolvemos:</p>
+          <p>\[\begin{aligned}
+              -3=2a\cdot 1 -a^2   &amp; \text{ si y solo si } a^2-2a -3=0, \\
+                              &amp; \text{ que equivale a } a= \frac{2\pm \sqrt{4-4\cdot(-3)}}{2}, \\
+                              &amp; \text{ o sea } a = \frac{2\pm 4}{2} = -1 \text{ ó } 3.
+              \end{aligned}\]</p>
+          <p>Resumiendo, la recta tangente en los puntos \((-1,1)\) y \((3,9)\) pasa por el punto \((1,-3)\).</p>
+      </div>
+    </li>
+    <li><p>Calcula la recta normal a la parábola en el punto <span class="math">\((3,9)\)</span>.</p>
+      <button id="e1-4" class="button"  onclick="show2('e1-4');">Solución</button>
+      <div id="sol-e1-4" style="display:none;">
+        <p>Aplicando la ecuación de la recta normal y teniendo en cuenta que \(f&#39;(3)=6\) nos queda: \[y=f(a)-\frac{1}{f&#39;(a)}(x-a)=9-\frac{1}{6}(x-3)= \frac{57-x}{6}.\]</p>
+      </div>
+    </li>
+    </ol>
+
+    <p>En el siguiente gráfico se representa la función <span style="color:blue">\(x^2\)</span>, y la <span style="color:red">tangente</span> y la <span style="color:green">normal</span>  en el punto \(A=(a,a^2)\). Puedes desplazar este punto y ver cómo varían las rectas tangente y normal.</p>
+
+    <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
+    <script type="text/javascript">
+      function pinta_parabola(){
+        var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-5, 9, 5, -1], axis:true, showCopyright:false, showNavigation:false});
+        var curve = board.create('functiongraph',
+                       [function(t){ return(t*t)}, -10,10]);
+        var A = board.create('glider',[1,1,curve], {name:'A', strokeColor:"black",fillColor:'white'});
+        //punto = board.create('point',[function(){return pend.Value()},function(){return pend.Value()*pend.Value()}], {strokeColor:"black",fillColor:'white', name:''})
+        board.create('functiongraph', [function(t){return (A.Y()+2*A.X()*(t-A.X()))}, -10,10],{strokeColor:"red"})
+        board.create('functiongraph', [function(t){return (A.Y()-1/(2*A.X())*(t-A.X()))}, -10,10],{strokeColor:"green"})
+      }
+      pinta_parabola()
+    </script>
+  </article>
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+    </header>
+    <ol>
+      <li>Calcula la ecuación de la recta (o rectas) tangentes a la gráfica de <span class="math">\(f(x)=4x^3-2x^2+x-1\)</span> pararelas a la bisectriz del primer cuadrante.
+      <button id="e2-1" class="button"  onclick="show2('e2-1');">Solución</button>
+      <div id="sol-e2-1" style="display:none;">
+        <p>La bisectriz del primer cuadrante es \(y=x\). Por tanto estamos buscando una tangente a \(f(x)\) con pendiente \(1\), es decir, buscamos \(a\) con \(f'(a)=1\).</p>
+        <p>Tenemos pues que resolver la ecuación \(f'(x)=12x^2-4x+1=1\), que equivale a \(12x^2-4x=x(12x-4)=0\). Así las soluciones son \(x=0\) y \(x=\frac{1}3\).</p>
+        <p>Sabemos que la recta tangente a <span class='math' style='color:blue'>\(y=f(x)\)</span> en un punto \(a\) es \(y=f(a)+f'(a)(x-a)\), por tanto, las rectas tangentes que buscamos son <span class='math' style='color:red'>\(y=-1+x\)</span> e <span class='math' style='color:orange'>\(y=-\frac{29}{27}+x\)</span>.</p>
+        <div id='ebox2-1' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
+        <script type="text/javascript">
+          function pintae21(){
+            var f=function(t){
+                return (4*t*t*t-2*t*t+t-1);
+            }
+            var t1=function(t){
+                return -1+t;
+            }
+            var t2=function(t){
+                return -20/27+t-1/3;
+            }
+            var board = JXG.JSXGraph.initBoard('ebox2-1', {boundingbox: [-2, 2, 2, -2], axis:true, showCopyright:false, showNavigation:false});
+            curve = board.create('functiongraph',
+                           [f, -10,10]);
+            tan1= board.create('functiongraph',[t1,-10,10],{strokeColor:"red"});
+            tan2= board.create('functiongraph',[t2,-10,10], {strokeColor:"orange"});
+            bis = board.create('line',[[-10,-10],[10,10]],{strokeColor:"gray",dash:1});
+          }
+          pintae21();
+        </script>
+      </div>
+      </li>
+      <li><p>Halla los valores de la constante <span class="math">\(\lambda\)</span> para los que las rectas tangentes a las funciones <span class="math">\(f(x)=x^3\)</span> y <span class="math">\(g(x)=(x+\lambda)x\)</span> en el punto <span class="math">\(x=1\)</span> sean:</p>
+      <ol>
+      <li><p>paralelas,</p></li>
+      <li><p>perpendiculares.</p></li>
+      </ol>
+      </li>
+    </ol>
+  </article>
+
+</section>
+
+
+
+<hr>
+
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a>. Las animaciones en JSXGraph y el maquetado de la página han sido realizados por Pedro A. García Sánchez.</p>
+
+<script type="text/javascript" language="javascript">
+  function show(str, obj){
+    document.getElementById(obj).innerHTML = str;
+    MathJax.Hub.Typeset();
+    //MathJax.Hub.Queue(["Typeset",MathJax.Hub,obj]);
+  }
+  function show2(divID) {
+
+      var sol = document.getElementById("sol-"+divID);
+      var div = document.getElementById(divID);
+
+      if(sol.style.display == "none"){
+        sol.style.display = "block";
+      }else{
+        sol.style.display = "none";
+      }
+
+
+      if(div.innerHTML == "Solución"){
+        div.innerHTML = "Oculta solución";
+      }else{
+        div.innerHTML = "Solución";
+      }
+
+  }
+</script>
+
+
+</body>
+</html>
