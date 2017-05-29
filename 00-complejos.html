@@ -137,19 +137,19 @@
 
       <div id="box" class="jxgbox" style="width:400px; height:400px;"></div>
     <script type="text/javascript">
-      JXG.Options.text.useMathJax = true;
+      //JXG.Options.text.useMathJax = true;
       function pintac(){
         JXG.Options.axis.ticks.drawLabels = false;
         var board = JXG.JSXGraph.initBoard('box', {boundingbox: [-2,2,2,-2], axis:true, showCopyright:false, showNavigation:false, grid:false});
         //var c = board.create('circle',[[0,0],[0,1]]);
-        var z = board.create('point',[1,1.5], {name:"\\(z=(a,b)\\)"});
+        var z = board.create('point',[1,1.5], {name:"z=(a,b)"});
         var pa = board.create('point', [()=>z.X(),()=>0], {name:"", size:0})
         var pb = board.create('point', [()=>0,()=>z.Y()], {name:"", size:0})
         var a = board.create('segment',[function(){return z}, [function(){return z.X()},0]], {dash:1, strokeColor:"red"})
         var b = board.create('segment',[function(){return z}, [0,function(){return z.Y()}]], {dash:1, strokeColor:"red"})
         var abs = board.create('segment', [function(){return z}, [0,0]], {strokeColor:"orange"} )
-        board.create('text',[()=>-0.1*Math.sign(z.X()),()=>z.Y(),()=>"\\(b\\)"])
-        board.create('text',[()=>z.X(),()=>-0.1*Math.sign(z.Y()),()=>"\\(a\\)"])
+        board.create('text',[()=>-0.1*Math.sign(z.X()),()=>z.Y(),()=>"b"])
+        board.create('text',[()=>z.X(),()=>-0.1*Math.sign(z.Y()),()=>"a"])
         var l1 = board.create('line',[[0,0],z],{visible:false})
         var l2 = board.create('line',[[0,0],[10,0]], {visible:false})
         //var ar=  board.create('angle',[l2,l1,1,1])

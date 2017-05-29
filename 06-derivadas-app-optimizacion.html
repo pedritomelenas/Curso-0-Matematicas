@@ -51,18 +51,19 @@
   <div id="box4" class="jxgbox" style="width:400px; height:300px;"></div>
   <script type="text/javascript">
     function pinta_rect(){
-      JXG.Options.text.useMathJax = true;
+      //JXG.Options.text.useMathJax = true;
       var board = JXG.JSXGraph.initBoard('box4', {boundingbox: [-15, 15, 15, -5], axis:true, showCopyright:false, showNavigation:false});
       var q1 = board.create('point',[-10,0],{visible:false});
       var q2 = board.create('point',[10,0],{visible:false});
       var sc = board.create('semicircle',[q1,q2],{withLabel:false, fixed:true} );
       var ox = board.create('segment',[[0,0],[10,0]],{fixed:true, visible:false});
-      var p1 = board.create('glider',[5,0,ox],{name:'\\(x\\)'});
+      var p1 = board.create('glider',[5,0,ox],{name:'x'});
       board.create('polygon', [[function(){return -p1.X()},0],[function(){return p1.X()},0],[function(){return p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}],[function(){return -p1.X()},function(){return Math.sqrt(100-p1.X()*p1.X())}]], {vertices:{fixed:true, visible:false}} );
-      board.create('text',[function(){return p1.X()+.5},function(){return Math.sqrt(100-p1.X()*p1.X())+.5},function(){return "\\( \\left(x,\\sqrt{100-x^2}\\right)\\)"}],{fixed:true})
+      //board.create('text',[function(){return p1.X()+.5},function(){return Math.sqrt(100-p1.X()*p1.X())+.5},function(){return "\\( \\left(x,\\sqrt{100-x^2}\\right)\\)"}],{fixed:true})
       board.create('text',[-10,-2,function(){
         var a = 2*p1.X()*Math.sqrt(100-p1.X()*p1.X());
         return "Área "+ a.toFixed(3) }],{fontSize:14})
+      board.update()
     }
     pinta_rect()
   </script>
