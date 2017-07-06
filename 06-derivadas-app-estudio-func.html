@@ -80,7 +80,7 @@
 
   <div id="box2" class="jxgbox" style="width:400px; height:400px;"></div>
   <script type="text/javascript">
-    var board = JXG.JSXGraph.initBoard('box2', {boundingbox: [-20, 20, 20, -20], axis:true, showCopyright:false, showNavigation:false});
+    var board = JXG.JSXGraph.initBoard('box2', {boundingbox: [-5, 20, 5, -20], axis:true, showCopyright:false, showNavigation:false});
     curve = board.create('functiongraph',
                    [function(t){ return(2*t*t*t-3*t*t-12*t+1)}, -10,10]);
     //der = board.create('functiongraph', [function(t){return 6*t*t-6*t-12}, -10,10],{strokeColor:"red"})
@@ -120,7 +120,7 @@
 
   <div id="box3" class="jxgbox" style="width:400px; height:400px;"></div>
   <script type="text/javascript">
-    var board = JXG.JSXGraph.initBoard('box3', {boundingbox: [-30, 30, 30, -30], axis:true, showCopyright:false, showNavigation:false});
+    var board = JXG.JSXGraph.initBoard('box3', {boundingbox: [-10, 30, 10, -30], axis:true, showCopyright:false, showNavigation:false});
     curve = board.create('functiongraph',
                    [function(t){ return(t*t*t+3*t*t-9*t)}, -10,10]);
     //der = board.create('functiongraph', [function(t){return 6*t*t-6*t-12}, -10,10],{strokeColor:"red"})
