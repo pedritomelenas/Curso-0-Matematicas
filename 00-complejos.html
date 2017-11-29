@@ -7,9 +7,10 @@
   <title>Números complejos</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="otro.css" type="text/css" />
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
-  <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+  <!--<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>-->
+  <link rel="stylesheet" type="text/css" href="https://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="https://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
   <script>
 		MathJax.Hub.Config({
 		 tex2jax:
@@ -282,6 +283,7 @@
         <br>
         <script type="text/javascript">
         JXG.Options.axis.ticks.drawLabels = true;
+        JXG.Options.text.useMathJax = true;
         function pintae41(){
           var board = JXG.JSXGraph.initBoard('ebox4-1', {boundingbox: [-3, 3, 3, -3], showCopyright:false, showNavigation:false, axis:true});
           board.create('point',[Math.sqrt(3),-1],{name:'\\(z_1\\)',fixed:true})
