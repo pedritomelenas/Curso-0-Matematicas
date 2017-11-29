@@ -1,9 +1,19 @@
-# Curso-0-Informatica
+# Curso-0 de Matemáticas
+
 Curso cero para matemáticas en la ETSIIT y Facultad de Ciencias de la Universidad de Granada
 
 Se han tomado como base las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada
 
 La maquetación e inclusión de gráficos la ha llevado a cabo Pedro A. García Sánchez; ejemplos desarrollados con la ayuda de María Burgos
+
+## Contenidos
+
+[Complejos](00-complejos.html)
+
+
+
+
+## Referencias
 
 Para simplificación algebraica utilizamos [algebrite](http://algebrite.org)
 
