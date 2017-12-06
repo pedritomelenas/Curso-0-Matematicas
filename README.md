@@ -1,4 +1,4 @@
-# Curso-0 de Matemáticas
+# Curso cero de Matemáticas
 
 Curso cero para matemáticas en la ETSIIT y Facultad de Ciencias de la Universidad de Granada
 
