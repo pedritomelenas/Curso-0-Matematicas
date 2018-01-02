@@ -30,4 +30,6 @@ Para simplificación algebraica utilizamos [algebrite](http://algebrite.org)
 
 Para la visualización de funciones usamos [JSXGraph](http://jsxgraph.uni-bayreuth.de)
 
+Hemos hecho una versión de [Derivadas aplicadas al estudio de funciones](derivadas-app-estudio-func-thebelab.html) usando  [Thebelab](https://github.com/minrk/thebelab) con un núcleo de [SageMath](http://www.sagemath.org)
+
 Estos contenidos forman parte del FIDO "IMPLEMENTACIÓN DE CURSOS CERO EN LA PLATAFORMA PRADO2 PARA LAS TITULACIONES DE LA FACULTAD DE CIENCIAS" de la Convocatoria de Proyectos de Innovación Docente y Buenas Prácticas del Plan FIDO UGR 2016-2018 (Universidad de Granada)
