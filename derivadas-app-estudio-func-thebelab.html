@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Aplicaciones de la derivada - Estudio funciones</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" type="text/css" href="index.css" />
+  <link rel="stylesheet" href="otro.css" type="text/css" />
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>  
+  <!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>-->
+  <link rel="stylesheet" type="text/css" href="https://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+  <script type="text/javascript" src="https://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script>
+  <!--<link rel="stylesheet" type="text/css" href="css/jsxgraph.css" />
+  <script type="text/javascript" src="js/jsxgraphcore.js"></script>-->
+	<script>
+		MathJax.Hub.Config({
+		 tex2jax:
+		 {
+		    preview: "none"
+		 }
+		});
+	</script>
+
+  <!-- Thebe configuration !-->
+  <script type="text/x-thebe-config">
+    {
+      bootstrap: true,
+      binderOptions: {
+          repo: "sagemath/sage-binder-env",
+      },
+      stripPrompts: {
+        inPrompt: 'sage: ',
+        continuationPrompt: '....: ',
+        selector: '.sage-input',
+      },
+		  kernelOptions: {
+		    name: "sagemath",
+		  }
+  }
+  </script>
+
+  <!-- Load the Thebe library !-->
+  <script type="text/javascript" src="https://unpkg.com/thebelab@^0.1.0" ></script>
+  <!-- or to use a local build: -->
+  <!-- <script type="text/javascript" src="../lib/index.js"></script> !-->
+
+</head>
+<body>
+<div id="header">
+<h1 class="title">Aplicaciones de la derivada</h1>
+</div>
+
+
+<section>
+  <header>
+    <h1 id="estudio-de-una-función">Estudio de una función</h1>
+  </header>
+
+<p>En este documento ilustramos cómo hacer el estudio de una función usando algún paquete de cálculo simbólico auxiliar. Para ello vamos a utilizar <a href="https://github.com/minrk/thebelab">Thebelab</a> con un núcleo de <a href="http://www.sagemath.org/">SageMath</a>. Las celdas que aparecen en esta página se deben ejecutar en el orden en el que aparecen, para que las variables que se definen se puedan usar en las siguientes. La primera evaluación lleva algún tiempo, pues necesita que <a href="https://mybinder.org">binder</a> arranque el servidor correspondiente.
+</p>
+  <h2 id="crecimiento-y-decrecimiento">Crecimiento y decrecimiento</h2>
+  <p>Si <span class="math">\(f\)</span> es una función derivable definida en un intervalo, entonces</p>
+  <ul>
+  <li><p><span class="math">\(f\)</span> es creciente si, y sólo si, la derivada es mayor o igual que cero;</p></li>
+  <li><p><span class="math">\(f\)</span> es decreciente si, y sólo si, la derivada es menor o igual que cero; y</p></li>
+  <li><p><span class="math">\(f\)</span> es constante si, y sólo si, la derivada es cero.</p></li>
+  </ul>
+  <p>Para estudiar el crecimiento de la función <span class="math">\(f(x)=2x^3-3x^2-12x+1\)</span>, estudiamos el signo de la derivada. Primero vemos dónde se anula. 
+
+  <pre class="sage-input" data-language="python">
+    sage: f= 2*x^3-3*x^2-12*x+1
+    sage: df = diff(f,x)
+		sage: df
+
+		sage: solve(df,x)
+  </pre>
+
+
+<span class="math">\[f&#39;(x)=6x^2-6x-12=0 \text{ sí y sólo sí }  x\in\{-1,2\}.\]</span> Como sabemos donde se anula la derivada, también sabemos donde <em>no</em> se anula. Esto es, la función es monótona en <span class="math">\(]-\infty,-1]\)</span>, en <span class="math">\([-1,2]\)</span> y en <span class="math">\([2,+\infty[\)</span>. Evaluando la derivada en un punto de cada intervalo, terminamos:</p>
+  <ul>
+  <li><p><span class="math">\(f&#39;(-3)=60&gt;0\)</span>, y por tanto <span class="math">\(f\)</span> es creciente <span class="math">\(]-\infty,-1]\)</span>;</p></li>
+  <li><p><span class="math">\(f&#39;(0)=-12&lt;0\)</span>, en consecuencia <span class="math">\(f\)</span> es decreciente <span class="math">\([-1,2]\)</span>; y,</p></li>
+  <li><p><span class="math">\(f&#39;(8)=324&gt;0\)</span>, por lo que  <span class="math">\(f\)</span> es creciente <span class="math">\([2,+\infty[\)</span>.</p></li>
+  </ul>
+
+  <pre class="sage-input" data-language="python">
+		sage: solve(df>0,x)
+  </pre>
+
+
+  <p>¿Sabrías decir algo sobre los máximos y mínimos relativos de esta función?</p>
+
+  <h2 id="extremos-relativos">Extremos relativos</h2>
+  <p>El cálculo de los máximos y mínimos relativos de una función <span class="math">\(f\)</span> se suele hacer en dos pasos.</p>
+  <ol>
+  <li><p>En primer lugar se calculan los puntos críticos, es decir, resolvemos la ecuación <span class="math">\(f&#39;(x)=0\)</span>.</p></li>
+  <li><p>Evaluamos la segunda derivada en los puntos críticos:</p>
+  <ul>
+  <li><p>si <span class="math">\(f&#39;(a)=0\)</span>, y además <span class="math">\(f&#39;&#39;(a)&gt;0\)</span>, entonces <span class="math">\(f\)</span> tiene un mínimo relativo en <span class="math">\(a\)</span>;</p></li>
+  <li><p>si <span class="math">\(f&#39;(a)=0\)</span>, y además <span class="math">\(f&#39;&#39;(a)&lt;0\)</span>, entonces <span class="math">\(f\)</span> tiene un máximo relativo en <span class="math">\(a\)</span>.</p></li>
+  </ul></li>
+  </ol>
+  <p>Si analizamos el signo de la derivada segunda de la función del ejemplo anterior en los puntos críticos que habíamos obtenido, concluimos cuál es mínimo y cuál es máximo.</p>
+
+  <pre class="sage-input" data-language="python">
+		sage: ddf=diff(df,x)
+		sage: ddf
+
+		sage: [ddf.subs({x:-1}), ddf.subs({x:2})]
+  </pre>
+
+
+<p> Como <span class="math">\(f&#39;&#39;(x)= 12x-6\)</span>, tenemos:</p>
+  <ul>
+  <li><p><span class="math">\(f&#39;&#39;(-1)=-18&lt;0\)</span>, por tanto en <span class="math">\(x=-1\)</span> tenemos un máximo relativo;</p></li>
+  <li><p><span class="math">\(f&#39;&#39;(2)=18&gt;0\)</span>, por tanto en <span class="math">\(x=2\)</span> tenemos un mínimo relativo.</p></li>
+  </ul>
+  <p>¿Concuerdan estas conclusiones con las que has obtenido estudiando el cambio de monotonía en torno a ambos puntos?</p>
+  <h2 id="concavidad-y-convexidad">Concavidad y convexidad</h2>
+  <p>Si <span class="math">\(f\)</span> es una función dos veces derivable,</p>
+  <ul>
+  <li><p>si <span class="math">\(f&#39;&#39;\)</span> es positiva, entonces <span class="math">\(f\)</span> es convexa; y</p></li>
+  <li><p>si <span class="math">\(f&#39;&#39;\)</span> es negativa, entonces <span class="math">\(f\)</span> es cóncava.</p></li>
+  </ul>
+
+  <pre class="sage-input" data-language="python">
+		sage: solve(ddf>0,x)
+  </pre>
+
+
+  <h2 id="puntos-de-inflexión">Puntos de inflexión</h2>
+  <p>Si <span class="math">\(f&#39;&#39;(a)=0\)</span> y <span class="math">\(f&#39;&#39;&#39;(a)\neq 0\)</span>, decimos que <span class="math">\(f\)</span> tiene un punto de inflexión en <span class="math">\(a\)</span>. Esto quiere decir que en dicho punto la función pasa de ser cóncava a convexa o al revés.</p>
+  <p>Seguimos con la función del ejemplo 2.</p>
+
+  <pre class="sage-input" data-language="python">
+		sage: solve(ddf,x)
+
+		sage: diff(ddf,x)
+  </pre>
+
+<p>Como <span class="math">\(f&#39;&#39;(x)=12x-6\)</span> tenemos que \(12x-6=0\), o lo que es lo mismo,  \(x=1/2\). Ya tenemos nuestro candidato a punto de inflexión. Ahora calculamos la derivada tercera: <span class="math">\(f&#39;&#39;&#39;(x)=12\)</span>, con lo que <span class="math">\(f&#39;&#39;&#39;(1/2)=12&gt;0\)</span>. Por tanto, tenemos un punto de inflexión en <span class="math">\(x=1/2\)</span>. Vamos a calcular ahora si pasa de cóncava a convexa, o viceversa. Para ello, evaluamos <span class="math">\(f&#39;&#39;\)</span> en puntos a ambos lados de <span class="math">\(x=1/2\)</span>:</p>
+  <ul>
+  <li><p><span class="math">\(f&#39;&#39;(0)=-6&lt;0\)</span>, por lo que la función antes de <span class="math">\(1/2\)</span> es cóncava.</p></li>
+  <li><p><span class="math">\(f&#39;&#39;(1)=6&gt;0\)</span>, por lo que la función después de <span class="math">\(1/2\)</span> es convexa.</p></li>
+  </ul>
+
+<p>Con todo esto ya tenemos una idea de cómo es la función. Dibujémosla.</p>
+  <pre class="sage-input" data-language="python">
+		sage: plot(f, (-5,5), ymax=20, ymin=-20)	
+  </pre>
+
+
+  <h4 id="ejemplo">Ejemplo</h4>
+  <p>Vamos a aplicar todos los apartados anteriores para hacer el estudio completo de la función <span class="math">\(f \colon \mathbb{R}\rightarrow \mathbb{R}\)</span> definida como <span class="math">\(f(x)=x^{3}+3x^{2}-9x\)</span>.</p>
+  <dl>
+  <dt>Crecimiento y decrecimiento</dt>
+  <dd><p>Calculamos los puntos donde se anula la derivada para averiguar el signo del resto. <span class="math">\[f&#39;(x)=3x^2+6x-9 =0,\  x\in\{-3,1\}.\]</span> Miramos el signo de la derivada en algunos puntos intermedios: por ejemplo, <span class="math">\(f&#39;(-10)&gt;0\)</span>, <span class="math">\(f&#39;(0)&lt;0\)</span> y <span class="math">\(f&#39;(5)&gt;0\)</span>. Por tanto,</p>
+  <ul>
+  <li><p><span class="math">\(f\)</span> es creciente en <span class="math">\(]-\infty , -3]\)</span>,</p></li>
+  <li><p><span class="math">\(f\)</span> es decreciente en <span class="math">\([-3,1]\)</span> y</p></li>
+  <li><p><span class="math">\(f\)</span> es creciente en <span class="math">\([1,+\infty[\)</span>.</p></li>
+  </ul>
+  </dd>
+  <dt>Extremos relativos</dt>
+  <dd><p>Ya que sabemos los puntos críticos, evaluamos la segunda derivada: <span class="math">\[f&#39;&#39;(x)=6x+6, \quad f&#39;&#39;(-3)=-12, \quad \text{y} f&#39;&#39;(1)=12.\]</span> Por tanto,</p>
+  <ul>
+  <li><p><span class="math">\(f\)</span> tiene un máximo relativo en <span class="math">\(-3\)</span> y</p></li>
+  <li><p><span class="math">\(f\)</span> tiene un mínimo relativo en <span class="math">\(1\)</span>.</p></li>
+  </ul>
+  </dd>
+  <dt>Convexidad y concavidad</dt>
+  <dd><p>Para estudiar la concavidad y convexidad de una función, miramos el signo de la segunda derivada: <span class="math">\[f&#39;&#39;(x)=6x+6=0,\ x= -1.\]</span> Por tanto,</p>
+  <ul>
+  <li><p><span class="math">\(f&#39;&#39;(x)\)</span> es positiva en <span class="math">\(]-\infty,-1]\)</span> (función convexa)</p></li>
+  <li><p><span class="math">\(f&#39;&#39;(x)\)</span> es negativa en <span class="math">\([-1,+\infty[\)</span> (función cóncava)</p></li>
+  </ul>
+  </dd>
+  <dt>Puntos de inflexión</dt>
+  <dd><p>En <span class="math">\(-1\)</span> la función tiene un punto de inflexión: la segunda derivada se anula y la tercera en dicho punto es positiva o, si lo prefieres, la función cambia de de convexa a cóncava.</p>
+  </dd>
+  </dl>
+
+  <div id="box3" class="jxgbox" style="width:400px; height:400px;"></div>
+  <script type="text/javascript">
+    var board = JXG.JSXGraph.initBoard('box3', {boundingbox: [-10, 30, 10, -30], axis:true, showCopyright:false, showNavigation:false});
+    curve = board.create('functiongraph',
+                   [function(t){ return(t*t*t+3*t*t-9*t)}, -10,10]);
+    //der = board.create('functiongraph', [function(t){return 6*t*t-6*t-12}, -10,10],{strokeColor:"red"})
+    //sder = board.create('functiongraph', [function(t){return 12*t-6}, -10,10],{strokeColor:"green"})
+  </script>
+
+  <article>
+    <header>
+      <h3>Ejercicio</h3>
+    </header>
+    <ol>
+      <li><p>Estudia la función <span class="math">\(f \colon \mathbb{R} \rightarrow \mathbb{R}\)</span> definida como <span class="math">\(f(x)=3\,{x}^{4}-4\,{x}^{3}-6\,{x}^{2}+12\,x\)</span>.</p></li>
+
+      <li>Esboza la gráfica de una función <span class="math">\(f\)</span> definida en <span class="math">\([0,2]\)</span> que verifique que <span class="math">\(f(0)=f(2)=0\)</span>, <span class="math">\(f&#39;(0)=2\)</span> y <span class="math">\(f&#39;(2)=-2\)</span>.
+        <button id="e3-2" class="button"  onclick="show2('e3-2');">Solución</button>
+        <div id="sol-e3-2" style="display:none;">
+        <p>Al darnos estos datos, nos están mostrando cómo son las tangentes a la gráfica en \(0\) y en \(2\): <span style='color:orange'>\(y=2x\)</span> e <span style='color:red'>\(y=-2(x-2)\)</span>, respectivamente.</p>
+
+        <div id='ebox32' class='jxgbox' style='width:400px; height:400px;display:inline-block;text-align: center;'> </div>
+
+        <p>Como nos dan cuatro condiciones, podemos probar con un polinomio de grado \(3\) (que tiene cuatro coeficientes). Supongamos que dicho polinomio es \(p(x)= ax^3+bx^2+cx+d\). La condición \(p(x)=0\) implica que \(d=0\), y la condición \(p'(0)=2\) lleva a \(c=2\). Por tanto, nuestro polinomio es \( p(x)=ax^3+bx^2+2x\), al que tenemos que imponer también que \(p(2)=0=8a+4b+4\) y \(p'(2)=-2=12a+4b+2\).
+        <br>Resolviendo ese sistema de dos ecuaciones con dos incógnitas, obtenemos \(a=0\), \(b=-1\). Así <span style='color:blue'>\(p(x)=-x^2+2x\)</span>.</p>
+        <script type="text/javascript">
+        function pintae32(){
+          var f=t => -t*t+2*t;
+          var t1 = t => 2*t;
+          var t2 = t => -2*(t-2);
+          var board = JXG.JSXGraph.initBoard('ebox32', {boundingbox: [-1, 3, 3, -1], axis:true, showCopyright:false, showNavigation:false});
+          var curve = board.create('functiongraph',
+                         [f, -5,5],{frozen:true});
+          board.create('functiongraph',[t1,-5,5],{dash:1,strokeColor:"orange"})
+          board.create('functiongraph',[t2,-5,5],{dash:1,strokeColor:"red"})
+        }
+        pintae32();
+        </script>
+      </div>
+      </li>
+      <li><p>Considera la función <span class="math">\(f \colon \mathbb{R} \to \mathbb{R}\)</span> definida como <span class="math">\(f(x)=\displaystyle e^{\frac{2x}{x^2+1}}\)</span>.</p>
+      <ol>
+        <li><p>Calcula las asíntotas de la gráfica de <span class="math">\(f\)</span>.</p></li>
+        <li><p>Determina los intervalos de monotonía (crecimiento y decrecimiento).</p></li>
+        <li><p>Determina lso extremos relativos de <span class="math">\(f\)</span>.</p></li>
+        <li><p>Esboza la gráfica de <span class="math">\(f\)</span>.</p></li>
+      </ol>
+      </li>
+      <li><p>Haz un estudio completo de la función <span class="math">\(f(x)=\frac{x^2+1}{x}\)</span> y representa su gráfica.</p></li>
+      <li><p>Haz un estudio completo de la función <span class="math">\(f(x)=\frac{x}{x^2-1}\)</span> y representa su gráfica.</p></li>
+      <li><p>A partir de la gráfica de <span class="math">\(f(x)=\cos(x)\)</span>, dibuja la gráfica de las funciones siguientes:</p>
+        <ol>
+          <li><p><span class="math">\( f(x)=\cos(x+1)\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=\cos(x-1)\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=\cos(2x)\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=\cos(x)-1\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=\cos(x)+1\)</span>,</p></li>
+          <li><p><span class="math">\(f(x)=\lvert\cos(x)\rvert\)</span>.</p></li>
+        </ol>
+      </li>
+    </ol>
+  </article>
+
+</section>
+
+
+
+<hr>
+
+<p style="font-size: 10pt">Esta página está basada en las transparencias de Jerónimo Alaminos Prats, José Extremera Lizana y Pilar Muñoz Rivas para el Curso Cero de la ETSIIT de la Universidad de Granada. Las representaciones gráficas se han realizado con <a href="http://jsxgraph.uni-bayreuth.de">JSXGraph</a>. Las animaciones en JSXGraph y el maquetado de la página han sido realizados por Pedro A. García Sánchez.</p>
+
+<script type="text/javascript" language="javascript">
+  function show(str, obj){
+    document.getElementById(obj).innerHTML = str;
+    MathJax.Hub.Typeset();
+    //MathJax.Hub.Queue(["Typeset",MathJax.Hub,obj]);
+  }
+  function show2(divID) {
+
+      var sol = document.getElementById("sol-"+divID);
+      var div = document.getElementById(divID);
+
+      if(sol.style.display == "none"){
+        sol.style.display = "block";
+      }else{
+        sol.style.display = "none";
+      }
+
+
+      if(div.innerHTML == "Solución"){
+        div.innerHTML = "Oculta solución";
+      }else{
+        div.innerHTML = "Solución";
+      }
+
+  }
+</script>
+
+
+</body>
+</html>
