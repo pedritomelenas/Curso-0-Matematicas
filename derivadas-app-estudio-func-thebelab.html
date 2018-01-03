@@ -44,7 +44,20 @@
   <!-- Load the Thebe library !-->
   <script type="text/javascript" src="https://unpkg.com/thebelab@^0.1.0" ></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
-  <script type="text/javascript" src="status_button.js"></script>
+  <!--<script type="text/javascript" src="status_button.js"></script>-->
+  <script type="text/javascript">
+    window.onload = function() {
+        thebelab.on("status", function(evt, data) {
+            console.log("Status changed:", data.status, data.message);
+            $(".thebe-status-button")
+            .attr("class", "thebe-status-button thebe-status-" + data.status)
+            .text(data.status);
+        });
+        $(".thebe-status-button")
+            .attr("class", "thebe-status-button thebe-status-" + "not-connected")
+            .text("Sin conexión");
+    };
+  </script>  
   <!-- or to use a local build: -->
   <!-- <script type="text/javascript" src="../lib/index.js"></script> !-->
 
