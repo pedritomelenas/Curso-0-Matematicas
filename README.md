@@ -6,6 +6,8 @@ Se han tomado como base las transparencias de Jerónimo Alaminos Prats, José Ex
 
 La maquetación e inclusión de gráficos la ha llevado a cabo Pedro A. García Sánchez; ejemplos desarrollados con la ayuda de María Burgos
 
+Este respositorio se pude visualizar en [GitHub pages](https://pedritomelenas.github.io/Curso-0-Matematicas).
+
 ## Contenidos
 
 1. [Complejos](00-complejos.html)
